@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on A Hugo website</title>
-    <link>/post/</link>
+    <link>https://hwolters.github.io/post/</link>
     <description>Recent content in Posts on A Hugo website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 03 Nov 2018 21:13:14 -0500</lastBuildDate>
     
-	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://hwolters.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>R Markdown for Novices</title>
-      <link>/2018/11/03/r-markdown-for-novices/</link>
+      <link>https://hwolters.github.io/2018/11/03/r-markdown-for-novices/</link>
       <pubDate>Sat, 03 Nov 2018 21:13:14 -0500</pubDate>
       
-      <guid>/2018/11/03/r-markdown-for-novices/</guid>
+      <guid>https://hwolters.github.io/2018/11/03/r-markdown-for-novices/</guid>
       <description>I strongly encourage every researcher and every analyst to use it, because R Markdown will make your life easier:
  Easily share your result: R Markdown can convert your results to various formats such as html, word and pdf. No more copy pasting and everything is up to date!
  Quickly explore your data: You use R Markdown like a Notebook and see can see multiple Outputs and plots without having to use the RStudio Viewer back buttons.</description>
