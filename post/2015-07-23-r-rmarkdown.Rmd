@@ -33,8 +33,12 @@ There are 3 different components of R Markdown files:
 Your Header contains meta data about your .RMD File, such as the author, date and output format. The header is on top of every .RMD file. The code is enclosed with 3 dashes. 
 ```{r yaml, eval = FALSE}
 --- 
-autor   
+title: "My first R Markdown document"
+author: "Heike W"
+date: 2018-11-03T21:13:14-05:00
+output: html_document
 ---
+```
 ```
 
 
