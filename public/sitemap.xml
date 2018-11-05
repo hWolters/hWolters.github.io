@@ -3,52 +3,57 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://hwolters.github.io/2018/11/03/r-markdown-for-novices/</loc>
+    <loc>/2018/11/05/using-r-markdown-for-recurring-reports/</loc>
+    <lastmod>2018-11-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2018/11/03/r-markdown-for-novices/</loc>
     <lastmod>2018-11-03T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>https://hwolters.github.io/about/</loc>
+    <loc>/about/</loc>
     <lastmod>2016-05-05T21:48:51-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://hwolters.github.io/</loc>
+    <loc>/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2018-11-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2018-11-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/r/</loc>
     <lastmod>2018-11-03T21:13:14-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://hwolters.github.io/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://hwolters.github.io/post/</loc>
+    <loc>/categories/r/</loc>
     <lastmod>2018-11-03T21:13:14-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://hwolters.github.io/tags/r/</loc>
+    <loc>/tags/r-markdown/</loc>
     <lastmod>2018-11-03T21:13:14-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://hwolters.github.io/categories/r/</loc>
-    <lastmod>2018-11-03T21:13:14-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://hwolters.github.io/tags/r-markdown/</loc>
-    <lastmod>2018-11-03T21:13:14-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://hwolters.github.io/tags/</loc>
+    <loc>/tags/</loc>
     <lastmod>2018-11-03T21:13:14-05:00</lastmod>
     <priority>0</priority>
   </url>

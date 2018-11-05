@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on A Hugo website</title>
-    <link>https://hwolters.github.io/tags/</link>
-    <description>Recent content in Tags on A Hugo website</description>
+    <title>Tags on My R Blog</title>
+    <link>/tags/</link>
+    <description>Recent content in Tags on My R Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 03 Nov 2018 21:13:14 -0500</lastBuildDate>
     
-	<atom:link href="https://hwolters.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>R</title>
-      <link>https://hwolters.github.io/tags/r/</link>
+      <link>/tags/r/</link>
       <pubDate>Sat, 03 Nov 2018 21:13:14 -0500</pubDate>
       
-      <guid>https://hwolters.github.io/tags/r/</guid>
+      <guid>/tags/r/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R Markdown</title>
-      <link>https://hwolters.github.io/tags/r-markdown/</link>
+      <link>/tags/r-markdown/</link>
       <pubDate>Sat, 03 Nov 2018 21:13:14 -0500</pubDate>
       
-      <guid>https://hwolters.github.io/tags/r-markdown/</guid>
+      <guid>/tags/r-markdown/</guid>
       <description></description>
     </item>
     
