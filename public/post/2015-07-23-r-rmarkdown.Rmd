@@ -1,6 +1,6 @@
 ---
 title: "R Markdown for Novices"
-author: "H W"
+author: "Heike W"
 date: 2018-11-03T21:13:14-05:00
 categories: ["R"]
 tags: ["R Markdown", "R"]
@@ -33,23 +33,24 @@ There are 3 different components of R Markdown files:
 Your Header contains meta data about your .RMD File, such as the author, date and output format. The header is on top of every .RMD file. The code is enclosed with 3 dashes. 
 ```{r yaml, eval = FALSE}
 --- 
-autor   
+title: "My first R Markdown document"
+author: "Heike W"
+date: 2018-11-03T21:13:14-05:00
+output: html_document
 ---
 ```
 
 
 #### Markdown (Text)
 Markdown is a simple textformatting language. Similar to HTML or Latex, you write plain text. Punctuation characters indicate the formating.
-```{r}
 
-```
-
+# Header #
 
 #### R Code Chunks
 The third component, your R Code. You can write any code, you would normally write in R in R markdown. R code is enclosed with 3 apostrophies, followed by curly braces. In the curly braces, you can tell R, what it should do with the code?
 
 |How should the output look like?| How to change the parameter| Is it the default option?|
-|-----------------------|-----------------|-------------|
+|---------------------------------------|--------------------------|--------------------|
 |include code | echo = TRUE | yes|
 |automatically format code| tidy = TRUE | no|
 |do not execute code | eval = FALSE | no|
