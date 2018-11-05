@@ -1,11 +1,12 @@
-baseurl = "https://hwolters.github.io/"
+baseurl = "/./" 
+publishDir = "./"
 languageCode = "en-us"
 title = "My R Blog"
 theme = "hugo-lithium"
 googleAnalytics = ""
 disqusShortname = "Heike"
-ignoreFiles = ["_files$", "_cache$"]
-
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+enableEmoji = true
 [permalinks]
     post = "/:year/:month/:day/:slug/"
 
