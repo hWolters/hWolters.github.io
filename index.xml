@@ -17,18 +17,17 @@
       <pubDate>Mon, 05 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/./2018/11/05/using-r-markdown-for-recurring-reports/</guid>
-      <description></description>
+      <description>In this post I will show you some of my best practises for using R Markdown for reporting.</description>
     </item>
     
     <item>
-      <title>R Markdown for Novices</title>
-      <link>/./2018/11/03/r-markdown-for-novices/</link>
+      <title>Short Intro: R Markdown for Novices</title>
+      <link>/./2018/11/03/short-intro-r-markdown-for-novices/</link>
       <pubDate>Sat, 03 Nov 2018 21:13:14 -0500</pubDate>
       
-      <guid>/./2018/11/03/r-markdown-for-novices/</guid>
-      <description>I strongly encourage every researcher and every analyst to use it, because R Markdown will make your life easier:
- Easily share your result: R Markdown can convert your results to various formats such as html, word and pdf. No more copy pasting and everything is up to date!
- Quickly explore your data: You use R Markdown like a Notebook and see can see multiple Outputs and plots without having to use the RStudio Viewer back buttons.</description>
+      <guid>/./2018/11/03/short-intro-r-markdown-for-novices/</guid>
+      <description>I strongly encourage every researcher and every analyst to use it, because R Markdown will make your life easier. Here are some example use cases:
+ Results sharing: You just did a great analysis and want to share your results with your team. R Markdown can convert your results to many formats such as html, word and pdf. No more copy pasting of results to Word or Excel necessary! This will not only save you lot’s of time, it is also less error prone: With copy and paste you might forget to update to the most curret version of a plot or an analysis.</description>
     </item>
     
     <item>

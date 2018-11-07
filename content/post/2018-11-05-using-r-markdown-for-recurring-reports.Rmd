@@ -7,3 +7,5 @@ categories: []
 tags: []
 ---
 
+In this post I will show you some of my best practises for using R Markdown for reporting.
+

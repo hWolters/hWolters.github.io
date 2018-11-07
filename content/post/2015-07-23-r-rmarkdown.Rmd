@@ -1,5 +1,5 @@
 ---
-title: "R Markdown for Novices"
+title: "Short Intro: R Markdown for Novices"
 author: "H W"
 date: 2018-11-03T21:13:14-05:00
 categories: ["R"]
@@ -10,46 +10,83 @@ tags: ["R Markdown", "R"]
 knitr::opts_chunk$set(collapse = TRUE)
 ```
 
-I strongly encourage every researcher and every analyst to use it, because R Markdown will make your life easier:
+I strongly encourage every researcher and every analyst to use it, because R Markdown will make your life easier. Here are some example use cases:
 
 
-- Easily share your result: R Markdown can convert your results to various formats such as html, word and pdf. No more copy pasting and everything is up to date!
+- **Results sharing:** You just did a great analysis and want to share your results with your team. R Markdown can convert your results to many formats such as html, word and pdf. No more copy pasting of results to Word or Excel necessary! This will not only save you lot's of time, it is also less error prone: With copy and paste you might forget to update to the most curret version of a plot or an analysis. With R Markdown, everything is up to date automatically! 
 
-- Quickly explore your data: You use R Markdown like a Notebook and see can see multiple Outputs and plots without having to use the RStudio Viewer back buttons.
+- **Data exploration**  You are looking at various summary statistics and plots to understand your data. Without R Markdown, you would might scroll through your console and use the back and forward button in the R Studio Viewer. This is cumbersome! You can use R Markdown like a Notebook and see multiple output tables and plots without having to use the RStudio Viewer back buttons. At the same time, you can see the code, that produced the plot. 
 
-- Ensure your work is replicable: You can save your results (e.g. a plot or a table) and the code that created it, in one file
+- **Automated reports:** With R Markdown, you can automate analyses that need to be consistent and in the same format everytime.
 
-- Automate reports: Analyses that need to be in the consistent and in the same format everytime can be automated.
+- **Replicable Analyses:** In general, all your results should be repoducible. It is not good, when you create a plot for an important presentation, but you do not really remember anymore how exaclty the plot was made (which data? which data preparation steps... etc). With R Markdown, you can save your results (e.g. a plot or a table) and the code that created it, in one file. 
 
 
 ### So how does it work?
-In an R Markdown File (.RMD) you combine R code chunks and markdown text. Everything is knitted together to a Markdown format, which can be converted in almost any format through Pandoc. The outputfile may contain your code, descriptions (executed Markdown) and the R output (tables, plots, numbers...). 
+In an R Markdown File (.RMD) you can combine **R code chunks** and **text** (which is written in a Markdown language. More in a second!). Your R code will be excecuted and your results will be displayed. Everything is "knitted"" together to a Markdown format, which can be converted into almost any format through Pandoc. The outputfile may contain your code, descriptions (executed Markdown) and the R output (tables, plots, numbers...). This may sound complicated, you can do this by simply pressing the "Knit" button in R studio.
 
--- insert figure
+Sounds magical? Let's create your first R Markdon file. R Studio provides you with a template, that already contains usful example code. You can just run it. 
 
-There are 3 different components of R Markdown files:
+1. Go to File --> New File --> R Markdown. 
+
+2. Choose a Title. It does not matter and can be changed easily afterwards
+
+3. Choose your desired output (Word, Pdf...) format.
+
+4.(Maybe do you need to install additional packages, R Markdown will tell you which)
+
+You find 3 different components in your R Markdown files.
 
 #### YAML Header
-Your Header contains meta data about your .RMD File, such as the author, date and output format. The header is on top of every .RMD file. The code is enclosed with 3 dashes. 
+Your Header contains meta data about your .RMD File, such as the author, date and output format. The header is on top of every .RMD file. The code is enclosed with 3 dashes. Don't worry about your header too much for now. Let it just be there.
+
 ```{r yaml, eval = FALSE}
 --- 
-autor   
+title: "My first R Markdown document"
+author: "Heike W"
+date: 2018-11-03T21:13:14-05:00
+output: html_document
 ---
 ```
 
 
 #### Markdown (Text)
-Markdown is a simple textformatting language. Similar to HTML or Latex, you write plain text. Punctuation characters indicate the formating.
-```{r}
+Markdown is a simple textformatting language. Similar to HTML or Latex, you write plain text. Punctuation characters indicate the formating. For example a ` #header1` indicates a header on the top level. You can make you text italic by enclosing it in 2 asterisk (`*italic*`). If you have never worked with HTML, Latex or Markdown before, this may appear strange to you: Your text appears to have no format and you cannot see how your formatting looks like until you compile the document. The good thing is that you can be sure, that a header level 1 is a header level 1 and all header level 1 will look the same in the final document. Here is an overview of the most common formating:
 
-```
+![](/post/2015-07-23-r-rmarkdown_files/RMarkdownLang.png)
+
 
 
 #### R Code Chunks
-The third component, your R Code. You can write any code, you would normally write in R in R markdown. R code is enclosed with 3 apostrophies, followed by curly braces. In the curly braces, you can tell R, what it should do with the code?
+You can write any code, you would normally write in R in R markdown. R code chunks are enclosed with 3 apostrophies, followed by curly braces. You can simply type *command-option-I* on the Mac and *Ctrl-Alt-I* on Windows to create a new code chunk.  Per default, R will execute this code chunk and display the code and the results. 
 
-|How should the output look like?| How to change the parameter| Is it the default option?|
-|-----------------------|-----------------|-------------|
+````r
+`r ''````{r headCars}
+head(mtcars)
+```
+````
+
+Within those curly braces, you can name your code chunk. I named our first code chunk "headCars". In addition, you can tell R in the curly braces, what it should do with the code. For example you can tell R ony to show the results without the code by passing the option `echo = FALSE`.
+
+````r
+`r ''````{r headCars, echo = FALSE}
+head(mtcars)
+```
+````
+Or you can tell R to skip this code chunk by setting `eval = FALSE`.
+
+````r
+`r ''````{r headCars, eval = FALSE}
+head(mtcars)
+```
+````
+
+
+Here is a brief overview of the options, I use the most.
+
+
+|How should the output look like?| How to change the parameter| Default option?|
+|----------------------------|---------------------------|-------------------|
 |include code | echo = TRUE | yes|
 |automatically format code| tidy = TRUE | no|
 |do not execute code | eval = FALSE | no|
@@ -57,10 +94,6 @@ The third component, your R Code. You can write any code, you would normally wri
 |do not show any warnings| warings = FALSE | no|
 |do not show any errors | error = FALSE | no|
 
-```{r}
-myData <- iris
-head(iris)
-```
-
+In the next blogpost, I will go into more detail how you can work with R Markdown.
 
 
