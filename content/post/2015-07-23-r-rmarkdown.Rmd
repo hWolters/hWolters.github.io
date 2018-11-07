@@ -37,7 +37,7 @@ Sounds magical? Let's create your first R Markdon file. R Studio provides you wi
 
 You find 3 different components in your R Markdown files.
 
-#### YAML Header
+### YAML Header
 Your Header contains meta data about your .RMD File, such as the author, date and output format. The header is on top of every .RMD file. The code is enclosed with 3 dashes. Don't worry about your header too much for now. Let it just be there.
 
 ```{r yaml, eval = FALSE}
@@ -50,14 +50,15 @@ output: html_document
 ```
 
 
-#### Markdown (Text)
+### Markdown (Text)
 Markdown is a simple textformatting language. Similar to HTML or Latex, you write plain text. Punctuation characters indicate the formating. For example a ` #header1` indicates a header on the top level. You can make you text italic by enclosing it in 2 asterisk (`*italic*`). If you have never worked with HTML, Latex or Markdown before, this may appear strange to you: Your text appears to have no format and you cannot see how your formatting looks like until you compile the document. The good thing is that you can be sure, that a header level 1 is a header level 1 and all header level 1 will look the same in the final document. Here is an overview of the most common formating:
 
-![](/post/2015-07-23-r-rmarkdown_files/RMarkdownLang.png)
+![](/post/2015-07-23-r-rmarkdown_files/RMarkdownLang.png){width=400px}
+
+Source [RMarkdown Cheat Sheet ](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
 
 
-
-#### R Code Chunks
+### R Code Chunks
 You can write any code, you would normally write in R in R markdown. R code chunks are enclosed with 3 apostrophies, followed by curly braces. You can simply type *command-option-I* on the Mac and *Ctrl-Alt-I* on Windows to create a new code chunk.  Per default, R will execute this code chunk and display the code and the results. 
 
 ````r
@@ -86,7 +87,7 @@ Here is a brief overview of the options, I use the most.
 
 
 |How should the output look like?| How to change the parameter| Default option?|
-|----------------------------|---------------------------|-------------------|
+|----------------------------------|-------------------------------|-------------------|
 |include code | echo = TRUE | yes|
 |automatically format code| tidy = TRUE | no|
 |do not execute code | eval = FALSE | no|

@@ -86,8 +86,9 @@
 </ol>
 <p>4.(Maybe do you need to install additional packages, R Markdown will tell you which)</p>
 <p>You find 3 different components in your R Markdown files.</p>
-<div id="yaml-header" class="section level4">
-<h4>YAML Header</h4>
+</div>
+<div id="yaml-header" class="section level3">
+<h3>YAML Header</h3>
 <p>Your Header contains meta data about your .RMD File, such as the author, date and output format. The header is on top of every .RMD file. The code is enclosed with 3 dashes. Don’t worry about your header too much for now. Let it just be there.</p>
 <pre class="r"><code>--- 
 title: &quot;My first R Markdown document&quot;
@@ -96,16 +97,17 @@ date: 2018-11-03T21:13:14-05:00
 output: html_document
 ---</code></pre>
 </div>
-<div id="markdown-text" class="section level4">
-<h4>Markdown (Text)</h4>
+<div id="markdown-text" class="section level3">
+<h3>Markdown (Text)</h3>
 <p>Markdown is a simple textformatting language. Similar to HTML or Latex, you write plain text. Punctuation characters indicate the formating. For example a <code>#header1</code> indicates a header on the top level. You can make you text italic by enclosing it in 2 asterisk (<code>*italic*</code>). If you have never worked with HTML, Latex or Markdown before, this may appear strange to you: Your text appears to have no format and you cannot see how your formatting looks like until you compile the document. The good thing is that you can be sure, that a header level 1 is a header level 1 and all header level 1 will look the same in the final document. Here is an overview of the most common formating:</p>
 <div class="figure">
-<img src="/post/2015-07-23-r-rmarkdown_files/RMarkdownLang.png" />
+<img src="/post/2015-07-23-r-rmarkdown_files/RMarkdownLang.png" width="400" />
 
 </div>
+<p>Source <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">RMarkdown Cheat Sheet</a></p>
 </div>
-<div id="r-code-chunks" class="section level4">
-<h4>R Code Chunks</h4>
+<div id="r-code-chunks" class="section level3">
+<h3>R Code Chunks</h3>
 <p>You can write any code, you would normally write in R in R markdown. R code chunks are enclosed with 3 apostrophies, followed by curly braces. You can simply type <em>command-option-I</em> on the Mac and <em>Ctrl-Alt-I</em> on Windows to create a new code chunk. Per default, R will execute this code chunk and display the code and the results.</p>
 <pre class="r"><code>```{r headCars}
 head(mtcars)
@@ -121,9 +123,9 @@ head(mtcars)
 <p>Here is a brief overview of the options, I use the most.</p>
 <table style="width:100%;">
 <colgroup>
-<col width="37%" />
+<col width="40%" />
 <col width="36%" />
-<col width="25%" />
+<col width="22%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -166,7 +168,6 @@ head(mtcars)
 </tbody>
 </table>
 <p>In the next blogpost, I will go into more detail how you can work with R Markdown.</p>
-</div>
 </div>
 
     </div>
