@@ -7,5 +7,15 @@ categories: []
 tags: []
 ---
 
-In this post I will show you some of my best practises for using R Markdown for reporting.
+In this post I will show you some of my best practises for using R Markdown for reporting. We will cover
+
+1. how to insert inline code.
+
+2. how to create beautiful tables.
+
+3. how to insert figures
+
+4. how to set global variables as reference
+
+blogdown::hugo_build()
 
