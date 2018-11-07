@@ -17,5 +17,4 @@ In this post I will show you some of my best practises for using R Markdown for 
 
 4. how to set global variables as reference
 
-blogdown::hugo_build()
 
