@@ -73,12 +73,12 @@ enableEmoji = true
   identifier = "github"
   name = "GitHub"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-github\"></i>"
-  url = "https://github.com/kakawait"
+  url = "https://github.com/hWolters"
 
 [params]
     description = "My blog about R built through Hugo and blogdown."
     sidebarBehavior = 1
-    coverImage = "source/assets/img/banner.jpg"
+    coverImage = "source/assets/img/banner"
 
 
     # options for highlight.js (version, additional languages, and theme)
