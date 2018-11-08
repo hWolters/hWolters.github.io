@@ -8,6 +8,26 @@ googleAnalytics = ""
 disqusShortname = "Heike"
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 enableEmoji = true
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  archive = "archives"
+
+[author]
+  name = "Heike W"
+  job = "Data Analyst/Data Scientist"
+  location = "Germany"
+  # Your Gravatar email. Overwrite `author.picture` everywhere in the blog
+  #gravatarEmail = "please-do-not-write-me@gmail.com"
+  # Your profile picture
+  # Overwritten by your gravatar image if `author.gravatarEmail` is filled
+  picture = "source/assets/img/me.jpg"
+  # Your Twitter username without the @. E.g : tranquilpeak
+  twitter = "betamaus"
+
+
+
 [permalinks]
     post = "/:year/:month/:day/:slug/"
 
@@ -48,7 +68,6 @@ enableEmoji = true
   name = "About"
   pre = "<i class=\"sidebar-button-icon fa fa-lg fa-question\"></i>"
   url = "/#about"
-
 [[menu.links]]
   weight = 0
   identifier = "github"
@@ -58,6 +77,9 @@ enableEmoji = true
 
 [params]
     description = "My blog about R built through Hugo and blogdown."
+    sidebarBehavior = 1
+    coverImage = "source/assets/img/banner.jpg"
+
 
     # options for highlight.js (version, additional languages, and theme)
     highlightjsVersion = "9.12.0"
@@ -69,12 +91,21 @@ enableEmoji = true
     MathJaxCDN = "//cdnjs.cloudflare.com/ajax/libs"
     MathJaxVersion = "2.7.5"
 
-    [params.logo]
-    url = "logo.png"
-    width = 50
-    height = 50
-    alt = "Logo"
 
-      keywords = ["R", "R Studio", "Data Science", "Analtytics", "R Markdown","Research", "phd", "Text Minding", "Natural Language Processing"]
+    keywords = ["R", "R Studio", "Data Science", "Analtytics", "R Markdown","Research", "phd", "Text Minding", "Natural Language Processing"]
 
+[params.header.rightLink]
+  class = "open-algolia-search"
+  icon = "search"
+  url = "/#search"
+
+[[params.sharingOptions]]
+    name = "Facebook"
+    icon = "fa-facebook-official"
+    url = "https://www.facebook.com/sharer/sharer.php?u=%s"
+
+[[params.sharingOptions]]
+    name = "Twitter"
+    icon = "fa-twitter"
+    url = "https://twitter.com/intent/tweet?text=%s"
 
