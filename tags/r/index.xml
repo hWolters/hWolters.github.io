@@ -17,8 +17,10 @@
       <pubDate>Sat, 03 Nov 2018 21:13:14 -0500</pubDate>
       
       <guid>/./2018/11/03/r-markdown-for-novices/</guid>
-      <description>I strongly encourage every researcher and every analyst to use it, because R Markdown will make your life easier. Here are some example use cases:
- Results sharing: You just did a great analysis and want to share your results with your team. R Markdown can convert your results to many formats such as html, word and pdf. No more copy pasting of results to Word or Excel necessary! This will not only save you lot’s of time, it is also less error prone: With copy and paste you might forget to update to the most curret version of a plot or an analysis.</description>
+      <description>I write this blogpost for someone, who has never worked with R Markdown. After you read this post, you will
+understand why R Markdown may be useful for your daily work as a student, researcher, analyst or data scientist.
+ understand the basic structure of an R Markdown document and how you can get startet.
+  I strongly encourage everybody working with R to use R Markdown. I promise, it will make your life so much easier.</description>
     </item>
     
   </channel>
