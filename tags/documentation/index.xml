@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Documentation on My R Blog</title>
+    <link>/./tags/documentation/</link>
+    <description>Recent content in Documentation on My R Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 03 Nov 2018 21:13:14 -0500</lastBuildDate>
+    
+	<atom:link href="/./tags/documentation/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>R Markdown for Novices</title>
+      <link>/./2018/11/03/r-markdown-for-novices/</link>
+      <pubDate>Sat, 03 Nov 2018 21:13:14 -0500</pubDate>
+      
+      <guid>/./2018/11/03/r-markdown-for-novices/</guid>
+      <description>I write this blogpost for someone, who has never worked with R Markdown. After you read this post, you will
+understand why R Markdown may be useful for your daily work as a student, researcher, analyst or data scientist.
+ understand the basic structure of an R Markdown document and how you can get startet.
+  I strongly encourage everybody working with R to use R Markdown. I promise, it will make your life so much easier.</description>
+    </item>
+    
+  </channel>
+</rss>
