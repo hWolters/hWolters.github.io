@@ -24,7 +24,7 @@ enableEmoji = true
   # Overwritten by your gravatar image if `author.gravatarEmail` is filled
   picture = "source/assets/img/me.jpg"
   # Your Twitter username without the @. E.g : tranquilpeak
-  twitter = "betamaus"
+  # twitter = "betamaus"
 
 
 
@@ -76,11 +76,12 @@ enableEmoji = true
   url = "https://github.com/hWolters"
 
 [params]
-    description = "My blog about R built through Hugo and blogdown."
+    description = "My blog about R, Research and Analytics"
     sidebarBehavior = 1
     coverImage = "source/assets/img/banner"
-
-
+    syntaxHighlighter = "highlight.js"
+    swapPaginator = true
+    
     # options for highlight.js (version, additional languages, and theme)
     highlightjsVersion = "9.12.0"
     highlightjsCDN = "//cdnjs.cloudflare.com/ajax/libs"
@@ -92,7 +93,7 @@ enableEmoji = true
     MathJaxVersion = "2.7.5"
 
 
-    keywords = ["R", "R Studio", "Data Science", "Analtytics", "R Markdown","Research", "phd", "Text Minding", "Natural Language Processing"]
+    keywords = ["R", "R Studio", "Data Science", "Analtytics", "R Markdown","Research", "phd", "Text Mining", "Natural Language Processing"]
 
 [params.header.rightLink]
   class = "open-algolia-search"

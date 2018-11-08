@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.50 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Heike W">
-<meta name="keywords" content=", R, R Studio, Data Science, Analtytics, R Markdown, Research, phd, Text Minding, Natural Language Processing">
+<meta name="keywords" content=", R, R Studio, Data Science, Analtytics, R Markdown, Research, phd, Text Mining, Natural Language Processing">
 <meta name="description" content="This is a &ldquo;hello world&rdquo; example website for the blogdown package. The theme was forked from @jrutheiser/hugo-lithium-theme and modified by Yihui Xie.">
 
 
@@ -35,10 +35,6 @@
 
 <meta name="twitter:card" content="summary">
 
-  <meta name="twitter:site" content="@betamaus">
-
-
-  <meta name="twitter:creator" content="@betamaus">
 
 
 
@@ -249,14 +245,14 @@
                 <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
                 </a>
             </li>
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--disabled">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>
@@ -329,14 +325,14 @@
                 <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
-                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                  <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
                 </a>
             </li>
             <li class="post-action">
               
                 <a class="post-action-btn btn btn--disabled">
               
-                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                   <i class="fa fa-angle-right"></i>
                 </a>
             </li>
@@ -514,6 +510,8 @@ understand why R Markdown may be useful for your daily work as a student, resear
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
@@ -533,6 +531,18 @@ function updateMinWidth() {
   var w3 = getComputedStyle(sidebar).getPropertyValue("left");
   main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
 }
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
 </script>
 
 

@@ -34,6 +34,18 @@
   </url>
   
   <url>
+    <loc>/./tags/knitr/</loc>
+    <lastmod>2018-11-03T21:13:14-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/./tags/markdown/</loc>
+    <lastmod>2018-11-03T21:13:14-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/./</loc>
     <lastmod>2018-11-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -71,6 +83,12 @@
   
   <url>
     <loc>/./tags/</loc>
+    <lastmod>2018-11-03T21:13:14-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/./tags/yaml/</loc>
     <lastmod>2018-11-03T21:13:14-05:00</lastmod>
     <priority>0</priority>
   </url>
