@@ -394,8 +394,9 @@ summary(cars)
 </tbody>
 </table>
 <p>Do you want most of your code to have the same options? You do not need to type them for every code chunk. You can just alter the global options at the beginning of your markdown document.</p>
-<pre class="r"><code>`r &#39;&#39;
-</code></pre>
+<pre class="r"><code>```{r globaloptions, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```</code></pre>
 <p>Here in this example, I told R Markdown to not print any code. The code chunk options overwrite the global options. So if there is one code chunk, where you want to display code, you can pass the option <code>echo = TRUE</code> to this code chunk and the code will be printed in the output document.</p>
 <p>I hope this blogposts helps you to understand why you should use R Markdown and how to get startet. In the next blogpost, I will go into more detail how you can work with R Markdown.</p>
 </div>

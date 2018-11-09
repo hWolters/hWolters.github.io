@@ -112,11 +112,11 @@ Here is a brief overview of the options, I use the most.
 Do you want most of your code to have the same options? You do not need to type them for every code chunk. You can just alter the global options at the beginning of your markdown document. 
 
 ````r
-`r ''
-```{r globaloptions, include=FALSE}
+`r ''````{r globaloptions, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 ````
+
 
 Here in this example, I told R Markdown to not print any code. The code chunk options overwrite the global options. So if there is one code chunk, where you want to display code, you can pass the option `echo = TRUE` to this code chunk and the code will be printed in the output document.
 
