@@ -338,7 +338,7 @@ output: html_document
 summary(cars)
 ```</code></pre>
 <p>Click on the little green triange in the right corner of your code chunk and only this chunk will run. You can see, that the results are shown directly below the code.</p>
-<p>Within the curly braces, you can name your code chunk. I named our first code chunk “headCars”. In addition, you pass options, what R should do with the code. For example you can tell R to only show the results without the code by passing the option <code>echo = FALSE</code> like this:</p>
+<p>Within the curly braces, you can name your code chunk. I named our first code chunk “headCars”. In addition, you pass <em>options</em>. The option parameters tell R what R should do with the code snippet. For example you can tell R to only show the results without the code by passing the option <code>echo = FALSE</code> like this:</p>
 <pre class="r"><code>```{r headCars, echo = FALSE}
 summary(cars)
 ```</code></pre>
@@ -346,7 +346,7 @@ summary(cars)
 <pre class="r"><code>```{r headCars, eval = FALSE}
 summary(cars)
 ```</code></pre>
-<p>Here is a brief overview of the options, I use the most.</p>
+<p>Here is a brief overview of the options, I use the most. You can use as many options, as you like. The order of options does not matter, but you have to separate them with a comma.</p>
 <table style="width:100%;">
 <colgroup>
 <col width="40%" />
@@ -652,12 +652,12 @@ knitr::opts_chunk$set(echo = FALSE)
                   Nov 11, 2018
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather"> In this post I will show you some of my best practises for using R Markdown for reporting. We will cover
+              <div class="media-content hide-xs font-merryweather">In this post I will show you some of my best practises for using R Markdown for reporting. We will cover
 how to insert inline code.
  how to create beautiful tables.
  how to insert figures
- how to set global variables as reference
-  Insert figures  Insert tables  Inline Code  </div>
+ use global variables
+  Insert plots &amp; figures You can easily insert the figures that are created with R code. Just write R code within your code chunls, that creates a plot.</div>
             </div>
             <div style="clear:both;"></div>
             <hr>

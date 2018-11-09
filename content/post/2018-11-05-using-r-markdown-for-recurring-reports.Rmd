@@ -15,11 +15,53 @@ In this post I will show you some of my best practises for using R Markdown for 
 
 3. how to insert figures
 
-4. how to set global variables as reference
+4. use global variables
 
-# Insert figures
 
+# Insert plots & figures
+
+You can easily insert the figures that are created with R code. Just write R code within your code chunls, that creates a plot. R Markdown will insert your plot at right where you inserted it.
+
+
+````r
+`r ''````{r firstPlot}
+plot(cars$speed, cars$dist)
+```
+````
+```{r firstPlot2, echo = FALSE}
+plot(cars$speed, cars$dist)
+```
+
+As explained in my previous post, you use of the options for code chunks to alter the output. This workds for figures as well. Most figure options start with `fig.`. For example, you can change the  size (`fig.height, fig.width` (default size = 7 inches), the alignment `fig.align` ("left","right","center") and the caption (`fig.cap`) of your plot.
+
+Let's create a plot that with a wide plot, which is aligned left and give it a caption.
+ 
+ ````r
+`r ''````{r myWidePlot, fig.height = 4, fig.align = "center", fig.cap = "my wide plot"}
+plot(cars$speed, cars$dist)
+```
+````
+```{r, echo = FALSE, fig.height = 4, fig.align = "center", fig.cap = "my wide plot"}
+plot(cars$speed, cars$dist)
+```
+
+
+
+You can also insert figures, images, gifs, that you saved on your desktop or from the internet. The brackets are optional, if you want a title for the figure. Paste the path to the image into the braces.
+
+```markdown
+![My plot caption](https://media.giphy.com/media/6rzRsF6ghqxSE/giphy.gif)
+```
+
+![My plot caption](https://media.giphy.com/media/6rzRsF6ghqxSE/giphy.gif)
+To be continued...
+blo
 # Insert tables
+
 # Inline Code
+
+# Global variables
+
+# 
 
 

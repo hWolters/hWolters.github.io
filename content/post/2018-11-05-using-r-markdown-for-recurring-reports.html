@@ -14,14 +14,34 @@ tags: []
 <li><p>how to insert inline code.</p></li>
 <li><p>how to create beautiful tables.</p></li>
 <li><p>how to insert figures</p></li>
-<li><p>how to set global variables as reference</p></li>
+<li><p>use global variables</p></li>
 </ol>
-<div id="insert-figures" class="section level1">
-<h1>Insert figures</h1>
+<div id="insert-plots-figures" class="section level1">
+<h1>Insert plots &amp; figures</h1>
+<p>You can easily insert the figures that are created with R code. Just write R code within your code chunls, that creates a plot. R Markdown will insert your plot at right where you inserted it.</p>
+<pre class="r"><code>```{r firstPlot}
+plot(cars$speed, cars$dist)
+```</code></pre>
+<p><img src="/./post/2018-11-05-using-r-markdown-for-recurring-reports_files/figure-html/firstPlot2-1.png" width="672" /></p>
+<p>As explained in my previous post, you use of the options for code chunks to alter the output. This workds for figures as well. Most figure options start with <code>fig.</code>. For example, you can change the size (<code>fig.height, fig.width</code> (default size = 7 inches), the alignment <code>fig.align</code> (“left”,“right”,“center”) and the caption (<code>fig.cap</code>) of your plot.</p>
+<p>Let’s create a plot that with a wide plot, which is aligned left and give it a caption.</p>
+<code>r ```{r myWidePlot, fig.height = 4, fig.align = &quot;center&quot;, fig.cap = &quot;my wide plot&quot;} plot(cars$speed, cars$dist) ```</code>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-1"></span>
+<img src="/./post/2018-11-05-using-r-markdown-for-recurring-reports_files/figure-html/unnamed-chunk-1-1.png" alt="my wide plot" width="672" />
+<p class="caption">
+Figure 1: my wide plot
+</p>
 </div>
-<div id="insert-tables" class="section level1">
-<h1>Insert tables</h1>
+<p>You can also insert figures, images, gifs, that you saved on your desktop or from the internet. The brackets are optional, if you want a title for the figure. Paste the path to the image into the braces.</p>
+<pre class="markdown"><code>![My plot caption](https://media.giphy.com/media/6rzRsF6ghqxSE/giphy.gif)</code></pre>
+<p><img src="https://media.giphy.com/media/6rzRsF6ghqxSE/giphy.gif" alt="My plot caption" /> To be continued… blo # Insert tables</p>
 </div>
 <div id="inline-code" class="section level1">
 <h1>Inline Code</h1>
+</div>
+<div id="global-variables" class="section level1">
+<h1>Global variables</h1>
+</div>
+<div id="section" class="section level1">
+<h1></h1>
 </div>

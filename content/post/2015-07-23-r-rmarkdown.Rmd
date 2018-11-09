@@ -81,7 +81,7 @@ summary(cars)
 ````
 Click on the little green triange in the right corner of your code chunk and only this chunk will run. You can see, that the results are shown directly below the code.
 
-Within the curly braces, you can name your code chunk. I named our first code chunk "headCars". In addition, you pass options, what R should do with the code. For example you can tell R to only show the results without the code by passing the option `echo = FALSE` like this:
+Within the curly braces, you can name your code chunk. I named our first code chunk "headCars". In addition, you pass *options*. The option parameters tell R what R should do with the code snippet. For example you can tell R to only show the results without the code by passing the option `echo = FALSE` like this:
 
 ````r
 `r ''````{r headCars, echo = FALSE}
@@ -97,7 +97,7 @@ summary(cars)
 ````
 
 
-Here is a brief overview of the options, I use the most.
+Here is a brief overview of the options, I use the most. You can use as many options, as you like. The order of options does not matter, but you have to separate them with a comma.
 
 
 |How should the output look like?| How to change the parameter| Default option?|
