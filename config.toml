@@ -94,6 +94,11 @@ enableEmoji = true
 
 
     keywords = ["R", "R Studio", "Data Science", "Analtytics", "R Markdown","Research", "phd", "Text Mining", "Natural Language Processing"]
+    
+# Seo
+enableRobotsTXT = true
+canonifyURLs = true
+
 
 [params.header.rightLink]
   class = "open-algolia-search"
