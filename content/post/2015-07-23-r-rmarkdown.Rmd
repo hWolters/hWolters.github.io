@@ -113,7 +113,7 @@ Do you want most of your code to have the same options? You do not need to type 
 
 ````r
 `r ''
-```{r setup, include=FALSE}
+```{r globaloptions, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 ````
