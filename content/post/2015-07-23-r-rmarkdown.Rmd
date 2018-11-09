@@ -109,6 +109,17 @@ Here is a brief overview of the options, I use the most.
 |do not show any warnings| warings = FALSE | no|
 |do not show any errors | error = FALSE | no|
 
+Do you want most of your code to have the same options? You do not need to type them for every code chunk. You can just alter the global options at the beginning of your markdown document. 
+
+````r
+`r ''
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+````
+
+Here in this example, I told R Markdown to not print any code. The code chunk options overwrite the global options. So if there is one code chunk, where you want to display code, you can pass the option `echo = TRUE` to this code chunk and the code will be printed in the output document.
+
 I hope this blogposts helps you to understand why you should use R Markdown and how to get startet. In the next blogpost, I will go into more detail how you can work with R Markdown.
 
 
