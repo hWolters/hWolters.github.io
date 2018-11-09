@@ -4,7 +4,7 @@ author: Heike
 date: '2018-11-05'
 slug: using-r-markdown-for-recurring-reports
 categories: []
-tags: []
+tags: ["R","R Markdown", "Reporting","Analytics"]
 ---
 
 In this post I will show you some of my best practises for using R Markdown for reporting. We will cover
@@ -55,7 +55,7 @@ You can also insert figures, images, gifs, that you saved on your desktop or fro
 
 ![My plot caption](https://media.giphy.com/media/6rzRsF6ghqxSE/giphy.gif)
 To be continued...
-blo
+
 # Insert tables
 
 # Inline Code

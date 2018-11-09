@@ -1,5 +1,5 @@
 ---
-title: "R Markdown for Novices"
+title: "R Markdown for Novices: All you need to to get started on your first R Markdown document"
 author: "H W"
 date: '2018-11-03T21:13:14-05:00'
 categories: ["R"]
@@ -42,7 +42,11 @@ Sounds magical? Let's create your first R Markdown file in R Studio. I encourage
 
 4.(Maybe do you need to install additional packages, R Markdown will tell you which)
 
-There is your first R Markdown file. It already contains a little code. In fact, there are 3 different kind of code: 
+There is your first R Markdown file. It already contains a little code. Let's talk about the structure of an R Markdown document. 
+
+# .RMD File Strucutre
+
+There are 3 different kind of code.  
 
 1. YAML Header
 2. Markdown
@@ -119,6 +123,82 @@ knitr::opts_chunk$set(echo = FALSE)
 
 
 Here in this example, I told R Markdown to not print any code. The code chunk options overwrite the global options. So if there is one code chunk, where you want to display code, you can pass the option `echo = TRUE` to this code chunk and the code will be printed in the output document.
+
+# Insert plots & figures
+
+You can easily insert the figures that are created with R code. Just write R code within your code chunls, that creates a plot. R Markdown will insert your plot at right where you inserted it.
+
+
+````r
+`r ''````{r firstPlot}
+plot(cars$speed, cars$dist)
+```
+````
+```{r firstPlot2, echo = FALSE}
+plot(cars$speed, cars$dist)
+```
+
+As explained in my previous post, you use of the options for code chunks to alter the output. This workds for figures as well. Most figure options start with `fig.`. For example, you can change the  size (`fig.height, fig.width` (default size = 7 inches), the alignment `fig.align` ("left","right","center") and the caption (`fig.cap`) of your plot.
+
+Let's create a plot that with a wide plot, which is aligned left and give it a caption.
+ 
+ ````r
+`r ''````{r myWidePlot, fig.height = 4, fig.align = "center", fig.cap = "my wide plot"}
+plot(cars$speed, cars$dist)
+```
+````
+```{r, echo = FALSE, fig.height = 4, fig.align = "center", fig.cap = "my wide plot"}
+plot(cars$speed, cars$dist)
+```
+
+
+
+
+You can also insert figures, images, gifs, that you saved on your desktop or from the internet. The brackets are optional, if you want a title for the figure. Paste the path to the image into the braces.
+
+```markdown
+![My plot caption](https://media.giphy.com/media/6rzRsF6ghqxSE/giphy.gif)
+```
+
+![My plot caption](https://media.giphy.com/media/6rzRsF6ghqxSE/giphy.gif)
+
+# Insert Tables
+
+Per default, tables look pretty ugly. R will print the output from the console with leading `#`. 
+````r
+`r ''````{r carsTable}
+head(cars)
+```
+````
+
+```{r, echo = FALSE}
+head(cars)
+```
+
+You can get rid of the `#` by using the option `comment = FALSE`.
+````r
+`r ''````{r carsTable, comment= FALSE}
+head(cars)
+```
+````
+
+```{r, echo = FALSE, comment= FALSE}
+head(cars)
+```
+
+Still not very pretty. One quick and simple way to create nicer looking tables is by using the `kable` function from the knitr package.
+
+````r
+`r ''````{r carsTable, comment= FALSE}
+library(knitr)
+kable(head(cars))
+```
+````
+
+```{r, echo = FALSE, comment= FALSE}
+library(knitr)
+kable(head(cars))
+```
 
 I hope this blogposts helps you to understand why you should use R Markdown and how to get startet. In the next blogpost, I will go into more detail how you can work with R Markdown.
 

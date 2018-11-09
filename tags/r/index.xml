@@ -6,17 +6,31 @@
     <description>Recent content in R on My R Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 03 Nov 2018 21:13:14 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 05 Nov 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/./tags/r/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>R Markdown for Novices</title>
-      <link>/./2018/11/03/r-markdown-for-novices/</link>
+      <title>Using R Markdown for recurring Reports</title>
+      <link>/./2018/11/05/using-r-markdown-for-recurring-reports/</link>
+      <pubDate>Mon, 05 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/./2018/11/05/using-r-markdown-for-recurring-reports/</guid>
+      <description>In this post I will show you some of my best practises for using R Markdown for reporting. We will cover
+how to insert inline code.
+ how to create beautiful tables.
+ how to insert figures
+ use global variables
+  Insert plots &amp;amp; figures You can easily insert the figures that are created with R code. Just write R code within your code chunls, that creates a plot.</description>
+    </item>
+    
+    <item>
+      <title>R Markdown for Novices: All you need to to get started on your first R Markdown document</title>
+      <link>/./2018/11/03/r-markdown-for-novices-all-you-need-to-to-get-started-on-your-first-r-markdown-document/</link>
       <pubDate>Sat, 03 Nov 2018 21:13:14 -0500</pubDate>
       
-      <guid>/./2018/11/03/r-markdown-for-novices/</guid>
+      <guid>/./2018/11/03/r-markdown-for-novices-all-you-need-to-to-get-started-on-your-first-r-markdown-document/</guid>
       <description>I write this blogpost for someone, who has never worked with R Markdown. After you read this post, you will
 understand why R Markdown may be useful for your daily work as a student, researcher, analyst or data scientist.
  understand the basic structure of an R Markdown document and how you can get startet.

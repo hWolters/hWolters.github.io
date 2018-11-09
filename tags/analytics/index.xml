@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Analytics on My R Blog</title>
+    <link>/./tags/analytics/</link>
+    <description>Recent content in Analytics on My R Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 05 Nov 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/./tags/analytics/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Using R Markdown for recurring Reports</title>
+      <link>/./2018/11/05/using-r-markdown-for-recurring-reports/</link>
+      <pubDate>Mon, 05 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/./2018/11/05/using-r-markdown-for-recurring-reports/</guid>
+      <description>In this post I will show you some of my best practises for using R Markdown for reporting. We will cover
+how to insert inline code.
+ how to create beautiful tables.
+ how to insert figures
+ use global variables
+  Insert plots &amp;amp; figures You can easily insert the figures that are created with R code. Just write R code within your code chunls, that creates a plot.</description>
+    </item>
+    
+  </channel>
+</rss>

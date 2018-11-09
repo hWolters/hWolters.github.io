@@ -1,5 +1,5 @@
 ---
-title: "R Markdown for Novices"
+title: "R Markdown for Novices: All you need to to get started on your first R Markdown document"
 author: "H W"
 date: '2018-11-03T21:13:14-05:00'
 categories: ["R"]
@@ -30,14 +30,17 @@ tags: ["R Markdown", "R", "knitr","Markdown","YAML","Documentation", "Reproducib
 <li><p>Choose your desired output (Word, Pdf…) format. Let’s choose html as a start!</p></li>
 </ol>
 <p>4.(Maybe do you need to install additional packages, R Markdown will tell you which)</p>
-<p>There is your first R Markdown file. It already contains a little code. In fact, there are 3 different kind of code:</p>
+<p>There is your first R Markdown file. It already contains a little code. Let’s talk about the structure of an R Markdown document.</p>
+</div>
+<div id="rmd-file-strucutre" class="section level1">
+<h1>.RMD File Strucutre</h1>
+<p>There are 3 different kind of code.</p>
 <ol style="list-style-type: decimal">
 <li>YAML Header</li>
 <li>Markdown</li>
 <li>R Code Chunks</li>
 </ol>
 <p>If you press the “Knit” button, you see, that this runs perfectly and creates an output file. Let’s look at the 3 different kinds of code in your R Markdown example file.</p>
-</div>
 <div id="yaml-header" class="section level3">
 <h3>YAML Header</h3>
 <p>The header is on top of every .RMD file. The code is enclosed with 3 dashes. Your Header contains meta data about your .RMD File, such as the author, date and output format. You can add additional stuff such as gloabal variables. But don’t worry about your header too much for now. Let it just be there.</p>
@@ -124,5 +127,93 @@ summary(cars)
 knitr::opts_chunk$set(echo = FALSE)
 ```</code></pre>
 <p>Here in this example, I told R Markdown to not print any code. The code chunk options overwrite the global options. So if there is one code chunk, where you want to display code, you can pass the option <code>echo = TRUE</code> to this code chunk and the code will be printed in the output document.</p>
+</div>
+</div>
+<div id="insert-plots-figures" class="section level1">
+<h1>Insert plots &amp; figures</h1>
+<p>You can easily insert the figures that are created with R code. Just write R code within your code chunls, that creates a plot. R Markdown will insert your plot at right where you inserted it.</p>
+<pre class="r"><code>```{r firstPlot}
+plot(cars$speed, cars$dist)
+```</code></pre>
+<p><img src="/./post/2015-07-23-r-rmarkdown_files/figure-html/firstPlot2-1.png" width="672" /></p>
+<p>As explained in my previous post, you use of the options for code chunks to alter the output. This workds for figures as well. Most figure options start with <code>fig.</code>. For example, you can change the size (<code>fig.height, fig.width</code> (default size = 7 inches), the alignment <code>fig.align</code> (“left”,“right”,“center”) and the caption (<code>fig.cap</code>) of your plot.</p>
+<p>Let’s create a plot that with a wide plot, which is aligned left and give it a caption.</p>
+<code>r ```{r myWidePlot, fig.height = 4, fig.align = &quot;center&quot;, fig.cap = &quot;my wide plot&quot;} plot(cars$speed, cars$dist) ```</code>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-1"></span>
+<img src="/./post/2015-07-23-r-rmarkdown_files/figure-html/unnamed-chunk-1-1.png" alt="my wide plot" width="672" />
+<p class="caption">
+Figure 1: my wide plot
+</p>
+</div>
+<p>You can also insert figures, images, gifs, that you saved on your desktop or from the internet. The brackets are optional, if you want a title for the figure. Paste the path to the image into the braces.</p>
+<pre class="markdown"><code>![My plot caption](https://media.giphy.com/media/6rzRsF6ghqxSE/giphy.gif)</code></pre>
+<div class="figure">
+<img src="https://media.giphy.com/media/6rzRsF6ghqxSE/giphy.gif" alt="My plot caption" />
+<p class="caption">My plot caption</p>
+</div>
+</div>
+<div id="insert-tables" class="section level1">
+<h1>Insert Tables</h1>
+<p>Per default, tables look pretty ugly. R will print the output from the console with leading <code>#</code>.</p>
+<pre class="r"><code>```{r carsTable}
+head(cars)
+```</code></pre>
+<pre><code>##   speed dist
+## 1     4    2
+## 2     4   10
+## 3     7    4
+## 4     7   22
+## 5     8   16
+## 6     9   10</code></pre>
+<p>You can get rid of the <code>#</code> by using the option <code>comment = FALSE</code>.</p>
+<pre class="r"><code>```{r carsTable, comment= FALSE}
+head(cars)
+```</code></pre>
+<pre><code>FALSE   speed dist
+FALSE 1     4    2
+FALSE 2     4   10
+FALSE 3     7    4
+FALSE 4     7   22
+FALSE 5     8   16
+FALSE 6     9   10</code></pre>
+<p>Still not very pretty. One quick and simple way to create nicer looking tables is by using the <code>kable</code> function from the knitr package.</p>
+<pre class="r"><code>```{r carsTable, comment= FALSE}
+library(knitr)
+kable(head(cars))
+```</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="right">speed</th>
+<th align="right">dist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">4</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">10</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="right">7</td>
+<td align="right">22</td>
+</tr>
+<tr class="odd">
+<td align="right">8</td>
+<td align="right">16</td>
+</tr>
+<tr class="even">
+<td align="right">9</td>
+<td align="right">10</td>
+</tr>
+</tbody>
+</table>
 <p>I hope this blogposts helps you to understand why you should use R Markdown and how to get startet. In the next blogpost, I will go into more detail how you can work with R Markdown.</p>
 </div>
