@@ -30,7 +30,7 @@ I strongly encourage everybody working with R to use R Markdown. I promise, it w
 
 
 ### So how does it work?
-In an R Markdown File (.RMD) you can combine **R code chunks** and **text** (which is written in a Markdown language. More in a second!). Your R code will be excecuted and your results will be displayed. Everything is "knitted"" together to a Markdown format, which can be converted into almost any format through Pandoc. The outputfile may contain your code, descriptions (executed Markdown) and the R output (tables, plots, numbers...). This may sound complicated. But all you have to do is write this file, choose your output format and press the "Knit" button in R studio.
+In an R Markdown File (Rmd) you can combine **R code chunks** and **text** (which is written in a Markdown language. More in a second!). Your R code will be excecuted and your results will be displayed. Everything is "knitted"" together to a Markdown format, which can be converted into almost any format through Pandoc. The outputfile may contain your code, descriptions (executed Markdown) and the R output (tables, plots, numbers...). This may sound complicated. But all you have to do is write this file, choose your output format and press the "Knit" button in R studio.
 
 Sounds magical? Let's create your first R Markdown file in R Studio. I encourage you to use R Studio, because it provides a  lot of awesomefeatures which simplify working with R Markdown. 
 
@@ -44,7 +44,7 @@ Sounds magical? Let's create your first R Markdown file in R Studio. I encourage
 
 There is your first R Markdown file. It already contains a little code. Let's talk about the structure of an R Markdown document. 
 
-# .RMD File Strucutre
+# Rmd File Strucutre
 
 There are 3 different kind of code.  
 
@@ -52,10 +52,10 @@ There are 3 different kind of code.
 2. Markdown
 2. R Code Chunks 
 
-If you press the "Knit" button, you see, that this runs perfectly and creates an output file. Let's look at the 3 different kinds of code in your R Markdown example file.
+If you press the "Knit" button, you see, that this runs perfectly and creates an output file. You just successfully compiled your first .Rmd file! A window with your output file should open up. Let's look at the 3 different kinds of code in your .Rmd example file.
 
 ### YAML Header
-The header is on top of every .RMD file. The code is enclosed with 3 dashes. Your Header contains meta data about your .RMD File, such as the author, date and output format. You can add additional stuff such as gloabal variables. But don't worry about your header too much for now. Let it just be there.
+The header is on top of every Rmd file. The code is enclosed with 3 dashes. Your Header contains meta data about your Rmd File, such as the author, date and output format. You can add additional stuff such as gloabal variables. But don't worry about your header too much for now. Let it just be there.
 
 ```{r yaml, eval = FALSE}
 --- 
@@ -76,23 +76,23 @@ Source [RMarkdown Cheat Sheet ](https://www.rstudio.com/wp-content/uploads/2015/
 
 
 ### R Code Chunks
-You can write any code, you would normally write in R in R Markdown. R code chunks are enclosed with 3 apostrophies, followed by curly braces. You can simply type *command-option-I* on the Mac and *Ctrl-Alt-I* on Windows to create a new code chunk.  Per default, R will execute this code chunk and display the code and the results. 
+Just write your R code and wrap it around 3 apostrophies followed by `{r}`. This tells R Markdown that you want to write R code (You could also insert for example python `{python}`, bash `{bash}` or sql {`sql}`). Insert as many code chunks as you want. Instead of typing 3 apostrophies and the curly braces everytime, you can simply type *command-option-I* on the Mac and *Ctrl-Alt-I* on Windows to create a new code chunk. Per default, R will execute this code chunk and display the code and the results in the output file when you "knit" your .Rmd file.
 
 ````r
 `r ''````{r headCars}
 summary(cars)
 ```
 ````
-Click on the little green triange in the right corner of your code chunk and only this chunk will run. You can see, that the results are shown directly below the code.
+You have previously executed the example code by clicking on the "Knit"" button in R Studio. This opens a new session and runs the entire .Rmd File. Remember: this means you're starting with a new clean environment. You can also run single R code chunks separately. Click on the little green triange in the right corner of your code chunk and only this chunk will run. You can see, that the results are shown directly below your code.
 
-Within the curly braces, you can name your code chunk. I named our first code chunk "headCars". In addition, you pass *options*. The option parameters tell R what R should do with the code snippet. For example you can tell R to only show the results without the code by passing the option `echo = FALSE` like this:
+Within the curly braces of your R code chunks, you can name them. I named our first code chunk "headCars". In addition, you can pass *options*. Options tell R what it should do with this code chunk For example, for not displaying any R code in the output file pass `echo = FALSE`:
 
 ````r
 `r ''````{r headCars, echo = FALSE}
 summary(cars)
 ```
 ````
-Or you can tell R to skip this code chunk by setting `eval = FALSE`.
+Or you can tell R not to run a code chunk by setting `eval = FALSE`.
 
 ````r
 `r ''````{r headCars, eval = FALSE}
@@ -100,9 +100,15 @@ summary(cars)
 ```
 ````
 
+You can use as many options as neccessary. The order of options does not matter, but you have to separate them with a comma.
 
-Here is a brief overview of the options, I use the most. You can use as many options, as you like. The order of options does not matter, but you have to separate them with a comma.
+````r
+`r ''````{r headCars, echo = TRUE, eval = FALSE}
+summary(cars)
+```
+````
 
+Here is a brief overview of the options, I use the most. 
 
 |How should the output look like?| How to change the parameter| Default option?|
 |----------------------------------|-------------------------------|-------------------|
@@ -113,7 +119,7 @@ Here is a brief overview of the options, I use the most. You can use as many opt
 |do not show any warnings| warings = FALSE | no|
 |do not show any errors | error = FALSE | no|
 
-Do you want most of your code to have the same options? You do not need to type them for every code chunk. You can just alter the global options at the beginning of your markdown document. 
+You're wondering whether you have to pass the same options to all your code chunks? You don't. You can determine global options at the beginning of your markdown document. Here in this example, where I told R Markdown to not print any code. 
 
 ````r
 `r ''````{r globaloptions, include=FALSE}
@@ -121,12 +127,11 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 ````
 
-
-Here in this example, I told R Markdown to not print any code. The code chunk options overwrite the global options. So if there is one code chunk, where you want to display code, you can pass the option `echo = TRUE` to this code chunk and the code will be printed in the output document.
+The code chunk options overwrite the global options. So if there is one code chunk, where you want to display code, you can pass the option `echo = TRUE` to this code chunk and the code will be shown in the output document.
 
 # Insert plots & figures
 
-You can easily insert the figures that are created with R code. Just write R code within your code chunls, that creates a plot. R Markdown will insert your plot at right where you inserted it.
+You can easily insert the figures that are created with R code. Just write R code within your code chunks, that creates a plot. R Markdown will insert your plot at right after your code.
 
 
 ````r
@@ -138,9 +143,9 @@ plot(cars$speed, cars$dist)
 plot(cars$speed, cars$dist)
 ```
 
-As explained in my previous post, you use of the options for code chunks to alter the output. This workds for figures as well. Most figure options start with `fig.`. For example, you can change the  size (`fig.height, fig.width` (default size = 7 inches), the alignment `fig.align` ("left","right","center") and the caption (`fig.cap`) of your plot.
+As you have done previously, you can use the options of code chunks to alter your output. This works for figures as well. Most figure options start with `fig.`. For example, you can change the  size (`fig.height, fig.width` (default size = 7 inches)), the alignment (`fig.align` ("left","right","center")) and the caption (`fig.cap`) of your plot.
 
-Let's create a plot that with a wide plot, which is aligned left and give it a caption.
+Let's create a wide plot, which is aligned left and give it a caption.
  
  ````r
 `r ''````{r myWidePlot, fig.height = 4, fig.align = "center", fig.cap = "my wide plot"}
@@ -152,9 +157,7 @@ plot(cars$speed, cars$dist)
 ```
 
 
-
-
-You can also insert figures, images, gifs, that you saved on your desktop or from the internet. The brackets are optional, if you want a title for the figure. Paste the path to the image into the braces.
+What about local images or GIFS from the internet? You can include them as well. Here is an example The brackets are optional, if you want a title for the figure. Paste the path to the image into the braces.
 
 ```markdown
 ![My plot caption](https://media.giphy.com/media/6rzRsF6ghqxSE/giphy.gif)
@@ -186,7 +189,7 @@ head(cars)
 head(cars)
 ```
 
-Still not very pretty. One quick and simple way to create nicer looking tables is by using the `kable` function from the knitr package.
+Still not very pretty. One quick and simple way to create nicer looking tables is by using the `kable` function from the `knitr` package.
 
 ````r
 `r ''````{r carsTable, comment= FALSE}
@@ -197,9 +200,9 @@ kable(head(cars))
 
 ```{r, echo = FALSE, comment= FALSE}
 library(knitr)
-kable(head(cars))
+kable(head(cars), align = "l")
 ```
 
-I hope this blogposts helps you to understand why you should use R Markdown and how to get startet. In the next blogpost, I will go into more detail how you can work with R Markdown.
+In the next blogpost, I will go into more detail how you can style your tables.
 
 

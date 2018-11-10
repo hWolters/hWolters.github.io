@@ -7,44 +7,332 @@ categories: []
 tags: ["R","R Markdown", "Reporting","Analytics"]
 ---
 
+<script src="/./rmarkdown-libs/kePrint/kePrint.js"></script>
 
 
 <p>In this post I will show you some of my best practises for using R Markdown for reporting. We will cover</p>
 <ol style="list-style-type: decimal">
-<li><p>how to insert inline code.</p></li>
-<li><p>how to create beautiful tables.</p></li>
-<li><p>how to insert figures</p></li>
-<li><p>use global variables</p></li>
+<li><p>How to create beautiful tables with conditional formating with kableExtra</p></li>
+<li><p>How to include your results in the (Markdown) test</p></li>
+<li><p>How to include global variables.</p></li>
 </ol>
-<div id="insert-plots-figures" class="section level1">
-<h1>Insert plots &amp; figures</h1>
-<p>You can easily insert the figures that are created with R code. Just write R code within your code chunls, that creates a plot. R Markdown will insert your plot at right where you inserted it.</p>
-<pre class="r"><code>```{r firstPlot}
-plot(cars$speed, cars$dist)
+<div id="create-beautiful-tables-with-kableextra" class="section level1">
+<h1>Create beautiful tables with kableExtra</h1>
+<p><code>kableExtra</code> is a nice library that allows you to format and style your tables. It workds similar to <code>ggplot2</code>: You create a base table and then add formating layers with the pipe operator <code>%&gt;%</code>.</p>
+<pre class="r"><code>```{r myTable}
+library(kableExtra)
+head(iris) %&gt;%
+  kable() %&gt;%
+  kable_styling()
 ```</code></pre>
-<p><img src="/./post/2018-11-05-using-r-markdown-for-recurring-reports_files/figure-html/firstPlot2-1.png" width="672" /></p>
-<p>As explained in my previous post, you use of the options for code chunks to alter the output. This workds for figures as well. Most figure options start with <code>fig.</code>. For example, you can change the size (<code>fig.height, fig.width</code> (default size = 7 inches), the alignment <code>fig.align</code> (“left”,“right”,“center”) and the caption (<code>fig.cap</code>) of your plot.</p>
-<p>Let’s create a plot that with a wide plot, which is aligned left and give it a caption.</p>
-<code>r ```{r myWidePlot, fig.height = 4, fig.align = &quot;center&quot;, fig.cap = &quot;my wide plot&quot;} plot(cars$speed, cars$dist) ```</code>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-1"></span>
-<img src="/./post/2018-11-05-using-r-markdown-for-recurring-reports_files/figure-html/unnamed-chunk-1-1.png" alt="my wide plot" width="672" />
-<p class="caption">
-Figure 1: my wide plot
-</p>
-</div>
-<p>You can also insert figures, images, gifs, that you saved on your desktop or from the internet. The brackets are optional, if you want a title for the figure. Paste the path to the image into the braces.</p>
-<pre class="markdown"><code>![My plot caption](https://media.giphy.com/media/6rzRsF6ghqxSE/giphy.gif)</code></pre>
-<p><img src="https://media.giphy.com/media/6rzRsF6ghqxSE/giphy.gif" alt="My plot caption" /> To be continued…</p>
-</div>
-<div id="insert-tables" class="section level1">
-<h1>Insert tables</h1>
-</div>
-<div id="inline-code" class="section level1">
-<h1>Inline Code</h1>
-</div>
-<div id="global-variables" class="section level1">
-<h1>Global variables</h1>
-</div>
-<div id="section" class="section level1">
-<h1></h1>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+Sepal.Length
+</th>
+<th style="text-align:right;">
+Sepal.Width
+</th>
+<th style="text-align:right;">
+Petal.Length
+</th>
+<th style="text-align:right;">
+Petal.Width
+</th>
+<th style="text-align:left;">
+Species
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+5.1
+</td>
+<td style="text-align:right;">
+3.5
+</td>
+<td style="text-align:right;">
+1.4
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.9
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+<td style="text-align:right;">
+1.4
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.7
+</td>
+<td style="text-align:right;">
+3.2
+</td>
+<td style="text-align:right;">
+1.3
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.6
+</td>
+<td style="text-align:right;">
+3.1
+</td>
+<td style="text-align:right;">
+1.5
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5.0
+</td>
+<td style="text-align:right;">
+3.6
+</td>
+<td style="text-align:right;">
+1.4
+</td>
+<td style="text-align:right;">
+0.2
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5.4
+</td>
+<td style="text-align:right;">
+3.9
+</td>
+<td style="text-align:right;">
+1.7
+</td>
+<td style="text-align:right;">
+0.4
+</td>
+<td style="text-align:left;">
+setosa
+</td>
+</tr>
+</tbody>
+</table>
+<p>By default, tables take 100 % of the page width.If you have only a few columns, this looks weird. You create less wide tables by setting <code>full_width = F</code></p>
+<pre class="r"><code>```{r myTable}
+library(kableExtra)
+head(iris[1:2]) %&gt;%
+  kable() %&gt;%
+  kable_styling(full_width = FALSE)
+```</code></pre>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+Sepal.Length
+</th>
+<th style="text-align:right;">
+Sepal.Width
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+5.1
+</td>
+<td style="text-align:right;">
+3.5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.9
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.7
+</td>
+<td style="text-align:right;">
+3.2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.6
+</td>
+<td style="text-align:right;">
+3.1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5.0
+</td>
+<td style="text-align:right;">
+3.6
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5.4
+</td>
+<td style="text-align:right;">
+3.9
+</td>
+</tr>
+</tbody>
+</table>
+<p>You can pass various arguments to <code>kable_styling</code> to influence the Font and the position of the table.</p>
+<table style="width:100%;">
+<colgroup>
+<col width="27%" />
+<col width="39%" />
+<col width="32%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Format</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Font</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Font size</td>
+<td>change size of font</td>
+<td>font_size = 7</td>
+</tr>
+<tr class="odd">
+<td>Font</td>
+<td>..</td>
+<td>..</td>
+</tr>
+<tr class="even">
+<td><strong>Position</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Position table</td>
+<td>Align the table left (“left”), right (“right”), center (“center”)</td>
+<td><code>position = &quot;left&quot;</code></td>
+</tr>
+<tr class="even">
+<td>Embed table in text</td>
+<td>wrap text around the table</td>
+<td><code>position = &quot;float_right&quot;</code></td>
+</tr>
+</tbody>
+</table>
+<p>Let’s increase the font size and position the table on the left.</p>
+<pre class="r"><code>```{r myTable}
+library(kableExtra)
+head(iris[1:2]) %&gt;%
+  kable() %&gt;%
+  kable_styling(font_size = 20, position = &quot;left&quot;, full_width = FALSE)
+```</code></pre>
+<table class="table" style="font-size: 20px; width: auto !important; ">
+<thead>
+<tr>
+<th style="text-align:right;">
+Sepal.Length
+</th>
+<th style="text-align:right;">
+Sepal.Width
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+5.1
+</td>
+<td style="text-align:right;">
+3.5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.9
+</td>
+<td style="text-align:right;">
+3.0
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.7
+</td>
+<td style="text-align:right;">
+3.2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.6
+</td>
+<td style="text-align:right;">
+3.1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5.0
+</td>
+<td style="text-align:right;">
+3.6
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5.4
+</td>
+<td style="text-align:right;">
+3.9
+</td>
+</tr>
+</tbody>
+</table>
 </div>

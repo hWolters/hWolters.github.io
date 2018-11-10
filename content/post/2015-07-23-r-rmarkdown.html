@@ -22,7 +22,7 @@ tags: ["R Markdown", "R", "knitr","Markdown","YAML","Documentation", "Reproducib
 </ul>
 <div id="so-how-does-it-work" class="section level3">
 <h3>So how does it work?</h3>
-<p>In an R Markdown File (.RMD) you can combine <strong>R code chunks</strong> and <strong>text</strong> (which is written in a Markdown language. More in a second!). Your R code will be excecuted and your results will be displayed. Everything is “knitted”&quot; together to a Markdown format, which can be converted into almost any format through Pandoc. The outputfile may contain your code, descriptions (executed Markdown) and the R output (tables, plots, numbers…). This may sound complicated. But all you have to do is write this file, choose your output format and press the “Knit” button in R studio.</p>
+<p>In an R Markdown File (Rmd) you can combine <strong>R code chunks</strong> and <strong>text</strong> (which is written in a Markdown language. More in a second!). Your R code will be excecuted and your results will be displayed. Everything is “knitted”&quot; together to a Markdown format, which can be converted into almost any format through Pandoc. The outputfile may contain your code, descriptions (executed Markdown) and the R output (tables, plots, numbers…). This may sound complicated. But all you have to do is write this file, choose your output format and press the “Knit” button in R studio.</p>
 <p>Sounds magical? Let’s create your first R Markdown file in R Studio. I encourage you to use R Studio, because it provides a lot of awesomefeatures which simplify working with R Markdown.</p>
 <ol style="list-style-type: decimal">
 <li><p>Go to File –&gt; New File –&gt; R Markdown.</p></li>
@@ -33,17 +33,17 @@ tags: ["R Markdown", "R", "knitr","Markdown","YAML","Documentation", "Reproducib
 <p>There is your first R Markdown file. It already contains a little code. Let’s talk about the structure of an R Markdown document.</p>
 </div>
 <div id="rmd-file-strucutre" class="section level1">
-<h1>.RMD File Strucutre</h1>
+<h1>Rmd File Strucutre</h1>
 <p>There are 3 different kind of code.</p>
 <ol style="list-style-type: decimal">
 <li>YAML Header</li>
 <li>Markdown</li>
 <li>R Code Chunks</li>
 </ol>
-<p>If you press the “Knit” button, you see, that this runs perfectly and creates an output file. Let’s look at the 3 different kinds of code in your R Markdown example file.</p>
+<p>If you press the “Knit” button, you see, that this runs perfectly and creates an output file. You just successfully compiled your first .Rmd file! A window with your output file should open up. Let’s look at the 3 different kinds of code in your .Rmd example file.</p>
 <div id="yaml-header" class="section level3">
 <h3>YAML Header</h3>
-<p>The header is on top of every .RMD file. The code is enclosed with 3 dashes. Your Header contains meta data about your .RMD File, such as the author, date and output format. You can add additional stuff such as gloabal variables. But don’t worry about your header too much for now. Let it just be there.</p>
+<p>The header is on top of every Rmd file. The code is enclosed with 3 dashes. Your Header contains meta data about your Rmd File, such as the author, date and output format. You can add additional stuff such as gloabal variables. But don’t worry about your header too much for now. Let it just be there.</p>
 <pre class="r"><code>--- 
 title: &quot;My first R Markdown document&quot;
 author: &quot;Heike W&quot;
@@ -62,20 +62,24 @@ output: html_document
 </div>
 <div id="r-code-chunks" class="section level3">
 <h3>R Code Chunks</h3>
-<p>You can write any code, you would normally write in R in R Markdown. R code chunks are enclosed with 3 apostrophies, followed by curly braces. You can simply type <em>command-option-I</em> on the Mac and <em>Ctrl-Alt-I</em> on Windows to create a new code chunk. Per default, R will execute this code chunk and display the code and the results.</p>
+<p>Just write your R code and wrap it around 3 apostrophies followed by <code>{r}</code>. This tells R Markdown that you want to write R code (You could also insert for example python <code>{python}</code>, bash <code>{bash}</code> or sql {<code>sql}</code>). Insert as many code chunks as you want. Instead of typing 3 apostrophies and the curly braces everytime, you can simply type <em>command-option-I</em> on the Mac and <em>Ctrl-Alt-I</em> on Windows to create a new code chunk. Per default, R will execute this code chunk and display the code and the results in the output file when you “knit” your .Rmd file.</p>
 <pre class="r"><code>```{r headCars}
 summary(cars)
 ```</code></pre>
-<p>Click on the little green triange in the right corner of your code chunk and only this chunk will run. You can see, that the results are shown directly below the code.</p>
-<p>Within the curly braces, you can name your code chunk. I named our first code chunk “headCars”. In addition, you pass <em>options</em>. The option parameters tell R what R should do with the code snippet. For example you can tell R to only show the results without the code by passing the option <code>echo = FALSE</code> like this:</p>
+<p>You have previously executed the example code by clicking on the “Knit”&quot; button in R Studio. This opens a new session and runs the entire .Rmd File. Remember: this means you’re starting with a new clean environment. You can also run single R code chunks separately. Click on the little green triange in the right corner of your code chunk and only this chunk will run. You can see, that the results are shown directly below your code.</p>
+<p>Within the curly braces of your R code chunks, you can name them. I named our first code chunk “headCars”. In addition, you can pass <em>options</em>. Options tell R what it should do with this code chunk For example, for not displaying any R code in the output file pass <code>echo = FALSE</code>:</p>
 <pre class="r"><code>```{r headCars, echo = FALSE}
 summary(cars)
 ```</code></pre>
-<p>Or you can tell R to skip this code chunk by setting <code>eval = FALSE</code>.</p>
+<p>Or you can tell R not to run a code chunk by setting <code>eval = FALSE</code>.</p>
 <pre class="r"><code>```{r headCars, eval = FALSE}
 summary(cars)
 ```</code></pre>
-<p>Here is a brief overview of the options, I use the most. You can use as many options, as you like. The order of options does not matter, but you have to separate them with a comma.</p>
+<p>You can use as many options as neccessary. The order of options does not matter, but you have to separate them with a comma.</p>
+<pre class="r"><code>```{r headCars, echo = TRUE, eval = FALSE}
+summary(cars)
+```</code></pre>
+<p>Here is a brief overview of the options, I use the most.</p>
 <table style="width:100%;">
 <colgroup>
 <col width="40%" />
@@ -122,22 +126,22 @@ summary(cars)
 </tr>
 </tbody>
 </table>
-<p>Do you want most of your code to have the same options? You do not need to type them for every code chunk. You can just alter the global options at the beginning of your markdown document.</p>
+<p>You’re wondering whether you have to pass the same options to all your code chunks? You don’t. You can determine global options at the beginning of your markdown document. Here in this example, where I told R Markdown to not print any code.</p>
 <pre class="r"><code>```{r globaloptions, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```</code></pre>
-<p>Here in this example, I told R Markdown to not print any code. The code chunk options overwrite the global options. So if there is one code chunk, where you want to display code, you can pass the option <code>echo = TRUE</code> to this code chunk and the code will be printed in the output document.</p>
+<p>The code chunk options overwrite the global options. So if there is one code chunk, where you want to display code, you can pass the option <code>echo = TRUE</code> to this code chunk and the code will be shown in the output document.</p>
 </div>
 </div>
 <div id="insert-plots-figures" class="section level1">
 <h1>Insert plots &amp; figures</h1>
-<p>You can easily insert the figures that are created with R code. Just write R code within your code chunls, that creates a plot. R Markdown will insert your plot at right where you inserted it.</p>
+<p>You can easily insert the figures that are created with R code. Just write R code within your code chunks, that creates a plot. R Markdown will insert your plot at right after your code.</p>
 <pre class="r"><code>```{r firstPlot}
 plot(cars$speed, cars$dist)
 ```</code></pre>
 <p><img src="/./post/2015-07-23-r-rmarkdown_files/figure-html/firstPlot2-1.png" width="672" /></p>
-<p>As explained in my previous post, you use of the options for code chunks to alter the output. This workds for figures as well. Most figure options start with <code>fig.</code>. For example, you can change the size (<code>fig.height, fig.width</code> (default size = 7 inches), the alignment <code>fig.align</code> (“left”,“right”,“center”) and the caption (<code>fig.cap</code>) of your plot.</p>
-<p>Let’s create a plot that with a wide plot, which is aligned left and give it a caption.</p>
+<p>As you have done previously, you can use the options of code chunks to alter your output. This works for figures as well. Most figure options start with <code>fig.</code>. For example, you can change the size (<code>fig.height, fig.width</code> (default size = 7 inches)), the alignment (<code>fig.align</code> (“left”,“right”,“center”)) and the caption (<code>fig.cap</code>) of your plot.</p>
+<p>Let’s create a wide plot, which is aligned left and give it a caption.</p>
 <code>r ```{r myWidePlot, fig.height = 4, fig.align = &quot;center&quot;, fig.cap = &quot;my wide plot&quot;} plot(cars$speed, cars$dist) ```</code>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-1"></span>
 <img src="/./post/2015-07-23-r-rmarkdown_files/figure-html/unnamed-chunk-1-1.png" alt="my wide plot" width="672" />
@@ -145,7 +149,7 @@ plot(cars$speed, cars$dist)
 Figure 1: my wide plot
 </p>
 </div>
-<p>You can also insert figures, images, gifs, that you saved on your desktop or from the internet. The brackets are optional, if you want a title for the figure. Paste the path to the image into the braces.</p>
+<p>What about local images or GIFS from the internet? You can include them as well. Here is an example The brackets are optional, if you want a title for the figure. Paste the path to the image into the braces.</p>
 <pre class="markdown"><code>![My plot caption](https://media.giphy.com/media/6rzRsF6ghqxSE/giphy.gif)</code></pre>
 <div class="figure">
 <img src="https://media.giphy.com/media/6rzRsF6ghqxSE/giphy.gif" alt="My plot caption" />
@@ -176,7 +180,7 @@ FALSE 3     7    4
 FALSE 4     7   22
 FALSE 5     8   16
 FALSE 6     9   10</code></pre>
-<p>Still not very pretty. One quick and simple way to create nicer looking tables is by using the <code>kable</code> function from the knitr package.</p>
+<p>Still not very pretty. One quick and simple way to create nicer looking tables is by using the <code>kable</code> function from the <code>knitr</code> package.</p>
 <pre class="r"><code>```{r carsTable, comment= FALSE}
 library(knitr)
 kable(head(cars))
@@ -184,36 +188,36 @@ kable(head(cars))
 <table>
 <thead>
 <tr class="header">
-<th align="right">speed</th>
-<th align="right">dist</th>
+<th align="left">speed</th>
+<th align="left">dist</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="right">4</td>
-<td align="right">2</td>
+<td align="left">4</td>
+<td align="left">2</td>
 </tr>
 <tr class="even">
-<td align="right">4</td>
-<td align="right">10</td>
+<td align="left">4</td>
+<td align="left">10</td>
 </tr>
 <tr class="odd">
-<td align="right">7</td>
-<td align="right">4</td>
+<td align="left">7</td>
+<td align="left">4</td>
 </tr>
 <tr class="even">
-<td align="right">7</td>
-<td align="right">22</td>
+<td align="left">7</td>
+<td align="left">22</td>
 </tr>
 <tr class="odd">
-<td align="right">8</td>
-<td align="right">16</td>
+<td align="left">8</td>
+<td align="left">16</td>
 </tr>
 <tr class="even">
-<td align="right">9</td>
-<td align="right">10</td>
+<td align="left">9</td>
+<td align="left">10</td>
 </tr>
 </tbody>
 </table>
-<p>I hope this blogposts helps you to understand why you should use R Markdown and how to get startet. In the next blogpost, I will go into more detail how you can work with R Markdown.</p>
+<p>In the next blogpost, I will go into more detail how you can style your tables.</p>
 </div>

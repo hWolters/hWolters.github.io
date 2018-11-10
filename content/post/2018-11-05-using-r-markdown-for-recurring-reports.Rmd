@@ -9,59 +9,77 @@ tags: ["R","R Markdown", "Reporting","Analytics"]
 
 In this post I will show you some of my best practises for using R Markdown for reporting. We will cover
 
-1. how to insert inline code.
+1. How to create beautiful tables with conditional formating with kableExtra
 
-2. how to create beautiful tables.
+2. How to include your results in the (Markdown) test
 
-3. how to insert figures
+3. How to include global variables.
 
-4. use global variables
+# Create beautiful tables with kableExtra
 
-
-# Insert plots & figures
-
-You can easily insert the figures that are created with R code. Just write R code within your code chunls, that creates a plot. R Markdown will insert your plot at right where you inserted it.
-
+`kableExtra` is a nice library that allows you to format and style your tables. It workds similar to `ggplot2`: You create a base table and then add formating layers with the pipe operator `%>%`.
 
 ````r
-`r ''````{r firstPlot}
-plot(cars$speed, cars$dist)
+`r ''````{r myTable}
+library(kableExtra)
+head(iris) %>%
+  kable() %>%
+  kable_styling()
 ```
 ````
-```{r firstPlot2, echo = FALSE}
-plot(cars$speed, cars$dist)
+
+```{r, echo = FALSE}
+library(kableExtra)
+head(iris) %>%
+  kable() %>%
+  kable_styling()
 ```
 
-As explained in my previous post, you use of the options for code chunks to alter the output. This workds for figures as well. Most figure options start with `fig.`. For example, you can change the  size (`fig.height, fig.width` (default size = 7 inches), the alignment `fig.align` ("left","right","center") and the caption (`fig.cap`) of your plot.
 
-Let's create a plot that with a wide plot, which is aligned left and give it a caption.
- 
- ````r
-`r ''````{r myWidePlot, fig.height = 4, fig.align = "center", fig.cap = "my wide plot"}
-plot(cars$speed, cars$dist)
+
+By default, tables take 100 % of the page width.If you have only a few columns, this looks weird. You create less wide tables by setting ` full_width = F`
+
+````r
+`r ''````{r myTable}
+library(kableExtra)
+head(iris[1:2]) %>%
+  kable() %>%
+  kable_styling(full_width = FALSE)
 ```
 ````
-```{r, echo = FALSE, fig.height = 4, fig.align = "center", fig.cap = "my wide plot"}
-plot(cars$speed, cars$dist)
+
+```{r, echo = FALSE}
+library(kableExtra)
+head(iris[1:2])  %>%
+  kable() %>%
+  kable_styling(full_width = FALSE)
 ```
 
+You can pass various arguments to `kable_styling` to influence the Font and the position of the table.
 
+|Format | Description | Example | 
+|--------------------------|-------------------------------------|-------------------------------|
+|**Font**|||
+|Font size| change size of font| font_size = 7|
+|Font| ..| ..|
+|**Position**|||
+|Position table| Align the table left ("left"), right ("right"), center ("center")|`position = "left"`|
+|Embed table in text| wrap text around the table| `position = "float_right"`|
 
-You can also insert figures, images, gifs, that you saved on your desktop or from the internet. The brackets are optional, if you want a title for the figure. Paste the path to the image into the braces.
+Let's increase the font size and position the table on the left.
 
-```markdown
-![My plot caption](https://media.giphy.com/media/6rzRsF6ghqxSE/giphy.gif)
+````r
+`r ''````{r myTable}
+library(kableExtra)
+head(iris[1:2]) %>%
+  kable() %>%
+  kable_styling(font_size = 20, position = "left", full_width = FALSE)
 ```
+````
 
-![My plot caption](https://media.giphy.com/media/6rzRsF6ghqxSE/giphy.gif)
-To be continued...
-
-# Insert tables
-
-# Inline Code
-
-# Global variables
-
-# 
-
-
+```{r, echo = FALSE}
+library(kableExtra)
+head(iris[1:2]) %>%
+  kable() %>%
+  kable_styling(font_size = 20, position = "left", full_width = FALSE)
+```
