@@ -1,5 +1,5 @@
 ---
-title: "R Markdown for Novices: All you need to to get started on your first R Markdown document"
+title: "R Markdown for Novices: All you need to know to get started"
 author: "H W"
 date: '2018-11-03T21:13:14-05:00'
 categories: ["R"]

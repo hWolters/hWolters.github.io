@@ -25,11 +25,11 @@ How to create beautiful tables with conditional formating with kableExtra
     </item>
     
     <item>
-      <title>R Markdown for Novices: All you need to to get started on your first R Markdown document</title>
-      <link>/./2018/11/03/r-markdown-for-novices-all-you-need-to-to-get-started-on-your-first-r-markdown-document/</link>
+      <title>R Markdown for Novices: All you need to know to get started</title>
+      <link>/./2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/</link>
       <pubDate>Sat, 03 Nov 2018 21:13:14 -0500</pubDate>
       
-      <guid>/./2018/11/03/r-markdown-for-novices-all-you-need-to-to-get-started-on-your-first-r-markdown-document/</guid>
+      <guid>/./2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/</guid>
       <description>I write this blogpost for someone, who has never worked with R Markdown. After you read this post, you will
 understand why R Markdown may be useful for your daily work as a student, researcher, analyst or data scientist.
  understand the basic structure of an R Markdown document and how you can get startet.
