@@ -9,17 +9,17 @@
 <meta name="author" content="Heike W">
 <meta name="keywords" content=", R, R Studio, Data Science, Analtytics, R Markdown, Research, phd, Text Mining, Natural Language Processing">
 <meta name="description" content="In this post I will show you some of my best practises for using R Markdown for reporting. We will cover
-How to create beautiful tables with conditional formating with kableExtra
+How to create tables with conditional formating with kableExtra
  How to include your results in the (Markdown) text
  How to include global variables.
-  Create beautiful tables with kableExtra kableExtra is a nice library that allows you to format and style your tables. It workds similar to ggplot2: You create a base table and then add formating layers with the pipe operator %&gt;%.">
+  Create formated tables with kableExtra The basics kableExtra is an awesome library that allows you to format and style your tables.">
 
 
 <meta property="og:description" content="In this post I will show you some of my best practises for using R Markdown for reporting. We will cover
-How to create beautiful tables with conditional formating with kableExtra
+How to create tables with conditional formating with kableExtra
  How to include your results in the (Markdown) text
  How to include global variables.
-  Create beautiful tables with kableExtra kableExtra is a nice library that allows you to format and style your tables. It workds similar to ggplot2: You create a base table and then add formating layers with the pipe operator %&gt;%.">
+  Create formated tables with kableExtra The basics kableExtra is an awesome library that allows you to format and style your tables.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Using R Markdown for recurring Reports">
 <meta name="twitter:title" content="Using R Markdown for recurring Reports">
@@ -27,15 +27,15 @@ How to create beautiful tables with conditional formating with kableExtra
 <meta property="twitter:url" content="/./2018/11/05/using-r-markdown-for-recurring-reports/">
 <meta property="og:site_name" content="My R Blog">
 <meta property="og:description" content="In this post I will show you some of my best practises for using R Markdown for reporting. We will cover
-How to create beautiful tables with conditional formating with kableExtra
+How to create tables with conditional formating with kableExtra
  How to include your results in the (Markdown) text
  How to include global variables.
-  Create beautiful tables with kableExtra kableExtra is a nice library that allows you to format and style your tables. It workds similar to ggplot2: You create a base table and then add formating layers with the pipe operator %&gt;%.">
+  Create formated tables with kableExtra The basics kableExtra is an awesome library that allows you to format and style your tables.">
 <meta name="twitter:description" content="In this post I will show you some of my best practises for using R Markdown for reporting. We will cover
-How to create beautiful tables with conditional formating with kableExtra
+How to create tables with conditional formating with kableExtra
  How to include your results in the (Markdown) text
  How to include global variables.
-  Create beautiful tables with kableExtra kableExtra is a nice library that allows you to format and style your tables. It workds similar to ggplot2: You create a base table and then add formating layers with the pipe operator %&gt;%.">
+  Create formated tables with kableExtra The basics kableExtra is an awesome library that allows you to format and style your tables.">
 <meta property="og:locale" content="en-us">
 
   
@@ -271,13 +271,15 @@ if (!doNotTrack) {
 
 <p>In this post I will show you some of my best practises for using R Markdown for reporting. We will cover</p>
 <ol style="list-style-type: decimal">
-<li><p>How to create beautiful tables with conditional formating with kableExtra</p></li>
+<li><p>How to create tables with conditional formating with kableExtra</p></li>
 <li><p>How to include your results in the (Markdown) text</p></li>
 <li><p>How to include global variables.</p></li>
 </ol>
-<div id="create-beautiful-tables-with-kableextra" class="section level1">
-<h1>Create beautiful tables with kableExtra</h1>
-<p><code>kableExtra</code> is a nice library that allows you to format and style your tables. It workds similar to <code>ggplot2</code>: You create a base table and then add formating layers with the pipe operator <code>%&gt;%</code>.</p>
+<div id="create-formated-tables-with-kableextra" class="section level1">
+<h1>Create formated tables with kableExtra</h1>
+<div id="the-basics" class="section level2">
+<h2>The basics</h2>
+<p><code>kableExtra</code> is an awesome library that allows you to format and style your tables. It works similar to <code>ggplot2</code>: You create a base table and then add formating layers with the pipe operator <code>%&gt;%</code>.</p>
 <pre class="r"><code>```{r myTable}
 library(kableExtra)
 head(iris) %&gt;%
@@ -478,122 +480,294 @@ Sepal.Width
 </tr>
 </tbody>
 </table>
-<p>You can pass various arguments to <code>kable_styling</code> to influence the Font and the position of the table.</p>
-<table style="width:100%;">
-<colgroup>
-<col width="27%" />
-<col width="39%" />
-<col width="32%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Format</th>
-<th>Description</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Font</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Font size</td>
-<td>change size of font</td>
-<td>font_size = 7</td>
-</tr>
-<tr class="odd">
-<td>Font</td>
-<td>..</td>
-<td>..</td>
-</tr>
-<tr class="even">
-<td><strong>Position</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Position table</td>
-<td>Align the table left (“left”), right (“right”), center (“center”)</td>
-<td><code>position = &quot;left&quot;</code></td>
-</tr>
-<tr class="even">
-<td>Embed table in text</td>
-<td>wrap text around the table</td>
-<td><code>position = &quot;float_right&quot;</code></td>
-</tr>
-</tbody>
-</table>
+<p>You can pass various arguments to <code>kable_styling</code> to influence the Font and the position of the table. E.g. <code>font_size = 7</code> or <code>position = &quot;left&quot;</code>. To wrap text around the table use <code>position = &quot;float_right&quot;</code>.</p>
 <p>Let’s increase the font size and position the table on the left.</p>
-<pre class="r"><code>```{r myTable}
-library(kableExtra)
-head(iris[1:2]) %&gt;%
+<pre class="r"><code>library(kableExtra)
+head(iris[c(&quot;Species&quot;,&quot;Sepal.Length&quot;)]) %&gt;%
   kable() %&gt;%
-  kable_styling(font_size = 20, position = &quot;left&quot;, full_width = FALSE)
-```</code></pre>
+  kable_styling(font_size = 20, position = &quot;left&quot;, full_width = FALSE)</code></pre>
 <table class="table" style="font-size: 20px; width: auto !important; ">
 <thead>
 <tr>
-<th style="text-align:right;">
-Sepal.Length
+<th style="text-align:left;">
+Species
 </th>
 <th style="text-align:right;">
-Sepal.Width
+Sepal.Length
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td style="text-align:left;">
+setosa
+</td>
 <td style="text-align:right;">
 5.1
 </td>
-<td style="text-align:right;">
-3.5
-</td>
 </tr>
 <tr>
+<td style="text-align:left;">
+setosa
+</td>
 <td style="text-align:right;">
 4.9
 </td>
-<td style="text-align:right;">
-3.0
-</td>
 </tr>
 <tr>
+<td style="text-align:left;">
+setosa
+</td>
 <td style="text-align:right;">
 4.7
 </td>
-<td style="text-align:right;">
-3.2
-</td>
 </tr>
 <tr>
+<td style="text-align:left;">
+setosa
+</td>
 <td style="text-align:right;">
 4.6
 </td>
-<td style="text-align:right;">
-3.1
-</td>
 </tr>
 <tr>
+<td style="text-align:left;">
+setosa
+</td>
 <td style="text-align:right;">
 5.0
 </td>
-<td style="text-align:right;">
-3.6
-</td>
 </tr>
 <tr>
-<td style="text-align:right;">
-5.4
+<td style="text-align:left;">
+setosa
 </td>
 <td style="text-align:right;">
-3.9
+5.4
 </td>
 </tr>
 </tbody>
 </table>
+</div>
+<div id="column-and-row-formatting" class="section level2">
+<h2>Column and row formatting</h2>
+<p>You can format specific rows and columns with <code>column_spec()</code> or <code>row_spec()</code>. The first argument is the index of the rows or columns you want to format. Then you can pass formating arguments such as <code>bold = TRUE</code>, <code>color = &quot;black&quot;</code> or <code>background =&quot;grey&quot;</code>. So let’s make the first column bold, add a right border, color the text blue and the background grey.</p>
+<pre class="r"><code>library(kableExtra)
+head(iris[c(&quot;Species&quot;,&quot;Sepal.Length&quot;)]) %&gt;%
+  kable() %&gt;%
+  kable_styling(position = &quot;left&quot;, full_width = FALSE) %&gt;%
+  column_spec(1, bold = TRUE, border_right = TRUE, color = &quot;black&quot;, background = &quot;lightgrey&quot;)</code></pre>
+<table class="table" style="width: auto !important; ">
+<thead>
+<tr>
+<th style="text-align:left;">
+Species
+</th>
+<th style="text-align:right;">
+Sepal.Length
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black;background-color: lightgrey;border-right:1px solid;">
+setosa
+</td>
+<td style="text-align:right;">
+5.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black;background-color: lightgrey;border-right:1px solid;">
+setosa
+</td>
+<td style="text-align:right;">
+4.9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black;background-color: lightgrey;border-right:1px solid;">
+setosa
+</td>
+<td style="text-align:right;">
+4.7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black;background-color: lightgrey;border-right:1px solid;">
+setosa
+</td>
+<td style="text-align:right;">
+4.6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black;background-color: lightgrey;border-right:1px solid;">
+setosa
+</td>
+<td style="text-align:right;">
+5.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black;background-color: lightgrey;border-right:1px solid;">
+setosa
+</td>
+<td style="text-align:right;">
+5.4
+</td>
+</tr>
+</tbody>
+</table>
+<p>The third row have Sepal.Length &gt; 5! We should color the entire row red!</p>
+<pre class="r"><code>library(kableExtra)
+head(iris[c(&quot;Species&quot;,&quot;Sepal.Length&quot;)])%&gt;%
+  kable() %&gt;%
+  kable_styling(position = &quot;left&quot;, full_width = FALSE) %&gt;%
+  column_spec(1, bold = TRUE, border_right = TRUE, color = &quot;black&quot;, background = &quot;lightgrey&quot;) %&gt;%
+  row_spec(c(1,6), background  = &quot;red&quot;)</code></pre>
+<table class="table" style="width: auto !important; ">
+<thead>
+<tr>
+<th style="text-align:left;">
+Species
+</th>
+<th style="text-align:right;">
+Sepal.Length
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black;background-color: lightgrey;border-right:1px solid;background-color: red;">
+setosa
+</td>
+<td style="text-align:right;background-color: red;">
+5.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black;background-color: lightgrey;border-right:1px solid;">
+setosa
+</td>
+<td style="text-align:right;">
+4.9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black;background-color: lightgrey;border-right:1px solid;">
+setosa
+</td>
+<td style="text-align:right;">
+4.7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black;background-color: lightgrey;border-right:1px solid;">
+setosa
+</td>
+<td style="text-align:right;">
+4.6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black;background-color: lightgrey;border-right:1px solid;">
+setosa
+</td>
+<td style="text-align:right;">
+5.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black;background-color: lightgrey;border-right:1px solid;background-color: red;">
+setosa
+</td>
+<td style="text-align:right;background-color: red;">
+5.4
+</td>
+</tr>
+</tbody>
+</table>
+<p>Wait, could I set colors automatically? Yes, of course. This can be useful in reporting: Maybe you want to color values &lt; 0 red. You can combine your formating specifications with ifelse using the <code>cell_spec</code> function. You have to apply <code>cell_spec</code> to a <code>data.frame</code> and not <code>knitr_kable</code>. Therefore, you first have to “mutate” your <code>data.frame</code> with <code>cell_spec</code> and in a second step apply <code>kable</code>. The <code>cell_spec</code> function creates pure html code. That’s why you need to pass one additional argument <code>escape = FALSE</code>. Currently, <code>cell_spec supports</code> features including bold, italic, monospace, text color, background color, align, font size &amp; rotation angle.</p>
+<pre class="r"><code>library(kableExtra)
+library(dplyr)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>head(iris[c(&quot;Species&quot;,&quot;Sepal.Length&quot;)]) %&gt;%
+  mutate(
+    Sepal.Length = cell_spec(Sepal.Length, color = ifelse(Sepal.Length &gt; 5, &quot;green&quot;,&quot;red&quot;))) %&gt;%
+  kable(escape = FALSE) %&gt;%
+  kable_styling(position = &quot;left&quot;, full_width = FALSE) %&gt;%
+    column_spec(1, bold = TRUE, border_right = TRUE, color = &quot;black&quot;, background = &quot;lightgrey&quot;)</code></pre>
+<table class="table" style="width: auto !important; ">
+<thead>
+<tr>
+<th style="text-align:left;">
+Species
+</th>
+<th style="text-align:left;">
+Sepal.Length
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black;background-color: lightgrey;border-right:1px solid;">
+setosa
+</td>
+<td style="text-align:left;">
+<span style="     color: green;">5.1</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black;background-color: lightgrey;border-right:1px solid;">
+setosa
+</td>
+<td style="text-align:left;">
+<span style="     color: red;">4.9</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black;background-color: lightgrey;border-right:1px solid;">
+setosa
+</td>
+<td style="text-align:left;">
+<span style="     color: red;">4.7</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black;background-color: lightgrey;border-right:1px solid;">
+setosa
+</td>
+<td style="text-align:left;">
+<span style="     color: red;">4.6</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black;background-color: lightgrey;border-right:1px solid;">
+setosa
+</td>
+<td style="text-align:left;">
+<span style="     color: red;">5</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;color: black;background-color: lightgrey;border-right:1px solid;">
+setosa
+</td>
+<td style="text-align:left;">
+<span style="     color: green;">5.4</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 
               
@@ -842,10 +1016,10 @@ Sepal.Width
                 </span>
               </span>
               <div class="media-content hide-xs font-merryweather">In this post I will show you some of my best practises for using R Markdown for reporting. We will cover
-How to create beautiful tables with conditional formating with kableExtra
+How to create tables with conditional formating with kableExtra
  How to include your results in the (Markdown) text
  How to include global variables.
-  Create beautiful tables with kableExtra kableExtra is a nice library that allows you to format and style your tables. It workds similar to ggplot2: You create a base table and then add formating layers with the pipe operator %&gt;%.</div>
+  Create formated tables with kableExtra The basics kableExtra is an awesome library that allows you to format and style your tables.</div>
             </div>
             <div style="clear:both;"></div>
             <hr>

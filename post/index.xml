@@ -18,10 +18,10 @@
       
       <guid>/./2018/11/05/using-r-markdown-for-recurring-reports/</guid>
       <description>In this post I will show you some of my best practises for using R Markdown for reporting. We will cover
-How to create beautiful tables with conditional formating with kableExtra
+How to create tables with conditional formating with kableExtra
  How to include your results in the (Markdown) text
  How to include global variables.
-  Create beautiful tables with kableExtra kableExtra is a nice library that allows you to format and style your tables. It workds similar to ggplot2: You create a base table and then add formating layers with the pipe operator %&amp;gt;%.</description>
+  Create formated tables with kableExtra The basics kableExtra is an awesome library that allows you to format and style your tables.</description>
     </item>
     
     <item>

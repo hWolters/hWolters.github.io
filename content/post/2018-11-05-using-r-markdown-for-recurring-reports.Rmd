@@ -9,15 +9,17 @@ tags: ["R","R Markdown", "Reporting","Analytics"]
 
 In this post I will show you some of my best practises for using R Markdown for reporting. We will cover
 
-1. How to create beautiful tables with conditional formating with kableExtra
+1. How to create tables with conditional formating with kableExtra
 
 2. How to include your results in the (Markdown) text
 
 3. How to include global variables.
 
-# Create beautiful tables with kableExtra
+# Create formated tables with kableExtra
 
-`kableExtra` is a nice library that allows you to format and style your tables. It workds similar to `ggplot2`: You create a base table and then add formating layers with the pipe operator `%>%`.
+## The basics
+
+`kableExtra` is an awesome library that allows you to format and style your tables. It works similar to `ggplot2`: You create a base table and then add formating layers with the pipe operator `%>%`.
 
 ````r
 `r ''````{r myTable}
@@ -55,31 +57,50 @@ head(iris[1:2])  %>%
   kable_styling(full_width = FALSE)
 ```
 
-You can pass various arguments to `kable_styling` to influence the Font and the position of the table.
-
-|Format | Description | Example | 
-|--------------------------|-------------------------------------|-------------------------------|
-|**Font**|||
-|Font size| change size of font| font_size = 7|
-|Font| ..| ..|
-|**Position**|||
-|Position table| Align the table left ("left"), right ("right"), center ("center")|`position = "left"`|
-|Embed table in text| wrap text around the table| `position = "float_right"`|
+You can pass various arguments to `kable_styling` to influence the Font and the position of the table. E.g. `font_size = 7` or `position = "left"`. To wrap text around the table use `position = "float_right"`.
 
 Let's increase the font size and position the table on the left.
 
-````r
-`r ''````{r myTable}
+```{r}
 library(kableExtra)
-head(iris[1:2]) %>%
+head(iris[c("Species","Sepal.Length")]) %>%
   kable() %>%
   kable_styling(font_size = 20, position = "left", full_width = FALSE)
 ```
-````
 
-```{r, echo = FALSE}
+## Column and row formatting
+
+You can format specific rows and columns with `column_spec()` or `row_spec()`. The first argument is the index of the rows or columns you want to format. Then you can pass formating arguments such as `bold = TRUE`, `color = "black"` or `background ="grey"`. So let's make the first column bold, add a right border, color the text blue and the background grey.
+
+```{r}
 library(kableExtra)
-head(iris[1:2]) %>%
+head(iris[c("Species","Sepal.Length")]) %>%
   kable() %>%
-  kable_styling(font_size = 20, position = "left", full_width = FALSE)
+  kable_styling(position = "left", full_width = FALSE) %>%
+  column_spec(1, bold = TRUE, border_right = TRUE, color = "black", background = "lightgrey")
+```
+
+The third row have Sepal.Length > 5! We should color the entire row red!
+
+```{r}
+library(kableExtra)
+head(iris[c("Species","Sepal.Length")])%>%
+  kable() %>%
+  kable_styling(position = "left", full_width = FALSE) %>%
+  column_spec(1, bold = TRUE, border_right = TRUE, color = "black", background = "lightgrey") %>%
+  row_spec(c(1,6), background  = "red")
+```
+
+Wait, could I set colors automatically? Yes, of course. This can be useful in reporting: Maybe you want to color values < 0 red. You can combine your formating specifications with ifelse using the `cell_spec` function. You have to apply `cell_spec` to a `data.frame` and not `knitr_kable`. Therefore, you first have to "mutate" your `data.frame` with `cell_spec` and in a second step apply `kable`. The `cell_spec` function creates pure html code. That's why you need to pass  one additional argument `escape = FALSE`. Currently, `cell_spec supports` features including bold, italic, monospace, text color, background color, align, font size & rotation angle. 
+
+```{r}
+library(kableExtra)
+library(dplyr)
+head(iris[c("Species","Sepal.Length")]) %>%
+  mutate(
+    Sepal.Length = cell_spec(Sepal.Length, color = ifelse(Sepal.Length > 5, "green","red"))) %>%
+  kable(escape = FALSE) %>%
+  kable_styling(position = "left", full_width = FALSE) %>%
+    column_spec(1, bold = TRUE, border_right = TRUE, color = "black", background = "lightgrey")
+  
 ```
