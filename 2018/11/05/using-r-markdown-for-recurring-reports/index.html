@@ -10,14 +10,14 @@
 <meta name="keywords" content=", R, R Studio, Data Science, Analtytics, R Markdown, Research, phd, Text Mining, Natural Language Processing">
 <meta name="description" content="In this post I will show you some of my best practises for using R Markdown for reporting. We will cover
 How to create beautiful tables with conditional formating with kableExtra
- How to include your results in the (Markdown) test
+ How to include your results in the (Markdown) text
  How to include global variables.
   Create beautiful tables with kableExtra kableExtra is a nice library that allows you to format and style your tables. It workds similar to ggplot2: You create a base table and then add formating layers with the pipe operator %&gt;%.">
 
 
 <meta property="og:description" content="In this post I will show you some of my best practises for using R Markdown for reporting. We will cover
 How to create beautiful tables with conditional formating with kableExtra
- How to include your results in the (Markdown) test
+ How to include your results in the (Markdown) text
  How to include global variables.
   Create beautiful tables with kableExtra kableExtra is a nice library that allows you to format and style your tables. It workds similar to ggplot2: You create a base table and then add formating layers with the pipe operator %&gt;%.">
 <meta property="og:type" content="article">
@@ -28,12 +28,12 @@ How to create beautiful tables with conditional formating with kableExtra
 <meta property="og:site_name" content="My R Blog">
 <meta property="og:description" content="In this post I will show you some of my best practises for using R Markdown for reporting. We will cover
 How to create beautiful tables with conditional formating with kableExtra
- How to include your results in the (Markdown) test
+ How to include your results in the (Markdown) text
  How to include global variables.
   Create beautiful tables with kableExtra kableExtra is a nice library that allows you to format and style your tables. It workds similar to ggplot2: You create a base table and then add formating layers with the pipe operator %&gt;%.">
 <meta name="twitter:description" content="In this post I will show you some of my best practises for using R Markdown for reporting. We will cover
 How to create beautiful tables with conditional formating with kableExtra
- How to include your results in the (Markdown) test
+ How to include your results in the (Markdown) text
  How to include global variables.
   Create beautiful tables with kableExtra kableExtra is a nice library that allows you to format and style your tables. It workds similar to ggplot2: You create a base table and then add formating layers with the pipe operator %&gt;%.">
 <meta property="og:locale" content="en-us">
@@ -272,7 +272,7 @@ if (!doNotTrack) {
 <p>In this post I will show you some of my best practises for using R Markdown for reporting. We will cover</p>
 <ol style="list-style-type: decimal">
 <li><p>How to create beautiful tables with conditional formating with kableExtra</p></li>
-<li><p>How to include your results in the (Markdown) test</p></li>
+<li><p>How to include your results in the (Markdown) text</p></li>
 <li><p>How to include global variables.</p></li>
 </ol>
 <div id="create-beautiful-tables-with-kableextra" class="section level1">
@@ -409,7 +409,7 @@ setosa
 </tr>
 </tbody>
 </table>
-<p>By default, tables take 100 % of the page width.If you have only a few columns, this looks weird. You create less wide tables by setting <code>full_width = F</code></p>
+<p>By default, tables take 100 % of the page width. For tables with few columns, this looks weird. You create less wide tables by setting <code>full_width = FALSE</code></p>
 <pre class="r"><code>```{r myTable}
 library(kableExtra)
 head(iris[1:2]) %&gt;%
@@ -843,7 +843,7 @@ Sepal.Width
               </span>
               <div class="media-content hide-xs font-merryweather">In this post I will show you some of my best practises for using R Markdown for reporting. We will cover
 How to create beautiful tables with conditional formating with kableExtra
- How to include your results in the (Markdown) test
+ How to include your results in the (Markdown) text
  How to include global variables.
   Create beautiful tables with kableExtra kableExtra is a nice library that allows you to format and style your tables. It workds similar to ggplot2: You create a base table and then add formating layers with the pipe operator %&gt;%.</div>
             </div>

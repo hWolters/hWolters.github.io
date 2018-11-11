@@ -22,17 +22,17 @@ I strongly encourage everybody working with R to use R Markdown. I promise, it w
 
 - **Results sharing:** You just did a great analysis and want to share your results with your team. Then you start copy pasting your Output into Excel, Word or PowerPoint. Don't do that! It takes so much time and you might forget to copy paste the most curret version of a plot or an analysis. R Markdown can automatically convert your results to many formats such as html, word and pdf. No more copy pasting necessary! This will not only save you lot's of time, it is also less error prone:  With R Markdown, everything is up to date automatically! 
 
-- **Data exploration**  You are looking at various summary statistics and plots to understand your data. Without R Markdown, you might scroll through your console and use the back and forward button in the R Studio Viewer. This is cumbersome! You can use R Markdown like a Notebook and see multiple output tables and plots without having to use the RStudio Viewer back buttons. At the same time, you can see the code, that produced the plot. Which brings me to my next point.
+- **Data exploration**  You are looking at various summary statistics and plots to understand your data. Without R Markdown, you might scroll through your console and use the back and forward button in the R Studio Viewer. This is cumbersome! You can use R Markdown like a Notebook and see multiple output tables and plots without having to use the RStudio Viewer back buttons. At the same time, you can see the code, that produced the plot. Which brings me to my next point:
 
 - **Replicable Analyses:** In general, all your results should be repoducible. If you just save a plot or a result, do you know exaclty which steps you needed? If you're a really organized person, this might be possible with naming conventions. But again, R Markdown can make your life so much easier: You can save your results (e.g. a plot or a table) and the code that created it, in one file. 
 
-- **Automated reports:** With R Markdown, you can automate analyses that need to be consistent and in the same format everytime.
+- **Automated reports:** With R Markdown, you can automate analyses that need to be consistent and in the same format every time.
 
 
 ### So how does it work?
-In an R Markdown File (Rmd) you can combine **R code chunks** and **text** (which is written in a Markdown language. More in a second!). Your R code will be excecuted and your results will be displayed. Everything is "knitted"" together to a Markdown format, which can be converted into almost any format through Pandoc. The outputfile may contain your code, descriptions (executed Markdown) and the R output (tables, plots, numbers...). This may sound complicated. But all you have to do is write this file, choose your output format and press the "Knit" button in R studio.
+In an R Markdown File (.Rmd) you can combine **R code chunks** and **text** (which is written in a Markdown language. More in a second!). Your R code will be excecuted and your results will be displayed. Everything is "knitted" together to a Markdown format, which can be converted into almost any format through Pandoc. The outputfile may contain your code, formated text (executed Markdown) and the R output (tables, plots, numbers...). This may sound complicated. But all you have to do is write this file, choose your output format and press the "Knit" button in R studio.
 
-Sounds magical? Let's create your first R Markdown file in R Studio. I encourage you to use R Studio, because it provides a  lot of awesomefeatures which simplify working with R Markdown. 
+Sounds magical? Let's create your first R Markdown file in R Studio. I encourage you to use R Studio, because it provides a  lot of awesome features, which simplify working with R Markdown. 
 
 1. Go to File --> New File --> R Markdown. 
 
@@ -40,11 +40,11 @@ Sounds magical? Let's create your first R Markdown file in R Studio. I encourage
 
 3. Choose your desired output (Word, Pdf...) format. Let's choose html as a start!
 
-4.(Maybe do you need to install additional packages, R Markdown will tell you which)
+4. (Maybe do you need to install additional packages, R Markdown will tell you which)
 
 There is your first R Markdown file. It already contains a little code. Let's talk about the structure of an R Markdown document. 
 
-# Rmd File Strucutre
+# .Rmd File Strucutre
 
 There are 3 different kind of code.  
 
@@ -55,7 +55,7 @@ There are 3 different kind of code.
 If you press the "Knit" button, you see, that this runs perfectly and creates an output file. You just successfully compiled your first .Rmd file! A window with your output file should open up. Let's look at the 3 different kinds of code in your .Rmd example file.
 
 ### YAML Header
-The header is on top of every Rmd file. The code is enclosed with 3 dashes. Your Header contains meta data about your Rmd File, such as the author, date and output format. You can add additional stuff such as gloabal variables. But don't worry about your header too much for now. Let it just be there.
+The header is on top of every .Rmd file. The code is enclosed with 3 dashes. Your Header contains meta data about your .Rmd file, such as the author, date and output format. You can add additional stuff such as gloabal variables. But don't worry about your header too much for now. Let it just be there.
 
 ```{r yaml, eval = FALSE}
 --- 
@@ -68,7 +68,7 @@ output: html_document
 
 
 ### Markdown (Text)
-Markdown is a simple textformatting language. Similar to HTML or Latex, you write plain text. Punctuation characters indicate the formating. For example a ` #header1` indicates a header on the top level. You can make you text italic by enclosing it in 2 asterisk (`*italic*`). If you have never worked with HTML, Latex or Markdown before, this may appear strange to you: Your text appears to have no format and you cannot see how your formatting looks like until you compile the document. The good thing is that you can be sure, that a header level 1 is a header level 1 and all header level 1 will look the same in the final document. Here is an overview of the most common formating:
+Markdown is a simple textformatting language. Similar to HTML or Latex, you write plain text. Punctuation characters indicate the formating. For example a ` # header1` indicates a header on the top level. You can make you text italic by enclosing it in 2 asterisk (`*italic*`). If you have never worked with HTML, Latex or Markdown before, this may appear strange to you: Your text appears to have no format and you cannot see how your formatting looks like until you compile the document.  This means, have to click on the "Knit" button to compile R Markdown to see the formating of your output file.The good thing is that you can be sure, that a header level 1 is a header level 1 and all header level 1 will look the same in the final document. Here is an overview of the most common formating:
 
 ![](/post/2015-07-23-r-rmarkdown_files/RMarkdownLang.png){width=400px}
 
@@ -76,16 +76,16 @@ Source [RMarkdown Cheat Sheet ](https://www.rstudio.com/wp-content/uploads/2015/
 
 
 ### R Code Chunks
-Just write your R code and wrap it around 3 apostrophies followed by `{r}`. This tells R Markdown that you want to write R code (You could also insert for example python `{python}`, bash `{bash}` or sql {`sql}`). Insert as many code chunks as you want. Instead of typing 3 apostrophies and the curly braces everytime, you can simply type *command-option-I* on the Mac and *Ctrl-Alt-I* on Windows to create a new code chunk. Per default, R will execute this code chunk and display the code and the results in the output file when you "knit" your .Rmd file.
+Just write your R code and wrap it around 3 apostrophies followed by `{r}`. This tells R Markdown that you want to write R code (You could also insert for example python `{python}`, bash `{bash}` or sql {`sql}`). Insert as many code chunks as you want. Instead of typing 3 apostrophies and the curly braces everytime, you can simply press *command-option-I* on the Mac and *Ctrl-Alt-I* on Windows to create a new code chunk. Per default, R will execute this code chunk and display the code and the results in the output file when you "knit" your .Rmd file.
 
 ````r
 `r ''````{r headCars}
 summary(cars)
 ```
 ````
-You have previously executed the example code by clicking on the "Knit"" button in R Studio. This opens a new session and runs the entire .Rmd File. Remember: this means you're starting with a new clean environment. You can also run single R code chunks separately. Click on the little green triange in the right corner of your code chunk and only this chunk will run. You can see, that the results are shown directly below your code.
+You have previously executed the example code by clicking on the "Knit" button in R Studio. This opens a new session and runs the entire .Rmd file. This means you're starting with a new clean environment. You can also run single R code chunks separately. Click on the little green triange in the right corner of your code chunk and only this chunk will run. You can see, that the results are shown directly below your code.
 
-Within the curly braces of your R code chunks, you can name them. I named our first code chunk "headCars". In addition, you can pass *options*. Options tell R what it should do with this code chunk For example, for not displaying any R code in the output file pass `echo = FALSE`:
+You can give names to your code chunks within the curly braces of your R code chunks. I named our first code chunk "headCars". In addition, you can pass *options*. Options tell R what it should do with this code chunk For example, for not displaying any R code in the output file pass `echo = FALSE`:
 
 ````r
 `r ''````{r headCars, echo = FALSE}
@@ -119,7 +119,7 @@ Here is a brief overview of the options, I use the most.
 |do not show any warnings| warings = FALSE | no|
 |do not show any errors | error = FALSE | no|
 
-You're wondering whether you have to pass the same options to all your code chunks? You don't. You can determine global options at the beginning of your markdown document. Here in this example, where I told R Markdown to not print any code. 
+You're wondering whether you have to pass the same options to all your code chunks? You don't. You can determine global options at the beginning of your .Rmd file Here in this example, where I told R Markdown to not print any code. 
 
 ````r
 `r ''````{r globaloptions, include=FALSE}
@@ -131,7 +131,7 @@ The code chunk options overwrite the global options. So if there is one code chu
 
 # Insert plots & figures
 
-You can easily insert the figures that are created with R code. Just write R code within your code chunks, that creates a plot. R Markdown will insert your plot at right after your code.
+You can easily insert the figures that are created with R code. Just write R code within your code chunks, that creates a plot. R Markdown will insert your plot right after your code.
 
 
 ````r
@@ -145,7 +145,7 @@ plot(cars$speed, cars$dist)
 
 As you have done previously, you can use the options of code chunks to alter your output. This works for figures as well. Most figure options start with `fig.`. For example, you can change the  size (`fig.height, fig.width` (default size = 7 inches)), the alignment (`fig.align` ("left","right","center")) and the caption (`fig.cap`) of your plot.
 
-Let's create a wide plot, which is aligned left and give it a caption.
+Let's create a wide plot, which with central alignment give it a caption.
  
  ````r
 `r ''````{r myWidePlot, fig.height = 4, fig.align = "center", fig.cap = "my wide plot"}
@@ -157,7 +157,7 @@ plot(cars$speed, cars$dist)
 ```
 
 
-What about local images or GIFS from the internet? You can include them as well. Here is an example The brackets are optional, if you want a title for the figure. Paste the path to the image into the braces.
+What about local images or GIFS from the internet? You can include them as well. Here is an example. The brackets are optional, if you want a title for the figure. Paste the path to the image into the braces.
 
 ```markdown
 ![My plot caption](https://media.giphy.com/media/6rzRsF6ghqxSE/giphy.gif)
@@ -189,7 +189,7 @@ head(cars)
 head(cars)
 ```
 
-Still not very pretty. One quick and simple way to create nicer looking tables is by using the `kable` function from the `knitr` package.
+Still not very pretty.The `kable` function from the `knitr` package provides nicer looking tables.
 
 ````r
 `r ''````{r carsTable, comment= FALSE}

@@ -11,7 +11,7 @@ In this post I will show you some of my best practises for using R Markdown for 
 
 1. How to create beautiful tables with conditional formating with kableExtra
 
-2. How to include your results in the (Markdown) test
+2. How to include your results in the (Markdown) text
 
 3. How to include global variables.
 
@@ -37,7 +37,7 @@ head(iris) %>%
 
 
 
-By default, tables take 100 % of the page width.If you have only a few columns, this looks weird. You create less wide tables by setting ` full_width = F`
+By default, tables take 100 % of the page width. For tables with few columns, this looks weird. You create less wide tables by setting ` full_width = FALSE`
 
 ````r
 `r ''````{r myTable}

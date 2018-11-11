@@ -13,7 +13,7 @@ tags: ["R","R Markdown", "Reporting","Analytics"]
 <p>In this post I will show you some of my best practises for using R Markdown for reporting. We will cover</p>
 <ol style="list-style-type: decimal">
 <li><p>How to create beautiful tables with conditional formating with kableExtra</p></li>
-<li><p>How to include your results in the (Markdown) test</p></li>
+<li><p>How to include your results in the (Markdown) text</p></li>
 <li><p>How to include global variables.</p></li>
 </ol>
 <div id="create-beautiful-tables-with-kableextra" class="section level1">
@@ -150,7 +150,7 @@ setosa
 </tr>
 </tbody>
 </table>
-<p>By default, tables take 100 % of the page width.If you have only a few columns, this looks weird. You create less wide tables by setting <code>full_width = F</code></p>
+<p>By default, tables take 100 % of the page width. For tables with few columns, this looks weird. You create less wide tables by setting <code>full_width = FALSE</code></p>
 <pre class="r"><code>```{r myTable}
 library(kableExtra)
 head(iris[1:2]) %&gt;%

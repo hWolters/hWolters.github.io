@@ -290,24 +290,24 @@ if (!doNotTrack) {
 <p>I strongly encourage everybody working with R to use R Markdown. I promise, it will make your life so much easier. Here are some examples when R Markdown can be very useful:</p>
 <ul>
 <li><p><strong>Results sharing:</strong> You just did a great analysis and want to share your results with your team. Then you start copy pasting your Output into Excel, Word or PowerPoint. Don’t do that! It takes so much time and you might forget to copy paste the most curret version of a plot or an analysis. R Markdown can automatically convert your results to many formats such as html, word and pdf. No more copy pasting necessary! This will not only save you lot’s of time, it is also less error prone: With R Markdown, everything is up to date automatically!</p></li>
-<li><p><strong>Data exploration</strong> You are looking at various summary statistics and plots to understand your data. Without R Markdown, you might scroll through your console and use the back and forward button in the R Studio Viewer. This is cumbersome! You can use R Markdown like a Notebook and see multiple output tables and plots without having to use the RStudio Viewer back buttons. At the same time, you can see the code, that produced the plot. Which brings me to my next point.</p></li>
+<li><p><strong>Data exploration</strong> You are looking at various summary statistics and plots to understand your data. Without R Markdown, you might scroll through your console and use the back and forward button in the R Studio Viewer. This is cumbersome! You can use R Markdown like a Notebook and see multiple output tables and plots without having to use the RStudio Viewer back buttons. At the same time, you can see the code, that produced the plot. Which brings me to my next point:</p></li>
 <li><p><strong>Replicable Analyses:</strong> In general, all your results should be repoducible. If you just save a plot or a result, do you know exaclty which steps you needed? If you’re a really organized person, this might be possible with naming conventions. But again, R Markdown can make your life so much easier: You can save your results (e.g. a plot or a table) and the code that created it, in one file.</p></li>
-<li><p><strong>Automated reports:</strong> With R Markdown, you can automate analyses that need to be consistent and in the same format everytime.</p></li>
+<li><p><strong>Automated reports:</strong> With R Markdown, you can automate analyses that need to be consistent and in the same format every time.</p></li>
 </ul>
 <div id="so-how-does-it-work" class="section level3">
 <h3>So how does it work?</h3>
-<p>In an R Markdown File (Rmd) you can combine <strong>R code chunks</strong> and <strong>text</strong> (which is written in a Markdown language. More in a second!). Your R code will be excecuted and your results will be displayed. Everything is “knitted”&quot; together to a Markdown format, which can be converted into almost any format through Pandoc. The outputfile may contain your code, descriptions (executed Markdown) and the R output (tables, plots, numbers…). This may sound complicated. But all you have to do is write this file, choose your output format and press the “Knit” button in R studio.</p>
-<p>Sounds magical? Let’s create your first R Markdown file in R Studio. I encourage you to use R Studio, because it provides a lot of awesomefeatures which simplify working with R Markdown.</p>
+<p>In an R Markdown File (.Rmd) you can combine <strong>R code chunks</strong> and <strong>text</strong> (which is written in a Markdown language. More in a second!). Your R code will be excecuted and your results will be displayed. Everything is “knitted” together to a Markdown format, which can be converted into almost any format through Pandoc. The outputfile may contain your code, formated text (executed Markdown) and the R output (tables, plots, numbers…). This may sound complicated. But all you have to do is write this file, choose your output format and press the “Knit” button in R studio.</p>
+<p>Sounds magical? Let’s create your first R Markdown file in R Studio. I encourage you to use R Studio, because it provides a lot of awesome features, which simplify working with R Markdown.</p>
 <ol style="list-style-type: decimal">
 <li><p>Go to File –&gt; New File –&gt; R Markdown.</p></li>
 <li><p>Choose a Title. It does not matter and can be changed easily afterwards</p></li>
 <li><p>Choose your desired output (Word, Pdf…) format. Let’s choose html as a start!</p></li>
+<li><p>(Maybe do you need to install additional packages, R Markdown will tell you which)</p></li>
 </ol>
-<p>4.(Maybe do you need to install additional packages, R Markdown will tell you which)</p>
 <p>There is your first R Markdown file. It already contains a little code. Let’s talk about the structure of an R Markdown document.</p>
 </div>
 <div id="rmd-file-strucutre" class="section level1">
-<h1>Rmd File Strucutre</h1>
+<h1>.Rmd File Strucutre</h1>
 <p>There are 3 different kind of code.</p>
 <ol style="list-style-type: decimal">
 <li>YAML Header</li>
@@ -317,7 +317,7 @@ if (!doNotTrack) {
 <p>If you press the “Knit” button, you see, that this runs perfectly and creates an output file. You just successfully compiled your first .Rmd file! A window with your output file should open up. Let’s look at the 3 different kinds of code in your .Rmd example file.</p>
 <div id="yaml-header" class="section level3">
 <h3>YAML Header</h3>
-<p>The header is on top of every Rmd file. The code is enclosed with 3 dashes. Your Header contains meta data about your Rmd File, such as the author, date and output format. You can add additional stuff such as gloabal variables. But don’t worry about your header too much for now. Let it just be there.</p>
+<p>The header is on top of every .Rmd file. The code is enclosed with 3 dashes. Your Header contains meta data about your .Rmd file, such as the author, date and output format. You can add additional stuff such as gloabal variables. But don’t worry about your header too much for now. Let it just be there.</p>
 <pre class="r"><code>--- 
 title: &quot;My first R Markdown document&quot;
 author: &quot;Heike W&quot;
@@ -327,7 +327,7 @@ output: html_document
 </div>
 <div id="markdown-text" class="section level3">
 <h3>Markdown (Text)</h3>
-<p>Markdown is a simple textformatting language. Similar to HTML or Latex, you write plain text. Punctuation characters indicate the formating. For example a <code>#header1</code> indicates a header on the top level. You can make you text italic by enclosing it in 2 asterisk (<code>*italic*</code>). If you have never worked with HTML, Latex or Markdown before, this may appear strange to you: Your text appears to have no format and you cannot see how your formatting looks like until you compile the document. The good thing is that you can be sure, that a header level 1 is a header level 1 and all header level 1 will look the same in the final document. Here is an overview of the most common formating:</p>
+<p>Markdown is a simple textformatting language. Similar to HTML or Latex, you write plain text. Punctuation characters indicate the formating. For example a <code># header1</code> indicates a header on the top level. You can make you text italic by enclosing it in 2 asterisk (<code>*italic*</code>). If you have never worked with HTML, Latex or Markdown before, this may appear strange to you: Your text appears to have no format and you cannot see how your formatting looks like until you compile the document. This means, have to click on the “Knit” button to compile R Markdown to see the formating of your output file.The good thing is that you can be sure, that a header level 1 is a header level 1 and all header level 1 will look the same in the final document. Here is an overview of the most common formating:</p>
 <div class="figure">
 <img src="/post/2015-07-23-r-rmarkdown_files/RMarkdownLang.png" width="400" />
 
@@ -336,12 +336,12 @@ output: html_document
 </div>
 <div id="r-code-chunks" class="section level3">
 <h3>R Code Chunks</h3>
-<p>Just write your R code and wrap it around 3 apostrophies followed by <code>{r}</code>. This tells R Markdown that you want to write R code (You could also insert for example python <code>{python}</code>, bash <code>{bash}</code> or sql {<code>sql}</code>). Insert as many code chunks as you want. Instead of typing 3 apostrophies and the curly braces everytime, you can simply type <em>command-option-I</em> on the Mac and <em>Ctrl-Alt-I</em> on Windows to create a new code chunk. Per default, R will execute this code chunk and display the code and the results in the output file when you “knit” your .Rmd file.</p>
+<p>Just write your R code and wrap it around 3 apostrophies followed by <code>{r}</code>. This tells R Markdown that you want to write R code (You could also insert for example python <code>{python}</code>, bash <code>{bash}</code> or sql {<code>sql}</code>). Insert as many code chunks as you want. Instead of typing 3 apostrophies and the curly braces everytime, you can simply press <em>command-option-I</em> on the Mac and <em>Ctrl-Alt-I</em> on Windows to create a new code chunk. Per default, R will execute this code chunk and display the code and the results in the output file when you “knit” your .Rmd file.</p>
 <pre class="r"><code>```{r headCars}
 summary(cars)
 ```</code></pre>
-<p>You have previously executed the example code by clicking on the “Knit”&quot; button in R Studio. This opens a new session and runs the entire .Rmd File. Remember: this means you’re starting with a new clean environment. You can also run single R code chunks separately. Click on the little green triange in the right corner of your code chunk and only this chunk will run. You can see, that the results are shown directly below your code.</p>
-<p>Within the curly braces of your R code chunks, you can name them. I named our first code chunk “headCars”. In addition, you can pass <em>options</em>. Options tell R what it should do with this code chunk For example, for not displaying any R code in the output file pass <code>echo = FALSE</code>:</p>
+<p>You have previously executed the example code by clicking on the “Knit” button in R Studio. This opens a new session and runs the entire .Rmd file. This means you’re starting with a new clean environment. You can also run single R code chunks separately. Click on the little green triange in the right corner of your code chunk and only this chunk will run. You can see, that the results are shown directly below your code.</p>
+<p>You can give names to your code chunks within the curly braces of your R code chunks. I named our first code chunk “headCars”. In addition, you can pass <em>options</em>. Options tell R what it should do with this code chunk For example, for not displaying any R code in the output file pass <code>echo = FALSE</code>:</p>
 <pre class="r"><code>```{r headCars, echo = FALSE}
 summary(cars)
 ```</code></pre>
@@ -400,7 +400,7 @@ summary(cars)
 </tr>
 </tbody>
 </table>
-<p>You’re wondering whether you have to pass the same options to all your code chunks? You don’t. You can determine global options at the beginning of your markdown document. Here in this example, where I told R Markdown to not print any code.</p>
+<p>You’re wondering whether you have to pass the same options to all your code chunks? You don’t. You can determine global options at the beginning of your .Rmd file Here in this example, where I told R Markdown to not print any code.</p>
 <pre class="r"><code>```{r globaloptions, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```</code></pre>
@@ -409,13 +409,13 @@ knitr::opts_chunk$set(echo = FALSE)
 </div>
 <div id="insert-plots-figures" class="section level1">
 <h1>Insert plots &amp; figures</h1>
-<p>You can easily insert the figures that are created with R code. Just write R code within your code chunks, that creates a plot. R Markdown will insert your plot at right after your code.</p>
+<p>You can easily insert the figures that are created with R code. Just write R code within your code chunks, that creates a plot. R Markdown will insert your plot right after your code.</p>
 <pre class="r"><code>```{r firstPlot}
 plot(cars$speed, cars$dist)
 ```</code></pre>
 <p><img src="/./post/2015-07-23-r-rmarkdown_files/figure-html/firstPlot2-1.png" width="672" /></p>
 <p>As you have done previously, you can use the options of code chunks to alter your output. This works for figures as well. Most figure options start with <code>fig.</code>. For example, you can change the size (<code>fig.height, fig.width</code> (default size = 7 inches)), the alignment (<code>fig.align</code> (“left”,“right”,“center”)) and the caption (<code>fig.cap</code>) of your plot.</p>
-<p>Let’s create a wide plot, which is aligned left and give it a caption.</p>
+<p>Let’s create a wide plot, which with central alignment give it a caption.</p>
 <code>r ```{r myWidePlot, fig.height = 4, fig.align = &quot;center&quot;, fig.cap = &quot;my wide plot&quot;} plot(cars$speed, cars$dist) ```</code>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-1"></span>
 <img src="/./post/2015-07-23-r-rmarkdown_files/figure-html/unnamed-chunk-1-1.png" alt="my wide plot" width="672" />
@@ -423,7 +423,7 @@ plot(cars$speed, cars$dist)
 Figure 1: my wide plot
 </p>
 </div>
-<p>What about local images or GIFS from the internet? You can include them as well. Here is an example The brackets are optional, if you want a title for the figure. Paste the path to the image into the braces.</p>
+<p>What about local images or GIFS from the internet? You can include them as well. Here is an example. The brackets are optional, if you want a title for the figure. Paste the path to the image into the braces.</p>
 <pre class="markdown"><code>![My plot caption](https://media.giphy.com/media/6rzRsF6ghqxSE/giphy.gif)</code></pre>
 <div class="figure">
 <img src="https://media.giphy.com/media/6rzRsF6ghqxSE/giphy.gif" alt="My plot caption" />
@@ -454,7 +454,7 @@ FALSE 3     7    4
 FALSE 4     7   22
 FALSE 5     8   16
 FALSE 6     9   10</code></pre>
-<p>Still not very pretty. One quick and simple way to create nicer looking tables is by using the <code>kable</code> function from the <code>knitr</code> package.</p>
+<p>Still not very pretty.The <code>kable</code> function from the <code>knitr</code> package provides nicer looking tables.</p>
 <pre class="r"><code>```{r carsTable, comment= FALSE}
 library(knitr)
 kable(head(cars))
@@ -749,7 +749,7 @@ kable(head(cars))
               </span>
               <div class="media-content hide-xs font-merryweather">In this post I will show you some of my best practises for using R Markdown for reporting. We will cover
 How to create beautiful tables with conditional formating with kableExtra
- How to include your results in the (Markdown) test
+ How to include your results in the (Markdown) text
  How to include global variables.
   Create beautiful tables with kableExtra kableExtra is a nice library that allows you to format and style your tables. It workds similar to ggplot2: You create a base table and then add formating layers with the pipe operator %&gt;%.</div>
             </div>
