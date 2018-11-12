@@ -56,6 +56,12 @@ How to create tables with conditional formating with kableExtra
     
       <meta property="article:tag" content="Analytics">
     
+      <meta property="article:tag" content="kableExtra">
+    
+      <meta property="article:tag" content="Tables">
+    
+      <meta property="article:tag" content="Knitr">
+    
   
 
 
@@ -286,6 +292,14 @@ head(iris) %&gt;%
   kable() %&gt;%
   kable_styling()
 ```</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -480,7 +494,7 @@ Sepal.Width
 </tr>
 </tbody>
 </table>
-<p>You can pass various arguments to <code>kable_styling</code> to influence the Font and the position of the table. E.g. <code>font_size = 7</code> or <code>position = &quot;left&quot;</code>. To wrap text around the table use <code>position = &quot;float_right&quot;</code>.</p>
+<p>You can pass various arguments to <code>kable_styling</code> to influence the font and the position of the table. E.g. <code>font_size = 7</code> or <code>position = &quot;left&quot;</code>. To wrap text around the table use <code>position = &quot;float_right&quot;</code>.</p>
 <p>Let’s increase the font size and position the table on the left.</p>
 <pre class="r"><code>library(kableExtra)
 head(iris[c(&quot;Species&quot;,&quot;Sepal.Length&quot;)]) %&gt;%
@@ -551,7 +565,7 @@ setosa
 </div>
 <div id="column-and-row-formatting" class="section level2">
 <h2>Column and row formatting</h2>
-<p>You can format specific rows and columns with <code>column_spec()</code> or <code>row_spec()</code>. The first argument is the index of the rows or columns you want to format. Then you can pass formating arguments such as <code>bold = TRUE</code>, <code>color = &quot;black&quot;</code> or <code>background =&quot;grey&quot;</code>. So let’s make the first column bold, add a right border, color the text blue and the background grey.</p>
+<p>You can format specific rows and columns with <code>column_spec()</code> or <code>row_spec()</code>. The first argument is the index of the rows or columns you want to format. Then you can pass formating arguments such as <code>bold = TRUE</code>, <code>color = &quot;black&quot;</code> or <code>background =&quot;grey&quot;</code>. So let’s make the first column bold, add a right border, color the text black and the background grey.</p>
 <pre class="r"><code>library(kableExtra)
 head(iris[c(&quot;Species&quot;,&quot;Sepal.Length&quot;)]) %&gt;%
   kable() %&gt;%
@@ -619,7 +633,7 @@ setosa
 </tr>
 </tbody>
 </table>
-<p>The third row have Sepal.Length &gt; 5! We should color the entire row red!</p>
+<p>The first and the 6th row have Sepal.Length &gt; 5! We should color the entire row red!</p>
 <pre class="r"><code>library(kableExtra)
 head(iris[c(&quot;Species&quot;,&quot;Sepal.Length&quot;)])%&gt;%
   kable() %&gt;%
@@ -688,17 +702,8 @@ setosa
 </tr>
 </tbody>
 </table>
-<p>Wait, could I set colors automatically? Yes, of course. This can be useful in reporting: Maybe you want to color values &lt; 0 red. You can combine your formating specifications with ifelse using the <code>cell_spec</code> function. You have to apply <code>cell_spec</code> to a <code>data.frame</code> and not <code>knitr_kable</code>. Therefore, you first have to “mutate” your <code>data.frame</code> with <code>cell_spec</code> and in a second step apply <code>kable</code>. The <code>cell_spec</code> function creates pure html code. That’s why you need to pass one additional argument <code>escape = FALSE</code>. Currently, <code>cell_spec supports</code> features including bold, italic, monospace, text color, background color, align, font size &amp; rotation angle.</p>
-<pre class="r"><code>library(kableExtra)
-library(dplyr)</code></pre>
-<pre><code>## 
-## Attaching package: &#39;dplyr&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     filter, lag</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     intersect, setdiff, setequal, union</code></pre>
+<p>At this point you may be wondering: Can I set colors automatically? Yes, of course you can. This is a pretty common task in reports: For example coloring values &lt; 0 in financial reports red. <code>cell_spec</code> is the function you need. You have to apply <code>cell_spec</code> to a <code>data.frame</code> and not <code>knitr_kable</code> object. First you have to create a new column in your <code>data.frame</code> with <code>cell_spec</code> for example by using the <code>mutate</code> function from the <code>dplyr</code> package. Second, apply <code>kable(escape = FALSE)</code>. The <code>cell_spec</code> function creates pure html code. That’s why you need to pass the additional argument <code>escape = FALSE</code>. Currently, <code>cell_spec</code> supports features including bold, italic, monospace, text color, background color, align, font size and rotation angle.</p>
+<p>Here is an example how you could change the color of the text in a cell based on its values:</p>
 <pre class="r"><code>head(iris[c(&quot;Species&quot;,&quot;Sepal.Length&quot;)]) %&gt;%
   mutate(
     Sepal.Length = cell_spec(Sepal.Length, color = ifelse(Sepal.Length &gt; 5, &quot;green&quot;,&quot;red&quot;))) %&gt;%
@@ -767,7 +772,14 @@ setosa
 </tr>
 </tbody>
 </table>
+<p>For more formatting tips such as grouping, popover messages and bootstrapping, I’ll refer you to the <a href="https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html">kableExtra documentation</a></p>
 </div>
+</div>
+<div id="insert-results-in-text" class="section level1">
+<h1>Insert results in text</h1>
+</div>
+<div id="use-global-variables" class="section level1">
+<h1>Use global variables</h1>
 </div>
 
               
@@ -788,6 +800,12 @@ setosa
   <a class="tag tag--primary tag--small" href="/tags/reporting/">Reporting</a>
 
   <a class="tag tag--primary tag--small" href="/tags/analytics/">Analytics</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/kableextra/">kableExtra</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/tables/">Tables</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/knitr/">Knitr</a>
 
                   </div>
                 

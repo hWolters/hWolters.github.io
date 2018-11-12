@@ -1,9 +1,16 @@
 ---
-title: "R Markdown for Novices: All you need to know to get started"
+title: 'R Markdown for Novices: All you need to know to get started'
 author: "H W"
 date: '2018-11-03T21:13:14-05:00'
-categories: ["R"]
-tags: ["R Markdown", "R", "knitr","Markdown","YAML","Documentation", "Reproducible Research"]
+tags:
+- R Markdown
+- R
+- knitr
+- Markdown
+- YAML
+- Documentation
+- Reproducible Research
+categories: R
 ---
 
 ```{r setup, include=FALSE}
@@ -68,7 +75,7 @@ output: html_document
 
 
 ### Markdown (Text)
-Markdown is a simple textformatting language. Similar to HTML or Latex, you write plain text. Punctuation characters indicate the formating. For example a ` # header1` indicates a header on the top level. You can make you text italic by enclosing it in 2 asterisk (`*italic*`). If you have never worked with HTML, Latex or Markdown before, this may appear strange to you: Your text appears to have no format and you cannot see how your formatting looks like until you compile the document.  This means, have to click on the "Knit" button to compile R Markdown to see the formating of your output file.The good thing is that you can be sure, that a header level 1 is a header level 1 and all header level 1 will look the same in the final document. Here is an overview of the most common formating:
+Markdown is a simple textformatting language. Similar to HTML or Latex, you write plain text. Punctuation characters indicate the formating. For example a ` # header1` indicates a header on the top level. You can make you text italic by enclosing it in 2 asterisk (`*italic*`). If you have never worked with HTML, Latex or Markdown before, this may appear strange to you: Your text appears to have no format. You cannot see how your formatting looks like until you compile the document. You have to click on the "Knit" button to compile your R Markdown. Then you will see the formating of your output file.The good thing is that you can be sure, that a header level 1 is a header level 1 and all header level 1 will look the same in the final document. Here is an overview of the most common formating:
 
 ![](/post/2015-07-23-r-rmarkdown_files/RMarkdownLang.png){width=400px}
 
@@ -85,7 +92,7 @@ summary(cars)
 ````
 You have previously executed the example code by clicking on the "Knit" button in R Studio. This opens a new session and runs the entire .Rmd file. This means you're starting with a new clean environment. You can also run single R code chunks separately. Click on the little green triange in the right corner of your code chunk and only this chunk will run. You can see, that the results are shown directly below your code.
 
-You can give names to your code chunks within the curly braces of your R code chunks. I named our first code chunk "headCars". In addition, you can pass *options*. Options tell R what it should do with this code chunk For example, for not displaying any R code in the output file pass `echo = FALSE`:
+You can give names to your code chunks within the curly braces of your R code chunks. I named our first code chunk "headCars". In addition, you can pass *options*. Options tell R what it should do with this code chunk. For example, for not displaying any R code in the output file pass `echo = FALSE`:
 
 ````r
 `r ''````{r headCars, echo = FALSE}
@@ -119,7 +126,9 @@ Here is a brief overview of the options, I use the most.
 |do not show any warnings| warings = FALSE | no|
 |do not show any errors | error = FALSE | no|
 
-You're wondering whether you have to pass the same options to all your code chunks? You don't. You can determine global options at the beginning of your .Rmd file Here in this example, where I told R Markdown to not print any code. 
+You can find a comprehensive overview about code chunk options on [Yihui Xie's website](https://yihui.name/knitr/options/)
+
+You're wondering whether you have to pass the same options to all your code chunks? You don't. You can determine **global options** at the beginning of your .Rmd file Here in this example, where I told R Markdown to not print any code. 
 
 ````r
 `r ''````{r globaloptions, include=FALSE}
@@ -189,7 +198,7 @@ head(cars)
 head(cars)
 ```
 
-Still not very pretty.The `kable` function from the `knitr` package provides nicer looking tables.
+Hm, still not very pretty! The `kable` function from the `knitr` package provides nicer looking tables.
 
 ````r
 `r ''````{r carsTable, comment= FALSE}

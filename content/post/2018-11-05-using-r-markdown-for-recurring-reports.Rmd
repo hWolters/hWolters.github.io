@@ -4,7 +4,7 @@ author: Heike
 date: '2018-11-05'
 slug: using-r-markdown-for-recurring-reports
 categories: []
-tags: ["R","R Markdown", "Reporting","Analytics"]
+tags: ["R","R Markdown", "Reporting","Analytics", "kableExtra", "Tables","Knitr"]
 ---
 
 In this post I will show you some of my best practises for using R Markdown for reporting. We will cover
@@ -32,6 +32,8 @@ head(iris) %>%
 
 ```{r, echo = FALSE}
 library(kableExtra)
+library(dplyr)
+library(kableExtra)
 head(iris) %>%
   kable() %>%
   kable_styling()
@@ -57,7 +59,7 @@ head(iris[1:2])  %>%
   kable_styling(full_width = FALSE)
 ```
 
-You can pass various arguments to `kable_styling` to influence the Font and the position of the table. E.g. `font_size = 7` or `position = "left"`. To wrap text around the table use `position = "float_right"`.
+You can pass various arguments to `kable_styling` to influence the font and the position of the table. E.g. `font_size = 7` or `position = "left"`. To wrap text around the table use `position = "float_right"`.
 
 Let's increase the font size and position the table on the left.
 
@@ -70,7 +72,7 @@ head(iris[c("Species","Sepal.Length")]) %>%
 
 ## Column and row formatting
 
-You can format specific rows and columns with `column_spec()` or `row_spec()`. The first argument is the index of the rows or columns you want to format. Then you can pass formating arguments such as `bold = TRUE`, `color = "black"` or `background ="grey"`. So let's make the first column bold, add a right border, color the text blue and the background grey.
+You can format specific rows and columns with `column_spec()` or `row_spec()`. The first argument is the index of the rows or columns you want to format. Then you can pass formating arguments such as `bold = TRUE`, `color = "black"` or `background ="grey"`. So let's make the first column bold, add a right border, color the text black and the background grey.
 
 ```{r}
 library(kableExtra)
@@ -80,7 +82,7 @@ head(iris[c("Species","Sepal.Length")]) %>%
   column_spec(1, bold = TRUE, border_right = TRUE, color = "black", background = "lightgrey")
 ```
 
-The third row have Sepal.Length > 5! We should color the entire row red!
+The first and the 6th row have Sepal.Length > 5! We should color the entire row red!
 
 ```{r}
 library(kableExtra)
@@ -91,11 +93,10 @@ head(iris[c("Species","Sepal.Length")])%>%
   row_spec(c(1,6), background  = "red")
 ```
 
-Wait, could I set colors automatically? Yes, of course. This can be useful in reporting: Maybe you want to color values < 0 red. You can combine your formating specifications with ifelse using the `cell_spec` function. You have to apply `cell_spec` to a `data.frame` and not `knitr_kable`. Therefore, you first have to "mutate" your `data.frame` with `cell_spec` and in a second step apply `kable`. The `cell_spec` function creates pure html code. That's why you need to pass  one additional argument `escape = FALSE`. Currently, `cell_spec supports` features including bold, italic, monospace, text color, background color, align, font size & rotation angle. 
+At this point you may be wondering: Can I set colors automatically? Yes, of course you can. This is a pretty common task in reports: For example coloring values < 0 in financial reports red. `cell_spec` is the function you need. You have to apply `cell_spec` to a `data.frame` and not `knitr_kable` object. First you have to create a new column in your `data.frame` with `cell_spec` for example by using the `mutate` function from the `dplyr` package. Second, apply `kable(escape = FALSE)`. The `cell_spec` function creates pure html code. That's why you need to pass the additional argument `escape = FALSE`. Currently, `cell_spec` supports features including bold, italic, monospace, text color, background color, align, font size and rotation angle. 
 
-```{r}
-library(kableExtra)
-library(dplyr)
+Here is an example how you could change the color of the text in a cell based on its values: 
+```{r, messages = FALSE}
 head(iris[c("Species","Sepal.Length")]) %>%
   mutate(
     Sepal.Length = cell_spec(Sepal.Length, color = ifelse(Sepal.Length > 5, "green","red"))) %>%
@@ -104,3 +105,9 @@ head(iris[c("Species","Sepal.Length")]) %>%
     column_spec(1, bold = TRUE, border_right = TRUE, color = "black", background = "lightgrey")
   
 ```
+
+For more formatting tips such as grouping, popover messages and bootstrapping, I'll refer you to the [kableExtra documentation](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html)
+
+# Insert results in text
+
+# Use global variables
