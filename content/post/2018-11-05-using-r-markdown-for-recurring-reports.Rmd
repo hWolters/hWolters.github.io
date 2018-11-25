@@ -1,25 +1,22 @@
 ---
-title: Using R Markdown for recurring Reports
+title: Formatting tables in R Markdown with kableExtra
 author: Heike
 date: '2018-11-05'
-slug: using-r-markdown-for-recurring-reports
+slug: Formatting-tables-in-R-Markdown-with-kableExtra
 categories: []
 tags: ["R","R Markdown", "Reporting","Analytics", "kableExtra", "Tables","Knitr"]
 ---
 
-In this post I will show you some of my best practises for using R Markdown for reporting. We will cover
+In this post, I will show you some of my best practises for formatting tables in R Markdown. We will cover
 
-1. How to create tables with conditional formating with kableExtra
+1. How to generally format tables (font, size, color... )
 
-2. How to include your results in the (Markdown) text
+2. How to create tables with conditional formating (e.g. coloring values < 0 red)
 
-3. How to include global variables.
 
-# Create formated tables with kableExtra
+## The basics: the R package kableExtra
 
-## The basics
-
-`kableExtra` is an awesome library that allows you to format and style your tables. It works similar to `ggplot2`: You create a base table and then add formating layers with the pipe operator `%>%`.
+`kableExtra` is an awesome package that allows you to format and style your tables. It works similar to `ggplot2`: You create a base table and then add formating layers with the pipe operator `%>%`.
 
 ````r
 `r ''````{r myTable}
@@ -30,7 +27,7 @@ head(iris) %>%
 ```
 ````
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, include=FALSE}
 library(kableExtra)
 library(dplyr)
 library(kableExtra)
@@ -108,6 +105,3 @@ head(iris[c("Species","Sepal.Length")]) %>%
 
 For more formatting tips such as grouping, popover messages and bootstrapping, I'll refer you to the [kableExtra documentation](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html)
 
-# Insert results in text
-
-# Use global variables

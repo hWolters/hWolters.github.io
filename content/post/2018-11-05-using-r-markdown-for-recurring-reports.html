@@ -1,8 +1,8 @@
 ---
-title: Using R Markdown for recurring Reports
+title: Formatting tables in R Markdown with kableExtra
 author: Heike
 date: '2018-11-05'
-slug: using-r-markdown-for-recurring-reports
+slug: Formatting-tables-in-R-Markdown-with-kableExtra
 categories: []
 tags: ["R","R Markdown", "Reporting","Analytics", "kableExtra", "Tables","Knitr"]
 ---
@@ -10,156 +10,20 @@ tags: ["R","R Markdown", "Reporting","Analytics", "kableExtra", "Tables","Knitr"
 <script src="/./rmarkdown-libs/kePrint/kePrint.js"></script>
 
 
-<p>In this post I will show you some of my best practises for using R Markdown for reporting. We will cover</p>
+<p>In this post, I will show you some of my best practises for formatting tables in R Markdown. We will cover</p>
 <ol style="list-style-type: decimal">
-<li><p>How to create tables with conditional formating with kableExtra</p></li>
-<li><p>How to include your results in the (Markdown) text</p></li>
-<li><p>How to include global variables.</p></li>
+<li><p>How to generally format tables (font, size, color… )</p></li>
+<li><p>How to create tables with conditional formating (e.g. coloring values &lt; 0 red)</p></li>
 </ol>
-<div id="create-formated-tables-with-kableextra" class="section level1">
-<h1>Create formated tables with kableExtra</h1>
-<div id="the-basics" class="section level2">
-<h2>The basics</h2>
-<p><code>kableExtra</code> is an awesome library that allows you to format and style your tables. It works similar to <code>ggplot2</code>: You create a base table and then add formating layers with the pipe operator <code>%&gt;%</code>.</p>
+<div id="the-basics-the-r-package-kableextra" class="section level2">
+<h2>The basics: the R package kableExtra</h2>
+<p><code>kableExtra</code> is an awesome package that allows you to format and style your tables. It works similar to <code>ggplot2</code>: You create a base table and then add formating layers with the pipe operator <code>%&gt;%</code>.</p>
 <pre class="r"><code>```{r myTable}
 library(kableExtra)
 head(iris) %&gt;%
   kable() %&gt;%
   kable_styling()
 ```</code></pre>
-<pre><code>## 
-## Attaching package: &#39;dplyr&#39;</code></pre>
-<pre><code>## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     filter, lag</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     intersect, setdiff, setequal, union</code></pre>
-<table class="table" style="margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="text-align:right;">
-Sepal.Length
-</th>
-<th style="text-align:right;">
-Sepal.Width
-</th>
-<th style="text-align:right;">
-Petal.Length
-</th>
-<th style="text-align:right;">
-Petal.Width
-</th>
-<th style="text-align:left;">
-Species
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right;">
-5.1
-</td>
-<td style="text-align:right;">
-3.5
-</td>
-<td style="text-align:right;">
-1.4
-</td>
-<td style="text-align:right;">
-0.2
-</td>
-<td style="text-align:left;">
-setosa
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4.9
-</td>
-<td style="text-align:right;">
-3.0
-</td>
-<td style="text-align:right;">
-1.4
-</td>
-<td style="text-align:right;">
-0.2
-</td>
-<td style="text-align:left;">
-setosa
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4.7
-</td>
-<td style="text-align:right;">
-3.2
-</td>
-<td style="text-align:right;">
-1.3
-</td>
-<td style="text-align:right;">
-0.2
-</td>
-<td style="text-align:left;">
-setosa
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4.6
-</td>
-<td style="text-align:right;">
-3.1
-</td>
-<td style="text-align:right;">
-1.5
-</td>
-<td style="text-align:right;">
-0.2
-</td>
-<td style="text-align:left;">
-setosa
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5.0
-</td>
-<td style="text-align:right;">
-3.6
-</td>
-<td style="text-align:right;">
-1.4
-</td>
-<td style="text-align:right;">
-0.2
-</td>
-<td style="text-align:left;">
-setosa
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5.4
-</td>
-<td style="text-align:right;">
-3.9
-</td>
-<td style="text-align:right;">
-1.7
-</td>
-<td style="text-align:right;">
-0.4
-</td>
-<td style="text-align:left;">
-setosa
-</td>
-</tr>
-</tbody>
-</table>
 <p>By default, tables take 100 % of the page width. For tables with few columns, this looks weird. You create less wide tables by setting <code>full_width = FALSE</code></p>
 <pre class="r"><code>```{r myTable}
 library(kableExtra)
@@ -508,11 +372,4 @@ setosa
 </tbody>
 </table>
 <p>For more formatting tips such as grouping, popover messages and bootstrapping, I’ll refer you to the <a href="https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html">kableExtra documentation</a></p>
-</div>
-</div>
-<div id="insert-results-in-text" class="section level1">
-<h1>Insert results in text</h1>
-</div>
-<div id="use-global-variables" class="section level1">
-<h1>Use global variables</h1>
 </div>
