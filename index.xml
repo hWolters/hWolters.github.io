@@ -6,22 +6,31 @@
     <description>Recent content on My R Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 05 Nov 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 07 Dec 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/./index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Using R Markdown for recurring Reports</title>
-      <link>/./2018/11/05/using-r-markdown-for-recurring-reports/</link>
+      <title>Automatically changing the R working directory on Mac OS to source file location</title>
+      <link>/./2018/12/07/changing-working-directories/</link>
+      <pubDate>Fri, 07 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/./2018/12/07/changing-working-directories/</guid>
+      <description>This post is about how to change your R working directory. You might be wondering:
+Why would I want to do that? You need this as soon as your script interacts with folders on your computer. For example for imports or exports of data or figures. So probably almost always. Let’s say you have a script that creates plots and saves them in the folder “Plots”, which is located in your source file directory.</description>
+    </item>
+    
+    <item>
+      <title>Formatting tables in R Markdown with kableExtra</title>
+      <link>/./2018/11/05/formatting-tables-in-r-markdown-with-kableextra/</link>
       <pubDate>Mon, 05 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>/./2018/11/05/using-r-markdown-for-recurring-reports/</guid>
-      <description>In this post I will show you some of my best practises for using R Markdown for reporting. We will cover
-How to create tables with conditional formating with kableExtra
- How to include your results in the (Markdown) text
- How to include global variables.
-  Create formated tables with kableExtra The basics kableExtra is an awesome library that allows you to format and style your tables.</description>
+      <guid>/./2018/11/05/formatting-tables-in-r-markdown-with-kableextra/</guid>
+      <description>In this post, I will show you some of my best practises for formatting tables in R Markdown. We will cover
+How to generally format tables (font, size, color… )
+ How to create tables with conditional formating (e.g. coloring values &amp;lt; 0 red)
+  The basics: the R package kableExtra kableExtra is an awesome package that allows you to format and style your tables. It works similar to ggplot2: You create a base table and then add formating layers with the pipe operator %&amp;gt;%.</description>
     </item>
     
     <item>

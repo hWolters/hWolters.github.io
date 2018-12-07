@@ -327,7 +327,7 @@ output: html_document
 </div>
 <div id="markdown-text" class="section level3">
 <h3>Markdown (Text)</h3>
-<p>Markdown is a simple textformatting language. Similar to HTML or Latex, you write plain text. Punctuation characters indicate the formating. For example a <code># header1</code> indicates a header on the top level. You can make you text italic by enclosing it in 2 asterisk (<code>*italic*</code>). If you have never worked with HTML, Latex or Markdown before, this may appear strange to you: Your text appears to have no format and you cannot see how your formatting looks like until you compile the document. This means, have to click on the “Knit” button to compile R Markdown to see the formating of your output file.The good thing is that you can be sure, that a header level 1 is a header level 1 and all header level 1 will look the same in the final document. Here is an overview of the most common formating:</p>
+<p>Markdown is a simple textformatting language. Similar to HTML or Latex, you write plain text. Punctuation characters indicate the formating. For example a <code># header1</code> indicates a header on the top level. You can make you text italic by enclosing it in 2 asterisk (<code>*italic*</code>). If you have never worked with HTML, Latex or Markdown before, this may appear strange to you: Your text appears to have no format. You cannot see how your formatting looks like until you compile the document. You have to click on the “Knit” button to compile your R Markdown. Then you will see the formating of your output file.The good thing is that you can be sure, that a header level 1 is a header level 1 and all header level 1 will look the same in the final document. Here is an overview of the most common formating:</p>
 <div class="figure">
 <img src="/post/2015-07-23-r-rmarkdown_files/RMarkdownLang.png" width="400" />
 
@@ -341,7 +341,7 @@ output: html_document
 summary(cars)
 ```</code></pre>
 <p>You have previously executed the example code by clicking on the “Knit” button in R Studio. This opens a new session and runs the entire .Rmd file. This means you’re starting with a new clean environment. You can also run single R code chunks separately. Click on the little green triange in the right corner of your code chunk and only this chunk will run. You can see, that the results are shown directly below your code.</p>
-<p>You can give names to your code chunks within the curly braces of your R code chunks. I named our first code chunk “headCars”. In addition, you can pass <em>options</em>. Options tell R what it should do with this code chunk For example, for not displaying any R code in the output file pass <code>echo = FALSE</code>:</p>
+<p>You can give names to your code chunks within the curly braces of your R code chunks. I named our first code chunk “headCars”. In addition, you can pass <em>options</em>. Options tell R what it should do with this code chunk. For example, for not displaying any R code in the output file pass <code>echo = FALSE</code>:</p>
 <pre class="r"><code>```{r headCars, echo = FALSE}
 summary(cars)
 ```</code></pre>
@@ -400,7 +400,8 @@ summary(cars)
 </tr>
 </tbody>
 </table>
-<p>You can find a comprehensive overview about code chunk options on <a href="https://yihui.name/knitr/options/">Yihui Xie’s website</a> You’re wondering whether you have to pass the same options to all your code chunks? You don’t. You can determine global options at the beginning of your .Rmd file Here in this example, where I told R Markdown to not print any code.</p>
+<p>You can find a comprehensive overview about code chunk options on <a href="https://yihui.name/knitr/options/">Yihui Xie’s website</a></p>
+<p>You’re wondering whether you have to pass the same options to all your code chunks? You don’t. You can determine <strong>global options</strong> at the beginning of your .Rmd file Here in this example, where I told R Markdown to not print any code.</p>
 <pre class="r"><code>```{r globaloptions, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```</code></pre>
@@ -454,7 +455,7 @@ FALSE 3     7    4
 FALSE 4     7   22
 FALSE 5     8   16
 FALSE 6     9   10</code></pre>
-<p>Still not very pretty.The <code>kable</code> function from the <code>knitr</code> package provides nicer looking tables.</p>
+<p>Hm, still not very pretty! The <code>kable</code> function from the <code>knitr</code> package provides nicer looking tables.</p>
 <pre class="r"><code>```{r carsTable, comment= FALSE}
 library(knitr)
 kable(head(cars))
@@ -540,7 +541,7 @@ kable(head(cars))
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2018/11/05/using-r-markdown-for-recurring-reports/" data-tooltip="Using R Markdown for recurring Reports">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2018/11/05/formatting-tables-in-r-markdown-with-kableextra/" data-tooltip="Formatting tables in R Markdown with kableExtra">
               
                   <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                   <i class="fa fa-angle-right"></i>
@@ -620,7 +621,7 @@ kable(head(cars))
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2018/11/05/using-r-markdown-for-recurring-reports/" data-tooltip="Using R Markdown for recurring Reports">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2018/11/05/formatting-tables-in-r-markdown-with-kableextra/" data-tooltip="Formatting tables in R Markdown with kableExtra">
               
                   <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                   <i class="fa fa-angle-right"></i>
@@ -739,19 +740,36 @@ kable(head(cars))
           <div class="media">
             
             <div class="media-body">
-              <a class="link-unstyled" href="/./2018/11/05/using-r-markdown-for-recurring-reports/">
-                <h3 class="media-heading">Using R Markdown for recurring Reports</h3>
+              <a class="link-unstyled" href="/./2018/12/07/changing-working-directories/">
+                <h3 class="media-heading">Automatically changing the R working directory on Mac OS to source file location</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Dec 12, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">This post is about how to change your R working directory. You might be wondering:
+Why would I want to do that? You need this as soon as your script interacts with folders on your computer. For example for imports or exports of data or figures. So probably almost always. Let’s say you have a script that creates plots and saves them in the folder “Plots”, which is located in your source file directory.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="/./2018/11/05/formatting-tables-in-r-markdown-with-kableextra/">
+                <h3 class="media-heading">Formatting tables in R Markdown with kableExtra</h3>
               </a>
               <span class="media-meta">
                 <span class="media-date text-small">
                   Nov 11, 2018
                 </span>
               </span>
-              <div class="media-content hide-xs font-merryweather">In this post I will show you some of my best practises for using R Markdown for reporting. We will cover
-How to create tables with conditional formating with kableExtra
- How to include your results in the (Markdown) text
- How to include global variables.
-  Create formated tables with kableExtra The basics kableExtra is an awesome library that allows you to format and style your tables.</div>
+              <div class="media-content hide-xs font-merryweather">In this post, I will show you some of my best practises for formatting tables in R Markdown. We will cover
+How to generally format tables (font, size, color… )
+ How to create tables with conditional formating (e.g. coloring values &lt; 0 red)
+  The basics: the R package kableExtra kableExtra is an awesome package that allows you to format and style your tables. It works similar to ggplot2: You create a base table and then add formating layers with the pipe operator %&gt;%.</div>
             </div>
             <div style="clear:both;"></div>
             <hr>
@@ -784,7 +802,7 @@ understand why R Markdown may be useful for your daily work as a student, resear
          data-message-zero="no post found"
          data-message-one="1 post found"
          data-message-other="{n} posts found">
-         2 posts found
+         3 posts found
       </p>
     </div>
   </div>

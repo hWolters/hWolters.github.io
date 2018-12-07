@@ -30,11 +30,29 @@
     </item>
     
     <item>
+      <title>Kableextra</title>
+      <link>/./tags/kableextra/</link>
+      <pubDate>Mon, 05 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/./tags/kableextra/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Knitr</title>
       <link>/./tags/knitr/</link>
-      <pubDate>Sat, 03 Nov 2018 21:13:14 -0500</pubDate>
+      <pubDate>Mon, 05 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/./tags/knitr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Macos</title>
+      <link>/./tags/macos/</link>
+      <pubDate>Fri, 07 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/./tags/macos/</guid>
       <description></description>
     </item>
     
@@ -50,7 +68,7 @@
     <item>
       <title>R</title>
       <link>/./tags/r/</link>
-      <pubDate>Mon, 05 Nov 2018 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 07 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>/./tags/r/</guid>
       <description></description>
@@ -77,9 +95,27 @@
     <item>
       <title>Reproducible Research</title>
       <link>/./tags/reproducible-research/</link>
-      <pubDate>Sat, 03 Nov 2018 21:13:14 -0500</pubDate>
+      <pubDate>Fri, 07 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>/./tags/reproducible-research/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tables</title>
+      <link>/./tags/tables/</link>
+      <pubDate>Mon, 05 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/./tags/tables/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Working Directory</title>
+      <link>/./tags/working-directory/</link>
+      <pubDate>Fri, 07 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/./tags/working-directory/</guid>
       <description></description>
     </item>
     

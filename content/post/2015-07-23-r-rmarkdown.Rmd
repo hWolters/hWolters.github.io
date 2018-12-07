@@ -10,7 +10,7 @@ tags:
 - YAML
 - Documentation
 - Reproducible Research
-categories: R
+categories: ["R"]
 ---
 
 ```{r setup, include=FALSE}

@@ -8,37 +8,29 @@
 <meta name="generator" content="Hugo 0.50 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Heike W">
 <meta name="keywords" content=", R, R Studio, Data Science, Analtytics, R Markdown, Research, phd, Text Mining, Natural Language Processing">
-<meta name="description" content="In this post, I will show you some of my best practises for formatting tables in R Markdown. We will cover
-How to generally format tables (font, size, color… )
- How to create tables with conditional formating (e.g. coloring values &lt; 0 red)
-  The basics: the R package kableExtra kableExtra is an awesome package that allows you to format and style your tables. It works similar to ggplot2: You create a base table and then add formating layers with the pipe operator %&gt;%.">
+<meta name="description" content="This post is about how to change your R working directory. You might be wondering:
+Why would I want to do that? You need this as soon as your script interacts with folders on your computer. For example for imports or exports of data or figures. So probably almost always. Let’s say you have a script that creates plots and saves them in the folder “Plots”, which is located in your source file directory.">
 
 
-<meta property="og:description" content="In this post, I will show you some of my best practises for formatting tables in R Markdown. We will cover
-How to generally format tables (font, size, color… )
- How to create tables with conditional formating (e.g. coloring values &lt; 0 red)
-  The basics: the R package kableExtra kableExtra is an awesome package that allows you to format and style your tables. It works similar to ggplot2: You create a base table and then add formating layers with the pipe operator %&gt;%.">
+<meta property="og:description" content="This post is about how to change your R working directory. You might be wondering:
+Why would I want to do that? You need this as soon as your script interacts with folders on your computer. For example for imports or exports of data or figures. So probably almost always. Let’s say you have a script that creates plots and saves them in the folder “Plots”, which is located in your source file directory.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Formatting tables in R Markdown with kableExtra">
-<meta name="twitter:title" content="Formatting tables in R Markdown with kableExtra">
-<meta property="og:url" content="/./2018/11/05/formatting-tables-in-r-markdown-with-kableextra/">
-<meta property="twitter:url" content="/./2018/11/05/formatting-tables-in-r-markdown-with-kableextra/">
+<meta property="og:title" content="Automatically changing the R working directory on Mac OS to source file location">
+<meta name="twitter:title" content="Automatically changing the R working directory on Mac OS to source file location">
+<meta property="og:url" content="/./2018/12/07/changing-working-directories/">
+<meta property="twitter:url" content="/./2018/12/07/changing-working-directories/">
 <meta property="og:site_name" content="My R Blog">
-<meta property="og:description" content="In this post, I will show you some of my best practises for formatting tables in R Markdown. We will cover
-How to generally format tables (font, size, color… )
- How to create tables with conditional formating (e.g. coloring values &lt; 0 red)
-  The basics: the R package kableExtra kableExtra is an awesome package that allows you to format and style your tables. It works similar to ggplot2: You create a base table and then add formating layers with the pipe operator %&gt;%.">
-<meta name="twitter:description" content="In this post, I will show you some of my best practises for formatting tables in R Markdown. We will cover
-How to generally format tables (font, size, color… )
- How to create tables with conditional formating (e.g. coloring values &lt; 0 red)
-  The basics: the R package kableExtra kableExtra is an awesome package that allows you to format and style your tables. It works similar to ggplot2: You create a base table and then add formating layers with the pipe operator %&gt;%.">
+<meta property="og:description" content="This post is about how to change your R working directory. You might be wondering:
+Why would I want to do that? You need this as soon as your script interacts with folders on your computer. For example for imports or exports of data or figures. So probably almost always. Let’s say you have a script that creates plots and saves them in the folder “Plots”, which is located in your source file directory.">
+<meta name="twitter:description" content="This post is about how to change your R working directory. You might be wondering:
+Why would I want to do that? You need this as soon as your script interacts with folders on your computer. For example for imports or exports of data or figures. So probably almost always. Let’s say you have a script that creates plots and saves them in the folder “Plots”, which is located in your source file directory.">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2018-11-05T00:00:00">
+    <meta property="article:published_time" content="2018-12-07T00:00:00">
   
   
-    <meta property="article:modified_time" content="2018-11-05T00:00:00">
+    <meta property="article:modified_time" content="2018-12-07T00:00:00">
   
   
   
@@ -46,17 +38,11 @@ How to generally format tables (font, size, color… )
     
       <meta property="article:tag" content="R">
     
-      <meta property="article:tag" content="R Markdown">
+      <meta property="article:tag" content="Reproducible Research">
     
-      <meta property="article:tag" content="Reporting">
+      <meta property="article:tag" content="MacOS">
     
-      <meta property="article:tag" content="Analytics">
-    
-      <meta property="article:tag" content="kableExtra">
-    
-      <meta property="article:tag" content="Tables">
-    
-      <meta property="article:tag" content="Knitr">
+      <meta property="article:tag" content="working directory">
     
   
 
@@ -77,14 +63,14 @@ How to generally format tables (font, size, color… )
   <meta property="twitter:image" content="/source/assets/img/me.jpg">
 
 
-    <title>Formatting tables in R Markdown with kableExtra</title>
+    <title>Automatically changing the R working directory on Mac OS to source file location</title>
 
     <link rel="icon" href="/favicon.png">
     
 
     
 
-    <link rel="canonical" href="/./2018/11/05/formatting-tables-in-r-markdown-with-kableextra/">
+    <link rel="canonical" href="/./2018/12/07/changing-working-directories/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -243,19 +229,19 @@ if (!doNotTrack) {
             <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      Formatting tables in R Markdown with kableExtra
+      Automatically changing the R working directory on Mac OS to source file location
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2018-11-05T00:00:00Z">
+      <time itemprop="datePublished" datetime="2018-12-07T00:00:00Z">
         
   
   
   
   
-    5 November 2018
+    7 December 2018
   
 
       </time>
@@ -268,371 +254,56 @@ if (!doNotTrack) {
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               
-<script src="/./rmarkdown-libs/kePrint/kePrint.js"></script>
 
 
-<p>In this post, I will show you some of my best practises for formatting tables in R Markdown. We will cover</p>
-<ol style="list-style-type: decimal">
-<li><p>How to generally format tables (font, size, color… )</p></li>
-<li><p>How to create tables with conditional formating (e.g. coloring values &lt; 0 red)</p></li>
-</ol>
-<div id="the-basics-the-r-package-kableextra" class="section level2">
-<h2>The basics: the R package kableExtra</h2>
-<p><code>kableExtra</code> is an awesome package that allows you to format and style your tables. It works similar to <code>ggplot2</code>: You create a base table and then add formating layers with the pipe operator <code>%&gt;%</code>.</p>
-<pre class="r"><code>```{r myTable}
-library(kableExtra)
-head(iris) %&gt;%
-  kable() %&gt;%
-  kable_styling()
-```</code></pre>
-<p>By default, tables take 100 % of the page width. For tables with few columns, this looks weird. You create less wide tables by setting <code>full_width = FALSE</code></p>
-<pre class="r"><code>```{r myTable}
-library(kableExtra)
-head(iris[1:2]) %&gt;%
-  kable() %&gt;%
-  kable_styling(full_width = FALSE)
-```</code></pre>
-<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="text-align:right;">
-Sepal.Length
-</th>
-<th style="text-align:right;">
-Sepal.Width
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right;">
-5.1
-</td>
-<td style="text-align:right;">
-3.5
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4.9
-</td>
-<td style="text-align:right;">
-3.0
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4.7
-</td>
-<td style="text-align:right;">
-3.2
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4.6
-</td>
-<td style="text-align:right;">
-3.1
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5.0
-</td>
-<td style="text-align:right;">
-3.6
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5.4
-</td>
-<td style="text-align:right;">
-3.9
-</td>
-</tr>
-</tbody>
-</table>
-<p>You can pass various arguments to <code>kable_styling</code> to influence the font and the position of the table. E.g. <code>font_size = 7</code> or <code>position = &quot;left&quot;</code>. To wrap text around the table use <code>position = &quot;float_right&quot;</code>.</p>
-<p>Let’s increase the font size and position the table on the left.</p>
-<pre class="r"><code>library(kableExtra)
-head(iris[c(&quot;Species&quot;,&quot;Sepal.Length&quot;)]) %&gt;%
-  kable() %&gt;%
-  kable_styling(font_size = 20, position = &quot;left&quot;, full_width = FALSE)</code></pre>
-<table class="table" style="font-size: 20px; width: auto !important; ">
-<thead>
-<tr>
-<th style="text-align:left;">
-Species
-</th>
-<th style="text-align:right;">
-Sepal.Length
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-setosa
-</td>
-<td style="text-align:right;">
-5.1
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-setosa
-</td>
-<td style="text-align:right;">
-4.9
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-setosa
-</td>
-<td style="text-align:right;">
-4.7
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-setosa
-</td>
-<td style="text-align:right;">
-4.6
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-setosa
-</td>
-<td style="text-align:right;">
-5.0
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-setosa
-</td>
-<td style="text-align:right;">
-5.4
-</td>
-</tr>
-</tbody>
-</table>
+<p>This post is about how to change your R working directory. You might be wondering:</p>
+<div id="why-would-i-want-to-do-that" class="section level3">
+<h3>Why would I want to do that?</h3>
+<p>You need this as soon as your script interacts with folders on your computer. For example for imports or exports of data or figures. So probably almost always. Let’s say you have a script that creates plots and saves them in the folder “Plots”, which is located in your source file directory. You have to make sure to set the working directory to your source file location. Otherwise, R will not find your folder “Plots”. The same is true if you work on a script with several people: If they cloned your git repository, their paths might be different from yours even if you use relative paths. There are several ways to change the working directory to the location of your file:</p>
 </div>
-<div id="column-and-row-formatting" class="section level2">
-<h2>Column and row formatting</h2>
-<p>You can format specific rows and columns with <code>column_spec()</code> or <code>row_spec()</code>. The first argument is the index of the rows or columns you want to format. Then you can pass formating arguments such as <code>bold = TRUE</code>, <code>color = &quot;black&quot;</code> or <code>background =&quot;grey&quot;</code>. So let’s make the first column bold, add a right border, color the text black and the background grey.</p>
-<pre class="r"><code>library(kableExtra)
-head(iris[c(&quot;Species&quot;,&quot;Sepal.Length&quot;)]) %&gt;%
-  kable() %&gt;%
-  kable_styling(position = &quot;left&quot;, full_width = FALSE) %&gt;%
-  column_spec(1, bold = TRUE, border_right = TRUE, color = &quot;black&quot;, background = &quot;lightgrey&quot;)</code></pre>
-<table class="table" style="width: auto !important; ">
-<thead>
-<tr>
-<th style="text-align:left;">
-Species
-</th>
-<th style="text-align:right;">
-Sepal.Length
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;font-weight: bold;color: black;background-color: lightgrey;border-right:1px solid;">
-setosa
-</td>
-<td style="text-align:right;">
-5.1
-</td>
-</tr>
-<tr>
-<td style="text-align:left;font-weight: bold;color: black;background-color: lightgrey;border-right:1px solid;">
-setosa
-</td>
-<td style="text-align:right;">
-4.9
-</td>
-</tr>
-<tr>
-<td style="text-align:left;font-weight: bold;color: black;background-color: lightgrey;border-right:1px solid;">
-setosa
-</td>
-<td style="text-align:right;">
-4.7
-</td>
-</tr>
-<tr>
-<td style="text-align:left;font-weight: bold;color: black;background-color: lightgrey;border-right:1px solid;">
-setosa
-</td>
-<td style="text-align:right;">
-4.6
-</td>
-</tr>
-<tr>
-<td style="text-align:left;font-weight: bold;color: black;background-color: lightgrey;border-right:1px solid;">
-setosa
-</td>
-<td style="text-align:right;">
-5.0
-</td>
-</tr>
-<tr>
-<td style="text-align:left;font-weight: bold;color: black;background-color: lightgrey;border-right:1px solid;">
-setosa
-</td>
-<td style="text-align:right;">
-5.4
-</td>
-</tr>
-</tbody>
-</table>
-<p>The first and the 6th row have Sepal.Length &gt; 5! We should color the entire row red!</p>
-<pre class="r"><code>library(kableExtra)
-head(iris[c(&quot;Species&quot;,&quot;Sepal.Length&quot;)])%&gt;%
-  kable() %&gt;%
-  kable_styling(position = &quot;left&quot;, full_width = FALSE) %&gt;%
-  column_spec(1, bold = TRUE, border_right = TRUE, color = &quot;black&quot;, background = &quot;lightgrey&quot;) %&gt;%
-  row_spec(c(1,6), background  = &quot;red&quot;)</code></pre>
-<table class="table" style="width: auto !important; ">
-<thead>
-<tr>
-<th style="text-align:left;">
-Species
-</th>
-<th style="text-align:right;">
-Sepal.Length
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;font-weight: bold;color: black;background-color: lightgrey;border-right:1px solid;background-color: red;">
-setosa
-</td>
-<td style="text-align:right;background-color: red;">
-5.1
-</td>
-</tr>
-<tr>
-<td style="text-align:left;font-weight: bold;color: black;background-color: lightgrey;border-right:1px solid;">
-setosa
-</td>
-<td style="text-align:right;">
-4.9
-</td>
-</tr>
-<tr>
-<td style="text-align:left;font-weight: bold;color: black;background-color: lightgrey;border-right:1px solid;">
-setosa
-</td>
-<td style="text-align:right;">
-4.7
-</td>
-</tr>
-<tr>
-<td style="text-align:left;font-weight: bold;color: black;background-color: lightgrey;border-right:1px solid;">
-setosa
-</td>
-<td style="text-align:right;">
-4.6
-</td>
-</tr>
-<tr>
-<td style="text-align:left;font-weight: bold;color: black;background-color: lightgrey;border-right:1px solid;">
-setosa
-</td>
-<td style="text-align:right;">
-5.0
-</td>
-</tr>
-<tr>
-<td style="text-align:left;font-weight: bold;color: black;background-color: lightgrey;border-right:1px solid;background-color: red;">
-setosa
-</td>
-<td style="text-align:right;background-color: red;">
-5.4
-</td>
-</tr>
-</tbody>
-</table>
-<p>At this point you may be wondering: Can I set colors automatically? Yes, of course you can. This is a pretty common task in reports: For example coloring values &lt; 0 in financial reports red. <code>cell_spec</code> is the function you need. You have to apply <code>cell_spec</code> to a <code>data.frame</code> and not <code>knitr_kable</code> object. First you have to create a new column in your <code>data.frame</code> with <code>cell_spec</code> for example by using the <code>mutate</code> function from the <code>dplyr</code> package. Second, apply <code>kable(escape = FALSE)</code>. The <code>cell_spec</code> function creates pure html code. That’s why you need to pass the additional argument <code>escape = FALSE</code>. Currently, <code>cell_spec</code> supports features including bold, italic, monospace, text color, background color, align, font size and rotation angle.</p>
-<p>Here is an example how you could change the color of the text in a cell based on its values:</p>
-<pre class="r"><code>head(iris[c(&quot;Species&quot;,&quot;Sepal.Length&quot;)]) %&gt;%
-  mutate(
-    Sepal.Length = cell_spec(Sepal.Length, color = ifelse(Sepal.Length &gt; 5, &quot;green&quot;,&quot;red&quot;))) %&gt;%
-  kable(escape = FALSE) %&gt;%
-  kable_styling(position = &quot;left&quot;, full_width = FALSE) %&gt;%
-    column_spec(1, bold = TRUE, border_right = TRUE, color = &quot;black&quot;, background = &quot;lightgrey&quot;)</code></pre>
-<table class="table" style="width: auto !important; ">
-<thead>
-<tr>
-<th style="text-align:left;">
-Species
-</th>
-<th style="text-align:left;">
-Sepal.Length
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;font-weight: bold;color: black;background-color: lightgrey;border-right:1px solid;">
-setosa
-</td>
-<td style="text-align:left;">
-<span style="     color: green;">5.1</span>
-</td>
-</tr>
-<tr>
-<td style="text-align:left;font-weight: bold;color: black;background-color: lightgrey;border-right:1px solid;">
-setosa
-</td>
-<td style="text-align:left;">
-<span style="     color: red;">4.9</span>
-</td>
-</tr>
-<tr>
-<td style="text-align:left;font-weight: bold;color: black;background-color: lightgrey;border-right:1px solid;">
-setosa
-</td>
-<td style="text-align:left;">
-<span style="     color: red;">4.7</span>
-</td>
-</tr>
-<tr>
-<td style="text-align:left;font-weight: bold;color: black;background-color: lightgrey;border-right:1px solid;">
-setosa
-</td>
-<td style="text-align:left;">
-<span style="     color: red;">4.6</span>
-</td>
-</tr>
-<tr>
-<td style="text-align:left;font-weight: bold;color: black;background-color: lightgrey;border-right:1px solid;">
-setosa
-</td>
-<td style="text-align:left;">
-<span style="     color: red;">5</span>
-</td>
-</tr>
-<tr>
-<td style="text-align:left;font-weight: bold;color: black;background-color: lightgrey;border-right:1px solid;">
-setosa
-</td>
-<td style="text-align:left;">
-<span style="     color: green;">5.4</span>
-</td>
-</tr>
-</tbody>
-</table>
-<p>For more formatting tips such as grouping, popover messages and bootstrapping, I’ll refer you to the <a href="https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html">kableExtra documentation</a></p>
+<div id="use-the-click-interface-of-r-studio-i-do-not-recommend-that" class="section level3">
+<h3>Use the click interface of R Studio (I do <strong>not</strong> recommend that)</h3>
+<p>Session &gt; Set Working Directory &gt; To Source File Location R will print the code how to set your new working directory into the console</p>
+<pre class="r"><code> setwd(&quot;~/Desktop/&quot;)</code></pre>
+<p>You can check your working directory with <code>getwd()</code></p>
+<pre class="r"><code>getwd()</code></pre>
+<p>But this only works for jobs you’re starting manually and you have to remember setting the working directory. This is error prone! Especially if you run your script on a regular basis for reports! And yes, you could copy paste your path. But what if you changed the folder structure on your computer or your poor collegue tries to run your script after cloning your repo from git? I wanted to find a way to set the working directory in an R file automatically. After reading <a href="https://stackoverflow.com/questions/13672720/r-command-for-setting-working-directory-to-source-file-location-in-rstudio" class="uri">https://stackoverflow.com/questions/13672720/r-command-for-setting-working-directory-to-source-file-location-in-rstudio</a> and desperately trying things like</p>
+<pre class="r"><code>this.dir &lt;- dirname(parent.frame(2)$ofile)
+setwd(this.dir)`</code></pre>
+<p>I thought it will never work on my mac. But than I found a way:</p>
+</div>
+<div id="using-the-rstudioapi" class="section level3">
+<h3>Using the rstudioapi</h3>
+<p>Run <code>rstudioapi::getActiveDocumentContext()</code>. It returns a dataframe with information about your document context. Among other things, this includes the path and the name of the R file you just ran.</p>
+<pre class="r"><code>Document Context: 
+- id:        &#39;26462429&#39;
+- path:      &#39;~/Desktop/MyBlog/content/post/2018-12-07-changing-working-directories.Rmd&#39;
+- contents:  &lt;50 rows&gt;
+Document Selection:
+- [33, 39] -- [33, 39]: &#39;&#39;
+[1] &quot;~/Desktop/MyBlog/content/post/&quot;</code></pre>
+<p><em>Note</em>: It is important to run <code>rstudioapi::getActiveDocumentContext()</code> from your R Studio editor, because you want information about your R file. If copy paste <code>rstudioapi::getActiveDocumentContext()</code> into the console, your context is your console and thus it will return an empty path.</p>
+<pre class="r"><code>Document Context: 
+- id:        &#39;#console&#39;
+- path:      &#39;&#39;
+- contents:  &lt;1 rows&gt;
+Document Selection:
+- [1, 1] -- [1, 1]: </code></pre>
+<p>You can subset the path with the <code>$</code>-operator. Applying regular expressions allows you to separate the path from the filename and you can set our working directory path.</p>
+<pre class="r"><code># returns the path including the name of the R file you&#39;re running
+completePath&lt;- rstudioapi::getActiveDocumentContext()$path
+
+# get the name of the R file
+nameOfMyFile &lt;- sub(&quot;.*/&quot;, &quot;&quot;, completePath)
+
+# exclude the R file name from the path
+workingDirectoryPath &lt;- gsub(pattern = nameOfMyFile, replacement = &quot;&quot;, x = completePath)
+
+setwd(workingDirectoryPath)</code></pre>
+</div>
+<div id="r-projects" class="section level3">
+<h3>R Projects</h3>
+<p>Working with R Projects automatically solves your problem. Your working directory is automatically your project folder. You do not need to worry about setting working directories here.</p>
 </div>
 
               
@@ -648,17 +319,11 @@ setosa
                     
   <a class="tag tag--primary tag--small" href="/tags/r/">R</a>
 
-  <a class="tag tag--primary tag--small" href="/tags/r-markdown/">R Markdown</a>
+  <a class="tag tag--primary tag--small" href="/tags/reproducible-research/">Reproducible Research</a>
 
-  <a class="tag tag--primary tag--small" href="/tags/reporting/">Reporting</a>
+  <a class="tag tag--primary tag--small" href="/tags/macos/">MacOS</a>
 
-  <a class="tag tag--primary tag--small" href="/tags/analytics/">Analytics</a>
-
-  <a class="tag tag--primary tag--small" href="/tags/kableextra/">kableExtra</a>
-
-  <a class="tag tag--primary tag--small" href="/tags/tables/">Tables</a>
-
-  <a class="tag tag--primary tag--small" href="/tags/knitr/">Knitr</a>
+  <a class="tag tag--primary tag--small" href="/tags/working-directory/">working directory</a>
 
                   </div>
                 
@@ -671,7 +336,7 @@ setosa
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/" data-tooltip="R Markdown for Novices: All you need to know to get started">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2018/11/05/formatting-tables-in-r-markdown-with-kableextra/" data-tooltip="Formatting tables in R Markdown with kableExtra">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -679,7 +344,7 @@ setosa
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2018/12/07/changing-working-directories/" data-tooltip="Automatically changing the R working directory on Mac OS to source file location">
+                <a class="post-action-btn btn btn--disabled">
               
                   <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                   <i class="fa fa-angle-right"></i>
@@ -697,13 +362,13 @@ setosa
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/./2018/11/05/formatting-tables-in-r-markdown-with-kableextra/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/./2018/12/07/changing-working-directories/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/./2018/11/05/formatting-tables-in-r-markdown-with-kableextra/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/./2018/12/07/changing-working-directories/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -751,7 +416,7 @@ setosa
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/" data-tooltip="R Markdown for Novices: All you need to know to get started">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2018/11/05/formatting-tables-in-r-markdown-with-kableextra/" data-tooltip="Formatting tables in R Markdown with kableExtra">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -759,7 +424,7 @@ setosa
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2018/12/07/changing-working-directories/" data-tooltip="Automatically changing the R working directory on Mac OS to source file location">
+                <a class="post-action-btn btn btn--disabled">
               
                   <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                   <i class="fa fa-angle-right"></i>
@@ -777,13 +442,13 @@ setosa
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/./2018/11/05/formatting-tables-in-r-markdown-with-kableextra/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/./2018/12/07/changing-working-directories/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/./2018/11/05/formatting-tables-in-r-markdown-with-kableextra/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/./2018/12/07/changing-working-directories/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -813,13 +478,13 @@ setosa
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=%2F.%2F2018%2F11%2F05%2Fformatting-tables-in-r-markdown-with-kableextra%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=%2F.%2F2018%2F12%2F07%2Fchanging-working-directories%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2F.%2F2018%2F11%2F05%2Fformatting-tables-in-r-markdown-with-kableextra%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2F.%2F2018%2F12%2F07%2Fchanging-working-directories%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
@@ -995,9 +660,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = '\/.\/2018\/11\/05\/formatting-tables-in-r-markdown-with-kableextra\/';
+          this.page.url = '\/.\/2018\/12\/07\/changing-working-directories\/';
           
-            this.page.identifier = '\/2018\/11\/05\/formatting-tables-in-r-markdown-with-kableextra\/'
+            this.page.identifier = '\/2018\/12\/07\/changing-working-directories\/'
           
         };
         (function() {

@@ -1,0 +1,60 @@
+---
+title: Automatically changing the R working directory on Mac OS to source file location
+author: Heike
+date: '2018-12-07'
+slug: changing-working-directories
+categories: []
+tags: ["R","Reproducible Research","MacOS","working directory"]
+---
+
+
+
+<p>This post is about how to change your R working directory. You might be wondering:</p>
+<div id="why-would-i-want-to-do-that" class="section level3">
+<h3>Why would I want to do that?</h3>
+<p>You need this as soon as your script interacts with folders on your computer. For example for imports or exports of data or figures. So probably almost always. Let’s say you have a script that creates plots and saves them in the folder “Plots”, which is located in your source file directory. You have to make sure to set the working directory to your source file location. Otherwise, R will not find your folder “Plots”. The same is true if you work on a script with several people: If they cloned your git repository, their paths might be different from yours even if you use relative paths. There are several ways to change the working directory to the location of your file:</p>
+</div>
+<div id="use-the-click-interface-of-r-studio-i-do-not-recommend-that" class="section level3">
+<h3>Use the click interface of R Studio (I do <strong>not</strong> recommend that)</h3>
+<p>Session &gt; Set Working Directory &gt; To Source File Location R will print the code how to set your new working directory into the console</p>
+<pre class="r"><code> setwd(&quot;~/Desktop/&quot;)</code></pre>
+<p>You can check your working directory with <code>getwd()</code></p>
+<pre class="r"><code>getwd()</code></pre>
+<p>But this only works for jobs you’re starting manually and you have to remember setting the working directory. This is error prone! Especially if you run your script on a regular basis for reports! And yes, you could copy paste your path. But what if you changed the folder structure on your computer or your poor collegue tries to run your script after cloning your repo from git? I wanted to find a way to set the working directory in an R file automatically. After reading <a href="https://stackoverflow.com/questions/13672720/r-command-for-setting-working-directory-to-source-file-location-in-rstudio" class="uri">https://stackoverflow.com/questions/13672720/r-command-for-setting-working-directory-to-source-file-location-in-rstudio</a> and desperately trying things like</p>
+<pre class="r"><code>this.dir &lt;- dirname(parent.frame(2)$ofile)
+setwd(this.dir)`</code></pre>
+<p>I thought it will never work on my mac. But than I found a way:</p>
+</div>
+<div id="using-the-rstudioapi" class="section level3">
+<h3>Using the rstudioapi</h3>
+<p>Run <code>rstudioapi::getActiveDocumentContext()</code>. It returns a dataframe with information about your document context. Among other things, this includes the path and the name of the R file you just ran.</p>
+<pre class="r"><code>Document Context: 
+- id:        &#39;26462429&#39;
+- path:      &#39;~/Desktop/MyBlog/content/post/2018-12-07-changing-working-directories.Rmd&#39;
+- contents:  &lt;50 rows&gt;
+Document Selection:
+- [33, 39] -- [33, 39]: &#39;&#39;
+[1] &quot;~/Desktop/MyBlog/content/post/&quot;</code></pre>
+<p><em>Note</em>: It is important to run <code>rstudioapi::getActiveDocumentContext()</code> from your R Studio editor, because you want information about your R file. If copy paste <code>rstudioapi::getActiveDocumentContext()</code> into the console, your context is your console and thus it will return an empty path.</p>
+<pre class="r"><code>Document Context: 
+- id:        &#39;#console&#39;
+- path:      &#39;&#39;
+- contents:  &lt;1 rows&gt;
+Document Selection:
+- [1, 1] -- [1, 1]: </code></pre>
+<p>You can subset the path with the <code>$</code>-operator. Applying regular expressions allows you to separate the path from the filename and you can set our working directory path.</p>
+<pre class="r"><code># returns the path including the name of the R file you&#39;re running
+completePath&lt;- rstudioapi::getActiveDocumentContext()$path
+
+# get the name of the R file
+nameOfMyFile &lt;- sub(&quot;.*/&quot;, &quot;&quot;, completePath)
+
+# exclude the R file name from the path
+workingDirectoryPath &lt;- gsub(pattern = nameOfMyFile, replacement = &quot;&quot;, x = completePath)
+
+setwd(workingDirectoryPath)</code></pre>
+</div>
+<div id="r-projects" class="section level3">
+<h3>R Projects</h3>
+<p>Working with R Projects automatically solves your problem. Your working directory is automatically your project folder. You do not need to worry about setting working directories here.</p>
+</div>

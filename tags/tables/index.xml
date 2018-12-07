@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Knitr on My R Blog</title>
-    <link>/./tags/knitr/</link>
-    <description>Recent content in Knitr on My R Blog</description>
+    <title>Tables on My R Blog</title>
+    <link>/./tags/tables/</link>
+    <description>Recent content in Tables on My R Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 05 Nov 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/./tags/knitr/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/./tags/tables/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -21,18 +21,6 @@
 How to generally format tables (font, size, color… )
  How to create tables with conditional formating (e.g. coloring values &amp;lt; 0 red)
   The basics: the R package kableExtra kableExtra is an awesome package that allows you to format and style your tables. It works similar to ggplot2: You create a base table and then add formating layers with the pipe operator %&amp;gt;%.</description>
-    </item>
-    
-    <item>
-      <title>R Markdown for Novices: All you need to know to get started</title>
-      <link>/./2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/</link>
-      <pubDate>Sat, 03 Nov 2018 21:13:14 -0500</pubDate>
-      
-      <guid>/./2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/</guid>
-      <description>I write this blogpost for someone, who has never worked with R Markdown. After you read this post, you will
-understand why R Markdown may be useful for your daily work as a student, researcher, analyst or data scientist.
- understand the basic structure of an R Markdown document and how you can get startet.
-  I strongly encourage everybody working with R to use R Markdown. I promise, it will make your life so much easier.</description>
     </item>
     
   </channel>

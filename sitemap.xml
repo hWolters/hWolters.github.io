@@ -3,7 +3,12 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/./2018/11/05/using-r-markdown-for-recurring-reports/</loc>
+    <loc>/./2018/12/07/changing-working-directories/</loc>
+    <lastmod>2018-12-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/./2018/11/05/formatting-tables-in-r-markdown-with-kableextra/</loc>
     <lastmod>2018-11-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -40,8 +45,20 @@
   </url>
   
   <url>
+    <loc>/./tags/kableextra/</loc>
+    <lastmod>2018-11-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/./tags/knitr/</loc>
-    <lastmod>2018-11-03T21:13:14-05:00</lastmod>
+    <lastmod>2018-11-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/./tags/macos/</loc>
+    <lastmod>2018-12-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -53,25 +70,25 @@
   
   <url>
     <loc>/./</loc>
-    <lastmod>2018-11-05T00:00:00+00:00</lastmod>
+    <lastmod>2018-12-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/./post/</loc>
-    <lastmod>2018-11-05T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/./tags/r/</loc>
-    <lastmod>2018-11-05T00:00:00+00:00</lastmod>
+    <lastmod>2018-12-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/./categories/r/</loc>
     <lastmod>2018-11-03T21:13:14-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/./tags/r/</loc>
+    <lastmod>2018-12-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -89,13 +106,25 @@
   
   <url>
     <loc>/./tags/reproducible-research/</loc>
-    <lastmod>2018-11-03T21:13:14-05:00</lastmod>
+    <lastmod>2018-12-07T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/./tags/tables/</loc>
+    <lastmod>2018-11-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/./tags/</loc>
     <lastmod>2018-11-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/./tags/working-directory/</loc>
+    <lastmod>2018-12-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

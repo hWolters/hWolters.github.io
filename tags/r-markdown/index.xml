@@ -12,16 +12,15 @@
     
     
     <item>
-      <title>Using R Markdown for recurring Reports</title>
-      <link>/./2018/11/05/using-r-markdown-for-recurring-reports/</link>
+      <title>Formatting tables in R Markdown with kableExtra</title>
+      <link>/./2018/11/05/formatting-tables-in-r-markdown-with-kableextra/</link>
       <pubDate>Mon, 05 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>/./2018/11/05/using-r-markdown-for-recurring-reports/</guid>
-      <description>In this post I will show you some of my best practises for using R Markdown for reporting. We will cover
-How to create tables with conditional formating with kableExtra
- How to include your results in the (Markdown) text
- How to include global variables.
-  Create formated tables with kableExtra The basics kableExtra is an awesome library that allows you to format and style your tables.</description>
+      <guid>/./2018/11/05/formatting-tables-in-r-markdown-with-kableextra/</guid>
+      <description>In this post, I will show you some of my best practises for formatting tables in R Markdown. We will cover
+How to generally format tables (font, size, color… )
+ How to create tables with conditional formating (e.g. coloring values &amp;lt; 0 red)
+  The basics: the R package kableExtra kableExtra is an awesome package that allows you to format and style your tables. It works similar to ggplot2: You create a base table and then add formating layers with the pipe operator %&amp;gt;%.</description>
     </item>
     
     <item>
