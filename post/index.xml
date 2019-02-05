@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on My R Blog</title>
+    <title>Posts on My journey from Data Analyst to Data Science</title>
     <link>/./post/</link>
-    <description>Recent content in Posts on My R Blog</description>
+    <description>Recent content in Posts on My journey from Data Analyst to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 07 Dec 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 17 Dec 2018 21:17:58 +0100</lastBuildDate>
     
 	<atom:link href="/./post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Everything You Need to Know to Use Git for Version Control</title>
+      <link>/./2018/12/17/everything-you-need-to-know-to-use-git-for-version-control/</link>
+      <pubDate>Mon, 17 Dec 2018 21:17:58 +0100</pubDate>
+      
+      <guid>/./2018/12/17/everything-you-need-to-know-to-use-git-for-version-control/</guid>
+      <description>So many people have recommended Git as a version control system to me. I had a look at it, but I was pretty overwhelmed. Since I did not have a technical background, everything seemed so complex! Many tutorials let me copy paste code without giving you a deeper understanding of what and why I am actually doing this. This copy pasting feels like success at first, but when I tried working with it, I could not.</description>
+    </item>
     
     <item>
       <title>Automatically changing the R working directory on Mac OS to source file location</title>

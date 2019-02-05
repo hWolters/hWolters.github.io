@@ -1,85 +1,46 @@
 
 
-<p>I strongly encourage every researcher and every analyst to use it, because R Markdown will make your life easier:</p>
+<p>So many people have recommended git as a version control system to me. I had a look at it, but I was pretty overwhelmed. This thing seemed so complex! Eventhough there are tons of tutorials, I felt lost. Many tutorials let me copy paste code without giving you a deeper understanding of what and why I am actually doing this. This copy pasting feels like success at first, but when I tried working with it, I could not.</p>
+<p>The goal of this post is to teach you everything you need to know about git on how use it as your version control system. We’re not going to talk about collaboration with git so far. First you need to understand some basic things.</p>
+<p>Git works with <strong>repositories</strong>. A repository is a folder, that contains a <code>.git</code> file.</p>
+<p>In git there are several directories where you save your code:</p>
 <ul>
-<li><p>Easily share your result: R Markdown can convert your results to various formats such as html, word and pdf. No more copy pasting and everything is up to date!</p></li>
-<li><p>Quickly explore your data: You use R Markdown like a Notebook and see can see multiple Outputs and plots without having to use the RStudio Viewer back buttons.</p></li>
-<li><p>Ensure your work is replicable: You can save your results (e.g. a plot or a table) and the code that created it, in one file</p></li>
-<li><p>Automate reports: Analyses that need to be in the consistent and in the same format everytime can be automated.</p></li>
+<li><strong>Working directory</strong>: This is where you save your files on your local file system</li>
+<li><strong>Stating Area (a.k.a. Index)</strong>: This is basically temporary memory. You can use this to save a file, that is not done, yet, but you reached a point where you feel the need to save something.</li>
+<li><strong>Local repo</strong>: This is a local copy of the repo. Everything you save there, will show up in your history.</li>
+<li><strong>Upstream repo</strong>: This is a remote copy of a repo. So this is not on your computer, but saved for example on github or gitlab.</li>
 </ul>
-<div id="so-how-does-it-work" class="section level3">
-<h3>So how does it work?</h3>
-<p>In an R Markdown File (.RMD) you combine R code chunks and markdown text. Everything is knitted together to a Markdown format, which can be converted in almost any format through Pandoc. The outputfile may contain your code, descriptions (executed Markdown) and the R output (tables, plots, numbers…).</p>
-<p>– insert figure</p>
-<p>There are 3 different components of R Markdown files:</p>
-<div id="yaml-header" class="section level4">
-<h4>YAML Header</h4>
-<p>Your Header contains meta data about your .RMD File, such as the author, date and output format. The header is on top of every .RMD file. The code is enclosed with 3 dashes.</p>
-<pre class="r"><code>--- 
-autor   
----</code></pre>
-</div>
-<div id="markdown-text" class="section level4">
-<h4>Markdown (Text)</h4>
-<p>Markdown is a simple textformatting language. Similar to HTML or Latex, you write plain text. Punctuation characters indicate the formating.</p>
-</div>
-<div id="r-code-chunks" class="section level4">
-<h4>R Code Chunks</h4>
-<p>The third component, your R Code. You can write any code, you would normally write in R in R markdown. R code is enclosed with 3 apostrophies, followed by curly braces. In the curly braces, you can tell R, what it should do with the code?</p>
-<table style="width:78%;">
+<table style="width:79%;">
 <colgroup>
-<col width="33%" />
-<col width="25%" />
-<col width="19%" />
+<col width="11%" />
+<col width="68%" />
 </colgroup>
 <thead>
 <tr class="header">
-<th>How should the output look like?</th>
-<th>How to change the parameter</th>
-<th>Is it the default option?</th>
+<th>location</th>
+<th>what should I put there?</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>include code</td>
-<td>echo = TRUE</td>
-<td>yes</td>
+<td>working directory</td>
+<td>anything! This is your local file system</td>
 </tr>
 <tr class="even">
-<td>automatically format code</td>
-<td>tidy = TRUE</td>
-<td>no</td>
+<td>staging area</td>
+<td>everything, that reached a certain milestone, but is not completely done</td>
 </tr>
 <tr class="odd">
-<td>do not execute code</td>
-<td>eval = FALSE</td>
-<td>no</td>
+<td>local repo</td>
+<td>everything you want to see in your file history</td>
 </tr>
 <tr class="even">
-<td>execute code, but show nothing</td>
-<td>include = FALSE</td>
-<td>no</td>
-</tr>
-<tr class="odd">
-<td>do not show any warnings</td>
-<td>warings = FALSE</td>
-<td>no</td>
-</tr>
-<tr class="even">
-<td>do not show any errors</td>
-<td>error = FALSE</td>
-<td>no</td>
+<td>upstream repo</td>
+<td>everything, that is part of a finished unit</td>
 </tr>
 </tbody>
 </table>
-<pre class="r"><code>myData &lt;- iris
-head(iris)
-##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
-## 1          5.1         3.5          1.4         0.2  setosa
-## 2          4.9         3.0          1.4         0.2  setosa
-## 3          4.7         3.2          1.3         0.2  setosa
-## 4          4.6         3.1          1.5         0.2  setosa
-## 5          5.0         3.6          1.4         0.2  setosa
-## 6          5.4         3.9          1.7         0.4  setosa</code></pre>
-</div>
+<div class="figure">
+<img src="/post/2018-12-17-everything-you-need-to-know-to-use-git-for-version-control_files/git_basics.png" />
+
 </div>

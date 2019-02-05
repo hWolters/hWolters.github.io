@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My R Blog</title>
+    <title>My journey from Data Analyst to Data Science</title>
     <link>/./</link>
-    <description>Recent content on My R Blog</description>
+    <description>Recent content on My journey from Data Analyst to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 07 Dec 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 17 Dec 2018 21:17:58 +0100</lastBuildDate>
     
 	<atom:link href="/./index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Everything You Need to Know to Use Git for Version Control</title>
+      <link>/./2018/12/17/everything-you-need-to-know-to-use-git-for-version-control/</link>
+      <pubDate>Mon, 17 Dec 2018 21:17:58 +0100</pubDate>
+      
+      <guid>/./2018/12/17/everything-you-need-to-know-to-use-git-for-version-control/</guid>
+      <description>So many people have recommended Git as a version control system to me. I had a look at it, but I was pretty overwhelmed. Since I did not have a technical background, everything seemed so complex! Many tutorials let me copy paste code without giving you a deeper understanding of what and why I am actually doing this. This copy pasting feels like success at first, but when I tried working with it, I could not.</description>
+    </item>
     
     <item>
       <title>Automatically changing the R working directory on Mac OS to source file location</title>
@@ -48,10 +57,10 @@ understand why R Markdown may be useful for your daily work as a student, resear
     <item>
       <title>About</title>
       <link>/./about/</link>
-      <pubDate>Thu, 05 May 2016 21:48:51 -0700</pubDate>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/./about/</guid>
-      <description>This is a &amp;ldquo;hello world&amp;rdquo; example website for the blogdown package. The theme was forked from @jrutheiser/hugo-lithium-theme and modified by Yihui Xie.</description>
+      <description>The theme of this blog was forked from @jrutheiser/hugo-lithium-theme and modified by Yihui Xie.</description>
     </item>
     
   </channel>

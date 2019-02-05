@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Working Directory on My R Blog</title>
+    <title>Working Directory on My journey from Data Analyst to Data Science</title>
     <link>/./tags/working-directory/</link>
-    <description>Recent content in Working Directory on My R Blog</description>
+    <description>Recent content in Working Directory on My journey from Data Analyst to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 07 Dec 2018 00:00:00 +0000</lastBuildDate>
