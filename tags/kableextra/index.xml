@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kableExtra on My journey from Data Analyst to Data Science</title>
+    <link>/tags/kableextra/</link>
+    <description>Recent content in kableExtra on My journey from Data Analyst to Data Science</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 05 Nov 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/kableextra/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Formatting tables in R Markdown with kableExtra</title>
+      <link>/2018/11/05/formatting-tables-in-r-markdown-with-kableextra/</link>
+      <pubDate>Mon, 05 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/11/05/formatting-tables-in-r-markdown-with-kableextra/</guid>
+      <description>In this post, I will show you some of my best practises for formatting tables in R Markdown. We will cover
+How to generally format tables (font, size, color... )
+ How to create tables with conditional formating (e.g. coloring values &amp;lt; 0 red)
+  The basics: the R package kableExtra kableExtra is an awesome package that allows you to format and style your tables. It works similar to ggplot2: You create a base table and then add formating layers with the pipe operator %&amp;gt;%.</description>
+    </item>
+    
+  </channel>
+</rss>

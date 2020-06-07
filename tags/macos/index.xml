@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MacOS on My journey from Data Analyst to Data Science</title>
+    <link>/tags/macos/</link>
+    <description>Recent content in MacOS on My journey from Data Analyst to Data Science</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 07 Dec 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/macos/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Automatically changing the R working directory on Mac OS to source file location</title>
+      <link>/2018/12/07/changing-working-directories/</link>
+      <pubDate>Fri, 07 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/12/07/changing-working-directories/</guid>
+      <description>This post is about how to change your R working directory. You might be wondering:
+Why would I want to do that? You need this as soon as your script interacts with folders on your computer. For example for imports or exports of data or figures. So probably almost always. Let&#39;s say you have a script that creates plots and saves them in the folder &amp;quot;Plots&amp;quot;, which is located in your source file directory.</description>
+    </item>
+    
+  </channel>
+</rss>
