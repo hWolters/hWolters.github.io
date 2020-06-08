@@ -17,18 +17,18 @@
 <meta name="generator" content="Hugo 0.72.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Heike W">
 <meta name="keywords" content=", SQ:, Data Science, Analytics, R, R Studio, Data Science, Analtytics, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive">
-<meta name="description" content="So you&rsquo;re working with a Hive database and you would like to query some values. Then you&rsquo;re notice: &ldquo;This value I want to get returned is trapped in this column among other values&hellip; How do I get it out?!&rdquo; Congratulations, you just came across a complex or nested type in Hive. The idea is to store multiple values in a single column. There are three types: arrays, maps and structs. You first have to understand, which types are present in the table you want to query.">
+<meta name="description" content="So you&rsquo;re working with a Hive database and you would like to query some values. Then you&rsquo;re notice: &ldquo;This value I need is trapped in this column among other values&hellip; How do I get it out?!&rdquo; Congratulations, you just came across a complex a.k.a. nested datatype in Hive. The idea of complex datatypes is to store multiple values in a single column. There are three types: arrays, maps and structs. First, you first have to understand, which types are present.">
 
 
-<meta property="og:description" content="So you&rsquo;re working with a Hive database and you would like to query some values. Then you&rsquo;re notice: &ldquo;This value I want to get returned is trapped in this column among other values&hellip; How do I get it out?!&rdquo; Congratulations, you just came across a complex or nested type in Hive. The idea is to store multiple values in a single column. There are three types: arrays, maps and structs. You first have to understand, which types are present in the table you want to query.">
+<meta property="og:description" content="So you&rsquo;re working with a Hive database and you would like to query some values. Then you&rsquo;re notice: &ldquo;This value I need is trapped in this column among other values&hellip; How do I get it out?!&rdquo; Congratulations, you just came across a complex a.k.a. nested datatype in Hive. The idea of complex datatypes is to store multiple values in a single column. There are three types: arrays, maps and structs. First, you first have to understand, which types are present.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Working with Complex Datatypes in Hive">
 <meta name="twitter:title" content="Working with Complex Datatypes in Hive">
 <meta property="og:url" content="/2020/06/07/working-with-complex-datatypes-in-hive/">
 <meta property="twitter:url" content="/2020/06/07/working-with-complex-datatypes-in-hive/">
 <meta property="og:site_name" content="My journey from Data Analyst to Data Science">
-<meta property="og:description" content="So you&rsquo;re working with a Hive database and you would like to query some values. Then you&rsquo;re notice: &ldquo;This value I want to get returned is trapped in this column among other values&hellip; How do I get it out?!&rdquo; Congratulations, you just came across a complex or nested type in Hive. The idea is to store multiple values in a single column. There are three types: arrays, maps and structs. You first have to understand, which types are present in the table you want to query.">
-<meta name="twitter:description" content="So you&rsquo;re working with a Hive database and you would like to query some values. Then you&rsquo;re notice: &ldquo;This value I want to get returned is trapped in this column among other values&hellip; How do I get it out?!&rdquo; Congratulations, you just came across a complex or nested type in Hive. The idea is to store multiple values in a single column. There are three types: arrays, maps and structs. You first have to understand, which types are present in the table you want to query.">
+<meta property="og:description" content="So you&rsquo;re working with a Hive database and you would like to query some values. Then you&rsquo;re notice: &ldquo;This value I need is trapped in this column among other values&hellip; How do I get it out?!&rdquo; Congratulations, you just came across a complex a.k.a. nested datatype in Hive. The idea of complex datatypes is to store multiple values in a single column. There are three types: arrays, maps and structs. First, you first have to understand, which types are present.">
+<meta name="twitter:description" content="So you&rsquo;re working with a Hive database and you would like to query some values. Then you&rsquo;re notice: &ldquo;This value I need is trapped in this column among other values&hellip; How do I get it out?!&rdquo; Congratulations, you just came across a complex a.k.a. nested datatype in Hive. The idea of complex datatypes is to store multiple values in a single column. There are three types: arrays, maps and structs. First, you first have to understand, which types are present.">
 <meta property="og:locale" content="en-us">
 
   
@@ -238,17 +238,16 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>So you&rsquo;re working with a Hive database and you would like to query some values. Then you&rsquo;re notice: &ldquo;This value I want to get returned is trapped in this column among other values&hellip; How do I get it out?!&rdquo; Congratulations, you just came across a complex or nested type in Hive. The idea is to store multiple values in a single column. There are three types: <code>arrays</code>, <code>maps</code> and <code>structs</code>. You first have to understand, which types are present in the table you want to query. Depending on the type, you have to access data differently.</p>
+              <p>So you&rsquo;re working with a Hive database and you would like to query some values. Then you&rsquo;re notice: &ldquo;This value I need is trapped in this column among other values&hellip; How do I get it out?!&rdquo; Congratulations, you just came across a complex a.k.a. nested datatype in Hive. The idea of complex datatypes is to store multiple values in a single column. There are three types: <code>arrays</code>, <code>maps</code> and <code>structs</code>. First, you first have to understand, which types are present. Depending on the datatype, there are different ways how you can access the values.</p>
 <ul>
 <li>
-<p><code>array</code>: It is an ordered collection of elements.The elements in the array must be of the same type. So you have for example an array of strings, ints etc.
-<code>ARRAY&lt;data_type&gt;</code></p>
+<p><code>array</code>(<code>ARRAY&lt;data_type&gt;</code>): It is an ordered collection of elements. The elements in the array must be of the same type. So you have for example an array of strings, integegers etc.</p>
 </li>
 <li>
-<p><code>map</code>: It is an unordered collection of key-value pairs. Keys must be of primitive types. Values can be of any type. A map can have an arbitary number of elements. <code>MAP&lt;primitive_type, data_type&gt;</code></p>
+<p><code>map</code> (<code>MAP&lt;primitive_type, data_type&gt;</code>): It is an unordered collection of key-value pairs. Keys must be of primitive types. Values can be of any type. A map can have an arbitary number of elements.</p>
 </li>
 <li>
-<p><code>struct</code>: It is a collection of elements of different types.</p>
+<p><code>struct</code>(:<code>STRUCT&lt;col_name : data_type</code>): It is a collection of elements of different types. The concept of a struct is very similar to a row in a table: structs have a fixed number of fields (&ldquo;columns&rdquo;). Every field has a predefined type.</p>
 </li>
 </ul>
 <table>
@@ -283,7 +282,7 @@ if (!doNotTrack) {
 </table>
 <p>Use <code>DESCRIBE &lt;table&gt;</code> to get a list of the datatypes of the columns in your table. You may notice, that one complex data type is nested into another, e.g. you may see an array of structs. But don&rsquo;t worry, if you understand each type separately, you can untangle the nested structures aswell. So let&rsquo;s have a look at each of those types and how we can work with them.</p>
 <h2 id="arrays">Arrays</h2>
-<p>So arrays are an ordered collection of elements of the same type. You could compare them to lists of the same type in Python or vectors in R. Since they are ordered, we can use a numeric index to access the elements. The index starts at 0.</p>
+<p>So arrays are an ordered collection of elements of the same type. You could compare them to lists of the same type in Python or vectors in R. Since they are ordered, you can use a numeric index to access the elements. The index starts at 0.</p>
 <p>For example, the table <code>students</code> has a column <code>extra_curriculum</code>, which is an array of strings.</p>
 <table>
 <thead>
@@ -303,7 +302,7 @@ if (!doNotTrack) {
 </tr>
 </tbody>
 </table>
-<p>We can get the first value in the array, by indexing it with <code>[0]</code>.</p>
+<p>You can get the first value in the array, by indexing it with <code>[0]</code>.</p>
 <pre><code class="language-{sql}" data-lang="{sql}">SELECT 
 	first_name, 
 	extra_curriculum[0] AS first_extra_curriculum 
@@ -329,7 +328,9 @@ FROM
 </tr>
 </tbody>
 </table>
-<p>Let&rsquo;s now say you want to have one row for each element in your array (The equivalent of Rs <code>gather</code>-function). Hive has build-in table generating functions (UDTF). In contrast to normal user-defined-functions (UDFS). UDTFs transform a single input row into multiple output rows. You can use <code>LATERAL VIEW explode(expression) tableAlias AS columnAlias </code>This returns 0 to many rows, one row for each element from the input array. So running the following query</p>
+<p>Let&rsquo;s now say you want to have one row for each element in your array (The equivalent of Rs <code>gather</code>-function). Hive has build-in table generating functions (UDTF) for that. These UDTFs transform a single input row into multiple output rows. The basic syntax is</p>
+<p><code>LATERAL VIEW explode(expression) tableAlias AS columnAlias </code></p>
+<p>This returns 0 to many rows: one row for each element from the input array. So running the following query on our students table</p>
 <pre><code class="language-{sql}" data-lang="{sql}">SELECT 
 	first_name, 
 	extra_curriculum 
@@ -362,7 +363,7 @@ FROM
 </tbody>
 </table>
 <h2 id="maps">Maps</h2>
-<p>Maps can be compared to dictionaries in Python. Something comparable in R would be a named vector. You can access key value pairs by indexing them with the name of the key.</p>
+<p>Maps are used for key-value pairs. They are very similar to dictionaries in Python or a named vector in R. You can access the key-value pairs  with the name of the key in brackets.</p>
 <p>In this example, you have the table <code>students</code> with column <code>grade</code>, <code>MAP&lt;string, string&gt;</code>, which maps different subjects to their letter grade.</p>
 <table>
 <thead>
@@ -408,7 +409,7 @@ FROM
 </tbody>
 </table>
 <h2 id="structs">Structs</h2>
-<p>Structs are written in a json format. We can access the values using the dot notation</p>
+<p>Structs are written in JSON format. You can access the values using the dot notation for the field to extact the value.</p>
 <table>
 <thead>
 <tr>
@@ -451,13 +452,13 @@ FROM
 </tbody>
 </table>
 <h1 id="summary">Summary</h1>
-<p>To sum it up, depending on the complex data type, you have to extract elements differently. This last table gives an overview on how.</p>
+<p>To sum it up, depending on the complex data type, you can query elements differently. This last table gives an overview on how.</p>
 <table>
 <thead>
 <tr>
-<th align="left">type</th>
-<th align="left">how to extract elements</th>
-<th align="left">example</th>
+<th align="left">Type</th>
+<th align="left">How to extract elements</th>
+<th align="left">Example</th>
 <th></th>
 </tr>
 </thead>
