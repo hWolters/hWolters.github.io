@@ -289,6 +289,7 @@ if (!doNotTrack) {
 <h2 id="arrays">Arrays</h2>
 <p>So arrays are an ordered collection of elements of the same type. You could compare them to lists of the same type in Python or vectors in R. Since they are ordered, you can use a numeric index to access the elements. The index starts at 0.</p>
 <p>For example, the table <code>students</code> has a column <code>extra_curriculum</code>, which is an array of strings.</p>
+<p>.</p>
 <table>
 <thead>
 <tr>
@@ -315,24 +316,11 @@ FROM
 	students
 ;
 </code></pre><p>This returns:</p>
-<table>
-<thead>
-<tr>
-<th>first_name</th>
-<th>first_extra_curriculum</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Tom</td>
-<td>orchestra</td>
-</tr>
-<tr>
-<td>Ann</td>
-<td>orchestra</td>
-</tr>
-</tbody>
-</table>
+<p>.
+|first_name | first_extra_curriculum |
+|&mdash;&ndash;|&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;|
+|Tom  | orchestra          |
+|Ann  | orchestra          |</p>
 <p>Let&rsquo;s now say you want to have one row for each element in your array (The equivalent of Rs <code>gather</code>-function). Hive has build-in table generating functions (UDTF) for that. These UDTFs transform a single input row into multiple output rows. The basic syntax is</p>
 <p><code>LATERAL VIEW explode(expression) tableAlias AS columnAlias </code></p>
 <p>This returns 0 to many rows: one row for each element from the input array. So running the following query on our students table</p>
@@ -345,49 +333,20 @@ FROM
 ;
 
 </code></pre><p>will result in a table, with each entry in <code>extra_curriculum</code> as a row.</p>
-<table>
-<thead>
-<tr>
-<th>first_name</th>
-<th>extra_curriculum</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Tom</td>
-<td>orchestra</td>
-</tr>
-<tr>
-<td>Ann</td>
-<td>orchestra</td>
-</tr>
-<tr>
-<td>Ann</td>
-<td>art</td>
-</tr>
-</tbody>
-</table>
+<p>.
+|first_name |extra_curriculum    |
+|&mdash;&ndash;|&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;|
+|Tom  |orchestra          |
+|Ann  |orchestra          |
+|Ann  |art                |</p>
 <h2 id="maps">Maps</h2>
 <p>Maps are used for key-value pairs. They are very similar to dictionaries in Python or a named vector in R. You can access the key-value pairs  with the name of the key in brackets.</p>
 <p>In this example, you have the table <code>students</code> with column <code>grade</code>, <code>MAP&lt;string, string&gt;</code>, which maps different subjects to their letter grade.</p>
-<table>
-<thead>
-<tr>
-<th>first_name</th>
-<th align="left">grade</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Tom</td>
-<td align="left">{&lsquo;math&rsquo;: &lsquo;B&rsquo;, &lsquo;english&rsquo;: &lsquo;B&rsquo;}</td>
-</tr>
-<tr>
-<td>Ann</td>
-<td align="left">{&lsquo;math&rsquo;: &lsquo;A&rsquo;, &lsquo;english&rsquo;: &lsquo;B&rsquo;, &lsquo;biology&rsquo;: &lsquo;C&rsquo;}</td>
-</tr>
-</tbody>
-</table>
+<p>.
+|first_name |grade               |
+|&mdash;&ndash;|:&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;|
+|Tom  |{&lsquo;math&rsquo;: &lsquo;B&rsquo;, &lsquo;english&rsquo;: &lsquo;B&rsquo;}|
+|Ann  |{&lsquo;math&rsquo;: &lsquo;A&rsquo;, &lsquo;english&rsquo;: &lsquo;B&rsquo;, &lsquo;biology&rsquo;: &lsquo;C&rsquo;}|</p>
 <p>You can extract all the math grades by using the key <code>math</code> in brackets.</p>
 <pre><code class="language-{sql}" data-lang="{sql}">SELECT 
 	first_name, 
@@ -415,24 +374,11 @@ FROM
 </table>
 <h2 id="structs">Structs</h2>
 <p>Structs are written in JSON format. You can access the values using the dot notation for the field to extact the value.</p>
-<table>
-<thead>
-<tr>
-<th>first_name</th>
-<th>teacher</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Tom</td>
-<td>{&lsquo;math&rsquo;: &lsquo;Mrs Johnson&rsquo;, &lsquo;english&rsquo;: &lsquo;Mr Miller&rsquo;, &lsquo;nr_teachers&rsquo;: 2}</td>
-</tr>
-<tr>
-<td>Ann</td>
-<td>{&lsquo;math&rsquo;: &lsquo;Mrs Johnson&rsquo;, &lsquo;english&rsquo;: &lsquo;Mrs Thomson&rsquo;, &lsquo;biology&rsquo;: &lsquo;Mr Chu&rsquo;, &lsquo;nr_teachers&rsquo;: 3}</td>
-</tr>
-</tbody>
-</table>
+<p>.
+|first_name |teacher             |
+|&mdash;&ndash;|&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;|
+|Tom  |{&lsquo;math&rsquo;: &lsquo;Mrs Johnson&rsquo;, &lsquo;english&rsquo;: &lsquo;Mr Miller&rsquo;, &lsquo;nr_teachers&rsquo;: 2}|
+|Ann  |{&lsquo;math&rsquo;: &lsquo;Mrs Johnson&rsquo;, &lsquo;english&rsquo;: &lsquo;Mrs Thomson&rsquo;, &lsquo;biology&rsquo;: &lsquo;Mr Chu&rsquo;, &lsquo;nr_teachers&rsquo;: 3}|</p>
 <pre><code class="language-{sql}" data-lang="{sql}">SELECT 
 	first_name, 
 	teacher.math AS math_teacher 
@@ -459,36 +405,12 @@ FROM
 </table>
 <h1 id="summary">Summary</h1>
 <p>To sum it up, depending on the complex data type, you can query elements differently. This last table gives an overview on how.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Type</th>
-<th align="left">How to extract elements</th>
-<th align="left">Example</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><code>Array</code></td>
-<td align="left">by index</td>
-<td align="left"><code>my_array[0]</code></td>
-<td></td>
-</tr>
-<tr>
-<td align="left"><code>Map </code></td>
-<td align="left">by key</td>
-<td align="left"><code>my_map['key']</code></td>
-<td></td>
-</tr>
-<tr>
-<td align="left"><code>Struct </code></td>
-<td align="left">by dot notation</td>
-<td align="left"><code>my_struct.name</code></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<p>.
+| Type |How to extract elements | Example |
+|:&mdash;&mdash;&mdash;&mdash;&mdash;-|:&mdash;&mdash;|:&mdash;&ndash;|:&mdash;&ndash;|
+|<code>Array</code>         |by index | <code>my_array[0]</code>|
+|<code>Map </code>          |by key   | <code>my_map['key']</code>|
+|<code>Struct </code>       |by dot notation   | <code>my_struct.name</code>|</p>
 
               
             </div>
