@@ -17,11 +17,11 @@
 <meta name="generator" content="Hugo 0.72.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Heike W">
 <meta name="keywords" content=", SQ:, Data Science, Analytics, R, R Studio, Data Science, Analtytics, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive">
-<meta name="description" content="The basic idea of complex datatypes is to store multiple values in a single column. So if you are working with a Hive database and you query a column, but then you notice &ldquo;This value I need is trapped in a column among other values&hellip;&rdquo; you just came across a complex a.k.a. nested datatype.
+<meta name="description" content="table { width:80% !important;}  The basic idea of complex datatypes is to store multiple values in a single column. So if you are working with a Hive database and you query a column, but then you notice &ldquo;This value I need is trapped in a column among other values&hellip;&rdquo; you just came across a complex a.k.a. nested datatype.
 There are three types: arrays, maps and structs. First, you have to understand, which types are present.">
 
 
-<meta property="og:description" content="The basic idea of complex datatypes is to store multiple values in a single column. So if you are working with a Hive database and you query a column, but then you notice &ldquo;This value I need is trapped in a column among other values&hellip;&rdquo; you just came across a complex a.k.a. nested datatype.
+<meta property="og:description" content="table { width:80% !important;}  The basic idea of complex datatypes is to store multiple values in a single column. So if you are working with a Hive database and you query a column, but then you notice &ldquo;This value I need is trapped in a column among other values&hellip;&rdquo; you just came across a complex a.k.a. nested datatype.
 There are three types: arrays, maps and structs. First, you have to understand, which types are present.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Working with Complex Datatypes in Hive">
@@ -29,9 +29,9 @@ There are three types: arrays, maps and structs. First, you have to understand, 
 <meta property="og:url" content="/2020/06/07/working-with-complex-datatypes-in-hive/">
 <meta property="twitter:url" content="/2020/06/07/working-with-complex-datatypes-in-hive/">
 <meta property="og:site_name" content="My journey from Data Analyst to Data Science">
-<meta property="og:description" content="The basic idea of complex datatypes is to store multiple values in a single column. So if you are working with a Hive database and you query a column, but then you notice &ldquo;This value I need is trapped in a column among other values&hellip;&rdquo; you just came across a complex a.k.a. nested datatype.
+<meta property="og:description" content="table { width:80% !important;}  The basic idea of complex datatypes is to store multiple values in a single column. So if you are working with a Hive database and you query a column, but then you notice &ldquo;This value I need is trapped in a column among other values&hellip;&rdquo; you just came across a complex a.k.a. nested datatype.
 There are three types: arrays, maps and structs. First, you have to understand, which types are present.">
-<meta name="twitter:description" content="The basic idea of complex datatypes is to store multiple values in a single column. So if you are working with a Hive database and you query a column, but then you notice &ldquo;This value I need is trapped in a column among other values&hellip;&rdquo; you just came across a complex a.k.a. nested datatype.
+<meta name="twitter:description" content="table { width:80% !important;}  The basic idea of complex datatypes is to store multiple values in a single column. So if you are working with a Hive database and you query a column, but then you notice &ldquo;This value I need is trapped in a column among other values&hellip;&rdquo; you just came across a complex a.k.a. nested datatype.
 There are three types: arrays, maps and structs. First, you have to understand, which types are present.">
 <meta property="og:locale" content="en-us">
 
@@ -242,8 +242,9 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+              <style>
+table { width:80% !important;}
+</style>
 <p>The basic idea of complex datatypes is to store multiple values in a single column. So if you are working with a Hive database and you query a column, but then you notice &ldquo;This value I need is trapped in a column among other values&hellip;&rdquo; you just came across a complex a.k.a. nested datatype.</p>
 <p>There are three types: <code>arrays</code>, <code>maps</code> and <code>structs</code>. First, you have to understand, which types are present. Depending on the datatype, there are different ways how you can access the values.</p>
 <ul>
@@ -257,7 +258,7 @@ if (!doNotTrack) {
 <p><code>struct</code>(:<code>STRUCT&lt;col_name : data_type</code>): It is a collection of elements of different types. The concept of a struct is very similar to a row in a table: structs have a fixed number of fields (&ldquo;columns&rdquo;). Every field has a predefined type.</p>
 </li>
 </ul>
-<!-- raw HTML omitted -->
+<br>
 <table>
 <thead>
 <tr>
@@ -292,7 +293,7 @@ if (!doNotTrack) {
 <h2 id="arrays">Arrays</h2>
 <p>So arrays are an ordered collection of elements of the same type. You could compare them to lists of the same type in Python or vectors in R. Since they are ordered, you can use a numeric index to access the elements. The index starts at 0.</p>
 <p>For example, the table <code>students</code> has a column <code>extra_curriculum</code>, which is an array of strings.</p>
-<!-- raw HTML omitted -->
+<br>
 <table>
 <thead>
 <tr>
@@ -319,7 +320,7 @@ FROM
 	students
 ;
 </code></pre><p>This returns:</p>
-<!-- raw HTML omitted -->
+<br>
 <table>
 <thead>
 <tr>
@@ -350,7 +351,7 @@ FROM
 ;
 
 </code></pre><p>will result in a table, with each entry in <code>extra_curriculum</code> as a row.</p>
-<!-- raw HTML omitted -->
+<br>
 <table>
 <thead>
 <tr>
@@ -376,7 +377,7 @@ FROM
 <h2 id="maps">Maps</h2>
 <p>Maps are used for key-value pairs. They are very similar to dictionaries in Python or a named vector in R. You can access the key-value pairs  with the name of the key in brackets.</p>
 <p>In this example, you have the table <code>students</code> with column <code>grade</code>, <code>MAP&lt;string, string&gt;</code>, which maps different subjects to their letter grade.</p>
-<!-- raw HTML omitted -->
+ <br>
 <table>
 <thead>
 <tr>
@@ -422,7 +423,7 @@ FROM
 </table>
 <h2 id="structs">Structs</h2>
 <p>Structs are written in JSON format. You can access the values using the dot notation for the field to extact the value.</p>
-<!-- raw HTML omitted -->
+<br>
 <table>
 <thead>
 <tr>
@@ -467,7 +468,7 @@ FROM
 </table>
 <h1 id="summary">Summary</h1>
 <p>To sum it up, depending on the complex data type, you can query elements differently. This last table gives an overview on how.</p>
-<!-- raw HTML omitted -->
+<br>
 <table>
 <thead>
 <tr>
