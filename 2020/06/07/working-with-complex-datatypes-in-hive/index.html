@@ -17,18 +17,22 @@
 <meta name="generator" content="Hugo 0.72.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Heike W">
 <meta name="keywords" content=", SQ:, Data Science, Analytics, R, R Studio, Data Science, Analtytics, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive">
-<meta name="description" content="So you&rsquo;re working with a Hive database and you would like to query some values. Then you&rsquo;re notice: &ldquo;This value I need is trapped in this column among other values&hellip; How do I get it out?!&rdquo; Congratulations, you just came across a complex a.k.a. nested datatype in Hive. The idea of complex datatypes is to store multiple values in a single column. There are three types: arrays, maps and structs. First, you first have to understand, which types are present.">
+<meta name="description" content="The basic idea of complex datatypes is to store multiple values in a single column. So if working with a Hive database and you query a column, but then you notice &ldquo;This value I need is trapped in a column among other values&hellip;&rdquo; you just came across a complex a.k.a. nested datatype.
+There are three types: arrays, maps and structs. First, you have to understand, which types are present. Depending on the datatype, there are different ways how you can access the values.">
 
 
-<meta property="og:description" content="So you&rsquo;re working with a Hive database and you would like to query some values. Then you&rsquo;re notice: &ldquo;This value I need is trapped in this column among other values&hellip; How do I get it out?!&rdquo; Congratulations, you just came across a complex a.k.a. nested datatype in Hive. The idea of complex datatypes is to store multiple values in a single column. There are three types: arrays, maps and structs. First, you first have to understand, which types are present.">
+<meta property="og:description" content="The basic idea of complex datatypes is to store multiple values in a single column. So if working with a Hive database and you query a column, but then you notice &ldquo;This value I need is trapped in a column among other values&hellip;&rdquo; you just came across a complex a.k.a. nested datatype.
+There are three types: arrays, maps and structs. First, you have to understand, which types are present. Depending on the datatype, there are different ways how you can access the values.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Working with Complex Datatypes in Hive">
 <meta name="twitter:title" content="Working with Complex Datatypes in Hive">
 <meta property="og:url" content="/2020/06/07/working-with-complex-datatypes-in-hive/">
 <meta property="twitter:url" content="/2020/06/07/working-with-complex-datatypes-in-hive/">
 <meta property="og:site_name" content="My journey from Data Analyst to Data Science">
-<meta property="og:description" content="So you&rsquo;re working with a Hive database and you would like to query some values. Then you&rsquo;re notice: &ldquo;This value I need is trapped in this column among other values&hellip; How do I get it out?!&rdquo; Congratulations, you just came across a complex a.k.a. nested datatype in Hive. The idea of complex datatypes is to store multiple values in a single column. There are three types: arrays, maps and structs. First, you first have to understand, which types are present.">
-<meta name="twitter:description" content="So you&rsquo;re working with a Hive database and you would like to query some values. Then you&rsquo;re notice: &ldquo;This value I need is trapped in this column among other values&hellip; How do I get it out?!&rdquo; Congratulations, you just came across a complex a.k.a. nested datatype in Hive. The idea of complex datatypes is to store multiple values in a single column. There are three types: arrays, maps and structs. First, you first have to understand, which types are present.">
+<meta property="og:description" content="The basic idea of complex datatypes is to store multiple values in a single column. So if working with a Hive database and you query a column, but then you notice &ldquo;This value I need is trapped in a column among other values&hellip;&rdquo; you just came across a complex a.k.a. nested datatype.
+There are three types: arrays, maps and structs. First, you have to understand, which types are present. Depending on the datatype, there are different ways how you can access the values.">
+<meta name="twitter:description" content="The basic idea of complex datatypes is to store multiple values in a single column. So if working with a Hive database and you query a column, but then you notice &ldquo;This value I need is trapped in a column among other values&hellip;&rdquo; you just came across a complex a.k.a. nested datatype.
+There are three types: arrays, maps and structs. First, you have to understand, which types are present. Depending on the datatype, there are different ways how you can access the values.">
 <meta property="og:locale" content="en-us">
 
   
@@ -238,7 +242,8 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>So you&rsquo;re working with a Hive database and you would like to query some values. Then you&rsquo;re notice: &ldquo;This value I need is trapped in this column among other values&hellip; How do I get it out?!&rdquo; Congratulations, you just came across a complex a.k.a. nested datatype in Hive. The idea of complex datatypes is to store multiple values in a single column. There are three types: <code>arrays</code>, <code>maps</code> and <code>structs</code>. First, you first have to understand, which types are present. Depending on the datatype, there are different ways how you can access the values.</p>
+              <p>The basic idea of complex datatypes is to store multiple values in a single column. So if working with a Hive database and you query a column, but then you notice &ldquo;This value I need is trapped in a column among other values&hellip;&rdquo; you just came across a complex a.k.a. nested datatype.</p>
+<p>There are three types: <code>arrays</code>, <code>maps</code> and <code>structs</code>. First, you have to understand, which types are present. Depending on the datatype, there are different ways how you can access the values.</p>
 <ul>
 <li>
 <p><code>array</code>(<code>ARRAY&lt;data_type&gt;</code>): It is an ordered collection of elements. The elements in the array must be of the same type. So you have for example an array of strings, integegers etc.</p>
