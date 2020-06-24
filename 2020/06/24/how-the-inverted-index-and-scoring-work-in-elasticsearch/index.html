@@ -17,18 +17,18 @@
 <meta name="generator" content="Hugo 0.72.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Heike W">
 <meta name="keywords" content=", SQ:, Data Science, Analytics, R, R Studio, Data Science, Analtytics, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive">
-<meta name="description" content="How the inverted index and scoring work in ElasticSearch Elasticsearch is often the storage engine of choice for storing and querying full text data. Searching through full text fields with regexes in relational database systems like PostgreSQL or MySQL is painful: The query latency is high and your results will be unordered, so you have no idea how relevant your query results are. In ElasticSearch querying fulltext fields is among the least resource intensive tasks and your query results are ordered putting the most relevant results on top.">
+<meta name="description" content="Searching through full text fields with regexes in relational database systems like PostgreSQL or MySQL is painful: The query latency is high and your results will be unordered, so you have no idea how relevant your query results are. Elasticsearch is often the storage engine of choice for storing and querying full text data. In ElasticSearch querying fulltext fields is among the least resource intensive tasks and your query results are ordered putting the most relevant results on top.">
 
 
-<meta property="og:description" content="How the inverted index and scoring work in ElasticSearch Elasticsearch is often the storage engine of choice for storing and querying full text data. Searching through full text fields with regexes in relational database systems like PostgreSQL or MySQL is painful: The query latency is high and your results will be unordered, so you have no idea how relevant your query results are. In ElasticSearch querying fulltext fields is among the least resource intensive tasks and your query results are ordered putting the most relevant results on top.">
+<meta property="og:description" content="Searching through full text fields with regexes in relational database systems like PostgreSQL or MySQL is painful: The query latency is high and your results will be unordered, so you have no idea how relevant your query results are. Elasticsearch is often the storage engine of choice for storing and querying full text data. In ElasticSearch querying fulltext fields is among the least resource intensive tasks and your query results are ordered putting the most relevant results on top.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="How the inverted index and scoring work in ElasticSearch">
 <meta name="twitter:title" content="How the inverted index and scoring work in ElasticSearch">
 <meta property="og:url" content="/2020/06/24/how-the-inverted-index-and-scoring-work-in-elasticsearch/">
 <meta property="twitter:url" content="/2020/06/24/how-the-inverted-index-and-scoring-work-in-elasticsearch/">
 <meta property="og:site_name" content="My journey from Data Analyst to Data Science">
-<meta property="og:description" content="How the inverted index and scoring work in ElasticSearch Elasticsearch is often the storage engine of choice for storing and querying full text data. Searching through full text fields with regexes in relational database systems like PostgreSQL or MySQL is painful: The query latency is high and your results will be unordered, so you have no idea how relevant your query results are. In ElasticSearch querying fulltext fields is among the least resource intensive tasks and your query results are ordered putting the most relevant results on top.">
-<meta name="twitter:description" content="How the inverted index and scoring work in ElasticSearch Elasticsearch is often the storage engine of choice for storing and querying full text data. Searching through full text fields with regexes in relational database systems like PostgreSQL or MySQL is painful: The query latency is high and your results will be unordered, so you have no idea how relevant your query results are. In ElasticSearch querying fulltext fields is among the least resource intensive tasks and your query results are ordered putting the most relevant results on top.">
+<meta property="og:description" content="Searching through full text fields with regexes in relational database systems like PostgreSQL or MySQL is painful: The query latency is high and your results will be unordered, so you have no idea how relevant your query results are. Elasticsearch is often the storage engine of choice for storing and querying full text data. In ElasticSearch querying fulltext fields is among the least resource intensive tasks and your query results are ordered putting the most relevant results on top.">
+<meta name="twitter:description" content="Searching through full text fields with regexes in relational database systems like PostgreSQL or MySQL is painful: The query latency is high and your results will be unordered, so you have no idea how relevant your query results are. Elasticsearch is often the storage engine of choice for storing and querying full text data. In ElasticSearch querying fulltext fields is among the least resource intensive tasks and your query results are ordered putting the most relevant results on top.">
 <meta property="og:locale" content="en-us">
 
   
@@ -228,67 +228,25 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <h1 id="how-the-inverted-index-and-scoring-work-in-elasticsearch">How the inverted index and scoring work in ElasticSearch</h1>
-<p>Elasticsearch is often the storage engine of choice for storing and querying full text data. Searching through full text fields with regexes in relational database systems like PostgreSQL or MySQL is painful: The query latency is high and your results will be unordered, so you have no idea how relevant your query results are. In ElasticSearch querying fulltext fields is among the least resource intensive tasks and your query results are ordered putting the most relevant results on top. How does this work?</p>
-<p>Elasticsearch uses an &ldquo;inverted index&rdquo; for fulltext searches. The most obvious way to build up an index, is to store a list of all terms for each document that we are indexing (<em>forward indexing</em>):</p>
-<table>
-<thead>
-<tr>
-<th align="left">Document</th>
-<th align="left">Terms</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">Elephant</td>
-<td align="left">mammal, largest, existing, animal, endangered, species, african, asian &hellip;</td>
-</tr>
-<tr>
-<td align="left">Turtle</td>
-<td align="left">reptile, shell, special, bony, cortilaginous, shell, ribs, shield&hellip;</td>
-</tr>
-<tr>
-<td align="left">Hippopotamus</td>
-<td align="left">herbivorous, mammal, species, african &hellip;</td>
-</tr>
-<tr>
-<td align="left">&hellip;</td>
-<td align="left"></td>
-</tr>
-</tbody>
-</table>
+              <p>Searching through full text fields with regexes in relational database systems like PostgreSQL or MySQL is painful: The query latency is high and your results will be unordered, so you have no idea how relevant your query results are. Elasticsearch is often the storage engine of choice for storing and querying full text data.  In ElasticSearch querying fulltext fields is among the least resource intensive tasks and your query results are ordered putting the most relevant results on top. But how does this work?</p>
+<p>Elasticsearch uses an &ldquo;inverted index&rdquo;. The most obvious way to build up an index, is to store a list of all terms for each document that we are indexing (<strong>forward indexing</strong>):
+<br>
+|Document	|Terms|
+|:&mdash;-|:&mdash;-|
+|Elephant|mammal, largest, existing, animal, endangered, species, african, asian &hellip;|
+|Turtle | reptile, shell, special, bony, cortilaginous, shell, ribs, shield&hellip;|
+|Hippopotamus| herbivorous, mammal, species, african &hellip;|
+|&hellip;| |</p>
 <p>You can imagine, this appoach is pretty fast when indexing. But it is not very efficient when querying terms as this requires the search engine to look through all entries in the index for a specfic term in order to return all documents containing this term.</p>
-<p>For a faster querying, you would have to sort the index by terms in the document. For the example above this would mean, to create a mapping of terms to documents instead of documents to terms.</p>
-<table>
-<thead>
-<tr>
-<th align="left">Terms</th>
-<th align="left">Documents</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">mammals</td>
-<td align="left">Elephant, Hippopotamus, &hellip;</td>
-</tr>
-<tr>
-<td align="left">largest</td>
-<td align="left">Elephant, &hellip;</td>
-</tr>
-<tr>
-<td align="left">reptile</td>
-<td align="left">Turtle, &hellip;</td>
-</tr>
-<tr>
-<td align="left">species</td>
-<td align="left">Elephant, Turtle, Hippopotamus, &hellip;</td>
-</tr>
-<tr>
-<td align="left">&hellip;</td>
-<td align="left"></td>
-</tr>
-</tbody>
-</table>
+<p>For a faster querying, you would have to sort the index by terms in the document. For the example above this would mean, to create a mapping of terms to documents instead of documents to terms.
+<br>
+|Terms| Documents |
+|:&mdash;-|:&mdash;-|
+|mammals|	Elephant, Hippopotamus, &hellip; |
+|largest | Elephant, &hellip; |
+|reptile | Turtle, &hellip; |
+|species | Elephant, Turtle, Hippopotamus, &hellip; |
+|&hellip;| |</p>
 <p>This appoach is called an <strong>inverted index</strong>, because it is an inversion of the forward index. And this is basically what ElasticSearch does: In a first analysis step, it splits documents into terms. In a second steps it sorts the terms through relevance scoring. Let&rsquo;s have a close look at the steps:</p>
 <p><strong>Step 1: Analysis:</strong> The documents are split into terms (Tokenization). Then Elasticsearch applies normalizers and transformations to these terms. You can find a list of all available analyzers <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-analyzers.html">here</a>. The idea is to make terms in documents more general. E.g. in the sentences &ldquo;he analyzes the data&rdquo; and &ldquo;Analyze the data!&rdquo; the word &ldquo;analyze&rdquo; should be identified as the same word. Elasticsearch has a default analyzer which applies the following steps</p>
 <ul>
