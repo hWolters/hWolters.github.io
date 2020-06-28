@@ -3,121 +3,171 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/./2018/12/17/everything-you-need-to-know-to-use-git-for-version-control/</loc>
+    <loc>/tags/document-frequency/</loc>
+    <lastmod>2020-06-24T08:05:59+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/elastic/</loc>
+    <lastmod>2020-06-24T08:05:59+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/elasticsearch/</loc>
+    <lastmod>2020-06-24T08:05:59+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/forward-indexing/</loc>
+    <lastmod>2020-06-24T08:05:59+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/fulltext-search/</loc>
+    <lastmod>2020-06-24T08:05:59+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2020/06/24/how-the-inverted-index-and-scoring-work-in-elasticsearch/</loc>
+    <lastmod>2020-06-24T08:05:59+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/inverted-index/</loc>
+    <lastmod>2020-06-24T08:05:59+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-06-24T08:05:59+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2020-06-24T08:05:59+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/scoring/</loc>
+    <lastmod>2020-06-24T08:05:59+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2020-06-24T08:05:59+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/term-frequency/</loc>
+    <lastmod>2020-06-24T08:05:59+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2020/06/07/working-with-complex-datatypes-in-hive/</loc>
+    <lastmod>2020-06-07T08:29:09+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2018/12/17/everything-you-need-to-know-to-use-git-for-version-control/</loc>
     <lastmod>2018-12-17T21:17:58+01:00</lastmod>
   </url>
   
   <url>
-    <loc>/./</loc>
-    <lastmod>2018-12-17T21:17:58+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/./post/</loc>
-    <lastmod>2018-12-17T21:17:58+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/./2018/12/07/changing-working-directories/</loc>
+    <loc>/2018/12/07/changing-working-directories/</loc>
     <lastmod>2018-12-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/./tags/macos/</loc>
+    <loc>/tags/macos/</loc>
     <lastmod>2018-12-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/./tags/r/</loc>
+    <loc>/tags/r/</loc>
     <lastmod>2018-12-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/./tags/reproducible-research/</loc>
+    <loc>/tags/reproducible-research/</loc>
     <lastmod>2018-12-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/./tags/</loc>
+    <loc>/tags/working-directory/</loc>
     <lastmod>2018-12-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/./tags/working-directory/</loc>
-    <lastmod>2018-12-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/./tags/analytics/</loc>
+    <loc>/tags/analytics/</loc>
     <lastmod>2018-11-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/./2018/11/05/formatting-tables-in-r-markdown-with-kableextra/</loc>
+    <loc>/2018/11/05/formatting-tables-in-r-markdown-with-kableextra/</loc>
     <lastmod>2018-11-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/./tags/kableextra/</loc>
+    <loc>/tags/kableextra/</loc>
     <lastmod>2018-11-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/./tags/knitr/</loc>
+    <loc>/tags/knitr/</loc>
     <lastmod>2018-11-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/./tags/r-markdown/</loc>
+    <loc>/tags/r-markdown/</loc>
     <lastmod>2018-11-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/./tags/reporting/</loc>
+    <loc>/tags/reporting/</loc>
     <lastmod>2018-11-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/./tags/tables/</loc>
+    <loc>/tags/tables/</loc>
     <lastmod>2018-11-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/./categories/</loc>
+    <loc>/categories/</loc>
     <lastmod>2018-11-03T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/./tags/documentation/</loc>
+    <loc>/tags/documentation/</loc>
     <lastmod>2018-11-03T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/./tags/markdown/</loc>
+    <loc>/tags/markdown/</loc>
     <lastmod>2018-11-03T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/./categories/r/</loc>
+    <loc>/categories/r/</loc>
     <lastmod>2018-11-03T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/./2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/</loc>
+    <loc>/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/</loc>
     <lastmod>2018-11-03T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/./tags/yaml/</loc>
+    <loc>/tags/yaml/</loc>
     <lastmod>2018-11-03T21:13:14-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/./about/</loc>
+    <loc>/about/</loc>
   </url>
   
   <url>
-    <loc>/./archives/</loc>
+    <loc>/archives/</loc>
   </url>
   
 </urlset>

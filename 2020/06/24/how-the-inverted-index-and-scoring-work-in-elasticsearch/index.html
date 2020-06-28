@@ -331,12 +331,13 @@ if (!doNotTrack) {
 </ul>
 <p>Different analyzers apply compounding rules (if this is relevant in the language your having your text data in), split words into characters or remove stopwords. You can also build your own analyzer. Depending on your use case, you have to choose your analyzer. The analysis step results in a unique list of terms/tokens and an associating list of documents, where the word can be found.</p>
 <p><strong>Step 2: Relevance through scoring:</strong> The second step is about figuring out, how &ldquo;good&rdquo; a search term matches a document. The fit of the match is represented by <code>_score</code>: the higher the score, the more relevant it is. The default scoring method uses Lucene&rsquo;s Practical scoring function, which calculates the score based on</p>
+<br>
 <ul>
 <li><strong>Term Frequency</strong>: How often does a term occur in a document?</li>
 <li><strong>Document Frequency</strong>: In how many documents does this term occur?</li>
 <li><strong>Field Length</strong>: How many terms are in a document?</li>
 </ul>
-<p>The more often a term appears in a document, the more relevant a term. However, if a term appears a lot in all documents (e.g. stopwords like &ldquo;the&rdquo; or &ldquo;and&rdquo;, or very common words), the term may be less relevant. The inverse document frequency accounts for that. In addition, a term is less relevant, if a field contains more terms, i.e. is longer. Therefore, the score is normalized by taking into account the field length.</p>
+<p>The more often a term appears in a document, the more relevant is a term. However, if a term appears a lot in all documents (e.g. stopwords like &ldquo;the&rdquo; or &ldquo;and&rdquo;, or very common words), the term may be less relevant. The inverse document frequency accounts for that. In addition, a term is less relevant, if a field contains more terms, i.e. is longer. Therefore, the score is normalized by taking into account the field length.</p>
 <table>
 <thead>
 <tr>
