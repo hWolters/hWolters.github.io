@@ -6,10 +6,82 @@
     <description>Recent content in Tags on My journey from Data Analyst to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 07 Dec 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 24 Jun 2020 08:05:59 +0200</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Document Frequency</title>
+      <link>/tags/document-frequency/</link>
+      <pubDate>Wed, 24 Jun 2020 08:05:59 +0200</pubDate>
+      
+      <guid>/tags/document-frequency/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Elastic</title>
+      <link>/tags/elastic/</link>
+      <pubDate>Wed, 24 Jun 2020 08:05:59 +0200</pubDate>
+      
+      <guid>/tags/elastic/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ElasticSearch</title>
+      <link>/tags/elasticsearch/</link>
+      <pubDate>Wed, 24 Jun 2020 08:05:59 +0200</pubDate>
+      
+      <guid>/tags/elasticsearch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Forward Indexing</title>
+      <link>/tags/forward-indexing/</link>
+      <pubDate>Wed, 24 Jun 2020 08:05:59 +0200</pubDate>
+      
+      <guid>/tags/forward-indexing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fulltext Search</title>
+      <link>/tags/fulltext-search/</link>
+      <pubDate>Wed, 24 Jun 2020 08:05:59 +0200</pubDate>
+      
+      <guid>/tags/fulltext-search/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Inverted Index</title>
+      <link>/tags/inverted-index/</link>
+      <pubDate>Wed, 24 Jun 2020 08:05:59 +0200</pubDate>
+      
+      <guid>/tags/inverted-index/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Scoring</title>
+      <link>/tags/scoring/</link>
+      <pubDate>Wed, 24 Jun 2020 08:05:59 +0200</pubDate>
+      
+      <guid>/tags/scoring/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Term Frequency</title>
+      <link>/tags/term-frequency/</link>
+      <pubDate>Wed, 24 Jun 2020 08:05:59 +0200</pubDate>
+      
+      <guid>/tags/term-frequency/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>MacOS</title>
@@ -71,60 +143,6 @@
       <pubDate>Mon, 05 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/knitr/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>R Markdown</title>
-      <link>/tags/r-markdown/</link>
-      <pubDate>Mon, 05 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/r-markdown/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Reporting</title>
-      <link>/tags/reporting/</link>
-      <pubDate>Mon, 05 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/reporting/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tables</title>
-      <link>/tags/tables/</link>
-      <pubDate>Mon, 05 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/tags/tables/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Documentation</title>
-      <link>/tags/documentation/</link>
-      <pubDate>Sat, 03 Nov 2018 21:13:14 -0500</pubDate>
-      
-      <guid>/tags/documentation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Markdown</title>
-      <link>/tags/markdown/</link>
-      <pubDate>Sat, 03 Nov 2018 21:13:14 -0500</pubDate>
-      
-      <guid>/tags/markdown/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>YAML</title>
-      <link>/tags/yaml/</link>
-      <pubDate>Sat, 03 Nov 2018 21:13:14 -0500</pubDate>
-      
-      <guid>/tags/yaml/</guid>
       <description></description>
     </item>
     

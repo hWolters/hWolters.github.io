@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fulltext Search on My journey from Data Analyst to Data Science</title>
+    <link>/tags/fulltext-search/</link>
+    <description>Recent content in Fulltext Search on My journey from Data Analyst to Data Science</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 24 Jun 2020 08:05:59 +0200</lastBuildDate>
+    
+	<atom:link href="/tags/fulltext-search/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How the Inverted Index and Scoring Work in ElasticSearch</title>
+      <link>/2020/06/24/how-the-inverted-index-and-scoring-work-in-elasticsearch/</link>
+      <pubDate>Wed, 24 Jun 2020 08:05:59 +0200</pubDate>
+      
+      <guid>/2020/06/24/how-the-inverted-index-and-scoring-work-in-elasticsearch/</guid>
+      <description>Searching through full text fields with regexes in relational database systems like PostgreSQL or MySQL is painful: The query latency is high and your results will be unordered, so you have no idea how relevant your query results are. Elasticsearch is often the storage engine of choice for storing and querying full text data. In ElasticSearch querying fulltext fields is among the least resource intensive tasks and your query results are ordered putting the most relevant results on top.</description>
+    </item>
+    
+  </channel>
+</rss>
