@@ -12,20 +12,20 @@
     
     
     <item>
-      <title>category</title>
-      <link>/categories/category/</link>
+      <title>Jupyter Notebooks</title>
+      <link>/categories/jupyter-notebooks/</link>
       <pubDate>Sun, 12 Jul 2020 21:17:58 +0200</pubDate>
       
-      <guid>/categories/category/</guid>
+      <guid>/categories/jupyter-notebooks/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>subcategory</title>
-      <link>/categories/subcategory/</link>
+      <title>Python</title>
+      <link>/categories/python/</link>
       <pubDate>Sun, 12 Jul 2020 21:17:58 +0200</pubDate>
       
-      <guid>/categories/subcategory/</guid>
+      <guid>/categories/python/</guid>
       <description></description>
     </item>
     
