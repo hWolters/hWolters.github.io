@@ -328,7 +328,7 @@ Then you can autoformat your code by pressing <code>Alt-A</code> for a cell or <
 <p>You briefly want to check your directory and directory contents without using your terminal separately? You can use shell commands from your Jupyter Notebook with <code>%system</code> for a single line of shell script or <code>%%system</code> at the beginning of your cell for using the shell in the entire cell. <code>%%system</code> let&rsquo;s you use your Jupytper notebook cell like your terminal.</p>
 <h3 id="latex"><code>%%latex</code></h3>
 <p>This one comes in handy if you want to include mathematical formulas in your notebook. Formulas in Markdown Syntax are limited and cumbersome. Just insert a latex cell and type your formulas with latex syntax.</p>
-<h3 id="capture--for-saving-the-printed-output-of-a-cell"><code>%%capture </code> for saving the printed output of a cell</h3>
+<h3 id="capture-"><code>%%capture </code></h3>
 <p>Let&rsquo;s say you have some time consuming code running in a cell. Closing the Jupyter window won&rsquo;t prevent the cell from running. However, you would lose your printed output, which may be of interest for you. If you start your cell with <code>%%capture &lt;someName&gt;</code>, the cell output will be saved and you can retrieve it later, even if you closed your notebook.</p>
 <pre><code>	%%capture output
 	# Time-consuming code here
