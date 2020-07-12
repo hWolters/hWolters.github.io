@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>magic commands on My journey from Data Analyst to Data Science</title>
+    <link>/tags/magic-commands/</link>
+    <description>Recent content in magic commands on My journey from Data Analyst to Data Science</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 12 Jul 2020 21:17:58 +0200</lastBuildDate>
+    
+	<atom:link href="/tags/magic-commands/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Jupyter Notebooks: Boost your productivity with Extensions and Magic Commands</title>
+      <link>/2020/07/12/jupyter-notebooks-boost-your-productivity-with-extensions-and-magic-commands/</link>
+      <pubDate>Sun, 12 Jul 2020 21:17:58 +0200</pubDate>
+      
+      <guid>/2020/07/12/jupyter-notebooks-boost-your-productivity-with-extensions-and-magic-commands/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

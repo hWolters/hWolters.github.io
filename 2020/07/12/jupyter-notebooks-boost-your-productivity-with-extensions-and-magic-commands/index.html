@@ -1,0 +1,665 @@
+<style>
+.sidebar-button-desc {
+  color: darkgrey !important;
+}
+.sidebar-button-icon {
+  color: darkgrey !important;
+}
+.sidebar-profile-name {
+  color: darkgrey !important;
+</style><!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.72.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="Heike W">
+<meta name="keywords" content="python, jupyter, extension, magic commands, SQL, Data Science, Analytics, R, R Studio, Data Science, Analytics, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive, Data Analysis, Data Mining">
+<meta name="description" content="">
+
+
+<meta property="og:description" content="">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jupyter Notebooks: Boost your productivity with Extensions and Magic Commands">
+<meta name="twitter:title" content="Jupyter Notebooks: Boost your productivity with Extensions and Magic Commands">
+<meta property="og:url" content="/2020/07/12/jupyter-notebooks-boost-your-productivity-with-extensions-and-magic-commands/">
+<meta property="twitter:url" content="/2020/07/12/jupyter-notebooks-boost-your-productivity-with-extensions-and-magic-commands/">
+<meta property="og:site_name" content="My journey from Data Analyst to Data Science">
+<meta property="og:description" content="">
+<meta name="twitter:description" content="">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2020-07-12T21:17:58">
+  
+  
+    <meta property="article:modified_time" content="2020-07-12T21:17:58">
+  
+  
+  
+    
+      <meta property="article:section" content="category">
+    
+      <meta property="article:section" content="subcategory">
+    
+  
+  
+    
+      <meta property="article:tag" content="python">
+    
+      <meta property="article:tag" content="jupyter">
+    
+      <meta property="article:tag" content="extension">
+    
+      <meta property="article:tag" content="magic commands">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="/post/JupyterBlogMagic.jpg">
+  <meta property="twitter:image" content="/post/JupyterBlogMagic.jpg">
+
+
+
+
+    <title>Jupyter Notebooks: Boost your productivity with Extensions and Magic Commands</title>
+
+    <link rel="icon" href="/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="/2020/07/12/jupyter-notebooks-boost-your-productivity-with-extensions-and-magic-commands/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-128956833-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="1">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="/">My journey from Data Analyst to Data Science</a>
+  </div>
+  
+    
+      <a class="header-right-icon open-algolia-search"
+         href="/#search">
+    
+    
+      <i class="fa fa-lg fa-search"></i>
+    
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="1">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="/#about">
+          <img class="sidebar-profile-picture" src="/me.jpg" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Heike W</h4>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link open-algolia-search" href="/#search">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+      
+      <span class="sidebar-button-desc">Search</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-left
+              "
+       style="background-image:url('/post/JupyterBlogMagic.jpg')"
+       data-behavior="1">
+    
+      <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Jupyter Notebooks: Boost your productivity with Extensions and Magic Commands
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2020-07-12T21:17:58&#43;02:00">
+        
+  
+  
+  
+  
+    12 July 2020
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="/categories/category">category</a>, 
+    
+      <a class="category-link" href="/categories/subcategory">subcategory</a>
+    
+  
+
+  </div>
+
+</div>
+    
+  </div>
+
+
+      <div id="main" data-behavior="1"
+        class="hasCover
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>In this blogpost I will share some tips for working with Jupyter Notebooks. Those tips greatly improved my productivity when working with Jupyter Notebooks and I wish someone would have told me earlier. The two main topics of this post are extensions and magic commands. I&rsquo;ll guide you through how to use them.</p>
+<h2 id="jupyter-extensions">Jupyter Extensions</h2>
+<p>Have you ever missed a feature in your Jupyter Notebook that IDEs have? E.g. you were hoping for autocompletion or automatically formatting code? Then there might be a Jupyter Notebook extension for you. Jupyter extensions simply add features to your Jupyter Notebook, similar to what browser plug-ins do to browsers. Just pip install <code>jupyter-contrib-nbextensions</code>. On your <code>localhost:8888</code> you will now find a tab called Nbextensions. There, you can select the extensions you would like to use by checking the boxes. Usually, you have to restart your kernel for the extension to work. In the following, I&rsquo;ll show you my five favorite extensions:</p>
+<h3 id="notify">Notify</h3>
+<p>Have you ever waited for some time consuming code to execute, switched tabs and then forgot about it? Or you kept staring at your notebook to wait for the execution of the cell to finally have finished? No need for that with the <code>Notify</code> extension: It displays a web notification, when a cell has run.
+After you added this extension, you will see a new dropdown menu in your notebook&rsquo;s toolbar. You can choose, if and when you want to be notified. Your choices are: Disabled, 0, 5, 10 and 30. If you select for example 5, you will get a notification, if the kernel is busy longer than 5 seconds. I am using the extension with Safari and it works great. It should also work with Firefox and Chrome browsers.</p>
+<h3 id="snippets">Snippets</h3>
+<p>Do you sometimes find yourself typing the same code snippets over and over again? Maybe you copy paste your database connection strings, some of your most used functions or you always load the same packages? Then the <code>Snippets</code> extension may be useful for you.</p>
+<p>You have to add your snipped as a new JSON block to the list of existing snippets in <code>snippets.json</code>. You can find this file in your jupyter directory with <code>jupyter --data-dir</code> and then going to <code>/nbextensions/snippets/snippets.json.</code> There are already 2 example snippets. You can add your snippets there by just appending to the <code>.json</code> file in the same format. For example, to add a new snippet that imports your favorite data science packages, just add it to the json file.</p>
+<pre><code>        {
+            &quot;name&quot; : &quot;ds imports&quot;,
+            &quot;code&quot; : [
+                &quot;import pandas as pd&quot;,
+                &quot;import numpy as np&quot;,
+                &quot;import matplotlib.pyplot as plt&quot;,
+                &quot;import seaborn as sns&quot;
+            ]
+        }
+</code></pre><p>After you added a snippet, it shows up in the tool bar in the drop down menu snippets. I use this a lot for database configurations and loading the standard packages.</p>
+<h3 id="autopep8">Autopep8</h3>
+<p>If you neglected coding style guidelines Autopep8 could help you. It automatically reformates your code to meet the <a href="Phttps://www.python.org/dev/peps/pep-0008/">PEP 8 standards</a>, Python’s most popular style guide. If you do not already have it, you need to <code>%%pip install autopep8</code>.
+Then you can autoformat your code by pressing <code>Alt-A</code> for a cell or <code>Alt-Shift-A</code> for the entire notebook. Or you could also select a cell and click on the little hammer icon on the right of your toolbar and your code will be prettified!</p>
+<h3 id="hinterland">hinterland</h3>
+<p>Autocompletion in Jupyter Notebooks exists, but it is cumbersome: You need to press <code>tab</code> everytime you need it. So I really missed the quick autocompletion with every keypress  until I found out about <code>hinterland</code>. With <code>hinterland</code> you will have the autocompletion with every key press. You just need to add the extension.</p>
+<h3 id="executetime">ExecuteTime</h3>
+<p>Sometimes it is interesting to know how long the execution of entire cells took. Of course you could use <code>%%timit</code> in every cell. Or you save some time by using the <code>ExecuteTime</code> extension. For each cell, you will automatically see when the execution started and how long it took.</p>
+<p>The following table summarizes my top 5 extensions. Check out the <a href="https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/install.html">official documentation</a> for more.</p>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>what it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Autopep8</td>
+<td>autoformat code</td>
+</tr>
+<tr>
+<td>hinterland</td>
+<td>autocompletion</td>
+</tr>
+<tr>
+<td>ExecuteTime</td>
+<td>show execution time of each cell</td>
+</tr>
+<tr>
+<td>Notify</td>
+<td>get browser notification when cell has run</td>
+</tr>
+<tr>
+<td>Snippets</td>
+<td>insert code snippets from drop down menu</td>
+</tr>
+</tbody>
+</table>
+<h2 id="magic-commands">Magic Commands</h2>
+<p>Magic commands are shortcuts that significantly extend a notebook’s capabilities. The Python kernel uses the <code>%</code> syntax element for magic commands. You can use them line and cellwise. In line-wise, all given commands must start with the <code>%</code> character. For an entire cell, all commands start with<code>%%</code>.</p>
+<p>Let&rsquo;s look at my personal top 5 magic commands:</p>
+<h3 id="history"><code>%history</code></h3>
+<p>So you did something super smart but then you deleted your cell and you forgot to hit the undo button and you can&rsquo;t remember how you did it? <code>%history</code> shows you the history of all commands of your current notebook since the kernel started.</p>
+<h3 id="matplotlib-inline"><code>%matplotlib inline</code></h3>
+<p>During your data analysis you may create a lot of plots. If you insert <code>%matplotlib inline</code> in a cell at the beginning of your notebook, your plots will be directly shown below the code cell that produced it.</p>
+<h3 id="system"><code>%%system</code></h3>
+<p>You briefly want to check your directory and directory contents without using your terminal separately? You can use shell commands from your Jupyter Notebook with <code>%system</code> for a single line of shell script or <code>%%system</code> at the beginning of your cell for using the shell in the entire cell. <code>%%system</code> let&rsquo;s you use your Jupytper notebook cell like your terminal.</p>
+<h3 id="latex"><code>%%latex</code></h3>
+<p>This one comes in handy if you want to include mathematical formulas in your notebook. Formulas in Markdown Syntax are limited and cumbersome. Just insert a latex cell and type your formulas with latex syntax.</p>
+<h3 id="capture--for-saving-the-printed-output-of-a-cell"><code>%%capture </code> for saving the printed output of a cell</h3>
+<p>Let&rsquo;s say you have some time consuming code running in a cell. Closing the Jupyter window won&rsquo;t prevent the cell from running. However, you would lose your printed output, which may be of interest for you. If you start your cell with <code>%%capture &lt;someName&gt;</code>, the cell output will be saved and you can retrieve it later, even if you closed your notebook.</p>
+<pre><code>	%%capture output
+	# Time-consuming code here
+	# show all interim print results
+	output.show()
+	
+</code></pre><p>Let&rsquo;s summarize my favorite magic commands. If you want to find out more about magic commands check out the <a href="https://ipython.readthedocs.io/en/stable/interactive/magics.html">IPython Documentation</a></p>
+<table>
+<thead>
+<tr>
+<th>Macic command</th>
+<th>what it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>%history</code></td>
+<td>see all commands in this notebook</td>
+</tr>
+<tr>
+<td><code>%matplotlib inline</code></td>
+<td>shows plots inline</td>
+</tr>
+<tr>
+<td><code>%%system</code></td>
+<td>use the shell directly from your nb</td>
+</tr>
+<tr>
+<td><code>%%latex </code></td>
+<td>insert latex syntax</td>
+</tr>
+<tr>
+<td><code>%%capture </code></td>
+<td>save printed output of a cell</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="/tags/python/">python</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/jupyter/">jupyter</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/extension/">extension</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/magic-commands/">magic commands</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/06/24/how-the-inverted-index-and-scoring-work-in-elasticsearch/" data-tooltip="How the Inverted Index and Scoring Work in ElasticSearch">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2020/07/12/jupyter-notebooks-boost-your-productivity-with-extensions-and-magic-commands/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2020/07/12/jupyter-notebooks-boost-your-productivity-with-extensions-and-magic-commands/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 Heike W. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="1">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/06/24/how-the-inverted-index-and-scoring-work-in-elasticsearch/" data-tooltip="How the Inverted Index and Scoring Work in ElasticSearch">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2020/07/12/jupyter-notebooks-boost-your-productivity-with-extensions-and-magic-commands/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2020/07/12/jupyter-notebooks-boost-your-productivity-with-extensions-and-magic-commands/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="1">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=%2F2020%2F07%2F12%2Fjupyter-notebooks-boost-your-productivity-with-extensions-and-magic-commands%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2F2020%2F07%2F12%2Fjupyter-notebooks-boost-your-productivity-with-extensions-and-magic-commands%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="/me.jpg" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Heike W</h4>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Data Scientist
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Germany
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('source/assets/img/banner');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = '\/2020\/07\/12\/jupyter-notebooks-boost-your-productivity-with-extensions-and-magic-commands\/';
+          
+            this.page.identifier = '\/2020\/07\/12\/jupyter-notebooks-boost-your-productivity-with-extensions-and-magic-commands\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'Heike';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+
