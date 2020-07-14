@@ -263,11 +263,13 @@ if (!doNotTrack) {
               <p>In this blogpost I will share some tips for working with Jupyter Notebooks. Those tips greatly improved my productivity when working with Jupyter Notebooks and I wish someone would have told me earlier. The two main topics of this post are extensions and magic commands. I&rsquo;ll guide you through how to use them.</p>
 <h2 id="jupyter-extensions">Jupyter Extensions</h2>
 <p>Have you ever missed a feature in your Jupyter Notebook that IDEs have? E.g. you were hoping for autocompletion or automatically formatting code? Then there might be a Jupyter Notebook extension for you. Jupyter extensions simply add features to your Jupyter Notebook, similar to what browser plug-ins do to browsers. Just pip install <code>jupyter-contrib-nbextensions</code>. On your <code>localhost:8888</code> you will now find a tab called Nbextensions. There, you can select the extensions you would like to use by checking the boxes. Usually, you have to restart your kernel for the extension to work. In the following, I&rsquo;ll show you my five favorite extensions.</p>
-<p><img src="/post/2020-07-12-jupyter-extensions/JupyterExtensions.png" alt=""></p>
+<p><img src="/post/2020-07-12-jupyter-extensions/JupyterExtensions.png" alt="">
+<br></p>
 <h3 id="notify">Notify</h3>
 <p>Have you ever waited for some time consuming code to execute, switched tabs and then forgot about it? Or you kept staring at your notebook to wait for the execution of the cell to finally have finished? No need for that with the <code>Notify</code> extension: It displays a web notification, when a cell has run.
 After you added this extension, you will see a new dropdown menu in your notebook&rsquo;s toolbar. You can choose, if and when you want to be notified. Your choices are: Disabled, 0, 5, 10 and 30. If you select for example 5, you will get a notification, if the kernel is busy longer than 5 seconds. I am using the extension with Safari and it works great. It should also work with Firefox and Chrome browsers.</p>
-<p><img src="/post/2020-07-12-jupyter-extensions/JupyterToolBarNotify.png" alt=""></p>
+<p><img src="/post/2020-07-12-jupyter-extensions/JupyterToolBarNotify.png" alt="">
+<br></p>
 <h3 id="snippets">Snippets</h3>
 <p>Do you sometimes find yourself typing the same code snippets over and over again? Maybe you copy paste your database connection strings, some of your most used functions or you always load the same packages? Then the <code>Snippets</code> extension may be useful for you.</p>
 <p>You have to add your snippet as a new JSON block to the list of existing snippets in <code>snippets.json</code>. You can find this file in your jupyter directory with <code>jupyter --data-dir</code> and then going to <code>/nbextensions/snippets/snippets.json.</code> There are already 2 example snippets. You can add your snippets there by just appending to the <code>.json</code> file in the same format. For example, to add a new snippet that imports your favorite data science packages, just add it to the json file.</p>
@@ -281,16 +283,19 @@ After you added this extension, you will see a new dropdown menu in your noteboo
             ]
         }
 </code></pre><p>After you added a snippet, it shows up in the tool bar in the drop down menu snippets. I use this a lot for database configurations and loading the standard packages.</p>
-<p><img src="/post/2020-07-12-jupyter-extensions/JupyterToolBarSnippet.png" alt=""></p>
+<p><img src="/post/2020-07-12-jupyter-extensions/JupyterToolBarSnippet.png" alt="">
+<br></p>
 <h3 id="autopep8">Autopep8</h3>
 <p>If you neglected coding style guidelines Autopep8 could help you. It automatically reformates your code to meet the <a href="Phttps://www.python.org/dev/peps/pep-0008/">PEP 8 standards</a>, Python’s most popular style guide. If you do not already have it, you need to <code>%%pip install autopep8</code>.
 Then you can autoformat your code by pressing <code>Alt-A</code> for a cell or <code>Alt-Shift-A</code> for the entire notebook. Or you could also select a cell and click on the little hammer icon on the right of your toolbar and your code will be prettified!</p>
-<p><img src="/post/2020-07-12-jupyter-extensions/JupyterToolBarFormat.png" alt=""></p>
+<p><img src="/post/2020-07-12-jupyter-extensions/JupyterToolBarFormat.png" alt="">
+<br></p>
 <h3 id="hinterland">hinterland</h3>
 <p>Autocompletion in Jupyter Notebooks exists, but it is cumbersome: You need to press <code>tab</code> everytime you need it. So I really missed the quick autocompletion with every keypress  until I found out about <code>hinterland</code>. With <code>hinterland</code> you will have the autocompletion with every key press. You just need to add the extension.</p>
 <h3 id="executetime">ExecuteTime</h3>
 <p>Sometimes it is interesting to know how long the execution of entire cells took. Of course you could use <code>%%timit</code> in every cell. Or you save some time by using the <code>ExecuteTime</code> extension. For each cell, you will automatically see when the execution started and how long it took.</p>
 <p>The following table summarizes my top 5 extensions. Check out the <a href="https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/install.html">official documentation</a> for more.</p>
+<br>
 <table>
 <thead>
 <tr>
@@ -334,12 +339,12 @@ Then you can autoformat your code by pressing <code>Alt-A</code> for a cell or <
 <p>This one comes in handy if you want to include mathematical formulas in your notebook. Formulas in Markdown Syntax are limited and cumbersome. Just insert a latex cell and type your formulas with latex syntax.</p>
 <h3 id="capture-"><code>%%capture </code></h3>
 <p>Let&rsquo;s say you have some time consuming code running in a cell. Closing the Jupyter window won&rsquo;t prevent the cell from running. However, you would lose your printed output, which may be of interest for you. If you start your cell with <code>%%capture &lt;someName&gt;</code>, the cell output will be saved and you can retrieve it later, even if you closed your notebook.</p>
-<pre><code>	%%capture output
-	# Time-consuming code here
-	# show all interim print results
-	output.show()
-	
+<pre><code>%%capture output
+# Time-consuming code here
+# show all interim print results
+output.show()	
 </code></pre><p>Let&rsquo;s summarize my favorite magic commands. If you want to find out more about magic commands check out the <a href="https://ipython.readthedocs.io/en/stable/interactive/magics.html">IPython Documentation</a></p>
+<br>
 <table>
 <thead>
 <tr>
