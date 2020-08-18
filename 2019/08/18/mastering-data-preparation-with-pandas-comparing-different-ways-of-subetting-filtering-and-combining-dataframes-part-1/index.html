@@ -276,7 +276,7 @@ if (!doNotTrack) {
 <p>In this blogpost we&rsquo;ll look at different ways for subsetting, filtering and combining <code>DataFrame</code>s.</p>
 <h2 id="subsetting-data-selecting-subsets-of-rows-and-columns-by-labels-and-positions">Subsetting Data: Selecting subsets of rows and columns by labels and positions</h2>
 <p><code>.iloc</code> stands for integer-location based indexing. Which means it needs integer input and refers to the position of a row or column you want to select. You can pass integers (<code>0</code>) to select a single row, list of integers (<code>[0,4,9]</code>) and slice objects (<code>1:2,3:5</code>). Here are some examples:</p>
-<pre><code class="language-{python}" data-lang="{python}"># rows
+<pre><code># rows
 df.iloc[0] # first row of data frame 
 df.iloc[1] # second row of data frame 
 df.iloc[-1] # last row of data frame 
@@ -290,6 +290,7 @@ df.iloc[:,0:10] # first 10 column of data frame
 </code></pre><p><code>.loc</code> is label based. You can use a single label (<code>'id'</code>), a list of labels (<code>['column_a', 'column_b']</code>) or a slice object (<code>row_a:row_c, column_b</code>:<code>column_d</code>). Note that if you pass an integer value to <code>.loc</code>, it will be interpreted as a label.</p>
 <p>If you want to select rows or columns that contain a certain string (e.g. a prefix or postfix) you can use <code>filter()</code>. You pass the string you are looking for to the parameters <code>like</code> or <a href="https://docs.python.org/3.3/howto/regex.html"><code>reqex</code></a>. The axis parameter determines whether you search in the index (<code>axis = 0</code>) or in the column names (<code>axis = 1</code>). You can filter all columns that contain the string <code>foo</code> with <code>df.filter(like ='foo', axis = 1</code>.</p>
 <p>Here a brief overview about subsetting data</p>
+<br>
 <table>
 <thead>
 <tr>
@@ -316,6 +317,7 @@ df.iloc[:,0:10] # first 10 column of data frame
 </tr>
 </tbody>
 </table>
+<br>
 <h3 id="compare-iloc-loc-and-filter">Compare <code>iloc</code>, <code>loc</code> and <code>filter</code></h3>
 <p>All three ways above allow you to subset your data. However, sometimes one or the other may be easier to use or lead to less errors, e.g. if you delete columns from your <code>DataFrame</code>. To compare the 3 ways, let&rsquo;s look at the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_diabetes.html#sklearn.datasets.load_diabetes">diabetes dataset</a></p>
 <pre><code>from sklearn import datasets
