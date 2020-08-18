@@ -272,7 +272,10 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>When I started working with pandas I noticed that there were so many ways how to subset, filter and join data with pandas. But I was lacking a systematic overview. How do the different approaches differ and when to use which?</p>
+              <style>
+table { width:80% !important;}
+</style>
+<p>When I started working with pandas I noticed that there were so many ways how to subset, filter and join data with pandas. But I was lacking a systematic overview. How do the different approaches differ and when to use which?</p>
 <p>In this blogpost we&rsquo;ll look at different ways for subsetting, filtering and combining <code>DataFrame</code>s.</p>
 <h2 id="subsetting-data-selecting-subsets-of-rows-and-columns-by-labels-and-positions">Subsetting Data: Selecting subsets of rows and columns by labels and positions</h2>
 <p><code>.iloc</code> stands for integer-location based indexing. Which means it needs integer input and refers to the position of a row or column you want to select. You can pass integers (<code>0</code>) to select a single row, list of integers (<code>[0,4,9]</code>) and slice objects (<code>1:2,3:5</code>). Here are some examples:</p>
@@ -694,7 +697,7 @@ B = pd.DataFrame({'ID': [1,3,4,6],
                   'Gender': ['m', 'f', 'm', 'm']},
                   index=[0, 1, 5, 6])
 
-</code></pre><h4 id="join"><code>join</code></h4>
+</code></pre><h3 id="join"><code>join</code></h3>
 <pre><code>A.join(B)
 </code></pre><p>will throw and error <code>columns overlap but no suffix specified: Index(['ID'], dtype='object')</code>. Since we have the <code>ID</code> Column in both datasets, we have to specify a suffix.</p>
 <pre><code>A.join(B, lsuffix = &quot;a&quot;)
@@ -706,7 +709,7 @@ B = pd.DataFrame({'ID': [1,3,4,6],
 2	3	 Sara	12	NaN 	NaN
 3	4	 John	11	NaN	    NaN
 </code></pre><p>Note that <code>join</code> does an left join on the index and completely ignores the <code>ID</code> column.</p>
-<h4 id="merge"><code>merge</code></h4>
+<h3 id="merge"><code>merge</code></h3>
 <p>Merge per default performs an inner join on the common columns. It does not care about the index.</p>
 <pre><code>A.merge(B)
 
@@ -722,7 +725,7 @@ B = pd.DataFrame({'ID': [1,3,4,6],
 2	3	Sara	12	f
 3	4	John	11	m
 
-</code></pre><h4 id="concat"><code>concat</code></h4>
+</code></pre><h3 id="concat"><code>concat</code></h3>
 <p>Per default, <code>concat</code> will create a union of the datasets, ignoring the index. It just unions both <code>DataFrames</code> and creates <code>NaN</code>s for columns that are missing in one of the datasets.</p>
 <pre><code>pd.concat([A, B])
 
