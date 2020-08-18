@@ -17,18 +17,18 @@
 <meta name="generator" content="Hugo 0.74.3 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Heike W">
 <meta name="keywords" content="boolean mask, python, pandas, data preparation, subset, merge, concat, join, filter, SQL, Data Science, Analytics, R, R Studio, Data Science, Analytics, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive, Data Analysis, Data Mining">
-<meta name="description" content="">
+<meta name="description" content="When I started working with pandas I noticed that there were so many ways how to subset, filter and join data with pandas. But I was lacking a systematic overview. How do the different approaches differ and when to use which?">
 
 
-<meta property="og:description" content="">
+<meta property="og:description" content="When I started working with pandas I noticed that there were so many ways how to subset, filter and join data with pandas. But I was lacking a systematic overview. How do the different approaches differ and when to use which?">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mastering Data Preparation with Pandas: Comparing different ways of subetting, filtering and combining DataFrames (Part 1)">
 <meta name="twitter:title" content="Mastering Data Preparation with Pandas: Comparing different ways of subetting, filtering and combining DataFrames (Part 1)">
 <meta property="og:url" content="/2019/08/18/mastering-data-preparation-with-pandas-comparing-different-ways-of-subetting-filtering-and-combining-dataframes-part-1/">
 <meta property="twitter:url" content="/2019/08/18/mastering-data-preparation-with-pandas-comparing-different-ways-of-subetting-filtering-and-combining-dataframes-part-1/">
 <meta property="og:site_name" content="My journey from Data Analyst to Data Science">
-<meta property="og:description" content="">
-<meta name="twitter:description" content="">
+<meta property="og:description" content="When I started working with pandas I noticed that there were so many ways how to subset, filter and join data with pandas. But I was lacking a systematic overview. How do the different approaches differ and when to use which?">
+<meta name="twitter:description" content="When I started working with pandas I noticed that there were so many ways how to subset, filter and join data with pandas. But I was lacking a systematic overview. How do the different approaches differ and when to use which?">
 <meta property="og:locale" content="en-us">
 
   
@@ -272,11 +272,11 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>In this blog post, I would like to share some notes I made some time ago when I started working with pandas. I figured out, that there are many ways how to join, filter and aggregate data. But I was lacking a systematic overview, when to use which and how to achieve the same thing with different functions.</p>
-<p>We&rsquo;ll look at subsetting, filtering and combining <code>DataFrame</code>s.</p>
+              <p>When I started working with pandas I noticed that there were so many ways how to subset, filter and join data with pandas. But I was lacking a systematic overview. How do the different approaches differ and when to use which?</p>
+<p>In this blogpost we&rsquo;ll look at different ways for subsetting, filtering and combining <code>DataFrame</code>s.</p>
 <h2 id="subsetting-data-selecting-subsets-of-rows-and-columns-by-labels-and-positions">Subsetting Data: Selecting subsets of rows and columns by labels and positions</h2>
 <p><code>.iloc</code> stands for integer-location based indexing. Which means it needs integer input and refers to the position of a row or column you want to select. You can pass integers (<code>0</code>) to select a single row, list of integers (<code>[0,4,9]</code>) and slice objects (<code>1:2,3:5</code>). Here are some examples:</p>
-<pre><code># rows
+<pre><code class="language-{python}" data-lang="{python}"># rows
 df.iloc[0] # first row of data frame 
 df.iloc[1] # second row of data frame 
 df.iloc[-1] # last row of data frame 
