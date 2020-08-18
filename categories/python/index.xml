@@ -26,7 +26,477 @@
       <pubDate>Sun, 18 Aug 2019 10:55:48 +0200</pubDate>
       
       <guid>/2019/08/18/mastering-data-preparation-with-pandas-subetting-filtering-and-joining-dataframes/</guid>
-      <description></description>
+      <description>&lt;style&gt;
+table { width:80% !important;}
+&lt;/style&gt;
+&lt;p&gt;When I started working with pandas I noticed that there were so many ways how to subset, filter and join data with pandas. But I was lacking a systematic overview. How do the different approaches differ and when to use which?&lt;/p&gt;
+&lt;p&gt;In this blogpost we&amp;rsquo;ll look at different ways for subsetting, filtering and combining &lt;code&gt;DataFrame&lt;/code&gt;s.&lt;/p&gt;
+&lt;h2 id=&#34;subsetting-data-selecting-subsets-of-rows-and-columns-by-labels-and-positions&#34;&gt;Subsetting Data: Selecting subsets of rows and columns by labels and positions&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;.iloc&lt;/code&gt; stands for integer-location based indexing. Which means it needs integer input and refers to the position of a row or column you want to select. You can pass integers (&lt;code&gt;0&lt;/code&gt;) to select a single row, list of integers (&lt;code&gt;[0,4,9]&lt;/code&gt;) and slice objects (&lt;code&gt;1:2,3:5&lt;/code&gt;). Here are some examples:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# rows
+df.iloc[0] # first row of data frame 
+df.iloc[1] # second row of data frame 
+df.iloc[-1] # last row of data frame 
+df.iloc[0:10] # first 10 rows of a data frame
+&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;# columns:
+df.iloc[:,0] #first column
+df.iloc[:,1] # second column 
+df.iloc[:,-1] # last column of data frame 
+df.iloc[:,0:10] # first 10 column of data frame 
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;.loc&lt;/code&gt; is label based. You can use a single label (&lt;code&gt;&#39;id&#39;&lt;/code&gt;), a list of labels (&lt;code&gt;[&#39;column_a&#39;, &#39;column_b&#39;]&lt;/code&gt;) or a slice object (&lt;code&gt;row_a:row_c, column_b&lt;/code&gt;:&lt;code&gt;column_d&lt;/code&gt;). Note that if you pass an integer value to &lt;code&gt;.loc&lt;/code&gt;, it will be interpreted as a label.&lt;/p&gt;
+&lt;p&gt;If you want to select rows or columns that contain a certain string (e.g. a prefix or postfix) you can use &lt;code&gt;filter()&lt;/code&gt;. You pass the string you are looking for to the parameters &lt;code&gt;like&lt;/code&gt; or &lt;a href=&#34;https://docs.python.org/3.3/howto/regex.html&#34;&gt;&lt;code&gt;reqex&lt;/code&gt;&lt;/a&gt;. The axis parameter determines whether you search in the index (&lt;code&gt;axis = 0&lt;/code&gt;) or in the column names (&lt;code&gt;axis = 1&lt;/code&gt;). You can filter all columns that contain the string &lt;code&gt;foo&lt;/code&gt; with &lt;code&gt;df.filter(like =&#39;foo&#39;, axis = 1&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Here a brief overview about subsetting data&lt;/p&gt;
+&lt;br&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;index&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;how&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Example with slice object&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;.iloc&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;by index (row)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;df.iloc[&amp;lt;row_nr_start&amp;gt;:&amp;lt;row_nr_end&amp;gt;, &#39;&amp;lt;col_nr_start&amp;gt;&#39;:&#39;&amp;lt;col_nr_end&amp;gt;&#39;]&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;.loc&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;by label&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;df.loc[&amp;lt;row_label_start&amp;gt;:&amp;lt;row_label_end&amp;gt;, &#39;&amp;lt;col_name_start&amp;gt;&#39;:&#39;&amp;lt;col_name_end&amp;gt;&#39;]&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;filter&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;by label and regexes&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;df.filter(like =&amp;lt;some_string&amp;gt;, axis = 0&lt;/code&gt;)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br&gt;
+&lt;h3 id=&#34;compare-iloc-loc-and-filter&#34;&gt;Compare &lt;code&gt;iloc&lt;/code&gt;, &lt;code&gt;loc&lt;/code&gt; and &lt;code&gt;filter&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;All three ways above allow you to subset your data. However, sometimes one or the other may be easier to use or lead to less errors, e.g. if you delete columns from your &lt;code&gt;DataFrame&lt;/code&gt;. To compare the 3 ways, let&amp;rsquo;s look at the &lt;a href=&#34;https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_diabetes.html#sklearn.datasets.load_diabetes&#34;&gt;diabetes dataset&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;from sklearn import datasets
+import pandas as pd
+diabetes = datasets.load_diabetes()
+df = pd.DataFrame(diabetes.data, columns=diabetes.feature_names)
+df.head()
+&lt;/code&gt;&lt;/pre&gt;&lt;br&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;age&lt;/th&gt;
+&lt;th&gt;sex&lt;/th&gt;
+&lt;th&gt;bmi&lt;/th&gt;
+&lt;th&gt;bp&lt;/th&gt;
+&lt;th&gt;s1&lt;/th&gt;
+&lt;th&gt;s2&lt;/th&gt;
+&lt;th&gt;s3&lt;/th&gt;
+&lt;th&gt;s4&lt;/th&gt;
+&lt;th&gt;s5&lt;/th&gt;
+&lt;th&gt;s6&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0.038076&lt;/td&gt;
+&lt;td&gt;0.050680&lt;/td&gt;
+&lt;td&gt;0.061696&lt;/td&gt;
+&lt;td&gt;0.021872&lt;/td&gt;
+&lt;td&gt;-0.044223&lt;/td&gt;
+&lt;td&gt;-0.034821&lt;/td&gt;
+&lt;td&gt;-0.043401&lt;/td&gt;
+&lt;td&gt;-0.002592&lt;/td&gt;
+&lt;td&gt;0.019908&lt;/td&gt;
+&lt;td&gt;-0.017646&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;-0.001882&lt;/td&gt;
+&lt;td&gt;-0.044642&lt;/td&gt;
+&lt;td&gt;-0.051474&lt;/td&gt;
+&lt;td&gt;-0.026328&lt;/td&gt;
+&lt;td&gt;-0.008449&lt;/td&gt;
+&lt;td&gt;-0.019163&lt;/td&gt;
+&lt;td&gt;0.074412&lt;/td&gt;
+&lt;td&gt;-0.039493&lt;/td&gt;
+&lt;td&gt;-0.068330&lt;/td&gt;
+&lt;td&gt;-0.092204&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;0.085299&lt;/td&gt;
+&lt;td&gt;0.050680&lt;/td&gt;
+&lt;td&gt;0.044451&lt;/td&gt;
+&lt;td&gt;-0.005671&lt;/td&gt;
+&lt;td&gt;-0.045599&lt;/td&gt;
+&lt;td&gt;-0.034194&lt;/td&gt;
+&lt;td&gt;-0.032356&lt;/td&gt;
+&lt;td&gt;-0.002592&lt;/td&gt;
+&lt;td&gt;0.002864&lt;/td&gt;
+&lt;td&gt;-0.025930&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;-0.089063&lt;/td&gt;
+&lt;td&gt;-0.044642&lt;/td&gt;
+&lt;td&gt;-0.011595&lt;/td&gt;
+&lt;td&gt;-0.036656&lt;/td&gt;
+&lt;td&gt;0.012191&lt;/td&gt;
+&lt;td&gt;0.024991&lt;/td&gt;
+&lt;td&gt;-0.036038&lt;/td&gt;
+&lt;td&gt;0.034309&lt;/td&gt;
+&lt;td&gt;0.022692&lt;/td&gt;
+&lt;td&gt;-0.009362&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;0.005383&lt;/td&gt;
+&lt;td&gt;-0.044642&lt;/td&gt;
+&lt;td&gt;-0.036385&lt;/td&gt;
+&lt;td&gt;0.021872&lt;/td&gt;
+&lt;td&gt;0.003935&lt;/td&gt;
+&lt;td&gt;0.015596&lt;/td&gt;
+&lt;td&gt;0.008142&lt;/td&gt;
+&lt;td&gt;-0.002592&lt;/td&gt;
+&lt;td&gt;-0.031991&lt;/td&gt;
+&lt;td&gt;-0.046641&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br&gt;
+&lt;p&gt;(1) Select the &lt;code&gt;age&lt;/code&gt; column&lt;/p&gt;
+&lt;br&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;code&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;returns&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;iloc&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;df.iloc[:,0]&lt;/code&gt;, &lt;code&gt;df.iloc[0]&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;Series&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;loc&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;df.loc[:,[&#39;age&#39;]] &lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;DataFrame&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;filter&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;df.filter(items = [&#39;age&#39;])&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;DataFrame&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br&gt;
+&lt;p&gt;Note that &lt;code&gt;iloc&lt;/code&gt; returns a &lt;code&gt;Series&lt;/code&gt;, if you select only one column. Also, if your first column ever changes (e.g. because you reset the index), you will suddendly retrieve another column. If you need a specific column, I suggest you use &lt;code&gt;loc&lt;/code&gt; or &lt;code&gt;filter&lt;/code&gt; that pass the name of this column specifically.&lt;/p&gt;
+&lt;p&gt;(2) Select the colums s1 to s6&lt;/p&gt;
+&lt;br&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;code&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;returns&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;iloc&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;df.iloc[:,4:10]&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;DataFrame&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;loc&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;df.loc[:,&#39;s1&#39;:&#39;s6&#39;]&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;DataFrame&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;filter&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;df.filter(regex =&#39;s\d&#39;)&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;DataFrame&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br&gt;
+&lt;p&gt;Again, if the positions of the column change, &lt;code&gt;iloc&lt;/code&gt; will lead to errors. If your columns follow a pattern rather than a position or a name, I&amp;rsquo;ll suggest you use &lt;code&gt;filter&lt;/code&gt; as it is less error prone.&lt;/p&gt;
+&lt;h2 id=&#34;filtering-data-selecting-subsets-of-rows-based-on-conditions&#34;&gt;Filtering Data: Selecting subsets of rows based on conditions&lt;/h2&gt;
+&lt;p&gt;There are multiple ways how to filter data with pandas. We&amp;rsquo;ll look at how boolean indexing works and how to filter with the &lt;code&gt;query()&lt;/code&gt; function.&lt;/p&gt;
+&lt;p&gt;If you are familiar with SQL, &lt;code&gt;query&lt;/code&gt; might be the most intuitive way for you. You just pass the condition as a string to the &lt;code&gt;query&lt;/code&gt; function. The condition is almost the same code as you would put in your &lt;code&gt;WHERE&lt;/code&gt;-condition in a SQL-query. Just the operators are just slightly different&lt;/p&gt;
+&lt;br&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;SQL operator&lt;/th&gt;
+&lt;th&gt;pandas equivalent&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;OR&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;|&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;AND&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;amp;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;NOT&lt;/code&gt;, &lt;code&gt;!&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt; ~&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br&gt;
+&lt;p&gt;So you could for example use &lt;code&gt;df.query(&amp;quot;column_a == &#39;foo&#39; &amp;amp; column_b == 1&amp;quot;)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Boolean Masking&lt;/strong&gt; is another powerful way to access data. The idea is to use a boolean mask to index the &lt;code&gt;DataFrame&lt;/code&gt;. This boolean mask is a vector of true and false values for each row in the &lt;code&gt;DataFrame&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;new_df = df[&amp;lt;some boolean mask&amp;gt;]
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Only the rows with true values will be returned. Of course, you could pass this vector directly&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;my_mask = [True, False, True, False, True, False, True, False, True, False, True, False, True]
+df[my_mask]  
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;or you create it with conditions.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;df[df.&amp;lt;colname&amp;gt; == &#39;foo&#39;]
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;compare-query-vs-boolean-masking&#34;&gt;Compare &lt;code&gt;query&lt;/code&gt; vs. boolean masking&lt;/h3&gt;
+&lt;p&gt;Lets compare the two approaches this time using the &lt;a href=&#34;https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html#sklearn.datasets.load_boston&#34;&gt;boston dataset&lt;/a&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;boston = datasets.load_boston()
+df = pd.DataFrame(boston.data, columns=boston.feature_names)
+df.head()
+&lt;/code&gt;&lt;/pre&gt;&lt;br&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;CRIM&lt;/th&gt;
+&lt;th&gt;ZN&lt;/th&gt;
+&lt;th&gt;INDUS&lt;/th&gt;
+&lt;th&gt;CHAS&lt;/th&gt;
+&lt;th&gt;NOX&lt;/th&gt;
+&lt;th&gt;RM&lt;/th&gt;
+&lt;th&gt;AGE&lt;/th&gt;
+&lt;th&gt;DIS&lt;/th&gt;
+&lt;th&gt;RAD&lt;/th&gt;
+&lt;th&gt;TAX&lt;/th&gt;
+&lt;th&gt;PTRATIO&lt;/th&gt;
+&lt;th&gt;B&lt;/th&gt;
+&lt;th&gt;LSTAT&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0.00632&lt;/td&gt;
+&lt;td&gt;18.0&lt;/td&gt;
+&lt;td&gt;2.31&lt;/td&gt;
+&lt;td&gt;0.0&lt;/td&gt;
+&lt;td&gt;0.538&lt;/td&gt;
+&lt;td&gt;6.575&lt;/td&gt;
+&lt;td&gt;65.2&lt;/td&gt;
+&lt;td&gt;4.0900&lt;/td&gt;
+&lt;td&gt;1.0&lt;/td&gt;
+&lt;td&gt;296.0&lt;/td&gt;
+&lt;td&gt;15.3&lt;/td&gt;
+&lt;td&gt;396.90&lt;/td&gt;
+&lt;td&gt;4.98&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;0.02731&lt;/td&gt;
+&lt;td&gt;0.0&lt;/td&gt;
+&lt;td&gt;7.07&lt;/td&gt;
+&lt;td&gt;0.0&lt;/td&gt;
+&lt;td&gt;0.469&lt;/td&gt;
+&lt;td&gt;6.421&lt;/td&gt;
+&lt;td&gt;78.9&lt;/td&gt;
+&lt;td&gt;4.9671&lt;/td&gt;
+&lt;td&gt;2.0&lt;/td&gt;
+&lt;td&gt;242.0&lt;/td&gt;
+&lt;td&gt;17.8&lt;/td&gt;
+&lt;td&gt;396.90&lt;/td&gt;
+&lt;td&gt;9.14&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;0.02729&lt;/td&gt;
+&lt;td&gt;0.0&lt;/td&gt;
+&lt;td&gt;7.07&lt;/td&gt;
+&lt;td&gt;0.0&lt;/td&gt;
+&lt;td&gt;0.469&lt;/td&gt;
+&lt;td&gt;7.185&lt;/td&gt;
+&lt;td&gt;61.1&lt;/td&gt;
+&lt;td&gt;4.9671&lt;/td&gt;
+&lt;td&gt;2.0&lt;/td&gt;
+&lt;td&gt;242.0&lt;/td&gt;
+&lt;td&gt;17.8&lt;/td&gt;
+&lt;td&gt;392.83&lt;/td&gt;
+&lt;td&gt;4.03&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;0.03237&lt;/td&gt;
+&lt;td&gt;0.0&lt;/td&gt;
+&lt;td&gt;2.18&lt;/td&gt;
+&lt;td&gt;0.0&lt;/td&gt;
+&lt;td&gt;0.458&lt;/td&gt;
+&lt;td&gt;6.998&lt;/td&gt;
+&lt;td&gt;45.8&lt;/td&gt;
+&lt;td&gt;6.0622&lt;/td&gt;
+&lt;td&gt;3.0&lt;/td&gt;
+&lt;td&gt;222.0&lt;/td&gt;
+&lt;td&gt;18.7&lt;/td&gt;
+&lt;td&gt;394.63&lt;/td&gt;
+&lt;td&gt;2.94&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;0.06905&lt;/td&gt;
+&lt;td&gt;0.0&lt;/td&gt;
+&lt;td&gt;2.18&lt;/td&gt;
+&lt;td&gt;0.0&lt;/td&gt;
+&lt;td&gt;0.458&lt;/td&gt;
+&lt;td&gt;7.147&lt;/td&gt;
+&lt;td&gt;54.2&lt;/td&gt;
+&lt;td&gt;6.0622&lt;/td&gt;
+&lt;td&gt;3.0&lt;/td&gt;
+&lt;td&gt;222.0&lt;/td&gt;
+&lt;td&gt;18.7&lt;/td&gt;
+&lt;td&gt;396.90&lt;/td&gt;
+&lt;td&gt;5.33&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br&gt;
+&lt;p&gt;Here are three example on how to achieve the same things with both approaches.&lt;/p&gt;
+&lt;br&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;&lt;code&gt;query&lt;/code&gt;&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;boolean mask&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;one condition&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;df.query(&amp;quot;AGE &amp;lt; 50&amp;quot;)&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;df[df.AGE &amp;lt; 50]&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;two conditions&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;df.query(&amp;quot;AGE &amp;lt; 50 &amp;amp; RAD == 2&amp;quot;)&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;df[(df.AGE &amp;lt; 50) &amp;amp; (df.RAD == 2)]&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;multiple values&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;df.query(&#39;RAD in[1,2]&#39;)&lt;/code&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;code&gt;df[df.RAD.isin([1,2])]&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;br&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;One could argue, that &lt;code&gt;query&lt;/code&gt; is more readable and requieres less typing as you do not have to repead the name of the &lt;code&gt;DataFrame&lt;/code&gt; in the condition.&lt;/p&gt;
+&lt;h2 id=&#34;combining-data-joins&#34;&gt;Combining Data: joins&lt;/h2&gt;
+&lt;p&gt;Pandas has three functions for joining tables &lt;a href=&#34;https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.join.html&#34;&gt;&lt;code&gt;join&lt;/code&gt;&lt;/a&gt;,&lt;a href=&#34;https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.merge.html&#34;&gt;&lt;code&gt;merge&lt;/code&gt;&lt;/a&gt; and &lt;a href=&#34;https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.concat.html&#34;&gt;&lt;code&gt;concat&lt;/code&gt;&lt;/a&gt;. &lt;code&gt;join&lt;/code&gt; and &lt;code&gt;merge&lt;/code&gt; are similar to joining tables in SQL with a (left, right etc&amp;hellip;.) join. &lt;code&gt;join()&lt;/code&gt; will attempt to do a left join on indices keeping all columns while &lt;code&gt;merge&lt;/code&gt; will perform an inner join on the common columns.  Both can combine two tables. &lt;code&gt;concat&lt;/code&gt; is the most flexible option, which allows you to join rows &lt;strong&gt;and&lt;/strong&gt; columns of multiple DataFrames. Your datasets are just stitched together along an axis — either the row axis or column axis- ignoring the index. So you can use &lt;code&gt;concat&lt;/code&gt; for joining and for the union of DataFrames.&lt;/p&gt;
+&lt;br&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;function&lt;/th&gt;
+&lt;th&gt;combines&lt;/th&gt;
+&lt;th&gt;default&lt;/th&gt;
+&lt;th&gt;how&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;join&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;2 dataframes by indices&lt;/td&gt;
+&lt;td&gt;left&lt;/td&gt;
+&lt;td&gt;left, right, inner, outer&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;merge&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;2 dataframes by columns or index&lt;/td&gt;
+&lt;td&gt;inner&lt;/td&gt;
+&lt;td&gt;&amp;hellip;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;concat&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;n dataframes by columns, index, or rows&lt;/td&gt;
+&lt;td&gt;append rows&lt;/td&gt;
+&lt;td&gt;&amp;hellip;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;br&gt;
+&lt;h3 id=&#34;compare-join-vs-concat-vs-merge&#34;&gt;Compare &lt;code&gt;join&lt;/code&gt; vs. &lt;code&gt;concat&lt;/code&gt; vs. &lt;code&gt;merge&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;Let&amp;rsquo;s create some datasets, what would happen if we combine those datasets with their default parameters. Note that the indices differ!&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;A = pd.DataFrame({&#39;ID&#39;: [1, 2, 3, 4],
+                    &#39;Name&#39;: [&#39;Tom&#39;, &#39;Lisa&#39;, &#39;Sara&#39;, &#39;John&#39;],
+                    &#39;Age&#39;: [&#39;10&#39;, &#39;11&#39;, &#39;12&#39;, &#39;11&#39;]},
+                   index=[0, 1, 2, 3])
+
+
+B = pd.DataFrame({&#39;ID&#39;: [1,3,4,6],
+                  &#39;Gender&#39;: [&#39;m&#39;, &#39;f&#39;, &#39;m&#39;, &#39;m&#39;]},
+                  index=[0, 1, 5, 6])
+
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;join&#34;&gt;&lt;code&gt;join&lt;/code&gt;&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;A.join(B)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;will throw and error &lt;code&gt;columns overlap but no suffix specified: Index([&#39;ID&#39;], dtype=&#39;object&#39;)&lt;/code&gt;. Since we have the &lt;code&gt;ID&lt;/code&gt; Column in both datasets, we have to specify a suffix.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;A.join(B, lsuffix = &amp;quot;a&amp;quot;)
+
+
+   IDa	  Name	Age	ID	   Gender
+0	1	 Tom	10	1.0 	m
+1	2	 Lisa	11	3.0 	f
+2	3	 Sara	12	NaN 	NaN
+3	4	 John	11	NaN	    NaN
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Note that &lt;code&gt;join&lt;/code&gt; does an left join on the index and completely ignores the &lt;code&gt;ID&lt;/code&gt; column.&lt;/p&gt;
+&lt;h3 id=&#34;merge&#34;&gt;&lt;code&gt;merge&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;Merge per default performs an inner join on the common columns. It does not care about the index.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;A.merge(B)
+
+
+   ID	  Name	Age	Gender
+0	1	   Tom	10	m
+1	3	  Sara	12	f
+2	4	  John	11	m
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Using the how parameter, you can determine the type of join&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;	ID	Name	Age	Gender
+0	1	Tom	    10	m
+1	2	Lisa	11	NaN
+2	3	Sara	12	f
+3	4	John	11	m
+
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;concat&#34;&gt;&lt;code&gt;concat&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;Per default, &lt;code&gt;concat&lt;/code&gt; will create a union of the datasets, ignoring the index. It just unions both &lt;code&gt;DataFrames&lt;/code&gt; and creates &lt;code&gt;NaN&lt;/code&gt;s for columns that are missing in one of the datasets.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pd.concat([A, B])
+
+	ID	Name	Age	Gender
+0	1	Tom	    10	NaN
+1	2	Lisa	11	NaN
+2	3	Sara	12	NaN
+3	4	John	11	NaN
+0	1	NaN	    NaN	m
+1	3	NaN  	NaN	f
+5	4	NaN	    NaN	m
+6	6	NaN 	NaN	m
+
+
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;I typically use &lt;code&gt;merge&lt;/code&gt; for joining &lt;code&gt;DataFrames&lt;/code&gt; in a SQL-like way and &lt;code&gt;concat&lt;/code&gt; for stitching &lt;code&gt;DataFrames&lt;/code&gt; together or SQL-like &lt;code&gt;union&lt;/code&gt;s.&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;We have seen several ways how to subset, filter and join DataFrames. Some of the functions will get you to the same results, while others have small differences you need to be aware of.&lt;/p&gt;</description>
     </item>
     
   </channel>
