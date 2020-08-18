@@ -17,7 +17,8 @@
       <pubDate>Sun, 12 Jul 2020 21:17:58 +0200</pubDate>
       
       <guid>/2020/07/12/jupyter-notebooks-boost-your-productivity-with-extensions-and-magic-commands/</guid>
-      <description></description>
+      <description>In this blogpost I will share some tips for working with Jupyter Notebooks. Those tips greatly improved my productivity when working with Jupyter Notebooks and I wish someone would have told me earlier. The two main topics of this post are extensions and magic commands.
+Jupyter Extensions Have you ever missed a feature in your Jupyter Notebook that IDEs have? E.g. you were hoping for autocompletion or automatically formatting code? Then there might be a Jupyter Notebook extension for you.</description>
     </item>
     
   </channel>

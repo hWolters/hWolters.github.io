@@ -17,7 +17,8 @@
       <pubDate>Sun, 12 Jul 2020 21:17:58 +0200</pubDate>
       
       <guid>/2020/07/12/jupyter-notebooks-boost-your-productivity-with-extensions-and-magic-commands/</guid>
-      <description></description>
+      <description>In this blogpost I will share some tips for working with Jupyter Notebooks. Those tips greatly improved my productivity when working with Jupyter Notebooks and I wish someone would have told me earlier. The two main topics of this post are extensions and magic commands.
+Jupyter Extensions Have you ever missed a feature in your Jupyter Notebook that IDEs have? E.g. you were hoping for autocompletion or automatically formatting code? Then there might be a Jupyter Notebook extension for you.</description>
     </item>
     
     <item>
@@ -30,7 +31,7 @@
 table { width:80% !important;}
 &lt;/style&gt;
 &lt;p&gt;When I started working with pandas I noticed that there were so many ways how to subset, filter and join data with pandas. But I was lacking a systematic overview. How do the different approaches differ and when to use which?&lt;/p&gt;
-&lt;p&gt;In this blogpost we&amp;rsquo;ll look at different ways for subsetting, filtering and combining &lt;code&gt;DataFrame&lt;/code&gt;s.&lt;/p&gt;
+&lt;p&gt;In this blogpost we&amp;rsquo;ll look at different ways for subsetting, filtering and combining DataFrames.&lt;/p&gt;
 &lt;h2 id=&#34;subsetting-data-selecting-subsets-of-rows-and-columns-by-labels-and-positions&#34;&gt;Subsetting Data: Selecting subsets of rows and columns by labels and positions&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;.iloc&lt;/code&gt; stands for integer-location based indexing. Which means it needs integer input and refers to the position of a row or column you want to select. You can pass integers (&lt;code&gt;0&lt;/code&gt;) to select a single row, list of integers (&lt;code&gt;[0,4,9]&lt;/code&gt;) and slice objects (&lt;code&gt;1:2,3:5&lt;/code&gt;). Here are some examples:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;# rows
