@@ -129,20 +129,20 @@
     </item>
     
     <item>
-      <title>concat</title>
-      <link>/tags/concat/</link>
-      <pubDate>Sun, 18 Aug 2019 10:55:48 +0200</pubDate>
-      
-      <guid>/tags/concat/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>data preparation</title>
       <link>/tags/data-preparation/</link>
       <pubDate>Sun, 18 Aug 2019 10:55:48 +0200</pubDate>
       
       <guid>/tags/data-preparation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pandas</title>
+      <link>/tags/pandas/</link>
+      <pubDate>Sun, 18 Aug 2019 10:55:48 +0200</pubDate>
+      
+      <guid>/tags/pandas/</guid>
       <description></description>
     </item>
     
