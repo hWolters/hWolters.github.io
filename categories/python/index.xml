@@ -32,7 +32,7 @@ table { width:80% !important;}
 &lt;/style&gt;
 &lt;p&gt;When I started working with pandas I noticed that there were so many ways how to subset, filter and join data with pandas. But I was lacking a systematic overview. How do the different approaches differ and when to use which?&lt;/p&gt;
 &lt;p&gt;In this blogpost we&amp;rsquo;ll look at different ways for subsetting, filtering and combining DataFrames.&lt;/p&gt;
-&lt;h2 id=&#34;subsetting-data-selecting-subsets-of-rows-and-columns-by-labels-and-positions&#34;&gt;Subsetting Data: Selecting subsets of rows and columns by labels and positions&lt;/h2&gt;
+&lt;h1 id=&#34;subsetting-data-selecting-subsets-of-rows-and-columns-by-labels-and-positions&#34;&gt;Subsetting Data: Selecting subsets of rows and columns by labels and positions&lt;/h1&gt;
 &lt;p&gt;&lt;code&gt;.iloc&lt;/code&gt; stands for integer-location based indexing. Which means it needs integer input and refers to the position of a row or column you want to select. You can pass integers (&lt;code&gt;0&lt;/code&gt;) to select a single row, list of integers (&lt;code&gt;[0,4,9]&lt;/code&gt;) and slice objects (&lt;code&gt;1:2,3:5&lt;/code&gt;). Here are some examples:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;# rows
 df.iloc[0] # first row of data frame 
