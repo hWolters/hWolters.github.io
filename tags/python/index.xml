@@ -21,5 +21,17 @@
 Jupyter Extensions Have you ever missed a feature in your Jupyter Notebook that IDEs have? E.g. you were hoping for autocompletion or automatically formatting code? Then there might be a Jupyter Notebook extension for you.</description>
     </item>
     
+    <item>
+      <title>Mastering Data Preparation with Pandas: Subetting, Filtering and Joining DataFrames</title>
+      <link>/2019/08/18/mastering-data-preparation-with-pandas-subetting-filtering-and-joining-dataframes/</link>
+      <pubDate>Sun, 18 Aug 2019 10:55:48 +0200</pubDate>
+      
+      <guid>/2019/08/18/mastering-data-preparation-with-pandas-subetting-filtering-and-joining-dataframes/</guid>
+      <description>&lt;style&gt;
+table { width:80% !important;}
+&lt;/style&gt;
+&lt;p&gt;When I started working with pandas I noticed that there were so many ways how to subset, filter and join data with pandas. But I was lacking a systematic overview. How do the different approaches differ and when to use which?&lt;/p&gt;</description>
+    </item>
+    
   </channel>
 </rss>
