@@ -276,449 +276,221 @@ if (!doNotTrack) {
 <p>We&rsquo;ll look at subsetting, filtering and combining data.</p>
 <h2 id="subsetting-data-selecting-subsets-of-rows-and-columns-by-labels-and-positions">Subsetting Data: Selecting subsets of rows and columns by labels and positions</h2>
 <p><code>.iloc</code> stands for integer-location based indexing. Which means it needs integer input and refers to the position of a row or column you want to select. You can pass integers (<code>0</code>) to select a single row, list of integers (<code>[0,4,9]</code>) and slice objects (<code>1:2,3:5</code>). Here are some examples:</p>
-<pre><code># rows
+<br>
+```
+# rows
 df.iloc[0] # first row of data frame 
 df.iloc[1] # second row of data frame 
 df.iloc[-1] # last row of data frame 
 df.iloc[0:10] # first 10 rows of a data frame
+<h1 id="columns">columns:</h1>
+<p>df.iloc[:,0] #first column
+df.iloc[:,1] # second column
+df.iloc[:,-1] # last column of data frame
+df.iloc[:,0:10] # first 10 column of data frame</p>
+<pre><code>
+&lt;br&gt;
+ `.loc` is label based. You can use a single label (`'id'`), a list of labels (`['column_a', 'column_b']`) or a slice object (`row_a:row_c, column_b`:`column_d`). Note that if you pass an integer value to `.loc`, it will be interpreted as a label.
+ 
+If you want to select rows or columns that contain a certain string (e.g. a prefix or postfix) you can use `filter()`. You pass the string you are looking for to the parameters `like` or [`reqex`](https://docs.python.org/3.3/howto/regex.html). The axis parameter determines whether you search in the index (`axis = 0`) or in the column names (`axis = 1`). You can filter all columns that contain the string `foo` with `df.filter(like ='foo', axis = 1`.
 
-# columns:
-df.iloc[:,0] #first column
-df.iloc[:,1] # second column 
-df.iloc[:,-1] # last column of data frame 
-df.iloc[:,0:10] # first 10 column of data frame 
-</code></pre><p><code>.loc</code> is label based. You can use a single label (<code>'id'</code>), a list of labels (<code>['column_a', 'column_b']</code>) or a slice object (<code>row_a:row_c, column_b</code>:<code>column_d</code>). Note that if you pass an integer value to <code>.loc</code>, it will be interpreted as a label.</p>
-<p>If you want to select rows or columns that contain a certain string (e.g. a prefix or postfix) you can use <code>filter()</code>. You pass the string you are looking for to the parameters <code>like</code> or <a href="https://docs.python.org/3.3/howto/regex.html"><code>reqex</code></a>. The axis parameter determines whether you search in the index (<code>axis = 0</code>) or in the column names (<code>axis = 1</code>). You can filter all columns that contain the string <code>foo</code> with <code>df.filter(like ='foo', axis = 1</code>.</p>
-<p>Here a brief overview about subsetting data</p>
-<table>
-<thead>
-<tr>
-<th align="left">index</th>
-<th align="left">how</th>
-<th align="left">Example with slice object</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><code>.iloc</code></td>
-<td align="left">by index (row)</td>
-<td align="left"><code>df.iloc[&lt;row_nr_start&gt;:&lt;row_nr_end&gt;, '&lt;col_nr_start&gt;':'&lt;col_nr_end&gt;']</code></td>
-</tr>
-<tr>
-<td align="left"><code>.loc</code></td>
-<td align="left">by label</td>
-<td align="left"><code>df.loc[&lt;row_label_start&gt;:&lt;row_label_end&gt;, '&lt;col_name_start&gt;':'&lt;col_name_end&gt;']</code></td>
-</tr>
-<tr>
-<td align="left"><code>filter</code></td>
-<td align="left">by label and regexes</td>
-<td align="left"><code>df.filter(like =&lt;some_string&gt;, axis = 0</code>)</td>
-</tr>
-</tbody>
-</table>
-<h3 id="compare-iloc-loc-and-filter">Compare <code>iloc</code>, <code>loc</code> and <code>filter</code></h3>
-<p>All three ways above allow you to subset your data. However, sometimes one or the other may be easier to use or lead to less errors, e.g. if you delete columns from your <code>DataFrame</code>. To compare the 3 ways, let&rsquo;s look at the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_diabetes.html#sklearn.datasets.load_diabetes">diabetes dataset</a></p>
-<pre><code>from sklearn import datasets
+Here a brief overview about subsetting data 
+
+|index|how| Example with slice object|
+|:----|:----| :----|
+|`.iloc`|by index (row) | `df.iloc[&lt;row_nr_start&gt;:&lt;row_nr_end&gt;, '&lt;col_nr_start&gt;':'&lt;col_nr_end&gt;']`|
+|`.loc`|by label | `df.loc[&lt;row_label_start&gt;:&lt;row_label_end&gt;, '&lt;col_name_start&gt;':'&lt;col_name_end&gt;']` |
+|`filter`|by label and regexes | `df.filter(like =&lt;some_string&gt;, axis = 0`) |
+
+### Compare `iloc`, `loc` and `filter`
+
+All three ways above allow you to subset your data. However, sometimes one or the other may be easier to use or lead to less errors, e.g. if you delete columns from your `DataFrame`. To compare the 3 ways, let's look at the [diabetes dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_diabetes.html#sklearn.datasets.load_diabetes)
+
+</code></pre><p>from sklearn import datasets
 import pandas as pd
 diabetes = datasets.load_diabetes()
 df = pd.DataFrame(diabetes.data, columns=diabetes.feature_names)
-df.head()
-</code></pre><table>
-<thead>
-<tr>
-<th></th>
-<th>age</th>
-<th>sex</th>
-<th>bmi</th>
-<th>bp</th>
-<th>s1</th>
-<th>s2</th>
-<th>s3</th>
-<th>s4</th>
-<th>s5</th>
-<th>s6</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>0.038076</td>
-<td>0.050680</td>
-<td>0.061696</td>
-<td>0.021872</td>
-<td>-0.044223</td>
-<td>-0.034821</td>
-<td>-0.043401</td>
-<td>-0.002592</td>
-<td>0.019908</td>
-<td>-0.017646</td>
-</tr>
-<tr>
-<td>1</td>
-<td>-0.001882</td>
-<td>-0.044642</td>
-<td>-0.051474</td>
-<td>-0.026328</td>
-<td>-0.008449</td>
-<td>-0.019163</td>
-<td>0.074412</td>
-<td>-0.039493</td>
-<td>-0.068330</td>
-<td>-0.092204</td>
-</tr>
-<tr>
-<td>2</td>
-<td>0.085299</td>
-<td>0.050680</td>
-<td>0.044451</td>
-<td>-0.005671</td>
-<td>-0.045599</td>
-<td>-0.034194</td>
-<td>-0.032356</td>
-<td>-0.002592</td>
-<td>0.002864</td>
-<td>-0.025930</td>
-</tr>
-<tr>
-<td>3</td>
-<td>-0.089063</td>
-<td>-0.044642</td>
-<td>-0.011595</td>
-<td>-0.036656</td>
-<td>0.012191</td>
-<td>0.024991</td>
-<td>-0.036038</td>
-<td>0.034309</td>
-<td>0.022692</td>
-<td>-0.009362</td>
-</tr>
-<tr>
-<td>4</td>
-<td>0.005383</td>
-<td>-0.044642</td>
-<td>-0.036385</td>
-<td>0.021872</td>
-<td>0.003935</td>
-<td>0.015596</td>
-<td>0.008142</td>
-<td>-0.002592</td>
-<td>-0.031991</td>
-<td>-0.046641</td>
-</tr>
-</tbody>
-</table>
-<p>(1) Select the <code>age</code> column</p>
-<table>
-<thead>
-<tr>
-<th align="left"></th>
-<th align="left">code</th>
-<th align="left">returns</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><code>iloc</code></td>
-<td align="left"><code>df.iloc[:,0]</code>, <code>df.iloc[0]</code></td>
-<td align="left"><code>Series</code></td>
-</tr>
-<tr>
-<td align="left"><code>loc</code></td>
-<td align="left"><code>df.loc[:,['age']] </code></td>
-<td align="left"><code>DataFrame</code></td>
-</tr>
-<tr>
-<td align="left"><code>filter</code></td>
-<td align="left"><code>df.filter(items = ['age'])</code></td>
-<td align="left"><code>DataFrame</code></td>
-</tr>
-</tbody>
-</table>
-<p>Note that <code>iloc</code> returns a <code>Series</code>, if you select only one column. Also, if your first column ever changes (e.g. because you reset the index), you will suddendly retrieve another column. If you need a specific column, I suggest you use <code>loc</code> or <code>filter</code> that pass the name of this column specifically.</p>
-<p>(2) Select the colums s1 to s6</p>
-<table>
-<thead>
-<tr>
-<th align="left"></th>
-<th align="left">code</th>
-<th align="left">returns</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><code>iloc</code></td>
-<td align="left"><code>df.iloc[:,4:10]</code></td>
-<td align="left"><code>DataFrame</code></td>
-</tr>
-<tr>
-<td align="left"><code>loc</code></td>
-<td align="left"><code>df.loc[:,'s1':'s6']</code></td>
-<td align="left"><code>DataFrame</code></td>
-</tr>
-<tr>
-<td align="left"><code>filter</code></td>
-<td align="left"><code>df.filter(regex ='s\d')</code></td>
-<td align="left"><code>DataFrame</code></td>
-</tr>
-</tbody>
-</table>
-<p>Again, if the positions of the column change, <code>iloc</code> will lead to errors. If your columns follow a pattern rather than a position or a name, I&rsquo;ll suggest you use <code>filter</code> as it is less error prone.</p>
-<h2 id="filtering-data-selecting-subsets-of-rows-based-on-conditions">Filtering Data: Selecting subsets of rows based on conditions</h2>
-<p>There are multiple ways how to filter data with pandas. We&rsquo;ll look at how boolean indexing works and how to filter with the <code>query()</code> function.</p>
-<p>If you are familiar with SQL, <code>query</code> might be the most intuitive way for you. You just pass the condition as a string to the <code>query</code> function. The condition is almost the same code as you would put in your <code>WHERE</code>-condition in a SQL-query. Just the operators are just slightly different</p>
-<table>
-<thead>
-<tr>
-<th>SQL operator</th>
-<th>pandas equivalent</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>OR</code></td>
-<td><code>|</code></td>
-</tr>
-<tr>
-<td><code>AND</code></td>
-<td><code>&amp;</code></td>
-</tr>
-<tr>
-<td><code>NOT</code>, <code>!</code></td>
-<td><code> ~</code></td>
-</tr>
-</tbody>
-</table>
-<p>So you could for example use <code>df.query(&quot;column_a == 'foo' &amp; column_b == 1&quot;)</code></p>
-<p><strong>Boolean Masking</strong> is another powerful way to access data. The idea is to use a boolean mask to index the <code>DataFrame</code>. This boolean mask is a vector of true and false values for each row in the <code>DataFrame</code>.</p>
-<pre><code>new_df = df[&lt;some boolean mask&gt;]
-</code></pre><p>Only the rows with true values will be returned. Of course, you could pass this vector directly</p>
-<pre><code>my_mask = [True, False, True, False, True, False, True, False, True, False, True, False, True]
-df[my_mask]  
-</code></pre><p>or you create it with conditions.</p>
-<pre><code>df[df.&lt;colname&gt; == 'foo']
-</code></pre><h3 id="compare-query-vs-boolean-masking">Compare <code>query</code> vs. boolean masking</h3>
-<p>Lets compare the two approaches this time using the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html#sklearn.datasets.load_boston">boston dataset</a>.</p>
-<pre><code>boston = datasets.load_boston()
+df.head()</p>
+<pre><code>&lt;br&gt;
+|   |age|sex      |bmi      |bp       |s1       |s2       |s3       |s4       |s5       |s6       | 
+|---|---------|---------|---------|---------|---------|---------|---------|---------|---------|---------|
+|0  |0.038076 |0.050680 |0.061696 |0.021872 |-0.044223|-0.034821|-0.043401|-0.002592|0.019908 |-0.017646|
+|1  |-0.001882|-0.044642|-0.051474|-0.026328|-0.008449|-0.019163|0.074412 |-0.039493|-0.068330|-0.092204|
+|2  |0.085299 |0.050680 |0.044451 |-0.005671|-0.045599|-0.034194|-0.032356|-0.002592|0.002864 |-0.025930|
+|3  |-0.089063|-0.044642|-0.011595|-0.036656|0.012191 |0.024991 |-0.036038|0.034309 |0.022692 |-0.009362|
+|4  |0.005383 |-0.044642|-0.036385|0.021872 |0.003935 |0.015596 |0.008142 |-0.002592|-0.031991|-0.046641|
+&lt;br&gt;
+
+(1) Select the `age` column
+
+&lt;br&gt;
+
+|        | code    | returns|
+|:-------|:--------|:---|
+|`iloc`  |`df.iloc[:,0]`, `df.iloc[0]`| `Series`|
+|`loc`   |`df.loc[:,['age']] `|`DataFrame`|
+|`filter`|`df.filter(items = ['age'])`|`DataFrame`|
+
+&lt;br&gt;
+
+Note that `iloc` returns a `Series`, if you select only one column. Also, if your first column ever changes (e.g. because you reset the index), you will suddendly retrieve another column. If you need a specific column, I suggest you use `loc` or `filter` that pass the name of this column specifically.
+
+(2) Select the colums s1 to s6
+
+&lt;br&gt;
+
+|        | code    | returns|
+|:-------|:--------|:---|
+|`iloc`  |`df.iloc[:,4:10]`|`DataFrame`|
+|`loc`   |`df.loc[:,'s1':'s6']`|`DataFrame`|
+|`filter`|`df.filter(regex ='s\d')`|`DataFrame`|
+
+&lt;br&gt;
+
+Again, if the positions of the column change, `iloc` will lead to errors. If your columns follow a pattern rather than a position or a name, I'll suggest you use `filter` as it is less error prone.
+
+## Filtering Data: Selecting subsets of rows based on conditions 
+
+There are multiple ways how to filter data with pandas. We'll look at how boolean indexing works and how to filter with the `query()` function. 
+
+If you are familiar with SQL, `query` might be the most intuitive way for you. You just pass the condition as a string to the `query` function. The condition is almost the same code as you would put in your `WHERE`-condition in a SQL-query. Just the operators are just slightly different
+
+&lt;br&gt;
+
+|SQL operator| pandas equivalent|
+|----| ----|
+| `OR`| `|` |
+| `AND`| `&amp;`|
+| `NOT`, `!`| ` ~`|
+
+&lt;br&gt;
+
+So you could for example use `df.query(&quot;column_a == 'foo' &amp; column_b == 1&quot;)`
+
+**Boolean Masking** is another powerful way to access data. The idea is to use a boolean mask to index the `DataFrame`. This boolean mask is a vector of true and false values for each row in the `DataFrame`.
+</code></pre><p>new_df = df[<some boolean mask>]</p>
+<pre><code>
+Only the rows with true values will be returned. Of course, you could pass this vector directly 
+
+</code></pre><p>my_mask = [True, False, True, False, True, False, True, False, True, False, True, False, True]
+df[my_mask]</p>
+<pre><code>
+or you create it with conditions. 
+
+</code></pre><p>df[df.<colname> == &lsquo;foo&rsquo;]</p>
+<pre><code>### Compare `query` vs. boolean masking
+
+Lets compare the two approaches this time using the [boston dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html#sklearn.datasets.load_boston). 
+
+</code></pre><p>boston = datasets.load_boston()
 df = pd.DataFrame(boston.data, columns=boston.feature_names)
-df.head()
-</code></pre><table>
-<thead>
-<tr>
-<th></th>
-<th>CRIM</th>
-<th>ZN</th>
-<th>INDUS</th>
-<th>CHAS</th>
-<th>NOX</th>
-<th>RM</th>
-<th>AGE</th>
-<th>DIS</th>
-<th>RAD</th>
-<th>TAX</th>
-<th>PTRATIO</th>
-<th>B</th>
-<th>LSTAT</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>0.00632</td>
-<td>18.0</td>
-<td>2.31</td>
-<td>0.0</td>
-<td>0.538</td>
-<td>6.575</td>
-<td>65.2</td>
-<td>4.0900</td>
-<td>1.0</td>
-<td>296.0</td>
-<td>15.3</td>
-<td>396.90</td>
-<td>4.98</td>
-</tr>
-<tr>
-<td>1</td>
-<td>0.02731</td>
-<td>0.0</td>
-<td>7.07</td>
-<td>0.0</td>
-<td>0.469</td>
-<td>6.421</td>
-<td>78.9</td>
-<td>4.9671</td>
-<td>2.0</td>
-<td>242.0</td>
-<td>17.8</td>
-<td>396.90</td>
-<td>9.14</td>
-</tr>
-<tr>
-<td>2</td>
-<td>0.02729</td>
-<td>0.0</td>
-<td>7.07</td>
-<td>0.0</td>
-<td>0.469</td>
-<td>7.185</td>
-<td>61.1</td>
-<td>4.9671</td>
-<td>2.0</td>
-<td>242.0</td>
-<td>17.8</td>
-<td>392.83</td>
-<td>4.03</td>
-</tr>
-<tr>
-<td>3</td>
-<td>0.03237</td>
-<td>0.0</td>
-<td>2.18</td>
-<td>0.0</td>
-<td>0.458</td>
-<td>6.998</td>
-<td>45.8</td>
-<td>6.0622</td>
-<td>3.0</td>
-<td>222.0</td>
-<td>18.7</td>
-<td>394.63</td>
-<td>2.94</td>
-</tr>
-<tr>
-<td>4</td>
-<td>0.06905</td>
-<td>0.0</td>
-<td>2.18</td>
-<td>0.0</td>
-<td>0.458</td>
-<td>7.147</td>
-<td>54.2</td>
-<td>6.0622</td>
-<td>3.0</td>
-<td>222.0</td>
-<td>18.7</td>
-<td>396.90</td>
-<td>5.33</td>
-</tr>
-</tbody>
-</table>
-<p>Here are three example on how to achieve the same things with both approaches.</p>
-<table>
-<thead>
-<tr>
-<th align="left"></th>
-<th align="left"><code>query</code></th>
-<th align="left">boolean mask</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">one condition</td>
-<td align="left"><code>df.query(&quot;AGE &lt; 50&quot;)</code></td>
-<td align="left"><code>df[df.AGE &lt; 50]</code></td>
-</tr>
-<tr>
-<td align="left">two conditions</td>
-<td align="left"><code>df.query(&quot;AGE &lt; 50 &amp; RAD == 2&quot;)</code></td>
-<td align="left"><code>df[(df.AGE &lt; 50) &amp; (df.RAD == 2)]</code></td>
-</tr>
-<tr>
-<td align="left">multiple values</td>
-<td align="left"><code>df.query('RAD in[1,2]')</code></td>
-<td align="left"><code>df[df.RAD.isin([1,2])]</code></td>
-</tr>
-</tbody>
-</table>
-<p>One could argue, that <code>query</code> is more readable and requieres less typing as you do not have to repead the name of the <code>DataFrame</code> in the condition.</p>
-<h2 id="combining-data-joins">Combining Data: joins</h2>
-<p>Pandas has three functions for joining tables <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.join.html"><code>join</code></a>,<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.merge.html"><code>merge</code></a> and <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.concat.html"><code>concat</code></a>. <code>join</code> and <code>merge</code> are similar to joining tables in SQL with a (left, right etc&hellip;.) join. <code>join()</code> will attempt to do a left join on indices keeping all columns while <code>merge</code> will perform an inner join on the common columns.  Both can combine two tables. <code>concat</code> is the most flexible option, which allows you to join rows <strong>and</strong> columns of multiple DataFrames. Your datasets are just stitched together along an axis — either the row axis or column axis- ignoring the index. So you can use <code>concat</code> for joining and for the union of DataFrames.</p>
-<table>
-<thead>
-<tr>
-<th>function</th>
-<th>combines</th>
-<th>default</th>
-<th>how</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>join</code></td>
-<td>2 dataframes by indices</td>
-<td>left</td>
-<td>left, right, inner, outer</td>
-</tr>
-<tr>
-<td><code>merge</code></td>
-<td>2 dataframes by columns or index</td>
-<td>inner</td>
-<td>&hellip;</td>
-</tr>
-<tr>
-<td><code>concat</code></td>
-<td>n dataframes by columns, index, or rows</td>
-<td>append rows</td>
-<td>&hellip;</td>
-</tr>
-</tbody>
-</table>
-<h3 id="compare-join-vs-concat-vs-merge">Compare <code>join</code> vs. <code>concat</code> vs. <code>merge</code></h3>
-<p>Let&rsquo;s create some datasets, what would happen if we combine those datasets with their default parameters. Note that the indices differ!</p>
-<pre><code>A = pd.DataFrame({'ID': [1, 2, 3, 4],
-                    'Name': ['Tom', 'Lisa', 'Sara', 'John'],
-                    'Age': ['10', '11', '12', '11']},
-                   index=[0, 1, 2, 3])
+df.head()</p>
+<pre><code>
+&lt;br&gt;
+
+||CRIM|ZN     |INDUS|CHAS|NOX|RM   |AGE  |DIS |RAD   |TAX|PTRATIO|B   |LSTAT |
+|----|-------|-----|----|---|-----|-----|----|------|---|-------|----|------|-------|
+|0   |0.00632|18.0 |2.31|0.0|0.538|6.575|65.2|4.0900|1.0|296.0  |15.3|396.90|4.98   |
+|1   |0.02731|0.0  |7.07|0.0|0.469|6.421|78.9|4.9671|2.0|242.0  |17.8|396.90|9.14   |
+|2   |0.02729|0.0  |7.07|0.0|0.469|7.185|61.1|4.9671|2.0|242.0  |17.8|392.83|4.03   |
+|3   |0.03237|0.0  |2.18|0.0|0.458|6.998|45.8|6.0622|3.0|222.0  |18.7|394.63|2.94   |
+|4   |0.06905|0.0  |2.18|0.0|0.458|7.147|54.2|6.0622|3.0|222.0  |18.7|396.90|5.33   |
+
+&lt;br&gt;
+
+Here are three example on how to achieve the same things with both approaches. 
+
+&lt;br&gt;
+
+|            |`query`        | boolean mask        |
+|:-----------|:-------------|:--------------|
+|one condition|`df.query(&quot;AGE &lt; 50&quot;)`|`df[df.AGE &lt; 50]`|
+|two conditions|`df.query(&quot;AGE &lt; 50 &amp; RAD == 2&quot;)`|`df[(df.AGE &lt; 50) &amp; (df.RAD == 2)]`|
+|multiple values|`df.query('RAD in[1,2]')`|`df[df.RAD.isin([1,2])]`|
+&lt;br&gt;
+
+One could argue, that `query` is more readable and requieres less typing as you do not have to repead the name of the `DataFrame` in the condition.
+
+## Combining Data: joins
+Pandas has three functions for joining tables [`join`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.join.html),[`merge`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.merge.html) and [`concat`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.concat.html). `join` and `merge` are similar to joining tables in SQL with a (left, right etc....) join. `join()` will attempt to do a left join on indices keeping all columns while `merge` will perform an inner join on the common columns.  Both can combine two tables. `concat` is the most flexible option, which allows you to join rows **and** columns of multiple DataFrames. Your datasets are just stitched together along an axis — either the row axis or column axis- ignoring the index. So you can use `concat` for joining and for the union of DataFrames.
+
+&lt;br&gt;
+
+| function | combines | default | how |
+|----------|----------|----------|----------|
+|`join`    | 2 dataframes by indices |left | left, right, inner, outer|
+|`merge` | 2 dataframes by columns or index| inner | ...|...|
+|`concat` | n dataframes by columns, index, or rows| append rows|...|
+
+&lt;br&gt;
 
 
-B = pd.DataFrame({'ID': [1,3,4,6],
-                  'Gender': ['m', 'f', 'm', 'm']},
-                  index=[0, 1, 5, 6])
-
-</code></pre><h4 id="join"><code>join</code></h4>
-<pre><code>A.join(B)
-</code></pre><p>will throw and error <code>columns overlap but no suffix specified: Index(['ID'], dtype='object')</code>. Since we have the <code>ID</code> Column in both datasets, we have to specify a suffix.</p>
-<pre><code>A.join(B, lsuffix = &quot;a&quot;)
+### Compare `join` vs. `concat` vs. `merge`
 
 
-   IDa	  Name	Age	ID	   Gender
+Let's create some datasets, what would happen if we combine those datasets with their default parameters. Note that the indices differ!
+
+</code></pre><p>A = pd.DataFrame({&lsquo;ID&rsquo;: [1, 2, 3, 4],
+&lsquo;Name&rsquo;: [&lsquo;Tom&rsquo;, &lsquo;Lisa&rsquo;, &lsquo;Sara&rsquo;, &lsquo;John&rsquo;],
+&lsquo;Age&rsquo;: [&lsquo;10&rsquo;, &lsquo;11&rsquo;, &lsquo;12&rsquo;, &lsquo;11&rsquo;]},
+index=[0, 1, 2, 3])</p>
+<p>B = pd.DataFrame({&lsquo;ID&rsquo;: [1,3,4,6],
+&lsquo;Gender&rsquo;: [&rsquo;m&rsquo;, &lsquo;f&rsquo;, &rsquo;m&rsquo;, &rsquo;m&rsquo;]},
+index=[0, 1, 5, 6])</p>
+<pre><code>
+#### `join`
+</code></pre><p>A.join(B)</p>
+<pre><code>will throw and error `columns overlap but no suffix specified: Index(['ID'], dtype='object')`. Since we have the `ID` Column in both datasets, we have to specify a suffix.
+
+</code></pre><p>A.join(B, lsuffix = &ldquo;a&rdquo;)</p>
+<p>IDa	  Name	Age	ID	   Gender
 0	1	 Tom	10	1.0 	m
 1	2	 Lisa	11	3.0 	f
 2	3	 Sara	12	NaN 	NaN
-3	4	 John	11	NaN	    NaN
-</code></pre><p>Note that <code>join</code> does an left join on the index and completely ignores the <code>ID</code> column.</p>
-<h4 id="merge"><code>merge</code></h4>
-<p>Merge per default performs an inner join on the common columns. It does not care about the index.</p>
-<pre><code>A.merge(B)
+3	4	 John	11	NaN	    NaN</p>
+<pre><code>
+Note that `join` does an left join on the index and completely ignores the `ID` column.
 
+#### `merge`
+Merge per default performs an inner join on the common columns. It does not care about the index.
 
-   ID	  Name	Age	Gender
+</code></pre><p>A.merge(B)</p>
+<p>ID	  Name	Age	Gender
 0	1	   Tom	10	m
 1	3	  Sara	12	f
-2	4	  John	11	m
-</code></pre><p>Using the how parameter, you can determine the type of join</p>
-<pre><code>	ID	Name	Age	Gender
-0	1	Tom	    10	m
+2	4	  John	11	m</p>
+<pre><code>
+Using the how parameter, you can determine the type of join 
+
+</code></pre><pre><code>ID	Name	Age	Gender
+</code></pre>
+<p>0	1	Tom	    10	m
 1	2	Lisa	11	NaN
 2	3	Sara	12	f
-3	4	John	11	m
+3	4	John	11	m</p>
+<pre><code>#### `concat`
 
-</code></pre><h4 id="concat"><code>concat</code></h4>
-<p>Per default, <code>concat</code> will create a union of the datasets, ignoring the index. It just unions both <code>DataFrames</code> and creates <code>NaN</code>s for columns that are missing in one of the datasets.</p>
-<pre><code>pd.concat([A, B])
+Per default, `concat` will create a union of the datasets, ignoring the index. It just unions both `DataFrames` and creates `NaN`s for columns that are missing in one of the datasets.
 
-	ID	Name	Age	Gender
-0	1	Tom	    10	NaN
+</code></pre><p>pd.concat([A, B])</p>
+<pre><code>ID	Name	Age	Gender
+</code></pre>
+<p>0	1	Tom	    10	NaN
 1	2	Lisa	11	NaN
 2	3	Sara	12	NaN
 3	4	John	11	NaN
 0	1	NaN	    NaN	m
 1	3	NaN  	NaN	f
 5	4	NaN	    NaN	m
-6	6	NaN 	NaN	m
+6	6	NaN 	NaN	m</p>
+<pre><code>
+I typically use `merge` for joining `DataFrames` in a SQL-like way and `concat` for stitching `DataFrames` together or SQL-like `union`s.
 
+## Conclusion
+We have seen several ways how to subset, filter and join DataFrames. Some of the functions will get you to the same results, while others have small differences you need to be aware of. 
 
-</code></pre><!--more-->
+&lt;!--more--&gt;
+</code></pre>
               
             </div>
           </div>
