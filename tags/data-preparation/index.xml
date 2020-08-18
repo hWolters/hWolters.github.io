@@ -448,11 +448,11 @@ B = pd.DataFrame({&#39;ID&#39;: [1,3,4,6],
 &lt;pre&gt;&lt;code&gt;A.join(B, lsuffix = &amp;quot;a&amp;quot;)
 
 
-   IDa	  Name	Age	ID	   Gender
+   	IDa	 Name	Age	ID	   Gender
 0	1	 Tom	10	1.0 	m
 1	2	 Lisa	11	3.0 	f
 2	3	 Sara	12	NaN 	NaN
-3	4	 John	11	NaN	    NaN
+3	4	 John	11	NaN	   NaN
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Note that &lt;code&gt;join&lt;/code&gt; does an left join on the index and completely ignores the &lt;code&gt;ID&lt;/code&gt; column.&lt;/p&gt;
 &lt;h3 id=&#34;merge&#34;&gt;&lt;code&gt;merge&lt;/code&gt;&lt;/h3&gt;
 &lt;p&gt;Merge per default performs an inner join on the common columns. It does not care about the index.&lt;/p&gt;
