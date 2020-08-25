@@ -6,20 +6,10 @@
     <description>Recent content on My journey from Data Analyst to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 25 Aug 2020 21:17:58 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 12 Jul 2020 21:17:58 +0200</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Natural Language Processing: The Intuition of Word Embeddings</title>
-      <link>/2020/08/25/natural-language-processing-the-intuition-of-word-embeddings/</link>
-      <pubDate>Tue, 25 Aug 2020 21:17:58 +0200</pubDate>
-      
-      <guid>/2020/08/25/natural-language-processing-the-intuition-of-word-embeddings/</guid>
-      <description>If you work with text data, you will first have to find a numeric representation of your text. Then you can apply mathematical rules, matrix operations train models and do some fun stuff. Word embeddings use models to transform words into numbers.
-In this blogpost we will go through some ways of how to create numeric representations of text. We will start with simple one hot encoding and then look into two famous word embedding models: Word2Vec and BERT.</description>
-    </item>
     
     <item>
       <title>Jupyter Notebooks: Boost your productivity with Extensions and Magic Commands</title>
