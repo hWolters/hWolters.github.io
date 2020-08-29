@@ -17,8 +17,7 @@
       <pubDate>Tue, 25 Aug 2020 21:17:58 +0200</pubDate>
       
       <guid>/2020/08/25/natural-language-processing-the-intuition-of-word-embeddings/</guid>
-      <description>If you work with text data, you will first have to find a numeric representation of your text. Then you can apply mathematical rules, matrix operations train models and do some fun stuff. Word embeddings use models to transform words into numbers.
-In this blogpost we will go through some ways of how to create numeric representations of text. We will start with simple one hot encoding and then look into two famous word embedding models: Word2Vec and BERT.</description>
+      <description>Humas intuitively understand the meaning of words: Which words are similar, opposites or related to each other? But our machine learning models do not have this intuition. Word embeddings are numeric vectors that represent text. These vectors are learned through neural networks. The objective when creating these embedding vectors is to captures as much &amp;ldquo;meaning&amp;rdquo; as possible: Related words should be closer together than unrelated words. Also, they should be able to perserve mathematical relationships between words such as</description>
     </item>
     
   </channel>

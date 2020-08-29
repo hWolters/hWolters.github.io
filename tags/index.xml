@@ -6,10 +6,46 @@
     <description>Recent content in Tags on My journey from Data Analyst to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 12 Jul 2020 21:17:58 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2020 21:17:58 +0200</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>BERT</title>
+      <link>/tags/bert/</link>
+      <pubDate>Tue, 25 Aug 2020 21:17:58 +0200</pubDate>
+      
+      <guid>/tags/bert/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>One-Hot-Encoding</title>
+      <link>/tags/one-hot-encoding/</link>
+      <pubDate>Tue, 25 Aug 2020 21:17:58 +0200</pubDate>
+      
+      <guid>/tags/one-hot-encoding/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Word Embeddings</title>
+      <link>/tags/word-embeddings/</link>
+      <pubDate>Tue, 25 Aug 2020 21:17:58 +0200</pubDate>
+      
+      <guid>/tags/word-embeddings/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Word2Vec</title>
+      <link>/tags/word2vec/</link>
+      <pubDate>Tue, 25 Aug 2020 21:17:58 +0200</pubDate>
+      
+      <guid>/tags/word2vec/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>extension</title>
@@ -107,42 +143,6 @@
       <pubDate>Wed, 24 Jun 2020 08:05:59 +0200</pubDate>
       
       <guid>/tags/scoring/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Term Frequency</title>
-      <link>/tags/term-frequency/</link>
-      <pubDate>Wed, 24 Jun 2020 08:05:59 +0200</pubDate>
-      
-      <guid>/tags/term-frequency/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>boolean mask</title>
-      <link>/tags/boolean-mask/</link>
-      <pubDate>Sun, 18 Aug 2019 10:55:48 +0200</pubDate>
-      
-      <guid>/tags/boolean-mask/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>data preparation</title>
-      <link>/tags/data-preparation/</link>
-      <pubDate>Sun, 18 Aug 2019 10:55:48 +0200</pubDate>
-      
-      <guid>/tags/data-preparation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>pandas</title>
-      <link>/tags/pandas/</link>
-      <pubDate>Sun, 18 Aug 2019 10:55:48 +0200</pubDate>
-      
-      <guid>/tags/pandas/</guid>
       <description></description>
     </item>
     
