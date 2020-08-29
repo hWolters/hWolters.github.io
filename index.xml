@@ -17,7 +17,7 @@
       <pubDate>Tue, 25 Aug 2020 21:17:58 +0200</pubDate>
       
       <guid>/2020/08/25/natural-language-processing-the-intuition-of-word-embeddings/</guid>
-      <description>Humas intuitively understand the meaning of words: Which words are similar, opposites or related to each other? But our machine learning models do not have this intuition. Word embeddings are numeric vectors that represent text. These vectors are learned through neural networks. The objective when creating these embedding vectors is to captures as much &amp;ldquo;meaning&amp;rdquo; as possible: Related words should be closer together than unrelated words. Also, they should be able to perserve mathematical relationships between words such as</description>
+      <description>Humans intuitively understand the meaning of words: Which words are similar, opposites or related to each other? But our machine learning models do not have this intuition. Word embeddings are numeric vectors that represent text. These vectors are learned through neural networks. The objective when creating these embedding vectors is to capture as much &amp;ldquo;meaning&amp;rdquo; as possible: Related words should be closer together than unrelated words. Also, they should be able to preserve mathematical relationships between words such as</description>
     </item>
     
     <item>

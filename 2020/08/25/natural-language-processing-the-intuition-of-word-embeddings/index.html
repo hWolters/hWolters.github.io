@@ -17,18 +17,18 @@
 <meta name="generator" content="Hugo 0.74.3 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Heike W">
 <meta name="keywords" content="Word Embeddings, One-Hot-Encoding, Word2Vec, BERT, SQL, Data Science, Analytics, R, R Studio, Data Science, Analytics, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive, Data Analysis, Data Mining">
-<meta name="description" content="Humas intuitively understand the meaning of words: Which words are similar, opposites or related to each other? But our machine learning models do not have this intuition. Word embeddings are numeric vectors that represent text. These vectors are learned through neural networks. The objective when creating these embedding vectors is to captures as much &ldquo;meaning&rdquo; as possible: Related words should be closer together than unrelated words. Also, they should be able to perserve mathematical relationships between words such as">
+<meta name="description" content="Humans intuitively understand the meaning of words: Which words are similar, opposites or related to each other? But our machine learning models do not have this intuition. Word embeddings are numeric vectors that represent text. These vectors are learned through neural networks. The objective when creating these embedding vectors is to capture as much &ldquo;meaning&rdquo; as possible: Related words should be closer together than unrelated words. Also, they should be able to preserve mathematical relationships between words such as">
 
 
-<meta property="og:description" content="Humas intuitively understand the meaning of words: Which words are similar, opposites or related to each other? But our machine learning models do not have this intuition. Word embeddings are numeric vectors that represent text. These vectors are learned through neural networks. The objective when creating these embedding vectors is to captures as much &ldquo;meaning&rdquo; as possible: Related words should be closer together than unrelated words. Also, they should be able to perserve mathematical relationships between words such as">
+<meta property="og:description" content="Humans intuitively understand the meaning of words: Which words are similar, opposites or related to each other? But our machine learning models do not have this intuition. Word embeddings are numeric vectors that represent text. These vectors are learned through neural networks. The objective when creating these embedding vectors is to capture as much &ldquo;meaning&rdquo; as possible: Related words should be closer together than unrelated words. Also, they should be able to preserve mathematical relationships between words such as">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Natural Language Processing: The Intuition of Word Embeddings">
 <meta name="twitter:title" content="Natural Language Processing: The Intuition of Word Embeddings">
 <meta property="og:url" content="/2020/08/25/natural-language-processing-the-intuition-of-word-embeddings/">
 <meta property="twitter:url" content="/2020/08/25/natural-language-processing-the-intuition-of-word-embeddings/">
 <meta property="og:site_name" content="My journey from Data Analyst to Data Science">
-<meta property="og:description" content="Humas intuitively understand the meaning of words: Which words are similar, opposites or related to each other? But our machine learning models do not have this intuition. Word embeddings are numeric vectors that represent text. These vectors are learned through neural networks. The objective when creating these embedding vectors is to captures as much &ldquo;meaning&rdquo; as possible: Related words should be closer together than unrelated words. Also, they should be able to perserve mathematical relationships between words such as">
-<meta name="twitter:description" content="Humas intuitively understand the meaning of words: Which words are similar, opposites or related to each other? But our machine learning models do not have this intuition. Word embeddings are numeric vectors that represent text. These vectors are learned through neural networks. The objective when creating these embedding vectors is to captures as much &ldquo;meaning&rdquo; as possible: Related words should be closer together than unrelated words. Also, they should be able to perserve mathematical relationships between words such as">
+<meta property="og:description" content="Humans intuitively understand the meaning of words: Which words are similar, opposites or related to each other? But our machine learning models do not have this intuition. Word embeddings are numeric vectors that represent text. These vectors are learned through neural networks. The objective when creating these embedding vectors is to capture as much &ldquo;meaning&rdquo; as possible: Related words should be closer together than unrelated words. Also, they should be able to preserve mathematical relationships between words such as">
+<meta name="twitter:description" content="Humans intuitively understand the meaning of words: Which words are similar, opposites or related to each other? But our machine learning models do not have this intuition. Word embeddings are numeric vectors that represent text. These vectors are learned through neural networks. The objective when creating these embedding vectors is to capture as much &ldquo;meaning&rdquo; as possible: Related words should be closer together than unrelated words. Also, they should be able to preserve mathematical relationships between words such as">
 <meta property="og:locale" content="en-us">
 
   
@@ -260,17 +260,17 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>Humas intuitively understand the meaning of words: Which words are similar, opposites or related to each other? But our machine learning models do not have this intuition. Word embeddings are numeric vectors that represent text. These vectors are learned through neural networks. The objective when creating these embedding vectors is to captures as much &ldquo;meaning&rdquo; as possible: Related words should be closer together than unrelated words. Also, they should be able to perserve mathematical relationships between words such as</p>
+              <p>Humans intuitively understand the meaning of words: Which words are similar, opposites or related to each other? But our machine learning models do not have this intuition. Word embeddings are numeric vectors that represent text. These vectors are learned through neural networks. The objective when creating these embedding vectors is to capture as much &ldquo;meaning&rdquo; as possible: Related words should be closer together than unrelated words. Also, they should be able to preserve mathematical relationships between words such as</p>
 <p>king — man = queen — woman</p>
 <p>france - paris = italy - rome.</p>
 <p>In this blogpost, we will start with (probably) the simplest way to numerically represent text: One-hot-encoding. Then we will look into two famous word embedding models: Word2Vec and BERT and learn which kind of relationships between words are captured.</p>
 <h2 id="whats-wrong-with-just-using-one-hot-encoding-aka-dummy-variables">What&rsquo;s wrong with just using One-Hot-Encoding (a.k.a. Dummy variables)?</h2>
-<p>The easiest way to encode words is through one One-Hot encoded vectors: Each unique word or token has a unique dimension and will be represented with a 1 if present and with 0s everywhere else. Your result is a huge and sparse matrix with 0s and 1s. Let&rsquo;s take two senteces</p>
+<p>The easiest way to encode words is through one One-Hot encoded vectors: Each unique word or token has a unique dimension and will be represented with a 1 if present and with 0s everywhere else. Your result is a huge and sparse matrix with 0s and 1s. Let&rsquo;s take two sentences</p>
 <ul>
 <li>s1: &ldquo;I am sitting on the river bank.&rdquo;</li>
 <li>s2: &ldquo;I am going to the bank to get some money&rdquo;.</li>
 </ul>
-<p>The two senteces share some common words (&ldquo;I&rdquo;, &ldquo;am&rdquo;, &ldquo;the&rdquo; and &ldquo;bank&rdquo;). The word &ldquo;bank&rdquo;, however has a different meaning in both senteces. If you use One-Hot-Encoding you get the following matrix:</p>
+<p>The two sentences share some common words (&ldquo;I&rdquo;, &ldquo;am&rdquo;, &ldquo;the&rdquo; and &ldquo;bank&rdquo;). The word &ldquo;bank&rdquo;, however, has a different meaning in both sentences. If you use One-Hot-Encoding you get the following matrix:</p>
 <table>
 <thead>
 <tr>
@@ -317,8 +317,8 @@ if (!doNotTrack) {
 </tbody>
 </table>
 <p>The larger the text, the larger the matrix. If you applied One-Hot-Encoding to fulltext data you would get larger, sparser matrices. So One-Hot-Encoding may make sense, if you have a limited number of words in your text (e.g. if you want to vectorize gender or a profession from a text field).</p>
-<p>In addition, it disregards how many times a word appears in a sentences and therefore does not capture the importance of words. Every word will always get a value between 0 or 1. For considering the importance of words, a TF-IDF-Measure transformation can be applied. By weighting words with their term frequency divided by their inverse document frequency, rare words that appear a lot in one sentence are weighted more than words that appear a lot in every sentence and in many sentences (e. g. stopwords such as &ldquo;the&rdquo;, &ldquo;a&rdquo;, &ldquo;or&rdquo;).</p>
-<p>But there would still be two major drawback: You cannot differentiate between a river bank and the bank, where you store your money. And you cannot grasp the relationship between words: Are words similar? Are they somehow related?</p>
+<p>In addition, it disregards how many times a word appears in a sentence and therefore does not capture the importance of words. Every word will always get a value between 0 or 1. For considering the importance of words, a TF-IDF-Measure transformation can be applied. By weighting words with their term frequency divided by their inverse document frequency, rare words that appear a lot in one sentence are weighted more than words that appear a lot in every sentence and in many sentences (e. g. stopwords such as &ldquo;the&rdquo;, &ldquo;a&rdquo;, &ldquo;or&rdquo;).</p>
+<p>But there would still be two major drawbacks: You cannot differentiate between a river bank and the bank, where you store your money. And you cannot grasp the relationship between words: Are words similar? Are they somehow related?</p>
 <h2 id="word2vec">Word2Vec</h2>
 <p>Word2vec is a three-layer neural network in which the first is the input layer and the last layers are the output layer. Input and output layers are one-hot-encoded vectors of the text. The middle layer builds a latent representation, so the input words are transformed into the output vector representation.</p>
 <ul>
@@ -327,20 +327,20 @@ if (!doNotTrack) {
 <li><strong>embedding layer</strong>: matrix of all the words found in the vocabulary and their embedding (some numeric value that isinitialized randomly)[vocab size x embedding size]</li>
 </ul>
 <p>Google has trained the Word2Vec model on Google News Data and made it available <a href="(https://code.google.com/archive/p/word2vec/)">for download</a>. There are two approaches:</p>
-<p><strong>Continuous Bag of Words (CBOW)</strong> predicts a words given its context. In other words: it learns an embedding by predicting a word by using the surrounding words it as features.</p>
-<p><strong>Continous Skip Gram</strong> predicts the context having one target words as the input. It learns an embedding by predicing the context by using the word as a feature.</p>
+<p><strong>Continuous Bag of Words (CBOW)</strong> predicts a word given its context. In other words: it learns an embedding by predicting a word by using the surrounding words it as features.</p>
+<p><strong>Continous Skip Gram</strong> predicts the context having one target word as the input. It learns an embedding by predicting the context by using the words as features.</p>
 <p><img src="https://www.researchgate.net/profile/Daniel_Braun6/publication/326588219/figure/fig1/AS:652185784295425@1532504616288/Continuous-Bag-of-words-CBOW-CB-and-Skip-gram-SG-training-model-illustrations.png" alt="models">
 (source: <a href="https://www.researchgate.net/publication/326588219_Extending_Thesauri_Using_Word_Embeddings_and_the_Intersection_Method">https://www.researchgate.net/publication/326588219_Extending_Thesauri_Using_Word_Embeddings_and_the_Intersection_Method</a>)</p>
-<p>If you wanted to retrain or train a Word2Vec Model, you have to define a context, the number of words appearing on the left and right of a focus word. If you choose for example 3, then the context would include the 3 words before and the 3 words after the focus word. Note that this approach does not consider the order of words. Either a word is in the context or it is not. Word2Vec then uses a stochastic optimizer to train the neural network.</p>
+<p>If you want to retrain or train a Word2Vec Model, you have to define a context, the number of words appearing on the left and right of a focus word. If you choose for example 3, then the context would include the 3 words before and the 3 words after the focus word. Note that this approach does not consider the order of words. Either a word is in the context or it is not. Word2Vec then uses a stochastic optimizer to train the neural network.</p>
 <p>The creators evaluated the model by marking sure similar words have similar vectors. You can visualize similarity by analyzing cosine similarity or by plotting the embeddings from the original models, e.g. <a href="https://projector.tensorflow.org">https://projector.tensorflow.org</a>.</p>
 <p>Word2Vec registers relations among words. So if you subtract the man from king you get the same as when you subtract the women from queen. Great, this model is able to retain mathematical relationships between words.
 <img src="https://miro.medium.com/max/1400/1*sAJdxEsDjsPMioHyzlN3_A.png" alt="w2v">
 (source: <a href="https://miro.medium.com/max/1400/1">https://miro.medium.com/max/1400/1</a>*sAJdxEsDjsPMioHyzlN3_A.png)</p>
-<p>If you check for the five most similar words in terms of cosine similarity for &ldquo;bank&rdquo;, you get &ldquo;banks&rdquo;, &ldquo;monetary&rdquo;, &ldquo;banking&rdquo;, &ldquo;financial&rdquo; and &ldquo;trade&rdquo;. So the model seems to primarily interpret &ldquo;bank&rdquo; in the sense of a financial institute. Don&rsquo;t forget the model is trained on news data, so if you apply it to very specific contexts (e.g. scientific domain data), you may lack specific words and relations. The word &ldquo;bank&rdquo; will always have the same numeric representation. So the model fails to understand the difference between the river bank and the fincancial institute bank.<br>
+<p>If you check for the five most similar words in terms of cosine similarity for &ldquo;bank&rdquo;, you get &ldquo;banks&rdquo;, &ldquo;monetary&rdquo;, &ldquo;banking&rdquo;, &ldquo;financial&rdquo; and &ldquo;trade&rdquo;. So the model seems to primarily interpret &ldquo;bank&rdquo; in the sense of a financial institute. Don&rsquo;t forget the model is trained on news data, so if you apply it to very specific contexts (e.g. scientific domain data), you may lack specific words and relations. The word &ldquo;bank&rdquo; will always have the same numeric representation. So the model fails to understand the difference between the river bank and the financial institute bank.<br>
 If you wanted to use Word2Vec on text data about river banks, you would have to retrain the model.</p>
 <h2 id="bert">BERT</h2>
 <p>One embedding model, that became pretty popular and that was considered as a great break-through, is BERT. BERT produces word representations that are dynamically informed by the words around them. That means: BERT understands that the word &ldquo;bank&rdquo; can mean something different depending on the context.</p>
-<p>So what is exactly BERT? BERT stands for Bidirectional Encoder Representations from Transformers. Let&rsquo;s break that up: Bidirectional means, that instead of going sequentially through the words, it goes from left to right and from right to left. It uses the transformer logic (a special type of neural net that contains two sublayers and a fully connected feed forward network) to encode representations of words. There are two English versions of BERT: A smaller base version and a large Version. The larger version has double the amount of encoders and attentian heads and more than 3 times as many parameters</p>
+<p>So what is exactly BERT? BERT stands for Bidirectional Encoder Representations from Transformers. Let&rsquo;s break that up: Bidirectional means, that instead of going sequentially through the words, it goes from left to right and from right to left. It uses the transformer logic (a special type of neural net that contains two sublayers and a fully connected feed forward network) to encode representations of words. There are two English versions of BERT: A smaller base version and a large Version. The larger version has double the amount of encoders and attention heads and more than 3 times as many parameters</p>
 <table>
 <thead>
 <tr>
@@ -368,7 +368,7 @@ If you wanted to use Word2Vec on text data about river banks, you would have to 
 <p>BERT follows a 2-step process: pre-training and fine-tuning</p>
 <ol>
 <li>
-<p>Pre-Train a language model on a large unlabelled text corpus (data extracted from BooksCorpus (800M words) and English Wikipedia (2,500M words)) by using a masked language model and next sentence prediction. This type of training is novel as it is an unsupervised approach that can be easily transfered to other datasets without manually labeling data.</p>
+<p>Pre-Train a language model on a large unlabelled text corpus (data extracted from BooksCorpus (800M words) and English Wikipedia (2,500M words)) by using a masked language model and next sentence prediction. This type of training is novel as it is an unsupervised approach that can be easily transferred to other datasets without manually labeling data.</p>
 </li>
 <li>
 <p>Fine-tune the model. You can finetune the model with a layer of untrained neurons as a feedforward layer on top of the pre-trained BERT for specific domain knowledge (But you could also add a supervised additional output layer to solve for example classification tasks or build chatbots, which makes the model really powerful)</p>
@@ -400,7 +400,7 @@ If you wanted to use Word2Vec on text data about river banks, you would have to 
 </tr>
 </tbody>
 </table>
-<p>There exists many more and there are also numerous extentions for Word2Vec and BERT.</p>
+<p>There exists many more and there are also numerous extensions for Word2Vec and BERT.</p>
 
               
             </div>
