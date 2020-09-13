@@ -329,11 +329,11 @@ if (!doNotTrack) {
 <p>Google has trained the Word2Vec model on Google News Data and made it available <a href="(https://code.google.com/archive/p/word2vec/)">for download</a>. There are two approaches:</p>
 <p><strong>Continuous Bag of Words (CBOW)</strong> predicts a word given its context. In other words: it learns an embedding by predicting a word by using the surrounding words it as features.</p>
 <p><strong>Continous Skip Gram</strong> predicts the context having one target word as the input. It learns an embedding by predicting the context by using the words as features.</p>
-<p><img src="Cbow_vs_scipGram.jpg" alt="models"></p>
+<p><img src="/post/Cbow_vs_scipGram.jpg" alt="models"></p>
 <p>If you want to retrain or train a Word2Vec Model, you have to define a context, the number of words appearing on the left and right of a focus word. If you choose for example 3, then the context would include the 3 words before and the 3 words after the focus word. Note that this approach does not consider the order of words. Either a word is in the context or it is not. Word2Vec then uses a stochastic optimizer to train the neural network.</p>
 <p>The creators evaluated the model by marking sure similar words have similar vectors. You can visualize similarity by analyzing cosine similarity or by plotting the embeddings from the original models, e.g. <a href="https://projector.tensorflow.org">https://projector.tensorflow.org</a>.</p>
 <p>Word2Vec registers relations among words. So if you subtract the man from king you get the same as when you subtract the women from queen. Great, this model is able to retain mathematical relationships between words.
-<img src="embedding_vectors.jpg" alt="w2v"></p>
+<img src="/post/embedding_vectors.jpg" alt="w2v"></p>
 <p>If you check for the five most similar words in terms of cosine similarity for &ldquo;bank&rdquo;, you get &ldquo;banks&rdquo;, &ldquo;monetary&rdquo;, &ldquo;banking&rdquo;, &ldquo;financial&rdquo; and &ldquo;trade&rdquo;. So the model seems to primarily interpret &ldquo;bank&rdquo; in the sense of a financial institute. Don&rsquo;t forget the model is trained on news data, so if you apply it to very specific contexts (e.g. scientific domain data), you may lack specific words and relations. The word &ldquo;bank&rdquo; will always have the same numeric representation. So the model fails to understand the difference between the river bank and the financial institute bank.<br>
 If you wanted to use Word2Vec on text data about river banks, you would have to retrain the model.</p>
 <h2 id="bert">BERT</h2>
