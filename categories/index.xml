@@ -6,7 +6,7 @@
     <description>Recent content in Categories on My journey from Data Analyst to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 25 Aug 2020 21:17:58 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 31 Aug 2020 21:17:58 +0200</lastBuildDate>
     
 	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Machine Learning</title>
       <link>/categories/machine-learning/</link>
-      <pubDate>Tue, 25 Aug 2020 21:17:58 +0200</pubDate>
+      <pubDate>Mon, 31 Aug 2020 21:17:58 +0200</pubDate>
       
       <guid>/categories/machine-learning/</guid>
       <description></description>
@@ -23,7 +23,7 @@
     <item>
       <title>NLP</title>
       <link>/categories/nlp/</link>
-      <pubDate>Tue, 25 Aug 2020 21:17:58 +0200</pubDate>
+      <pubDate>Mon, 31 Aug 2020 21:17:58 +0200</pubDate>
       
       <guid>/categories/nlp/</guid>
       <description></description>

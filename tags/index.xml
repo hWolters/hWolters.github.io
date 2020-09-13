@@ -6,7 +6,7 @@
     <description>Recent content in Tags on My journey from Data Analyst to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 25 Aug 2020 21:17:58 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 31 Aug 2020 21:17:58 +0200</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>BERT</title>
       <link>/tags/bert/</link>
-      <pubDate>Tue, 25 Aug 2020 21:17:58 +0200</pubDate>
+      <pubDate>Mon, 31 Aug 2020 21:17:58 +0200</pubDate>
       
       <guid>/tags/bert/</guid>
       <description></description>
@@ -23,7 +23,7 @@
     <item>
       <title>One-Hot-Encoding</title>
       <link>/tags/one-hot-encoding/</link>
-      <pubDate>Tue, 25 Aug 2020 21:17:58 +0200</pubDate>
+      <pubDate>Mon, 31 Aug 2020 21:17:58 +0200</pubDate>
       
       <guid>/tags/one-hot-encoding/</guid>
       <description></description>
@@ -32,7 +32,7 @@
     <item>
       <title>Word Embeddings</title>
       <link>/tags/word-embeddings/</link>
-      <pubDate>Tue, 25 Aug 2020 21:17:58 +0200</pubDate>
+      <pubDate>Mon, 31 Aug 2020 21:17:58 +0200</pubDate>
       
       <guid>/tags/word-embeddings/</guid>
       <description></description>
@@ -41,7 +41,7 @@
     <item>
       <title>Word2Vec</title>
       <link>/tags/word2vec/</link>
-      <pubDate>Tue, 25 Aug 2020 21:17:58 +0200</pubDate>
+      <pubDate>Mon, 31 Aug 2020 21:17:58 +0200</pubDate>
       
       <guid>/tags/word2vec/</guid>
       <description></description>

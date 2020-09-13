@@ -6,17 +6,17 @@
     <description>Recent content on My journey from Data Analyst to Data Science</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 25 Aug 2020 21:17:58 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 31 Aug 2020 21:17:58 +0200</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Natural Language Processing: The Intuition of Word Embeddings</title>
-      <link>/2020/08/25/natural-language-processing-the-intuition-of-word-embeddings/</link>
-      <pubDate>Tue, 25 Aug 2020 21:17:58 +0200</pubDate>
+      <title>The Inution of Word Embeddings: How you Teach A Computer to Understand Text</title>
+      <link>/2020/08/31/the-inution-of-word-embeddings-how-you-teach-a-computer-to-understand-text/</link>
+      <pubDate>Mon, 31 Aug 2020 21:17:58 +0200</pubDate>
       
-      <guid>/2020/08/25/natural-language-processing-the-intuition-of-word-embeddings/</guid>
+      <guid>/2020/08/31/the-inution-of-word-embeddings-how-you-teach-a-computer-to-understand-text/</guid>
       <description>Humans intuitively understand the meaning of words: Which words are similar, opposites or related to each other? But our machine learning models do not have this intuition. Word embeddings are numeric vectors that represent text. These vectors are learned through neural networks. The objective when creating these embedding vectors is to capture as much &amp;ldquo;meaning&amp;rdquo; as possible: Related words should be closer together than unrelated words. Also, they should be able to preserve mathematical relationships between words such as</description>
     </item>
     
