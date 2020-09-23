@@ -48,6 +48,33 @@
     </item>
     
     <item>
+      <title>Databases</title>
+      <link>/categories/databases/</link>
+      <pubDate>Sun, 07 Jun 2020 08:29:09 +0200</pubDate>
+      
+      <guid>/categories/databases/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hive</title>
+      <link>/categories/hive/</link>
+      <pubDate>Sun, 07 Jun 2020 08:29:09 +0200</pubDate>
+      
+      <guid>/categories/hive/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SQL</title>
+      <link>/categories/sql/</link>
+      <pubDate>Sun, 07 Jun 2020 08:29:09 +0200</pubDate>
+      
+      <guid>/categories/sql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Data Preparation</title>
       <link>/categories/data-preparation/</link>
       <pubDate>Sun, 18 Aug 2019 10:55:48 +0200</pubDate>
