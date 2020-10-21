@@ -6,15 +6,24 @@
     <description>Recent content in Categories on A Potpourri of Data Science Topics for Analysts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 31 Aug 2020 21:17:58 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 10 Sep 2020 22:20:39 +0200</lastBuildDate>
     
 	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Machine Learning</title>
+      <title>ai</title>
+      <link>/categories/ai/</link>
+      <pubDate>Thu, 10 Sep 2020 22:20:39 +0200</pubDate>
+      
+      <guid>/categories/ai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>machine learning</title>
       <link>/categories/machine-learning/</link>
-      <pubDate>Mon, 31 Aug 2020 21:17:58 +0200</pubDate>
+      <pubDate>Thu, 10 Sep 2020 22:20:39 +0200</pubDate>
       
       <guid>/categories/machine-learning/</guid>
       <description></description>

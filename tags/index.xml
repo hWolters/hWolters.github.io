@@ -6,10 +6,37 @@
     <description>Recent content in Tags on A Potpourri of Data Science Topics for Analysts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 31 Aug 2020 21:17:58 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 10 Sep 2020 22:20:39 +0200</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>gpt-3</title>
+      <link>/tags/gpt-3/</link>
+      <pubDate>Thu, 10 Sep 2020 22:20:39 +0200</pubDate>
+      
+      <guid>/tags/gpt-3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>machine learning</title>
+      <link>/tags/machine-learning/</link>
+      <pubDate>Thu, 10 Sep 2020 22:20:39 +0200</pubDate>
+      
+      <guid>/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nlp</title>
+      <link>/tags/nlp/</link>
+      <pubDate>Thu, 10 Sep 2020 22:20:39 +0200</pubDate>
+      
+      <guid>/tags/nlp/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>BERT</title>
@@ -116,33 +143,6 @@
       <pubDate>Wed, 24 Jun 2020 08:05:59 +0200</pubDate>
       
       <guid>/tags/forward-indexing/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Fulltext Search</title>
-      <link>/tags/fulltext-search/</link>
-      <pubDate>Wed, 24 Jun 2020 08:05:59 +0200</pubDate>
-      
-      <guid>/tags/fulltext-search/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Inverted Index</title>
-      <link>/tags/inverted-index/</link>
-      <pubDate>Wed, 24 Jun 2020 08:05:59 +0200</pubDate>
-      
-      <guid>/tags/inverted-index/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Scoring</title>
-      <link>/tags/scoring/</link>
-      <pubDate>Wed, 24 Jun 2020 08:05:59 +0200</pubDate>
-      
-      <guid>/tags/scoring/</guid>
       <description></description>
     </item>
     

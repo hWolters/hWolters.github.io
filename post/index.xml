@@ -6,10 +6,19 @@
     <description>Recent content in Posts on A Potpourri of Data Science Topics for Analysts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 31 Aug 2020 21:17:58 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 10 Sep 2020 22:20:39 +0200</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>AI-Machine-Learning-Buzzword-Bingo</title>
+      <link>/2020/09/10/ai-machine-learning-buzzword-bingo/</link>
+      <pubDate>Thu, 10 Sep 2020 22:20:39 +0200</pubDate>
+      
+      <guid>/2020/09/10/ai-machine-learning-buzzword-bingo/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>The Intuition of Word Embeddings: How you Teach A Computer to Understand Text</title>
