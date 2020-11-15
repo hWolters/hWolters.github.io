@@ -6,10 +6,28 @@
     <description>Recent content in Tags on A Potpourri of Data Science Topics for Analysts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 10 Sep 2020 22:20:39 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 15 Nov 2020 18:36:40 +0100</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ltr</title>
+      <link>/tags/ltr/</link>
+      <pubDate>Sun, 15 Nov 2020 18:36:40 +0100</pubDate>
+      
+      <guid>/tags/ltr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>search</title>
+      <link>/tags/search/</link>
+      <pubDate>Sun, 15 Nov 2020 18:36:40 +0100</pubDate>
+      
+      <guid>/tags/search/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>deep learning</title>
@@ -125,24 +143,6 @@
       <pubDate>Wed, 24 Jun 2020 08:05:59 +0200</pubDate>
       
       <guid>/tags/elastic/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ElasticSearch</title>
-      <link>/tags/elasticsearch/</link>
-      <pubDate>Wed, 24 Jun 2020 08:05:59 +0200</pubDate>
-      
-      <guid>/tags/elasticsearch/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Forward Indexing</title>
-      <link>/tags/forward-indexing/</link>
-      <pubDate>Wed, 24 Jun 2020 08:05:59 +0200</pubDate>
-      
-      <guid>/tags/forward-indexing/</guid>
       <description></description>
     </item>
     
