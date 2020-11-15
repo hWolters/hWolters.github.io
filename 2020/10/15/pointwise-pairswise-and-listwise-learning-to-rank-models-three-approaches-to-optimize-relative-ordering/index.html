@@ -256,19 +256,19 @@ if (!doNotTrack) {
 <p>There are 3 types of models: Pointwise, Pairwise and Listwise LTR models.</p>
 <h2 id="pointwise-ltr">Pointwise LTR</h2>
 <p>Pointwise LTR models optimize for <strong>predicing a key metric</strong>. For example, you rank product recommendations according to the highest probability that a user clicks on an item (classification models) or on the revenue a product creates (linear regression models).</p>
-<p>The models you would use are the same as for classical classification or regression problems, e.g. a logistic regression or a support vector machine model. You can evaluate your model by looking at your usual metrics (accuracy, precision, recall, root mean squared error etc.) at a position k. For example how many of the relevant items made it in the top k? But instead of looking at the absolute predicted values, you consider the rank of the items.</p>
+<p>The models you would use are the same as for classical classification or regression problems, e.g. a logistic regression or a support vector machine model. You can evaluate your model by looking at your usual metrics (accuracy, precision, recall, root mean squared error etc.) at a position k. For example how many of the relevant items made it in the top k?</p>
 <h2 id="pairwise-ltr">Pairwise LTR</h2>
-<p>Pairwise LTR models optimize the <strong>relative order of pairs</strong>. The idea is to compare the order of two items at a time. So as a first step, you have to create item pairs. If the more relevant item is on the top, great! You would not add any loss. If the more relevant item is on the bottom position, this adds to the loss. You evaluate your model by looking at pairwise metrics, e.g. pairwise accuracy at position: The number of pairs in the correct order divided by the total number of pairs.</p>
+<p>Pairwise LTR models optimize the <strong>relative order of pairs</strong>. The idea is to compare the order of two items at a time. So as a first step, you have to create item pairs. The best model with the lowest loss has the maximum number of pairs in the correct order. So if the more relevant item is on the top, great! You would not add any loss. If the more relevant item is on the bottom position, this adds to the loss. You evaluate your model by looking at pairwise metrics, e.g. pairwise accuracy at position: The number of pairs in the correct order divided by the total number of pairs.</p>
 <p>RankSVM is a model you could use. It applies the ideas of a classical Support Vector Machine Model and computes loss by minimizing the discordant pairs of the model with the perfect&rdquo; order from the ground truth. In other words: it punishes item-pairs where the order is opposite from the ideal order.</p>
 <h2 id="listwise-ltr">Listwise LTR</h2>
-<p>Listwise LTR models optimize the <strong>total order of pairs</strong>.  They are often applied, if there is a limited number of items that can be selected. For example, if you have only 50 products in your online shop and you want to display those in the best order, listwise LTR models make sure that you find the optimal order of those 50 items.</p>
+<p>Listwise LTR models optimize the <strong>total order of pairs</strong>.  So instead of looking at individual pairs, the entire resultset is evaluated. Listwise models are often applied, if there is a limited number of items that can be selected. For example, if you have only 50 products in your online shop and you want to display those in the best order. Listwise LTR models make sure that you find the optimal order for those 50 items.</p>
 <p>For example you can use an XGboost model that optimizes for NDCG (Normalized Discounted Cumulative Gain). NDCG relies on three assumptions:</p>
 <ol>
 <li>The more revant an item, the more useful it is. So very relevant items are more useful than somewhat relevant items which are more useful than irrelevant items (cumulative gain).</li>
 <li>Highly relevant items are more useful when appearing in the higher positions.</li>
 <li>The result of the ranking should be irrelevant to the query performed (normalization).</li>
 </ol>
-<p>Put differently, this approach makes sure, that the best items are on top and heavily penalize if they are not.</p>
+<p>Put differently, this approach makes sure, that the best items are on top and heavily penalize, if they are not.</p>
 <p>Now you know the three basic approaches for solving ranking problems. The following table gives an overview with examples.</p>
 <br>
 <table>
