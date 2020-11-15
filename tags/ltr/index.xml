@@ -6,76 +6,18 @@
     <description>Recent content in ltr on A Potpourri of Data Science Topics for Analysts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 15 Nov 2020 18:36:40 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 15 Oct 2020 18:36:40 +0100</lastBuildDate>
     
 	<atom:link href="/tags/ltr/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Pointwise, Pairswise and Listwise Learning to Rank Models - Three Appoaches to Optimize Relative Ordering </title>
-      <link>/2020/11/15/pointwise-pairswise-and-listwise-learning-to-rank-models-three-appoaches-to-optimize-relative-ordering/</link>
-      <pubDate>Sun, 15 Nov 2020 18:36:40 +0100</pubDate>
+      <title>Pointwise, Pairswise and Listwise Learning to Rank Models - Three Appoaches to Optimize Relative Ordering</title>
+      <link>/2020/10/15/pointwise-pairswise-and-listwise-learning-to-rank-models-three-appoaches-to-optimize-relative-ordering/</link>
+      <pubDate>Thu, 15 Oct 2020 18:36:40 +0100</pubDate>
       
-      <guid>/2020/11/15/pointwise-pairswise-and-listwise-learning-to-rank-models-three-appoaches-to-optimize-relative-ordering/</guid>
-      <description>&lt;p&gt;In many scenarios, such as a google search or a product recommendation in an online shop, we have tons of data and limited space to display it. We cannot show all the products of an online shop to the user as a possible next best offer. Neither would a user want to scroll through all the pages indexed by a search engine to find the most relevant page that matches his search keywords. The most relevant content should be on top. Learning to rank (LTR) models are supervised machine learning models that attempt to optimize the order of items. So compared to classification or regression models, they do not care about exact scores or predictions, but the relative order. LTR models are typically applied in search engines, but gained popularity in other fields such as product recommendations as well.&lt;/p&gt;
-&lt;p&gt;There are 3 types of models: Pointwise, Pairwise and Listwise LTR models.&lt;/p&gt;
-&lt;h2 id=&#34;pointwise-ltr&#34;&gt;Pointwise LTR&lt;/h2&gt;
-&lt;p&gt;Pointwise LTR models optimize for &lt;strong&gt;predicing a key metric&lt;/strong&gt;. For example, you rank product recommendations according to the highest probablity, that a user clicks on an item (classification models) or on the revenue a product creates (linear regression models).&lt;/p&gt;
-&lt;p&gt;The models you would use are the same as for classical classification or regression problems, e.g. a logistic regression or a support vector machine model. You can evaluate your model by looking at your usual metrics (accuracy, precision, recall, root mean squared error etc.) at a position k. For example how many of the relevant items made it in the top k? But instead of looking at the absolute predicted values, you consider the rank of the items.&lt;/p&gt;
-&lt;h2 id=&#34;pairwise-ltr&#34;&gt;Pairwise LTR&lt;/h2&gt;
-&lt;p&gt;Pairwise LTR models optimize the &lt;strong&gt;relative order of pairs&lt;/strong&gt;. The idea is to compare the order of two items at a time. So as a first step, you have to create item pairs. If the more relevant item is on the top, great! You would not add any loss. If the more relevant item is on the bottom position, this adds to the loss. You evaluate your model by looking at pairwise metrics, e.g. pairwise accuracy at position: The number of pairs in the correct order devided by the total number of pairs.&lt;/p&gt;
-&lt;p&gt;RankSVM is a model you could use. It applies the ideas of a classical Support Vector Machine Model and computes loss by minimizing the discordant pairs of the model with the perfect&amp;rdquo; order from the ground truth. In other words: it punishes item-pairs where the order is opposite from the ideal order.&lt;/p&gt;
-&lt;h2 id=&#34;listwise-ltr&#34;&gt;Listwise LTR&lt;/h2&gt;
-&lt;p&gt;Listwise LTR models optimize the &lt;strong&gt;total order of pairs&lt;/strong&gt;.  They are often applied, if there is a limited number of items that can be selected. For example, if you have only 50 products in your online shop and you want to display those in the best order, listwise LTR models make sure, that you find the optimal order of those 50 items.&lt;/p&gt;
-&lt;p&gt;For example you can use an XGboost model that optimizes for NDCG (Normalized Discounted Cumulative Gain). NDCG relies on three assumptions:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;The more revant an item, the more useful it is. So very relevant items are more useful than somewhat relevant items which are more useful than irrelevant items (cumulative gain).&lt;/li&gt;
-&lt;li&gt;Highly relevant items are more useful when appearing in the higher positions.&lt;/li&gt;
-&lt;li&gt;The result of the ranking should be irrelevant to the query performed (normalization).&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Put differently, this appoach makes sure, that the best items are on top and heavily penalize if they are not.&lt;/p&gt;
-&lt;p&gt;Now you know the three basic appoaches for solving ranking problems. The following table gives an overview with examples.&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;th&gt;pointwise&lt;/th&gt;
-&lt;th&gt;pairiwse&lt;/th&gt;
-&lt;th&gt;listwise&lt;/th&gt;
-&lt;th&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Optimize&lt;/td&gt;
-&lt;td&gt;closeness to label&lt;/td&gt;
-&lt;td&gt;relative order of pairs&lt;/td&gt;
-&lt;td&gt;total order&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Loss Function&lt;/td&gt;
-&lt;td&gt;Σ(y_pred - y)^2&lt;/td&gt;
-&lt;td&gt;Σ max(0, 1 - score_1 - score_2&lt;/td&gt;
-&lt;td&gt;e.g. DCG Σ y/(log_2(rank) + 1)&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Evaluation metric&lt;/td&gt;
-&lt;td&gt;e.g. accuracy@k&lt;/td&gt;
-&lt;td&gt;e.g. pairwise accuracy&lt;/td&gt;
-&lt;td&gt;e.g. DCG@k, NDCG@k&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Model&lt;/td&gt;
-&lt;td&gt;e.g. linear/logistic regression&lt;/td&gt;
-&lt;td&gt;e.g. RankSVM&lt;/td&gt;
-&lt;td&gt;e.g. XGboost&lt;/td&gt;
-&lt;td&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;</description>
+      <guid>/2020/10/15/pointwise-pairswise-and-listwise-learning-to-rank-models-three-appoaches-to-optimize-relative-ordering/</guid>
+      <description>In many scenarios, such as a google search or a product recommendation in an online shop, we have tons of data and limited space to display it. We cannot show all the products of an online shop to the user as a possible next best offer. Neither would a user want to scroll through all the pages indexed by a search engine to find the most relevant page that matches his search keywords.</description>
     </item>
     
   </channel>

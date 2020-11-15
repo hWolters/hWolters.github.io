@@ -16,46 +16,38 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.74.3 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Heike W">
-<meta name="keywords" content="gpt-3, nlp, deep learning, neural networks, machine learning, ai, buzzword, deep fake, Generative Adversarial Networks (GANS), SQL, Data Science, Analytics, ElasticSeacg, Python, Pandas, Analytics, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive, Data Analysis, Data Mining">
-<meta name="description" content="I was recently invited to join a panel discussion among developers to dispel the myth of the typical BS Buzzword Bingo around machine learning and AI. In this blog post, I will share some buzzwords we talked about with a little description and links. Ooops, I already used some buzzwords. So let&rsquo;s start.
-AI (Artificial Intelligence) is the magic portion to fix all problems of all companies and will make us unemployed in the future.">
+<meta name="keywords" content="search, ltr, ndcg, RankSVM, SQL, Data Science, Analytics, ElasticSeacg, Python, Pandas, Analytics, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive, Data Analysis, Data Mining">
+<meta name="description" content="In many scenarios, such as a google search or a product recommendation in an online shop, we have tons of data and limited space to display it. We cannot show all the products of an online shop to the user as a possible next best offer. Neither would a user want to scroll through all the pages indexed by a search engine to find the most relevant page that matches his search keywords. The most relevant content should be on top. Learning to rank (LTR) models are supervised machine learning models that attempt to optimize the order of items. This blogpost introduces three approaches to optimize ranks.">
 
 
-<meta property="og:description" content="I was recently invited to join a panel discussion among developers to dispel the myth of the typical BS Buzzword Bingo around machine learning and AI. In this blog post, I will share some buzzwords we talked about with a little description and links. Ooops, I already used some buzzwords. So let&rsquo;s start.
-AI (Artificial Intelligence) is the magic portion to fix all problems of all companies and will make us unemployed in the future.">
+<meta property="og:description" content="In many scenarios, such as a google search or a product recommendation in an online shop, we have tons of data and limited space to display it. We cannot show all the products of an online shop to the user as a possible next best offer. Neither would a user want to scroll through all the pages indexed by a search engine to find the most relevant page that matches his search keywords. The most relevant content should be on top. Learning to rank (LTR) models are supervised machine learning models that attempt to optimize the order of items. This blogpost introduces three approaches to optimize ranks.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AI-Machine-Learning-Buzzword-Bingo">
-<meta name="twitter:title" content="AI-Machine-Learning-Buzzword-Bingo">
-<meta property="og:url" content="/2020/09/10/ai-machine-learning-buzzword-bingo/">
-<meta property="twitter:url" content="/2020/09/10/ai-machine-learning-buzzword-bingo/">
+<meta property="og:title" content="Pointwise, Pairswise and Listwise Learning to Rank Models - Three Appoaches to Optimize Relative Ordering">
+<meta name="twitter:title" content="Pointwise, Pairswise and Listwise Learning to Rank Models - Three Appoaches to Optimize Relative Ordering">
+<meta property="og:url" content="/2020/10/15/pointwise-pairswise-and-listwise-learning-to-rank-models-three-appoaches-to-optimize-relative-ordering/">
+<meta property="twitter:url" content="/2020/10/15/pointwise-pairswise-and-listwise-learning-to-rank-models-three-appoaches-to-optimize-relative-ordering/">
 <meta property="og:site_name" content="A Potpourri of Data Science Topics for Analysts">
-<meta property="og:description" content="I was recently invited to join a panel discussion among developers to dispel the myth of the typical BS Buzzword Bingo around machine learning and AI. In this blog post, I will share some buzzwords we talked about with a little description and links. Ooops, I already used some buzzwords. So let&rsquo;s start.
-AI (Artificial Intelligence) is the magic portion to fix all problems of all companies and will make us unemployed in the future.">
-<meta name="twitter:description" content="I was recently invited to join a panel discussion among developers to dispel the myth of the typical BS Buzzword Bingo around machine learning and AI. In this blog post, I will share some buzzwords we talked about with a little description and links. Ooops, I already used some buzzwords. So let&rsquo;s start.
-AI (Artificial Intelligence) is the magic portion to fix all problems of all companies and will make us unemployed in the future.">
+<meta property="og:description" content="In many scenarios, such as a google search or a product recommendation in an online shop, we have tons of data and limited space to display it. We cannot show all the products of an online shop to the user as a possible next best offer. Neither would a user want to scroll through all the pages indexed by a search engine to find the most relevant page that matches his search keywords. The most relevant content should be on top. Learning to rank (LTR) models are supervised machine learning models that attempt to optimize the order of items. This blogpost introduces three approaches to optimize ranks.">
+<meta name="twitter:description" content="In many scenarios, such as a google search or a product recommendation in an online shop, we have tons of data and limited space to display it. We cannot show all the products of an online shop to the user as a possible next best offer. Neither would a user want to scroll through all the pages indexed by a search engine to find the most relevant page that matches his search keywords. The most relevant content should be on top. Learning to rank (LTR) models are supervised machine learning models that attempt to optimize the order of items. This blogpost introduces three approaches to optimize ranks.">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2020-09-10T22:20:39">
+    <meta property="article:published_time" content="2020-10-15T18:36:40">
   
   
-    <meta property="article:modified_time" content="2020-09-10T22:20:39">
+    <meta property="article:modified_time" content="2020-10-15T18:36:40">
   
   
   
     
       <meta property="article:section" content="machine learning">
     
-      <meta property="article:section" content="ai">
-    
   
   
     
-      <meta property="article:tag" content="deep learning">
+      <meta property="article:tag" content="ltr">
     
-      <meta property="article:tag" content="nlp">
-    
-      <meta property="article:tag" content="machine learning">
+      <meta property="article:tag" content="search">
     
   
 
@@ -68,20 +60,20 @@ AI (Artificial Intelligence) is the magic portion to fix all problems of all com
 
 
 
-  <meta property="og:image" content="/post/header_buzzword_bingo.jpg">
-  <meta property="twitter:image" content="/post/header_buzzword_bingo.jpg">
+  <meta property="og:image" content="/post/ranking_cover.jpg">
+  <meta property="twitter:image" content="/post/ranking_cover.jpg">
 
 
 
 
-    <title>AI-Machine-Learning-Buzzword-Bingo</title>
+    <title>Pointwise, Pairswise and Listwise Learning to Rank Models - Three Appoaches to Optimize Relative Ordering</title>
 
     <link rel="icon" href="/favicon.png">
     
 
     
 
-    <link rel="canonical" href="/2020/09/10/ai-machine-learning-buzzword-bingo/">
+    <link rel="canonical" href="/2020/10/15/pointwise-pairswise-and-listwise-learning-to-rank-models-three-appoaches-to-optimize-relative-ordering/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -212,25 +204,25 @@ if (!doNotTrack) {
   <div class="post-header-cover
               text-left
               "
-       style="background-image:url('/post/header_buzzword_bingo.jpg')"
+       style="background-image:url('/post/ranking_cover.jpg')"
        data-behavior="1">
     
       <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      AI-Machine-Learning-Buzzword-Bingo
+      Pointwise, Pairswise and Listwise Learning to Rank Models - Three Appoaches to Optimize Relative Ordering
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2020-09-10T22:20:39&#43;02:00">
+      <time itemprop="datePublished" datetime="2020-10-15T18:36:40&#43;01:00">
         
   
   
   
   
-    10 September 2020
+    15 October 2020
   
 
       </time>
@@ -240,9 +232,7 @@ if (!doNotTrack) {
   
     <span>in</span>
     
-      <a class="category-link" href="/categories/machine-learning">machine learning</a>, 
-    
-      <a class="category-link" href="/categories/ai">ai</a>
+      <a class="category-link" href="/categories/machine-learning">machine learning</a>
     
   
 
@@ -262,29 +252,66 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>I was recently invited to join a panel discussion among developers to dispel the myth of the typical BS Buzzword Bingo around machine learning and AI. In this blog post, I will share some buzzwords we talked about with a little description and links. Ooops, I already used some buzzwords. So let&rsquo;s start.</p>
-<p><strong>AI (Artificial Intelligence)</strong> is the magic portion to fix all problems of all companies and will make us unemployed in the future. Well, this is how it is often sold. For me, AI is computer science mixed with statistics that enables a machine to do things better, faster and more efficient. Most people understand things like machine learning, robotics, and computer vision as AI.</p>
-<p>I found this nice visualization of different areas or AI with again some nice buzzwords. Some people might argue that the tree could look different, but as a first overview it is quite nice.</p>
-<p><img src="https://hackernoon.com/hn-images/1*SQC439dWhYeJ31ph9Oesqg.png" alt="ai"></p>
-<p>source: <a href="https://hackernoon.com/hn-images/1">https://hackernoon.com/hn-images/1</a>*SQC439dWhYeJ31ph9Oesqg.png</p>
-<h2 id="machine-learning">Machine learning</h2>
-<p><strong>ML (Machine Learning)</strong> is often divided into 2 different types of models: <strong>Supervised models</strong>, where you try to predict an outcome, that you can observe. For example you want to predict whether a customer will like a certain product or if a picture shows the image of a dog or a cat. <strong>Unsupervised models</strong> try to find patterns in the data. E.g. you want to group customers into segments. Deep learning can entail both, supervised and unsupervised components. The basic idea of <strong>Deep Learning</strong> is to imitate the functionality of our brain. In deep learning, you create an artificial neural network with multiple layers (therefore we call it &ldquo;deep&rdquo;) that is similar to the neurons in a brain. A stimulus is then sent through the network and interpreted at the end. You cannot really understand how and why, but it works. For me, deep learning is just a generic term for this type of model, which is often supervised and more and more unsupervised.</p>
-<p><img src="https://miro.medium.com/max/1400/1*gejeBAG1aRDFWOL8Uxz3dg.png" alt="ml"></p>
-<p>Since there is so much buzz about deep learning, we also discussed <strong>Generative Adversarial Networks (GANS)</strong>, because they produce quite impressive and entertaining results. Generative Adversarial Networks are a special class of combined models that interact with each other to produce somewhat creative results. Ever seen those tools, where you can just throw in a photograph of yourself and get returned an image that looks like you were drawn by van Gogh? No, you should try it then, e.g. on <a href="https://deepart.io">deepart.io</a>. GANS are also the models that create <strong>deepfakes</strong> like <a href="https://www.youtube.com/watch?v=bE1KWpoX9Hk">Obama&rsquo;s public service annoucement</a> on youtube or the <a href="https://www.youtube.com/watch?v=qawWQvprFlY">appearance of princess Leia in Rogue One</a>. The model learns what a source face looks like at different angles and transposes the face onto a different target.</p>
-<p>We also talked about how to build deep learning models. You might have come across the two biggest frameworks &ldquo;Tensorflow&rdquo; and &ldquo;Keras&rdquo; in the buzzword jungle.</p>
-<ul>
-<li>
-<p><strong>Tensorflow</strong> is an open source deep learning framework powered by Google. It&rsquo;s often used, well documented and you can build all kinds of deep learning models in a very flexible way. Tensorflow also offers tooling to facilitate the work e.g. <a href="https://blog.tensorflow.org/2019/12/introducing-tensorboarddev-new-way-to.html">Tensorboard</a>, which visualizes neural networks.</p>
-</li>
-<li>
-<p><strong>Keras</strong> is another well known deep learning framework. It&rsquo;s one of those frameworks that use lot&rsquo;s of abstraction to make it easy to use even if you have no idea what you are doing.</p>
-</li>
-</ul>
-<h2 id="natural-language-processing">Natural Language Processing</h2>
-<p><strong>NLP</strong> sounds like Neuro-linguistic programming but in our context stands for Natural Language Processing. The objective of NLP is to read, decipher, understand, and make sense of the human languages in a manner that is valuable. This could for example include extracting and classifying entities in a text.</p>
-<p>Especially for NLP tasks, it is common to use pretrained models and finetune them for specific tasks (<strong>Transfer Learning</strong>). Usually, some big corporation such as Google or Facebook trains a model (usually some neural net) on a large corpus of data with unlimited computation resources and open sources the model coefficients. Smaller companies would not have the data or the capacity to train such models from scratch and can just fine tune or extent existing models. Most models use the idea of deep learning and extend the basic ideas with some clever twists. Popular models are the sesame street models <strong>BERT</strong> and <strong>Elmo</strong> and their developments (<strong>RoBERTa, DistilBERT&hellip;</strong>).</p>
-<p>One model that created a lot of buzz is <a href="https://arxiv.org/abs/2005.14165"><strong>GPT-3</strong></a>. In May 2020 OpenAI released this pretrained model with 175billion (!) parameters to selected beta testers. It was promoted as the AI of the future, which could perform multiple language tasks. The model is not just able to understand human language and write and understand text. It can also learn programming languages and make developers obsolete. <a href="https://twitter.com/sharifshameem/status/1282676454690451457">A quite impressive video</a> was posted on twitter, that showed how this model is able to write simple react code to create buttons on a website. The access to the model via API will probably be sold to companies for a lot of money in the future.</p>
-<p>We touched a lot of buzzwords already, which should help you survive a flood of AI buzzwords. One last advice: In those situations never talk about just &ldquo;data&rdquo; without using the adjective &ldquo;big&rdquo;.</p>
+              <p>In many scenarios, such as a google search or a product recommendation in an online shop, we have tons of data and limited space to display it. We cannot show all the products of an online shop to the user as a possible next best offer. Neither would a user want to scroll through all the pages indexed by a search engine to find the most relevant page that matches his search keywords. The most relevant content should be on top. Learning to rank (LTR) models are supervised machine learning models that attempt to optimize the order of items. So compared to classification or regression models, they do not care about exact scores or predictions, but the relative order. LTR models are typically applied in search engines, but gained popularity in other fields such as product recommendations as well.</p>
+<p>There are 3 types of models: Pointwise, Pairwise and Listwise LTR models.</p>
+<h2 id="pointwise-ltr">Pointwise LTR</h2>
+<p>Pointwise LTR models optimize for <strong>predicing a key metric</strong>. For example, you rank product recommendations according to the highest probablity, that a user clicks on an item (classification models) or on the revenue a product creates (linear regression models).</p>
+<p>The models you would use are the same as for classical classification or regression problems, e.g. a logistic regression or a support vector machine model. You can evaluate your model by looking at your usual metrics (accuracy, precision, recall, root mean squared error etc.) at a position k. For example how many of the relevant items made it in the top k? But instead of looking at the absolute predicted values, you consider the rank of the items.</p>
+<h2 id="pairwise-ltr">Pairwise LTR</h2>
+<p>Pairwise LTR models optimize the <strong>relative order of pairs</strong>. The idea is to compare the order of two items at a time. So as a first step, you have to create item pairs. If the more relevant item is on the top, great! You would not add any loss. If the more relevant item is on the bottom position, this adds to the loss. You evaluate your model by looking at pairwise metrics, e.g. pairwise accuracy at position: The number of pairs in the correct order devided by the total number of pairs.</p>
+<p>RankSVM is a model you could use. It applies the ideas of a classical Support Vector Machine Model and computes loss by minimizing the discordant pairs of the model with the perfect&rdquo; order from the ground truth. In other words: it punishes item-pairs where the order is opposite from the ideal order.</p>
+<h2 id="listwise-ltr">Listwise LTR</h2>
+<p>Listwise LTR models optimize the <strong>total order of pairs</strong>.  They are often applied, if there is a limited number of items that can be selected. For example, if you have only 50 products in your online shop and you want to display those in the best order, listwise LTR models make sure, that you find the optimal order of those 50 items.</p>
+<p>For example you can use an XGboost model that optimizes for NDCG (Normalized Discounted Cumulative Gain). NDCG relies on three assumptions:</p>
+<ol>
+<li>The more revant an item, the more useful it is. So very relevant items are more useful than somewhat relevant items which are more useful than irrelevant items (cumulative gain).</li>
+<li>Highly relevant items are more useful when appearing in the higher positions.</li>
+<li>The result of the ranking should be irrelevant to the query performed (normalization).</li>
+</ol>
+<p>Put differently, this appoach makes sure, that the best items are on top and heavily penalize if they are not.</p>
+<p>Now you know the three basic appoaches for solving ranking problems. The following table gives an overview with examples.</p>
+<br>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>pointwise</th>
+<th>pairiwse</th>
+<th>listwise</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Optimize</td>
+<td>closeness to label</td>
+<td>relative order of pairs</td>
+<td>total order</td>
+<td></td>
+</tr>
+<tr>
+<td>Loss Function</td>
+<td>Σ(y_pred - y)^2</td>
+<td>Σ max(0, 1 - score_1 - score_2</td>
+<td>e.g. DCG Σ y/(log_2(rank) + 1)</td>
+<td></td>
+</tr>
+<tr>
+<td>Evaluation metric</td>
+<td>e.g. accuracy@k</td>
+<td>e.g. pairwise accuracy</td>
+<td>e.g. DCG@k, NDCG@k</td>
+<td></td>
+</tr>
+<tr>
+<td>Model</td>
+<td>e.g. linear/logistic regression</td>
+<td>e.g. RankSVM</td>
+<td>e.g. XGboost</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
               
             </div>
@@ -297,11 +324,9 @@ if (!doNotTrack) {
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="/tags/deep-learning/">deep learning</a>
+  <a class="tag tag--primary tag--small" href="/tags/ltr/">ltr</a>
 
-  <a class="tag tag--primary tag--small" href="/tags/nlp/">nlp</a>
-
-  <a class="tag tag--primary tag--small" href="/tags/machine-learning/">machine learning</a>
+  <a class="tag tag--primary tag--small" href="/tags/search/">search</a>
 
                   </div>
                 
@@ -314,7 +339,7 @@ if (!doNotTrack) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/08/31/the-intuition-of-word-embeddings-how-you-teach-a-computer-to-understand-text/" data-tooltip="The Intuition of Word Embeddings: How you Teach A Computer to Understand Text">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/09/10/ai-machine-learning-buzzword-bingo/" data-tooltip="AI-Machine-Learning-Buzzword-Bingo">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -322,7 +347,7 @@ if (!doNotTrack) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/10/15/pointwise-pairswise-and-listwise-learning-to-rank-models-three-appoaches-to-optimize-relative-ordering/" data-tooltip="Pointwise, Pairswise and Listwise Learning to Rank Models - Three Appoaches to Optimize Relative Ordering">
+                <a class="post-action-btn btn btn--disabled">
               
                   <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                   <i class="fa fa-angle-right"></i>
@@ -340,13 +365,13 @@ if (!doNotTrack) {
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2020/09/10/ai-machine-learning-buzzword-bingo/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2020/10/15/pointwise-pairswise-and-listwise-learning-to-rank-models-three-appoaches-to-optimize-relative-ordering/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2020/09/10/ai-machine-learning-buzzword-bingo/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2020/10/15/pointwise-pairswise-and-listwise-learning-to-rank-models-three-appoaches-to-optimize-relative-ordering/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -394,7 +419,7 @@ if (!doNotTrack) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/08/31/the-intuition-of-word-embeddings-how-you-teach-a-computer-to-understand-text/" data-tooltip="The Intuition of Word Embeddings: How you Teach A Computer to Understand Text">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/09/10/ai-machine-learning-buzzword-bingo/" data-tooltip="AI-Machine-Learning-Buzzword-Bingo">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -402,7 +427,7 @@ if (!doNotTrack) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/10/15/pointwise-pairswise-and-listwise-learning-to-rank-models-three-appoaches-to-optimize-relative-ordering/" data-tooltip="Pointwise, Pairswise and Listwise Learning to Rank Models - Three Appoaches to Optimize Relative Ordering">
+                <a class="post-action-btn btn btn--disabled">
               
                   <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                   <i class="fa fa-angle-right"></i>
@@ -420,13 +445,13 @@ if (!doNotTrack) {
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2020/09/10/ai-machine-learning-buzzword-bingo/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2020/10/15/pointwise-pairswise-and-listwise-learning-to-rank-models-three-appoaches-to-optimize-relative-ordering/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2020/09/10/ai-machine-learning-buzzword-bingo/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2020/10/15/pointwise-pairswise-and-listwise-learning-to-rank-models-three-appoaches-to-optimize-relative-ordering/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -456,13 +481,13 @@ if (!doNotTrack) {
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=%2F2020%2F09%2F10%2Fai-machine-learning-buzzword-bingo%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=%2F2020%2F10%2F15%2Fpointwise-pairswise-and-listwise-learning-to-rank-models-three-appoaches-to-optimize-relative-ordering%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2F2020%2F09%2F10%2Fai-machine-learning-buzzword-bingo%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2F2020%2F10%2F15%2Fpointwise-pairswise-and-listwise-learning-to-rank-models-three-appoaches-to-optimize-relative-ordering%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
@@ -552,9 +577,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = '\/2020\/09\/10\/ai-machine-learning-buzzword-bingo\/';
+          this.page.url = '\/2020\/10\/15\/pointwise-pairswise-and-listwise-learning-to-rank-models-three-appoaches-to-optimize-relative-ordering\/';
           
-            this.page.identifier = '\/2020\/09\/10\/ai-machine-learning-buzzword-bingo\/'
+            this.page.identifier = '\/2020\/10\/15\/pointwise-pairswise-and-listwise-learning-to-rank-models-three-appoaches-to-optimize-relative-ordering\/'
           
         };
         (function() {
