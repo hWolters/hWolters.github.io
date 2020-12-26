@@ -6,10 +6,37 @@
     <description>Recent content in Tags on A Potpourri of Data Science Topics for Analysts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 15 Oct 2020 18:36:40 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2020 16:26:57 +0100</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>api</title>
+      <link>/tags/api/</link>
+      <pubDate>Thu, 26 Nov 2020 16:26:57 +0100</pubDate>
+      
+      <guid>/tags/api/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>curl</title>
+      <link>/tags/curl/</link>
+      <pubDate>Thu, 26 Nov 2020 16:26:57 +0100</pubDate>
+      
+      <guid>/tags/curl/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rest</title>
+      <link>/tags/rest/</link>
+      <pubDate>Thu, 26 Nov 2020 16:26:57 +0100</pubDate>
+      
+      <guid>/tags/rest/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>ltr</title>
@@ -116,33 +143,6 @@
       <pubDate>Sun, 12 Jul 2020 21:17:58 +0200</pubDate>
       
       <guid>/tags/magic-commands/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>python</title>
-      <link>/tags/python/</link>
-      <pubDate>Sun, 12 Jul 2020 21:17:58 +0200</pubDate>
-      
-      <guid>/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Document Frequency</title>
-      <link>/tags/document-frequency/</link>
-      <pubDate>Wed, 24 Jun 2020 08:05:59 +0200</pubDate>
-      
-      <guid>/tags/document-frequency/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Elastic</title>
-      <link>/tags/elastic/</link>
-      <pubDate>Wed, 24 Jun 2020 08:05:59 +0200</pubDate>
-      
-      <guid>/tags/elastic/</guid>
       <description></description>
     </item>
     
