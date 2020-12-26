@@ -270,12 +270,37 @@ if (!doNotTrack) {
 <p>We&rsquo;ll look into each component and then puzzle them together. After this chapter, you will understand the structure of a REST call and how to use it to get data.</p>
 <h3 id="1-method">1. Method </h3>
 <p>Request methods characterize what action we are going to take by referring to the API. In total, there are four main types of actions, but only the <code>GET</code> method is important when downloading data. <code>POST</code>, <code>PUT</code> and <code>DELETE</code> modify data. The following table gives an overview.</p>
-<p>| Method | What it does | 
-|&mdash;&mdash;&ndash;|:&mdash;&mdash;&mdash;&mdash;-|
-| <code>GET</code>| requests data from a server|
-|<code>POST</code> |adds new data to the server| 
-| <code>PUT</code>| change existing data | 
-| <code>DELETE</code>| delete existing data|</p>
+<table>
+<thead>
+<tr>
+<th align="left">method</th>
+<th align="left">what it does</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>GET</code></td>
+<td align="left">requests data from a server</td>
+<td></td>
+</tr>
+<tr>
+<td align="left"><code>POST</code></td>
+<td align="left">adds new data to the server</td>
+<td align="left"> </td>
+</tr>
+<tr>
+<td align="left"><code>PUT</code></td>
+<td align="left">change existing data</td>
+<td align="left"> </td>
+</tr>
+<tr>
+<td align="left"><code>DELETE</code></td>
+<td align="left">delete existing data</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h3 id="2-endpoint">2. Endpoint</h3>
 <p>An endpoint is the Unique Resource Location (URL) where a service is accessed. So it is like a navigation that routes you to your destination. Let&rsquo;s briefly talk about the different components of a URL by looking at an endpoint. One example from the twitter API for getting tweets from a specified location:</p>
 <p><code>https://api.twitter.com/2/tweets/:ID?expansions=geo.place_id</code></p>
