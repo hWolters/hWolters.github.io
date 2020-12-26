@@ -17,7 +17,7 @@
       <pubDate>Thu, 26 Nov 2020 16:26:57 +0100</pubDate>
       
       <guid>/2020/11/26/intro-into-apis-how-to-access-data-from-public-rest-apis-with-curl/</guid>
-      <description>&lt;p&gt;This post will be about understanding how REST APIs work and how you can use them to get interesting datasets for your data projects. GraphQL and creating an API on your own will be subject to another blogpost.&lt;/p&gt;</description>
+      <description>&lt;p&gt;This post will teach you the inution of REST APIs and how you can use them to get interesting datasets for your data projects. First, we will look at the four components of a request. In the second part of this blogpost, we will go through one example and access the coingecko API via &lt;code&gt;curl&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
     
   </channel>

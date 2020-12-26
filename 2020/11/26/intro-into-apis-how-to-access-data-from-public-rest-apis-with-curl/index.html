@@ -17,18 +17,18 @@
 <meta name="generator" content="Hugo 0.74.3 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Heike W">
 <meta name="keywords" content="curl, api, rest, SQL, Data Science, Analytics, ElasticSeacg, Python, Pandas, Analytics, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive, Data Analysis, Data Mining">
-<meta name="description" content="This post will be about understanding how REST APIs work and how you can use them to get interesting datasets for your data projects. GraphQL and creating an API on your own will be subject to another blogpost.">
+<meta name="description" content="This post will teach you the inution of REST APIs and how you can use them to get interesting datasets for your data projects. First, we will look at the four components of a request. In the second part of this blogpost, we will go through one example and access the coingecko API via curl.">
 
 
-<meta property="og:description" content="This post will be about understanding how REST APIs work and how you can use them to get interesting datasets for your data projects. GraphQL and creating an API on your own will be subject to another blogpost.">
+<meta property="og:description" content="This post will teach you the inution of REST APIs and how you can use them to get interesting datasets for your data projects. First, we will look at the four components of a request. In the second part of this blogpost, we will go through one example and access the coingecko API via curl.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Intro into APIs: How to access data from public REST APIs with `curl`">
 <meta name="twitter:title" content="Intro into APIs: How to access data from public REST APIs with `curl`">
 <meta property="og:url" content="/2020/11/26/intro-into-apis-how-to-access-data-from-public-rest-apis-with-curl/">
 <meta property="twitter:url" content="/2020/11/26/intro-into-apis-how-to-access-data-from-public-rest-apis-with-curl/">
 <meta property="og:site_name" content="A Potpourri of Data Science Topics for Analysts">
-<meta property="og:description" content="This post will be about understanding how REST APIs work and how you can use them to get interesting datasets for your data projects. GraphQL and creating an API on your own will be subject to another blogpost.">
-<meta name="twitter:description" content="This post will be about understanding how REST APIs work and how you can use them to get interesting datasets for your data projects. GraphQL and creating an API on your own will be subject to another blogpost.">
+<meta property="og:description" content="This post will teach you the inution of REST APIs and how you can use them to get interesting datasets for your data projects. First, we will look at the four components of a request. In the second part of this blogpost, we will go through one example and access the coingecko API via curl.">
+<meta name="twitter:description" content="This post will teach you the inution of REST APIs and how you can use them to get interesting datasets for your data projects. First, we will look at the four components of a request. In the second part of this blogpost, we will go through one example and access the coingecko API via curl.">
 <meta property="og:locale" content="en-us">
 
   
@@ -258,7 +258,7 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>This post will be about understanding how REST APIs work and how you can use them to get interesting datasets for your data projects. GraphQL and creating an API on your own will be subject to another blogpost.</p>
+              <p>This post will teach you the inution of REST APIs and how you can use them to get interesting datasets for your data projects. First, we will look at the four components of a request. In the second part of this blogpost, we will go through one example and access the coingecko API via <code>curl</code>.</p>
 <p>So let&rsquo;s start from 0: What is an API? API stands for <strong>a</strong>pplication <strong>p</strong>rogramming <strong>i</strong>nterface. APIs contain a set of methods that allow the communication between your computer and a server.  In other words, they send back and forth data using HTTP requests. You can retrieve data (<code>GET</code>), send data (<code>POST</code>,<code>PUT</code>) or delete data (<code>DELETE</code>). You have probably seen the “Like on Facebook” or “Share on Twitter” buttons on various websites. When you click one of these buttons, the site you’re visiting communicates with your Facebook or Twitter account, and alters its data by adding new likes or creating a tweet. For you as a data scientist/analyst APIs provide a great opportunity to retrieve interesting datasets. For example the Kayak API let&rsquo;s you access a lot of travel data while the imdb API contains movie data. Also some models like <a href="https://pypi.org/project/bert-api/">BERT</a> are accessible through an API. </p>
 <p>There are different ways and rules to follow when creating APIs. REST stands for &ldquo;Representational State Transfer” and is just one option. A REST request can have four components:</p>
 <ol>
@@ -270,6 +270,7 @@ if (!doNotTrack) {
 <p>We&rsquo;ll look into each component and then puzzle them together. After this chapter, you will understand the structure of a REST call and how to use it to get data.</p>
 <h3 id="1-method">1. Method </h3>
 <p>Request methods characterize what action we are going to take by referring to the API. In total, there are four main types of actions, but only the <code>GET</code> method is important when downloading data. <code>POST</code>, <code>PUT</code> and <code>DELETE</code> modify data. The following table gives an overview.</p>
+<br>
 <table>
 <thead>
 <tr>
@@ -312,8 +313,9 @@ if (!doNotTrack) {
 So you you know where to go, the next step is what to do.</li>
 </ul>
 <h3 id="3-header">3. Header</h3>
-<p>Headers contain meta information e.g. for authentication or for passing information about the body content ([see] (<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers))">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers))</a>. In a REST request, you can add a header by typing <code>--header</code> (or short <code>-H</code>) followed by a string containing the header fields as colon-separated key-value pairs. For example if we wanted to authenticate accessing the twitter API:<code>curl 'https://api.twitter.com/2/tweets/:ID?expansions=geo.place_id' --header 'Authorization: Bearer $BEARER_TOKEN'</code>
-<code>--header</code> denotes that the header arguments start. <code>Authorization</code> is the key and <code>Bearer $BEARER_TOKEN</code> is the value (in this case the <a href="https://en.wikipedia.org/wiki/JSON_Web_Token">token</a>) we pass.</p>
+<p>Headers contain meta information e.g. for authentication or for passing information about the body content ([see] (<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers))">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers))</a>. In a REST request, you can add a header by typing <code>--header</code> (or short <code>-H</code>) followed by a string containing the header fields as colon-separated key-value pairs. For example if we wanted to authenticate accessing the twitter API:</p>
+<pre><code>curl 'https://api.twitter.com/2/tweets/:ID?expansions=geo.place_id' --header 'Authorization: Bearer $BEARER_TOKEN'
+</code></pre><p><code>--header</code> denotes that the header arguments start. <code>Authorization</code> is the key and <code>Bearer $BEARER_TOKEN</code> is the value (in this case the <a href="https://en.wikipedia.org/wiki/JSON_Web_Token">token</a>) we pass.</p>
 <h3 id="4-body">4. Body</h3>
 <p>The request body is used to send and receive data. So instead of passing data/parameters in the url (path parameters) or as a querystring, you can also send information in the body. The body can be in HTML, XML, JSON or other formats. You can add a body with <code>--data</code> (or short <code>-d</code>) as in this example from the twitter API.</p>
 <pre><code>curl --request POST 
@@ -342,7 +344,8 @@ So you you know where to go, the next step is what to do.</li>
 <h3 id="anatomy-of-a-rest-call-via-curl">Anatomy of a rest call via curl</h3>
 <p>Let&rsquo;s recapitulate the different components of a rest call. We need a method, a URL and optionally a header and a body. So you can write a request with the following options:</p>
 <p><code>curl</code> <code>--request</code> + method (<code>GET</code>/<code>POST</code>/<code>DELETE</code>/<code>PUT</code>) + header (<code>--header</code>) + URL (in quotes) + body (<code>--data</code>)</p>
-<p>You can use a long or a short version to pass options when making the request</p>
+<p>You can use a long or a short version to pass options when making the request.</p>
+<br>
 <table>
 <thead>
 <tr>
@@ -442,6 +445,7 @@ So you you know where to go, the next step is what to do.</li>
       
 </code></pre><h4 id="request-messages">Request messages</h4>
 <p>Nice, if everything worked well, you should have received 200 messages. This means your request has succeeded. Let&rsquo;s briefly look into the different messages that you might see. Messages with a number &gt;= 400 indicate an error.</p>
+<br>
 <table>
 <thead>
 <tr>
@@ -474,10 +478,10 @@ So you you know where to go, the next step is what to do.</li>
 </tbody>
 </table>
 <p>Now you might be wondering, how to deal with all this json printouts in your console. One option would be, to write them into a file</p>
-<p><code>curl -X GET &quot;https://api.coingecko.com/api/v3/coins/bitcoin/history?date=01-01-2020&quot; -H &quot;accept: application/json&quot; &gt;&gt; output.json</code></p>
-<p>There is also the very useful <code>jq</code> tool which formats and highlights JSON. If you have <a href="https://stedolan.github.io/jq/">jq</a> installed, you can just run <code>curl ... | jq</code> to format the output:</p>
-<p><code>curl -X GET &quot;https://api.coingecko.com/api/v3/coins/bitcoin/history?date=01-01-2020&quot; -H &quot;accept: application/json&quot; &gt;&gt; output.json | jq</code></p>
-<p>Or you make your requests directly from python and write the results into python variables. You can use the <a href="https://requests.readthedocs.io/en/master/">python requests</a> package.</p>
+<pre><code>curl -X GET &quot;https://api.coingecko.com/api/v3/coins/bitcoin/history?date=01-01-2020&quot; -H &quot;accept: application/json&quot; &gt;&gt; output.json
+</code></pre><p>There is also the very useful <code>jq</code> tool which formats and highlights JSON. If you have <a href="https://stedolan.github.io/jq/">jq</a> installed, you can just run <code>curl ... | jq</code> to format the output:</p>
+<pre><code>curl -X GET &quot;https://api.coingecko.com/api/v3/coins/bitcoin/history?date=01-01-2020&quot; -H &quot;accept: application/json&quot; &gt;&gt; output.json | jq
+</code></pre><p>Or you make your requests directly from python and write the results into python variables. You can use the <a href="https://requests.readthedocs.io/en/master/">python requests</a> package.</p>
               
             </div>
           </div>
