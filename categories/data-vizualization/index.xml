@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Seaborn on A Potpourri of Data Science Topics for Analysts</title>
-    <link>/tags/seaborn/</link>
-    <description>Recent content in Seaborn on A Potpourri of Data Science Topics for Analysts</description>
+    <title>Data Vizualization on A Potpourri of Data Science Topics for Analysts</title>
+    <link>/categories/data-vizualization/</link>
+    <description>Recent content in Data Vizualization on A Potpourri of Data Science Topics for Analysts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 10 Sep 2019 20:17:58 +0200</lastBuildDate>
     
-	<atom:link href="/tags/seaborn/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/data-vizualization/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
