@@ -16,13 +16,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.74.3 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Heike W">
-<meta name="keywords" content="python, plot, seaborn, data vizualization, SQL, Data Science, Analytics, ElasticSeacg, Python, Pandas, Analytics, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive, Data Analysis, Data Mining">
+<meta name="keywords" content="python, plot, seaborn, data visualization, SQL, Data Science, Analytics, ElasticSeacg, Python, Pandas, Analytics, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive, Data Analysis, Data Mining">
 <meta name="description" content="Seaborn is a python library for creating plots. It is based on matplotlib  and provides a high-level interface for drawing statistical graphics.
-Seaborn integrates nicely with pandas: It operates on DataFrames and arrays and does aggregations and semantic mapping automatically, which makes it a quick, convenient option for data vizualization in your data projects. One you understand the basic concepts, you can create plots really easily without using stack overflow too much.">
+Seaborn integrates nicely with pandas: It operates on DataFrames and arrays and does aggregations and semantic mapping automatically, which makes it a quick, convenient option for data visualization in your data projects. One you understand the basic concepts, you can create plots really easily without using stack overflow too much.">
 
 
 <meta property="og:description" content="Seaborn is a python library for creating plots. It is based on matplotlib  and provides a high-level interface for drawing statistical graphics.
-Seaborn integrates nicely with pandas: It operates on DataFrames and arrays and does aggregations and semantic mapping automatically, which makes it a quick, convenient option for data vizualization in your data projects. One you understand the basic concepts, you can create plots really easily without using stack overflow too much.">
+Seaborn integrates nicely with pandas: It operates on DataFrames and arrays and does aggregations and semantic mapping automatically, which makes it a quick, convenient option for data visualization in your data projects. One you understand the basic concepts, you can create plots really easily without using stack overflow too much.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Plotting with Seaborn">
 <meta name="twitter:title" content="Plotting with Seaborn">
@@ -30,9 +30,9 @@ Seaborn integrates nicely with pandas: It operates on DataFrames and arrays and 
 <meta property="twitter:url" content="/2019/09/10/plotting-with-seaborn/">
 <meta property="og:site_name" content="A Potpourri of Data Science Topics for Analysts">
 <meta property="og:description" content="Seaborn is a python library for creating plots. It is based on matplotlib  and provides a high-level interface for drawing statistical graphics.
-Seaborn integrates nicely with pandas: It operates on DataFrames and arrays and does aggregations and semantic mapping automatically, which makes it a quick, convenient option for data vizualization in your data projects. One you understand the basic concepts, you can create plots really easily without using stack overflow too much.">
+Seaborn integrates nicely with pandas: It operates on DataFrames and arrays and does aggregations and semantic mapping automatically, which makes it a quick, convenient option for data visualization in your data projects. One you understand the basic concepts, you can create plots really easily without using stack overflow too much.">
 <meta name="twitter:description" content="Seaborn is a python library for creating plots. It is based on matplotlib  and provides a high-level interface for drawing statistical graphics.
-Seaborn integrates nicely with pandas: It operates on DataFrames and arrays and does aggregations and semantic mapping automatically, which makes it a quick, convenient option for data vizualization in your data projects. One you understand the basic concepts, you can create plots really easily without using stack overflow too much.">
+Seaborn integrates nicely with pandas: It operates on DataFrames and arrays and does aggregations and semantic mapping automatically, which makes it a quick, convenient option for data visualization in your data projects. One you understand the basic concepts, you can create plots really easily without using stack overflow too much.">
 <meta property="og:locale" content="en-us">
 
   
@@ -46,7 +46,7 @@ Seaborn integrates nicely with pandas: It operates on DataFrames and arrays and 
     
       <meta property="article:section" content="Python">
     
-      <meta property="article:section" content="Data Vizualization">
+      <meta property="article:section" content="Data Visualization">
     
   
   
@@ -242,7 +242,7 @@ if (!doNotTrack) {
     
       <a class="category-link" href="/categories/python">Python</a>, 
     
-      <a class="category-link" href="/categories/data-vizualization">Data Vizualization</a>
+      <a class="category-link" href="/categories/data-visualization">Data Visualization</a>
     
   
 
@@ -263,29 +263,28 @@ if (!doNotTrack) {
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
               <p>Seaborn is a python library for creating plots. It is based on <a href="https://matplotlib.org">matplotlib </a> and provides a high-level interface for drawing statistical graphics.</p>
-<p>Seaborn integrates nicely with pandas: It operates on DataFrames and arrays and does aggregations and semantic mapping automatically, which makes it a quick, convenient option for data vizualization in your data projects. One you understand the basic concepts, you can create plots really easily without using stack overflow too much.</p>
+<p>Seaborn integrates nicely with pandas: It operates on DataFrames and arrays and does aggregations and semantic mapping automatically, which makes it a quick, convenient option for data visualization in your data projects. One you understand the basic concepts, you can create plots really easily without using stack overflow too much.</p>
 <p>The basic steps for creating plots with seaborn are:</p>
 <ol start="0">
 <li>Import libraries</li>
 <li>Prepare the data</li>
 <li>[optional] Control figure aesthetics (Grids, Color etc.)</li>
 <li>Create plot</li>
-<li>[optional] Further customization your plot, which also can overwrite the figure aestetics defined in step 2 (title, labels, tickmarks etc.)</li>
+<li>[optional] Further customization of your plot, which also can overwrite the figure aesthetics defined in step 2 (title, labels, tick marks etc.)</li>
 <li>Show or save the plot</li>
 </ol>
 <h2 id="steps">Steps</h2>
 <p>Let&rsquo;s walk through the steps of creating plots.</p>
 <h3 id="0-import-libraries">0 Import libraries</h3>
-<p>As mentioned above, searborn is built on top of <code>matplotlib</code>, but does not provide the full functionality. Therefore, we should always import both, <code>matplotlib </code>(with the <code>pyplot</code> module) and <code>seaborn</code>. It is likely, that you will need <code>matplotlib</code> at some point (for example for changing the plot title or the tick labels and to show the plots).</p>
+<p>As mentioned above, searborn is built on top of <code>matplotlib</code>, but does not provide the full functionality. Therefore, we should always import both, <code>matplotlib </code>(with the <code>pyplot</code> module) and <code>seaborn</code>. It is likely that you will need <code>matplotlib</code> at some point (for example for changing the plot title or the tick labels and to show the plots).</p>
 <pre><code>import matplotlib.pyplot as plt
 import seaborn as sns
 
 %matplotlib inline # make sure plots are shown in a jupyter notebook. otherwise you will need plt.show()
 </code></pre><h3 id="1-prepare-data">1. Prepare Data</h3>
-<p>You can work with a pandas <code>DataFrame</code>. In general, you do not have to pre-aggegate your data. For example for count plots, seaborn will automatically calculate the counts for the count plot.
-<a href="https://seaborn.pydata.org/tutorial/data_structure.html">https://seaborn.pydata.org/tutorial/data_structure.html</a></p>
-<h3 id="2-figure-aestetics">2. Figure Aestetics</h3>
-<p>This is an optional step. You can just go with the default configuration here, or you can define aestetics such as grid, axis, tickmarks, color and fontsizes.</p>
+<p>You can work with a pandas <code>DataFrame</code>. In general, you do not have to pre-aggregate your data. For example for count plots, seaborn will automatically calculate the counts for the count plot.</p>
+<h3 id="2-figure-aesthetics">2. Figure Aesthetics</h3>
+<p>This is an optional step. You can just go with the default configuration here, or you can define aesthetics such as grid, axis, tick marks, color and font sizes.</p>
 <p><strong>Axis and Grid Style</strong>: per default, you will have a dark grid. You can change between grids (<code>darkgrid</code>, <code>whitegrid</code>), no grids (<code>dark</code>, <code>white</code>) and ticks (<code>ticks</code>).</p>
 <pre><code>sns.set_style(&quot;white&quot;)
 </code></pre><p>remove the top and right axis with</p>
@@ -297,7 +296,7 @@ import seaborn as sns
 </code></pre><p>Or set <strong>multiple parameters</strong> in one step with <a href="https://seaborn.pydata.org/generated/seaborn.set.html"><code>set()</code></a> e.g. <code>sns.set(context='notebook', style='white', font='Helvetica', font_scale=1, color_codes=True, rc=None))</code></p>
 <h3 id="3-plot">3. Plot</h3>
 <p>In this step, you define what kind of plot you would like. There are two important distinctions you need to understand: figure and axes</p>
-<p>A <strong>Figure</strong> refers to the whole figure that you see. A figure may consist of a single plot, but it is possible to have multiple sub-plots in the same figure. A specific sub-plot is called an <strong>Axes</strong>. There are functions, that have an effect on the entire figure (figure-level functions) and some functions have an effect just on the specified subplot (axes-level-function).</p>
+<p>A <strong>Figure</strong> refers to the whole figure that you see. A figure may consist of a single plot, but it is possible to have multiple subplots in the same figure. A specific sub-plot is called an <strong>Axes</strong>. There are functions that have an effect on the entire figure (figure-level functions) and some functions have an effect just on the specified subplot (axes-level-function).</p>
 <p>For each type of plot (distributions, categorical, relational), there is a figure-level function, which takes the kind of plot as a parameter. For example, <code>displot()</code> is the figure-level function for plotting distributions. By passing the parameter <code>kind=&quot;hist&quot;</code>, it draws a histogram.</p>
 <pre><code>sns.displot(data, x, kind = &quot;hist&quot;)
 </code></pre><p>Alternatively, you can choose the axes-level function <a href="https://seaborn.pydata.org/generated/seaborn.histplot.html"><code>histplot()</code></a> to plot a histogram.</p>
@@ -339,11 +338,11 @@ plt.xlabel(&quot;Sex&quot;) # add an x-axis label
 plt.ylim(0,100) # start and end of y-axis
 plt.xlim(0,10) # start and end of x-axis
 </code></pre><h3 id="5-save-or-show">5. Save or Show</h3>
-<p>If you use <code>%matplotlib inline</code> in your jupyter notebook,  you will not need to call any functions for your plot to show up in the nootbook. Otherwise, you will have to use <code>plt.show()</code> to show a plot and <code>plt.savefig(&quot;foo.png&quot;)</code> to save your figure.</p>
+<p>If you use <code>%matplotlib inline</code> in your jupyter notebook,  you will not need to call any functions for your plot to show up in the notebook. Otherwise, you will have to use <code>plt.show()</code> to show a plot and <code>plt.savefig(&quot;foo.png&quot;)</code> to save your figure.</p>
 <pre><code>plt.show()
 plt.savefig(&quot;foo.png&quot;)
 </code></pre><h2 id="examples-one-plot-per-figure">Examples: One Plot per figure</h2>
-<p>Let&rsquo;s look at some examples for plots that are usful for understanding features of your dataset. First, we&rsquo;ll tackle descriptives (countplots and distributions) and then relationships between features. We&rsquo;ll use the built-in titanic dataset:</p>
+<p>Let&rsquo;s look at some examples for plots that are useful for understanding features of your dataset. First, we&rsquo;ll tackle descriptives (count plots and distributions) and then relationships between features. We&rsquo;ll use the built-in titanic dataset:</p>
 <pre><code># (0) import packages and datasets
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -469,8 +468,8 @@ titanic.head(5)
 </tr>
 </tbody>
 </table>
-<h3 id="plot-distibution-of-categorical-features-with-a-countplot">Plot distibution of categorical features with a countplot</h3>
-<p>Count plots automatically count the number of occurences of each categorical feature value and displays them in a bar plot. You can just pass the dataset and the variable you want to plot as parameters. So no need to aggregate the data up front.</p>
+<h3 id="plot-distribution-of-categorical-features-with-a-countplot">Plot distribution of categorical features with a countplot</h3>
+<p>Count plots automatically count the number of occurrences of each categorical feature value and displays them in a bar plot. You can just pass the dataset and the variable you want to plot as parameters. So no need to aggregate the data up front.</p>
 <pre><code>sns.countplot(x = 'class', data = titanic)
 
 plt.title(&quot;Count passengers by class&quot;)
@@ -489,7 +488,7 @@ for p in c.patches:
                  xytext = (0, 5),
                  textcoords = 'offset points')
 </code></pre><p><img src="/post/2019-09-10-seaborn/0countplot_annotate.png" alt=""></p>
-<h3 id="plot-distibution-of-numeric-features-in-a-histogram">Plot distibution of numeric features in a histogram</h3>
+<h3 id="plot-distribution-of-numeric-features-in-a-histogram">Plot distribution of numeric features in a histogram</h3>
 <p>Plotting the distribution of one feature is simple: You can use <code>histplot()</code> and pass the dataset and the feature you want to plot as a parameter.</p>
 <pre><code>sns.histplot(data=titanic, x=&quot;age&quot;)
 plt.title(&quot;Age distribution&quot;)
@@ -503,7 +502,7 @@ plt.xlabel(&quot;Age customer&quot;)
 plt.ylabel(&quot;Value&quot;)
 </code></pre><p><img src="/post/2019-09-10-seaborn/1histogram2.png" alt=""></p>
 <h3 id="plot-relationships-between-features-with-a-scatterplot">Plot relationships between features with a scatterplot</h3>
-<p>You can create a simple scatterplott with 2 variables like this:</p>
+<p>You can create a simple scatter plot with 2 variables like this:</p>
 <pre><code>sns.scatterplot(data = titanic,
                x = 'age', 
                y = 'fare')
@@ -522,7 +521,7 @@ plt.xlabel(&quot;Age&quot;)
 plt.ylabel(&quot;Fare&quot;)
 </code></pre><p><img src="/post/2019-09-10-seaborn/2scatter2.png" alt=""></p>
 <h1 id="multiple-plots-in-one-figure">Multiple Plots in one figure</h1>
-<p>If you want multiple, maybe even diffent types of plots in one figure, you can use <code>subplots()</code> from the <code>matplotlib.pyplot</code> library. <code>plt.subplots(nrows, ncols)</code> creates a single figure instance, with nrows * ncols axes instances and returns the created figure and axes instances. The grid of the axes is returned as an <code>nrows * ncols</code> shaped numpy array. If we passed for example the parameter <code>nrows=2</code> <code>ncols=2</code>, we create a subplot with 2 rows and 2 columns. With the <code>ax</code> parameter in the axes-level functions, we specify the position of the plot. Let&rsquo;s assume, we wanted to plot 2 plots side by side, we have to create a git with 1 row and 2 columns and put the plots at the correct positions.</p>
+<p>If you want multiple, maybe even different types of plots in one figure, you can use <code>subplots()</code> from the <code>matplotlib.pyplot</code> library. <code>plt.subplots(nrows, ncols)</code> creates a single figure instance, with nrows * ncols axes instances and returns the created figure and axes instances. The grid of the axes is returned as an <code>nrows * ncols</code> shaped numpy array. If we passed for example the parameter <code>nrows=2</code> <code>ncols=2</code>, we create a subplot with 2 rows and 2 columns. With the <code>ax</code> parameter in the axes-level functions, we specify the position of the plot. Let&rsquo;s assume, we wanted to plot 2 plots side by side, we have to create a git with 1 row and 2 columns and put the plots at the correct positions.</p>
 <pre><code># instanciate figure and axes instances
 fig,axes = plt.subplots(1,2)
 
@@ -557,14 +556,14 @@ sns.histplot(data=titanic, x=&quot;survived&quot;, ax=axes[1,1])
 <p>The figure-level functions <code>relplot</code>, <code>catplot()</code> and <code>displot</code> are built on a <code>FacetGrid</code>. This means that it is easy to add faceting variables to visualize higher-dimensional relationships:</p>
 <pre><code>sns.displot(data=titanic, x=&quot;age&quot;, hue=&quot;survived&quot;, col=&quot;survived&quot;)
 </code></pre><p><img src="/post/2019-09-10-seaborn/4distplot.png" alt=""></p>
-<p>The <code>FacetGrid</code> class is useful when you want to visualize the distribution of a feature or the relationship between multiple features separately within subsets of your dataset. You may use three parameters to specify the dimensions <code>row</code>, <code>col</code>, and <code>hue</code>. <code>row</code> and <code>col</code> correspond to the array of axes. You can use <code>hue</code> to differentiate between different levels as you did in the scatterplot examples above.</p>
+<p>The <code>FacetGrid</code> class is useful when you want to visualize the distribution of a feature or the relationship between multiple features separately within subsets of your dataset. You may use three parameters to specify the dimensions <code>row</code>, <code>col</code>, and <code>hue</code>. <code>row</code> and <code>col</code> correspond to the array of axes. You can use <code>hue</code> to differentiate between different levels as you did in the scatter plot examples above.</p>
 <pre><code>with sns.axes_style(&quot;white&quot;):
     g = sns.FacetGrid(titanic, row=&quot;sex&quot;, col=&quot;pclass&quot;, margin_titles=True, height=2.5)
 g.map(sns.barplot, &quot;survived&quot;, &quot;fare&quot;)
 g.fig.subplots_adjust(wspace=.02, hspace=.02)
 </code></pre><p><img src="/post/2019-09-10-seaborn/4distplo2.png" alt=""></p>
 <h2 id="quickly-explore-numerical-features-with-a-pairplot">Quickly explore numerical features with a <code>pairplot</code></h2>
-<p>One quick and easy way to start exploring a dataset is with <code>sns.pairplot()</code>. It automatically draws a scatter plot for the correlations between all numeric variable. The diagonal shows the distribution of each numeric feature.</p>
+<p>One quick and easy way to start exploring a dataset is with <code>sns.pairplot()</code>. It automatically draws a scatter plot for the correlations between all numeric variables. The diagonal shows the distribution of each numeric feature.</p>
 <p>For example for the first 4 columns in the titanic dataset, we will get a 3 x 3 grid, because there are 3 numeric variables in the dataset in the first 4 columns.</p>
 <pre><code>sns.pairplot(titanic.iloc[:,:4])
 </code></pre><p><img src="/post/2019-09-10-seaborn/5pairplot.png" alt=""></p>
