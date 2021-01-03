@@ -275,32 +275,15 @@ import seaborn as sns
 <a href="https://seaborn.pydata.org/tutorial/data_structure.html">https://seaborn.pydata.org/tutorial/data_structure.html</a></p>
 <h3 id="2-figure-aestetics">2. Figure Aestetics</h3>
 <p>This is an optional step. You can just go with the default configuration here, or you can define aestetics such as grid, axis, tickmarks, color and fontsizes.</p>
-<ul>
-<li>
 <p><strong>Axis and Grid Style</strong>: per default, you will have a dark grid. You can change between grids (<code>darkgrid</code>, <code>whitegrid</code>), no grids (<code>dark</code>, <code>white</code>) and ticks (<code>ticks</code>).</p>
 <pre><code>sns.set_style(&quot;white&quot;)
-</code></pre><pre><code>
-</code></pre></li>
-</ul>
-<p>remove the top and right axis with</p>
-<pre><code>```
-sns.despine()
-```
-</code></pre>
-<ul>
-<li>
-<p><strong>Color</strong> Choose a <a href="https://seaborn.pydata.org/tutorial/color_palettes.html#palette-tutorial">color palette</a> and set it as the default.</p>
+</code></pre><p>remove the top and right axis with</p>
+<pre><code>sns.despine()
+</code></pre><p><strong>Color</strong>: Choose a <a href="https://seaborn.pydata.org/tutorial/color_palettes.html#palette-tutorial">color palette</a> and set it as the default.</p>
 <pre><code>sns.set_palette(palette=&quot;rocket&quot;, n_colors=3)
-</code></pre><pre><code>
-</code></pre></li>
-<li>
-<p><strong>Scaling</strong>: context (notebook vs. talk)</p>
-<p>You can choose between four contexts <code> notebook</code> (default), <code>paper</code>, <code>talk</code>, and <code>poster</code> which scales font and lines according to the use case. But you can also override some.</p>
+</code></pre><p><strong>Scaling</strong>: You can choose between four contexts <code> notebook</code> (default), <code>paper</code>, <code>talk</code>, and <code>poster</code> which scales font and lines according to the use case. But you can also override some.</p>
 <pre><code>sns.set_context(&quot;notebook&quot;, font_scale=1.5, rc={&quot;lines.linewidth&quot;: 2.5})
-</code></pre><pre><code>
-</code></pre></li>
-</ul>
-<p>Or set multiple parameters in one step with <a href="https://seaborn.pydata.org/generated/seaborn.set_theme.html#seaborn.set_theme"><code>set_theme()</code></a> e.g. <code>sns.set(context='notebook', style='white', font='Helvetica', font_scale=1, color_codes=True, rc=None))</code></p>
+</code></pre><p>Or set <strong>multiple parameters</strong> in one step with <a href="https://seaborn.pydata.org/generated/seaborn.set.html"><code>set()</code></a> e.g. <code>sns.set(context='notebook', style='white', font='Helvetica', font_scale=1, color_codes=True, rc=None))</code></p>
 <h3 id="3-plot">3. Plot</h3>
 <p>In this step, you define what kind of plot you would like. There are two important distinctions you need to understand: figure and axes</p>
 <p>A <strong>Figure</strong> refers to the whole figure that you see. A figure may consist of a single plot, but it is possible to have multiple sub-plots in the same figure. A specific sub-plot is called an <strong>Axes</strong>. There are functions, that have an effect on the entire figure (figure-level functions) and some functions have an effect just on the specified subplot (axes-level-function).</p>
@@ -361,7 +344,120 @@ titanic = sns.load_dataset('titanic')
 sns.set(context='notebook', style='white', palette='rocket', font='Helvetica', font_scale=1, color_codes=True)
 
 titanic.head(5)
-</code></pre><p>|    |   survived |   pclass | sex    |   age |   sibsp |   parch |    fare | embarked   | class   | who   | adult_male   | deck   | embark_town   | alive   | alone   &mdash;:|&mdash;&mdash;&mdash;&ndash;:|&mdash;&mdash;&mdash;:|:&mdash;&mdash;-|&mdash;&mdash;:|&mdash;&mdash;&ndash;:|&mdash;&mdash;&ndash;:|&mdash;&mdash;&ndash;:|:&mdash;&mdash;&mdash;&ndash;|:&mdash;&mdash;&ndash;|:&mdash;&mdash;|:&mdash;&mdash;&mdash;&mdash;-|:&mdash;&mdash;-|:&mdash;&mdash;&mdash;&mdash;&ndash;|:&mdash;&mdash;&ndash;|:&mdash;&mdash;&ndash;  0 |          0 |        3 | male   |    22 |       1 |       0 |  7.25   | S          | Third   | man   | True         | nan    | Southampton   | no      | False     1 |          1 |        1 | female |    38 |       1 |       0 | 71.2833 | C          | First   | woman | False        | C      | Cherbourg     | yes     | False     2 |          1 |        3 | female |    26 |       0 |       0 |  7.925  | S          | Third   | woman | False        | nan    | Southampton   | yes     | True      3 |          1 |        1 | female |    35 |       1 |       0 | 53.1    | S          | First   | woman | False        | C      | Southampton   | yes     | False     4 |          0 |        3 | male   |    35 |       0 |       0 |  8.05   | S          | Third   | man   | True         | nan    | Southampton   | no      | True    |</p>
+</code></pre><table>
+<thead>
+<tr>
+<th align="right"></th>
+<th align="right">survived</th>
+<th align="right">pclass</th>
+<th align="left">sex</th>
+<th align="right">age</th>
+<th align="right">sibsp</th>
+<th align="right">parch</th>
+<th align="right">fare</th>
+<th align="left">embarked</th>
+<th align="left">class</th>
+<th align="left">who</th>
+<th align="left">adult_male</th>
+<th align="left">deck</th>
+<th align="left">embark_town</th>
+<th align="left">alive</th>
+<th align="left">alone</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="left">male</td>
+<td align="right">22</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">7.25</td>
+<td align="left">S</td>
+<td align="left">Third</td>
+<td align="left">man</td>
+<td align="left">True</td>
+<td align="left">nan</td>
+<td align="left">Southampton</td>
+<td align="left">no</td>
+<td align="left">False</td>
+</tr>
+<tr>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="left">female</td>
+<td align="right">38</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">71.2833</td>
+<td align="left">C</td>
+<td align="left">First</td>
+<td align="left">woman</td>
+<td align="left">False</td>
+<td align="left">C</td>
+<td align="left">Cherbourg</td>
+<td align="left">yes</td>
+<td align="left">False</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="left">female</td>
+<td align="right">26</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">7.925</td>
+<td align="left">S</td>
+<td align="left">Third</td>
+<td align="left">woman</td>
+<td align="left">False</td>
+<td align="left">nan</td>
+<td align="left">Southampton</td>
+<td align="left">yes</td>
+<td align="left">True</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="left">female</td>
+<td align="right">35</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">53.1</td>
+<td align="left">S</td>
+<td align="left">First</td>
+<td align="left">woman</td>
+<td align="left">False</td>
+<td align="left">C</td>
+<td align="left">Southampton</td>
+<td align="left">yes</td>
+<td align="left">False</td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="left">male</td>
+<td align="right">35</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">8.05</td>
+<td align="left">S</td>
+<td align="left">Third</td>
+<td align="left">man</td>
+<td align="left">True</td>
+<td align="left">nan</td>
+<td align="left">Southampton</td>
+<td align="left">no</td>
+<td align="left">True</td>
+</tr>
+</tbody>
+</table>
 <h3 id="plot-distibution-of-categorical-features-with-a-countplot">Plot distibution of categorical features with a countplot</h3>
 <p>Count plots automatically count the number of occurences of each categorical feature value and displays them in a bar plot. You can just pass the dataset and the variable you want to plot as parameters. So no need to aggregate the data up front.</p>
 <pre><code>sns.countplot(x = 'class', data = titanic)
