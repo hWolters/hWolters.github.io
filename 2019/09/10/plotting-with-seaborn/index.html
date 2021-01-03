@@ -1,0 +1,758 @@
+<style>
+.sidebar-button-desc {
+  color: darkgrey !important;
+}
+.sidebar-button-icon {
+  color: darkgrey !important;
+}
+.sidebar-profile-name {
+  color: darkgrey !important;
+</style><!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.74.3 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="Heike W">
+<meta name="keywords" content="python, plot, seaborn, SQL, Data Science, Analytics, ElasticSeacg, Python, Pandas, Analytics, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive, Data Analysis, Data Mining">
+<meta name="description" content="Seaborn is a python library for creating plots. It is based on matplotlib  and provides a high-level interface for drawing statistical graphics.
+Seaborn integrates nicely with pandas: It operates on DataFrames and arrays and does aggregations and semantic mapping automatically, which makes it a quick, convenient option for data vizualization in your data projects. One you understand the basic concepts, you can create plots really easily without using stack overflow too much.">
+
+
+<meta property="og:description" content="Seaborn is a python library for creating plots. It is based on matplotlib  and provides a high-level interface for drawing statistical graphics.
+Seaborn integrates nicely with pandas: It operates on DataFrames and arrays and does aggregations and semantic mapping automatically, which makes it a quick, convenient option for data vizualization in your data projects. One you understand the basic concepts, you can create plots really easily without using stack overflow too much.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Plotting with Seaborn">
+<meta name="twitter:title" content="Plotting with Seaborn">
+<meta property="og:url" content="/2019/09/10/plotting-with-seaborn/">
+<meta property="twitter:url" content="/2019/09/10/plotting-with-seaborn/">
+<meta property="og:site_name" content="A Potpourri of Data Science Topics for Analysts">
+<meta property="og:description" content="Seaborn is a python library for creating plots. It is based on matplotlib  and provides a high-level interface for drawing statistical graphics.
+Seaborn integrates nicely with pandas: It operates on DataFrames and arrays and does aggregations and semantic mapping automatically, which makes it a quick, convenient option for data vizualization in your data projects. One you understand the basic concepts, you can create plots really easily without using stack overflow too much.">
+<meta name="twitter:description" content="Seaborn is a python library for creating plots. It is based on matplotlib  and provides a high-level interface for drawing statistical graphics.
+Seaborn integrates nicely with pandas: It operates on DataFrames and arrays and does aggregations and semantic mapping automatically, which makes it a quick, convenient option for data vizualization in your data projects. One you understand the basic concepts, you can create plots really easily without using stack overflow too much.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2019-09-10T20:17:58">
+  
+  
+    <meta property="article:modified_time" content="2019-09-10T20:17:58">
+  
+  
+  
+    
+      <meta property="article:section" content="python">
+    
+      <meta property="article:section" content="plotting">
+    
+  
+  
+    
+      <meta property="article:tag" content="python">
+    
+      <meta property="article:tag" content="plot">
+    
+      <meta property="article:tag" content="seaborn">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+
+
+
+    <title>Plotting with Seaborn</title>
+
+    <link rel="icon" href="/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="/2019/09/10/plotting-with-seaborn/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-128956833-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="1">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="/">A Potpourri of Data Science Topics for Analysts</a>
+  </div>
+  
+    
+      <a class="header-right-icon open-algolia-search"
+         href="/#search">
+    
+    
+      <i class="fa fa-lg fa-search"></i>
+    
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="1">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="/#about">
+          <img class="sidebar-profile-picture" src="/me.jpg" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Heike W</h4>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link open-algolia-search" href="/#search">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+      
+      <span class="sidebar-button-desc">Search</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="1"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Plotting with Seaborn
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2019-09-10T20:17:58&#43;02:00">
+        
+  
+  
+  
+  
+    10 September 2019
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="/categories/python">python</a>, 
+    
+      <a class="category-link" href="/categories/plotting">plotting</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>Seaborn is a python library for creating plots. It is based on <a href="https://matplotlib.org">matplotlib </a> and provides a high-level interface for drawing statistical graphics.</p>
+<p>Seaborn integrates nicely with pandas: It operates on DataFrames and arrays and does aggregations and semantic mapping automatically, which makes it a quick, convenient option for data vizualization in your data projects. One you understand the basic concepts, you can create plots really easily without using stack overflow too much.</p>
+<p>The basic steps for creating plots with seaborn are:</p>
+<ol start="0">
+<li>Import libraries</li>
+<li>Prepare the data</li>
+<li>[optional] Control figure aesthetics (Grids, Color etc.)</li>
+<li>Create plot</li>
+<li>[optional] Further customization your plot, which also can overwrite the figure aestetics defined in step 2 (title, labels, tickmarks etc.)</li>
+<li>Show or save the plot</li>
+</ol>
+<h2 id="steps">Steps</h2>
+<p>Let&rsquo;s walk through the steps of creating plots.</p>
+<h3 id="0-import-libraries">0 Import libraries</h3>
+<p>As mentioned above, searborn is built on top of <code>matplotlib</code>, but does not provide the full functionality. Therefore, we should always import both, <code>matplotlib </code>(with the <code>pyplot</code> module) and <code>seaborn</code>. It is likely, that you will need <code>matplotlib</code> at some point (for example for changing the plot title or the tick labels and to show the plots).</p>
+<pre><code>import matplotlib.pyplot as plt
+import seaborn as sns
+
+%matplotlib inline # make sure plots are shown in a jupyter notebook. otherwise you will need plt.show()
+</code></pre><h3 id="1-prepare-data">1. Prepare Data</h3>
+<p>You can work with a pandas <code>DataFrame</code>. In general, you do not have to pre-aggegate your data. For example for count plots, seaborn will automatically calculate the counts for the count plot.
+<a href="https://seaborn.pydata.org/tutorial/data_structure.html">https://seaborn.pydata.org/tutorial/data_structure.html</a></p>
+<h3 id="2-figure-aestetics">2. Figure Aestetics</h3>
+<p>This is an optional step. You can just go with the default configuration here, or you can define aestetics such as grid, axis, tickmarks, color and fontsizes.</p>
+<ul>
+<li>
+<p><strong>Axis and Grid Style</strong>: per default, you will have a dark grid. You can change between grids (<code>darkgrid</code>, <code>whitegrid</code>), no grids (<code>dark</code>, <code>white</code>) and ticks (<code>ticks</code>).</p>
+<pre><code>sns.set_style(&quot;white&quot;)
+</code></pre><pre><code>
+</code></pre></li>
+</ul>
+<p>remove the top and right axis with</p>
+<pre><code>```
+sns.despine()
+```
+</code></pre>
+<ul>
+<li>
+<p><strong>Color</strong> Choose a <a href="https://seaborn.pydata.org/tutorial/color_palettes.html#palette-tutorial">color palette</a> and set it as the default.</p>
+<pre><code>sns.set_palette(palette=&quot;rocket&quot;, n_colors=3)
+</code></pre><pre><code>
+</code></pre></li>
+<li>
+<p><strong>Scaling</strong>: context (notebook vs. talk)</p>
+<p>You can choose between four contexts <code> notebook</code> (default), <code>paper</code>, <code>talk</code>, and <code>poster</code> which scales font and lines according to the use case. But you can also override some.</p>
+<pre><code>sns.set_context(&quot;notebook&quot;, font_scale=1.5, rc={&quot;lines.linewidth&quot;: 2.5})
+</code></pre><pre><code>
+</code></pre></li>
+</ul>
+<p>Or set multiple parameters in one step with <a href="https://seaborn.pydata.org/generated/seaborn.set_theme.html#seaborn.set_theme"><code>set_theme()</code></a> e.g. <code>sns.set(context='notebook', style='white', font='Helvetica', font_scale=1, color_codes=True, rc=None))</code></p>
+<h3 id="3-plot">3. Plot</h3>
+<p>In this step, you define what kind of plot you would like. There are two important distinctions you need to understand: figure and axes</p>
+<p>A <strong>Figure</strong> refers to the whole figure that you see. A figure may consist of a single plot, but it is possible to have multiple sub-plots in the same figure. A specific sub-plot is called an <strong>Axes</strong>. There are functions, that have an effect on the entire figure (figure-level functions) and some functions have an effect just on the specified subplot (axes-level-function).</p>
+<p>For each type of plot (distributions, categorical, relational), there is a figure-level function, which takes the kind of plot as a parameter. For example, <code>displot()</code> is the figure-level function for plotting distributions. By passing the parameter <code>kind=&quot;hist&quot;</code>, it draws a histogram.</p>
+<pre><code>sns.displot(data, x, kind = &quot;hist&quot;)
+</code></pre><p>Alternatively, you can choose the axes-level function <a href="https://seaborn.pydata.org/generated/seaborn.histplot.html"><code>histplot()</code></a> to plot a histogram.</p>
+<pre><code>sns.histplot(data, x)
+</code></pre><p>The table gives an overview of the figure-level functions and their axes-level functions.</p>
+<table>
+<thead>
+<tr>
+<th align="left">type of plot</th>
+<th align="left">figure-level function</th>
+<th align="left">axes-level functions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">distributions</td>
+<td align="left"><code>displot</code></td>
+<td align="left">e.g. <code>histplot</code>, <code>rugplot</code></td>
+</tr>
+<tr>
+<td align="left">categorical</td>
+<td align="left"><code>catplot</code></td>
+<td align="left">e.g. <code>barplot</code>, <code>boxplot</code></td>
+</tr>
+<tr>
+<td align="left">relational</td>
+<td align="left"><code>relplot</code></td>
+<td align="left">e.g. <code>scatterplot</code>, <code>lineplot</code></td>
+</tr>
+</tbody>
+</table>
+<p>You can use both, figure-level and axes level functions for creating a single plot figure.</p>
+<h3 id="4-customize">4. Customize</h3>
+<p>For customization, you will use some functions from
+<code>matplotlib.pyplot</code>. Some often used customizations are adding labels to the axis (<code>plt.xlabel</code> and <code>plt.ylabel</code>) or determining the start and end of an axis (<code>plt.ylim(0,100)</code>,<code>plt.xlim(0,10)</code>)</p>
+<pre><code>plt.title(&quot;A Title&quot;) # add a plot title
+plt.ylabel(&quot;Survived&quot;) # add a y-axis label
+plt.xlabel(&quot;Sex&quot;) # add an x-axis label
+plt.ylim(0,100) # start and end of y-axis
+plt.xlim(0,10) # start and end of x-axis
+</code></pre><h3 id="5-save-or-show">5. Save or Show</h3>
+<p>If you use <code>%matplotlib inline</code> in your jupyter notebook,  you will not need to call any functions for your plot to show up in the nootbook. Otherwise, you will have to use <code>plt.show()</code> to show a plot and <code>plt.savefig(&quot;foo.png&quot;)</code> to save your figure.</p>
+<pre><code>plt.show()
+plt.savefig(&quot;foo.png&quot;)
+</code></pre><h2 id="examples-one-plot-per-figure">Examples: One Plot per figure</h2>
+<p>Let&rsquo;s look at some examples for plots that are usful for understanding features of your dataset. First, we&rsquo;ll tackle descriptives (countplots and distributions) and then relationships between features. We&rsquo;ll use the built-in titanic dataset:</p>
+<pre><code># (0) import packages and datasets
+import matplotlib.pyplot as plt
+import seaborn as sns
+%matplotlib inline
+
+titanic = sns.load_dataset('titanic')
+
+#(2) Figure aesthetics
+sns.set(context='notebook', style='white', palette='rocket', font='Helvetica', font_scale=1, color_codes=True)
+
+titanic.head(5)
+</code></pre><p>|    |   survived |   pclass | sex    |   age |   sibsp |   parch |    fare | embarked   | class   | who   | adult_male   | deck   | embark_town   | alive   | alone   &mdash;:|&mdash;&mdash;&mdash;&ndash;:|&mdash;&mdash;&mdash;:|:&mdash;&mdash;-|&mdash;&mdash;:|&mdash;&mdash;&ndash;:|&mdash;&mdash;&ndash;:|&mdash;&mdash;&ndash;:|:&mdash;&mdash;&mdash;&ndash;|:&mdash;&mdash;&ndash;|:&mdash;&mdash;|:&mdash;&mdash;&mdash;&mdash;-|:&mdash;&mdash;-|:&mdash;&mdash;&mdash;&mdash;&ndash;|:&mdash;&mdash;&ndash;|:&mdash;&mdash;&ndash;  0 |          0 |        3 | male   |    22 |       1 |       0 |  7.25   | S          | Third   | man   | True         | nan    | Southampton   | no      | False     1 |          1 |        1 | female |    38 |       1 |       0 | 71.2833 | C          | First   | woman | False        | C      | Cherbourg     | yes     | False     2 |          1 |        3 | female |    26 |       0 |       0 |  7.925  | S          | Third   | woman | False        | nan    | Southampton   | yes     | True      3 |          1 |        1 | female |    35 |       1 |       0 | 53.1    | S          | First   | woman | False        | C      | Southampton   | yes     | False     4 |          0 |        3 | male   |    35 |       0 |       0 |  8.05   | S          | Third   | man   | True         | nan    | Southampton   | no      | True    |</p>
+<h3 id="plot-distibution-of-categorical-features-with-a-countplot">Plot distibution of categorical features with a countplot</h3>
+<p>Count plots automatically count the number of occurences of each categorical feature value and displays them in a bar plot. You can just pass the dataset and the variable you want to plot as parameters. So no need to aggregate the data up front.</p>
+<pre><code>sns.countplot(x = 'class', data = titanic)
+
+plt.title(&quot;Count passengers by class&quot;)
+plt.xlabel(&quot;Class&quot;)
+plt.ylabel(&quot;Count nr passengers&quot;)
+</code></pre><p><img src="/post/2019-09-10-seaborn/0countplot.png" alt=""></p>
+<p>You can annotate the bars with the counts with <code>plt.annotate</code>. It takes as arguments a <code>text</code> (the counts, which equals the height of the bar), <code>xy</code> (coordinates for the annotation) and <code>data</code>. We loop over each bar (<code>plt.patches</code>) in the plot and add the annotation:</p>
+<pre><code>c = sns.countplot(x = 'class', data = titanic)
+
+for p in c.patches:
+    c.annotate(p.get_height(), 
+                (p.get_x() + p.get_width() / 2.0, 
+                 p.get_height()), 
+                 ha = 'center', 
+                 va = 'center', 
+                 xytext = (0, 5),
+                 textcoords = 'offset points')
+</code></pre><p><img src="/post/2019-09-10-seaborn/0countplot_annotate.png" alt=""></p>
+<h3 id="plot-distibution-of-numeric-features-in-a-histogram">Plot distibution of numeric features in a histogram</h3>
+<p>Plotting the distribution of one feature is simple: You can use <code>histplot()</code> and pass the dataset and the feature you want to plot as a parameter.</p>
+<pre><code>sns.histplot(data=titanic, x=&quot;age&quot;)
+plt.title(&quot;Age distribution&quot;)
+plt.xlabel(&quot;Age customer&quot;)
+plt.ylabel(&quot;Value&quot;)
+</code></pre><p><img src="/post/2019-09-10-seaborn/1histogram.png" alt=""></p>
+<p>You can also plot the distributions and compare across multiple groups with <code>hue</code>.</p>
+<pre><code>sns.histplot(data=titanic, x=&quot;age&quot;, hue=&quot;survived&quot;, multiple=&quot;stack&quot;)
+plt.title(&quot;Age distribution&quot;)
+plt.xlabel(&quot;Age customer&quot;)
+plt.ylabel(&quot;Value&quot;)
+</code></pre><p><img src="/post/2019-09-10-seaborn/1histogram2.png" alt=""></p>
+<h3 id="plot-relationships-between-features-with-a-scatterplot">Plot relationships between features with a scatterplot</h3>
+<p>You can create a simple scatterplott with 2 variables like this:</p>
+<pre><code>sns.scatterplot(data = titanic,
+               x = 'age', 
+               y = 'fare')
+plt.title(&quot;Age vs. Fare&quot;)
+plt.xlabel(&quot;Age&quot;)
+plt.ylabel(&quot;Fare&quot;)
+</code></pre><p><img src="/post/2019-09-10-seaborn/2scatter.png" alt=""></p>
+<p>You can compare more than 2 variables with multiple groups using the parameters <code>hue</code> and <code>style</code>. Each will add a new group. If you specify hue and style for the same group it makes them more distinguishable.</p>
+<pre><code>sns.scatterplot(data = titanic,
+               x = 'age', 
+               y = 'fare',
+               hue = 'sex',
+               style = 'sex')
+plt.title(&quot;Age vs. fare with sex&quot;)
+plt.xlabel(&quot;Age&quot;)
+plt.ylabel(&quot;Fare&quot;)
+</code></pre><p><img src="/post/2019-09-10-seaborn/2scatter2.png" alt=""></p>
+<h1 id="multiple-plots-in-one-figure">Multiple Plots in one figure</h1>
+<p>If you want multiple, maybe even diffent types of plots in one figure, you can use <code>subplots()</code> from the <code>matplotlib.pyplot</code> library. <code>plt.subplots(nrows, ncols)</code> creates a single figure instance, with nrows * ncols axes instances and returns the created figure and axes instances. The grid of the axes is returned as an <code>nrows * ncols</code> shaped numpy array. If we passed for example the parameter <code>nrows=2</code> <code>ncols=2</code>, we create a subplot with 2 rows and 2 columns. With the <code>ax</code> parameter in the axes-level functions, we specify the position of the plot. Let&rsquo;s assume, we wanted to plot 2 plots side by side, we have to create a git with 1 row and 2 columns and put the plots at the correct positions.</p>
+<pre><code># instanciate figure and axes instances
+fig,axes = plt.subplots(1,2)
+
+# first plot
+sns.histplot(data=titanic, x=&quot;age&quot;, hue=&quot;survived&quot;, multiple=&quot;stack&quot;,ax=axes[0]) #first position
+plt.xlabel(&quot;Age&quot;)
+plt.ylabel(&quot;Counts&quot;)
+
+# second plot 
+sns.scatterplot(data = titanic,
+               x = 'age', 
+               y = 'fare',
+               hue = 'survived',
+               style = 'survived',ax=axes[1]) #second position
+plt.xlabel(&quot;Age&quot;)
+plt.ylabel(&quot;Fare&quot;)
+</code></pre><p><img src="/post/2019-09-10-seaborn/3subplot.png" alt=""></p>
+<p>You can plot as many axes as you want into one figure. You can pass the position of the plot as <code>ax = 'axes[row, column]</code>. If you add more plots, you may need to increase the size of the figure so the plots are still readable</p>
+<pre><code>fig,axes = plt.subplots(2,2) 
+
+# increase figure size
+fig.set_figheight(10) 
+fig.set_figwidth(10)
+
+sns.histplot(data=titanic, x=&quot;age&quot;, ax=axes[0,0])
+sns.histplot(data=titanic, x=&quot;fare&quot;, ax=axes[0,1])
+sns.histplot(data=titanic, x=&quot;pclass&quot;, ax=axes[1,0])
+sns.histplot(data=titanic, x=&quot;survived&quot;, ax=axes[1,1])
+
+</code></pre><p><img src="/post/2019-09-10-seaborn/3subplot2.png" alt=""></p>
+<h2 id="facetgrids">Facetgrids</h2>
+<p>The figure-level functions <code>relplot</code>, <code>catplot()</code> and <code>displot</code> are built on a <code>FacetGrid</code>. This means that it is easy to add faceting variables to visualize higher-dimensional relationships:</p>
+<pre><code>sns.displot(data=titanic, x=&quot;age&quot;, hue=&quot;survived&quot;, col=&quot;survived&quot;)
+</code></pre><p><img src="/post/2019-09-10-seaborn/4distplot.png" alt=""></p>
+<p>The <code>FacetGrid</code> class is useful when you want to visualize the distribution of a feature or the relationship between multiple features separately within subsets of your dataset. You may use three parameters to specify the dimensions <code>row</code>, <code>col</code>, and <code>hue</code>. <code>row</code> and <code>col</code> correspond to the array of axes. You can use <code>hue</code> to differentiate between different levels as you did in the scatterplot examples above.</p>
+<pre><code>with sns.axes_style(&quot;white&quot;):
+    g = sns.FacetGrid(titanic, row=&quot;sex&quot;, col=&quot;pclass&quot;, margin_titles=True, height=2.5)
+g.map(sns.barplot, &quot;survived&quot;, &quot;fare&quot;)
+g.fig.subplots_adjust(wspace=.02, hspace=.02)
+</code></pre><p><img src="/post/2019-09-10-seaborn/4distplo2.png" alt=""></p>
+<h2 id="quickly-explore-your-features-a-pairplot">Quickly explore your features a <code>pairplot</code></h2>
+<p>One quick and easy way to start exploring a dataset is with <code>sns.pairplot()</code>. It automatically draws a scatter plot of each numeric variable with all other variables in the dataset. The diagonal shows the distribution of each feature.</p>
+<p>For example for the first 4 columns in the titanic dataset, we will get a 3 x 3 grid, because there are 3 numeric variables in the dataset in the first 4 columns.</p>
+<pre><code>sns.pairplot(titanic.iloc[:,:4])
+</code></pre><p><img src="/post/2019-09-10-seaborn/5pairplot.png" alt=""></p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="/tags/python/">python</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/plot/">plot</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/seaborn/">seaborn</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2019/08/18/mastering-data-preparation-with-pandas-subsetting-filtering-and-joining-dataframes/" data-tooltip="Mastering Data Preparation with Pandas: Subsetting, Filtering and Joining DataFrames">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/06/07/working-with-complex-datatypes-in-hive/" data-tooltip="Working with Complex Datatypes in Hive">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2019/09/10/plotting-with-seaborn/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2019/09/10/plotting-with-seaborn/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Heike W. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="1">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2019/08/18/mastering-data-preparation-with-pandas-subsetting-filtering-and-joining-dataframes/" data-tooltip="Mastering Data Preparation with Pandas: Subsetting, Filtering and Joining DataFrames">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/06/07/working-with-complex-datatypes-in-hive/" data-tooltip="Working with Complex Datatypes in Hive">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2019/09/10/plotting-with-seaborn/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2019/09/10/plotting-with-seaborn/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="1">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=%2F2019%2F09%2F10%2Fplotting-with-seaborn%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2F2019%2F09%2F10%2Fplotting-with-seaborn%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="/me.jpg" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Heike W</h4>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Data Scientist @ Xing GmbH
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Germany
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('source/assets/img/banner');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = '\/2019\/09\/10\/plotting-with-seaborn\/';
+          
+            this.page.identifier = '\/2019\/09\/10\/plotting-with-seaborn\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'Heike';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+
