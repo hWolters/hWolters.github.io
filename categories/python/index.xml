@@ -22,6 +22,16 @@ Jupyter Extensions Have you ever missed a feature in your Jupyter Notebook that 
     </item>
     
     <item>
+      <title>Plotting with Seaborn</title>
+      <link>/2019/10/12/plotting-with-seaborn/</link>
+      <pubDate>Sat, 12 Oct 2019 20:17:58 +0200</pubDate>
+      
+      <guid>/2019/10/12/plotting-with-seaborn/</guid>
+      <description>&lt;p&gt;Seaborn is a python library for creating plots. It is based on &lt;a href=&#34;https://matplotlib.org&#34;&gt;matplotlib &lt;/a&gt; and provides a high-level interface for drawing statistical graphics.&lt;/p&gt;
+&lt;p&gt;Seaborn integrates nicely with pandas: It operates on DataFrames and arrays and does aggregations and semantic mapping automatically, which makes it a quick, convenient option for data vizualization in your data projects. One you understand the basic concepts, you can create plots really easily without using stack overflow too much.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Mastering Data Preparation with Pandas: Subsetting, Filtering and Joining DataFrames</title>
       <link>/2019/08/18/mastering-data-preparation-with-pandas-subsetting-filtering-and-joining-dataframes/</link>
       <pubDate>Sun, 18 Aug 2019 10:55:48 +0200</pubDate>

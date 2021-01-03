@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>seaborn on A Potpourri of Data Science Topics for Analysts</title>
+    <link>/tags/seaborn/</link>
+    <description>Recent content in seaborn on A Potpourri of Data Science Topics for Analysts</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 12 Oct 2019 20:17:58 +0200</lastBuildDate>
+    
+	<atom:link href="/tags/seaborn/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Plotting with Seaborn</title>
+      <link>/2019/10/12/plotting-with-seaborn/</link>
+      <pubDate>Sat, 12 Oct 2019 20:17:58 +0200</pubDate>
+      
+      <guid>/2019/10/12/plotting-with-seaborn/</guid>
+      <description>&lt;p&gt;Seaborn is a python library for creating plots. It is based on &lt;a href=&#34;https://matplotlib.org&#34;&gt;matplotlib &lt;/a&gt; and provides a high-level interface for drawing statistical graphics.&lt;/p&gt;
+&lt;p&gt;Seaborn integrates nicely with pandas: It operates on DataFrames and arrays and does aggregations and semantic mapping automatically, which makes it a quick, convenient option for data vizualization in your data projects. One you understand the basic concepts, you can create plots really easily without using stack overflow too much.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

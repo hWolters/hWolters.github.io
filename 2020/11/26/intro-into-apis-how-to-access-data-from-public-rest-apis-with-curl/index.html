@@ -261,6 +261,7 @@ if (!doNotTrack) {
               <p>This post will teach you the inution of REST APIs and how you can use them to get interesting datasets for your data projects. First, we will look at the four components of a request. In the second part of this blogpost, we will go through one example and access the coingecko API via <code>curl</code>.</p>
 <p>So let&rsquo;s start from 0: What is an API? API stands for <strong>a</strong>pplication <strong>p</strong>rogramming <strong>i</strong>nterface. APIs contain a set of methods that allow the communication between your computer and a server.  In other words, they send back and forth data using HTTP requests. You can retrieve data (<code>GET</code>), send data (<code>POST</code>,<code>PUT</code>) or delete data (<code>DELETE</code>). You have probably seen the “Like on Facebook” or “Share on Twitter” buttons on various websites. When you click one of these buttons, the site you’re visiting communicates with your Facebook or Twitter account, and alters its data by adding new likes or creating a tweet. For you as a data scientist/analyst APIs provide a great opportunity to retrieve interesting datasets. For example the Kayak API let&rsquo;s you access a lot of travel data while the imdb API contains movie data. Also some models like <a href="https://pypi.org/project/bert-api/">BERT</a> are accessible through an API. </p>
 <p>There are different ways and rules to follow when creating APIs. REST stands for &ldquo;Representational State Transfer” and is just one option. A REST request can have four components:</p>
+<br>
 <ol>
 <li>method</li>
 <li>endpoint </li>
@@ -304,7 +305,9 @@ if (!doNotTrack) {
 </table>
 <h3 id="2-endpoint">2. Endpoint</h3>
 <p>An endpoint is the Unique Resource Location (URL) where a service is accessed. So it is like a navigation that routes you to your destination. Let&rsquo;s briefly talk about the different components of a URL by looking at an endpoint. One example from the twitter API for getting tweets from a specified location:</p>
-<p><code>https://api.twitter.com/2/tweets/:ID?expansions=geo.place_id</code></p>
+<br>
+`https://api.twitter.com/2/tweets/:ID?expansions=geo.place_id`
+<br>
 <ul>
 <li><strong>Scheme</strong>: identifies the protocol of the browser, e.g. <code>http</code> or <code>https</code>. The <code>:</code> is the scheme separator. The <code>//</code> establishes the start of a domain.</li>
 <li><strong>Domain Name, a.k.a. host</strong>: name of intended host or web server that is being requested (here: <code>api.twitter.com</code>)</li>
@@ -577,7 +580,7 @@ So you you know where to go, the next step is what to do.</li>
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2020 Heike W. All Rights Reserved
+    &copy; 2021 Heike W. All Rights Reserved
   </span>
 </footer>
 
