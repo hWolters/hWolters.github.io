@@ -1,0 +1,696 @@
+<style>
+.sidebar-button-desc {
+  color: darkgrey !important;
+}
+.sidebar-button-icon {
+  color: darkgrey !important;
+}
+.sidebar-profile-name {
+  color: darkgrey !important;
+</style><!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.74.3 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="Heike W">
+<meta name="keywords" content=", SQL, Data Science, Analytics, ElasticSeacg, Python, Pandas, Analytics, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive, Data Analysis, Data Mining">
+<meta name="description" content="Elasticsearch is often the storage engine of choice for storing and querying full text data. But writing an ElasticSearch query is pretty different compared to querying a relational database in SQL. In this blogpost, you will learn some basics you need to understand before working with ElasticSearch. In the second part, you learn how to write queries in ElasticSearch.">
+
+
+<meta property="og:description" content="Elasticsearch is often the storage engine of choice for storing and querying full text data. But writing an ElasticSearch query is pretty different compared to querying a relational database in SQL. In this blogpost, you will learn some basics you need to understand before working with ElasticSearch. In the second part, you learn how to write queries in ElasticSearch.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mastering ElasticSearch Queries If You Have Only Worked With SQL Before">
+<meta name="twitter:title" content="Mastering ElasticSearch Queries If You Have Only Worked With SQL Before">
+<meta property="og:url" content="/2020/06/27/mastering-elasticsearch-queries-if-you-have-only-worked-with-sql-before/">
+<meta property="twitter:url" content="/2020/06/27/mastering-elasticsearch-queries-if-you-have-only-worked-with-sql-before/">
+<meta property="og:site_name" content="A Potpourri of Data Science Topics for Analysts">
+<meta property="og:description" content="Elasticsearch is often the storage engine of choice for storing and querying full text data. But writing an ElasticSearch query is pretty different compared to querying a relational database in SQL. In this blogpost, you will learn some basics you need to understand before working with ElasticSearch. In the second part, you learn how to write queries in ElasticSearch.">
+<meta name="twitter:description" content="Elasticsearch is often the storage engine of choice for storing and querying full text data. But writing an ElasticSearch query is pretty different compared to querying a relational database in SQL. In this blogpost, you will learn some basics you need to understand before working with ElasticSearch. In the second part, you learn how to write queries in ElasticSearch.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2020-06-27T18:48:24">
+  
+  
+    <meta property="article:modified_time" content="2020-06-27T18:48:24">
+  
+  
+  
+  
+    
+      <meta property="article:tag" content="ElasticSearch">
+    
+      <meta property="article:tag" content="DSL">
+    
+      <meta property="article:tag" content="Fulltext Search">
+    
+      <meta property="article:tag" content="Inverted Index">
+    
+      <meta property="article:tag" content="Scoring">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="/post/logo-elastic-horizontal-color.jpg">
+  <meta property="twitter:image" content="/post/logo-elastic-horizontal-color.jpg">
+
+
+
+
+    <title>Mastering ElasticSearch Queries If You Have Only Worked With SQL Before</title>
+
+    <link rel="icon" href="/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="/2020/06/27/mastering-elasticsearch-queries-if-you-have-only-worked-with-sql-before/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-128956833-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="1">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="/">A Potpourri of Data Science Topics for Analysts</a>
+  </div>
+  
+    
+      <a class="header-right-icon open-algolia-search"
+         href="/#search">
+    
+    
+      <i class="fa fa-lg fa-search"></i>
+    
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="1">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="/#about">
+          <img class="sidebar-profile-picture" src="/me.jpg" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Heike W</h4>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link open-algolia-search" href="/#search">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+      
+      <span class="sidebar-button-desc">Search</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-left
+              "
+       style="background-image:url('/post/logo-elastic-horizontal-color.jpg')"
+       data-behavior="1">
+    
+      <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Mastering ElasticSearch Queries If You Have Only Worked With SQL Before
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2020-06-27T18:48:24&#43;01:00">
+        
+  
+  
+  
+  
+    27 June 2020
+  
+
+      </time>
+    
+    
+  </div>
+
+</div>
+    
+  </div>
+
+
+      <div id="main" data-behavior="1"
+        class="hasCover
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>Elasticsearch is often the storage engine of choice for storing and querying full text data. But writing an ElasticSearch query is pretty different compared to querying a relational database in SQL. In this blogpost, you will learn some basics you need to understand before working with ElasticSearch. In the second part, you learn how to write queries in ElasticSearch. </p>
+<p>ElasticSearch uses many of the same concepts as your SQL Database. The terminology is just a little different. The following table gives an overview</p>
+<table>
+<thead>
+<tr>
+<th align="left">Elastic Search</th>
+<th align="left">RDBMS-Equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Index</td>
+<td align="left">Database</td>
+</tr>
+<tr>
+<td align="left">Type</td>
+<td align="left">Table</td>
+</tr>
+<tr>
+<td align="left">Document</td>
+<td align="left">Row</td>
+</tr>
+<tr>
+<td align="left">Field</td>
+<td align="left">Column</td>
+</tr>
+<tr>
+<td align="left">Mapping</td>
+<td align="left">Schema</td>
+</tr>
+<tr>
+<td align="left">Shards</td>
+<td align="left">partitions</td>
+</tr>
+</tbody>
+</table>
+<p>An <strong>index</strong> (<em>&ldquo;database&rdquo;</em>) stores <strong>documents</strong> (<em>&ldquo;rows in a tabe&rdquo;</em>) and has per default 5 <strong>shards</strong> (<em>&ldquo;partitions&rdquo;</em>). All documents (<em>&ldquo;rows&rdquo;</em>) given a <strong>type</strong> (<em>&ldquo;table&rdquo;</em>) in an index (<em>&ldquo;database&rdquo;</em>) have the same <strong>mapping</strong> (<em>&ldquo;schema&rdquo;</em>).  Documents (<em>&ldquo;rows&rdquo;</em>) are stored in JSON-Format (you might know this from the complex data type <code>struct</code> in Hive for example). In a process called <strong>mapping</strong>, you define how a document, and the <strong>fields</strong> (<em>&ldquo;columns&rdquo;</em>) it contains, are stored and indexed. So the mapping is similar to the schema of a relational database. There are two options for string mappings:</p>
+<ul>
+<li>
+<p><strong>exact values (<code>keyword</code>)</strong>: <code>keyword</code> fields are useful for structured content such as city names, ids or email addresses. The whole string is indexed and retrieval is based on exact matches. So &ldquo;Hamburg&rdquo; is not the same as &ldquo;hamburg&rdquo;. There is no option for partial matches. You would not choose a keyword field for full-text data.</p>
+</li>
+<li>
+<p><strong>Full text a.k.a. analyzed text(<code>text</code>)</strong>: As the name implies, text data in this field will be analyzed.  There are <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-analyzers.html">various built in analyzers</a>. Most <strong>analyzer</strong> convert the text into a set of tokens, perform some kind of standardization (lowercase, stemming, lemmatization etc.) and add the field to the <strong>inverted index</strong> so it is searchable quickly (You can checkout <a href="https://datadojo.dev/2020/06/24/how-the-inverted-index-and-scoring-work-in-elasticsearch/">my blogpost. on the inverted index and scoring</a>, if you want to know more). 
+By default, Elasticsearch sorts the results by relevance score. The higher the score the higher the rank of the document. This relevance <code>_score</code> is returned as a metafield. There are different query types that can modify the scores and customize the order of search results. Speaking of queries: Let&rsquo;s see how to write queries in ElasticSearch.</p>
+</li>
+</ul>
+<h2 id="query-tools">Query Tools</h2>
+<p>You have multiple options. For example:</p>
+<ul>
+<li>You can query the index directly with <code>curl</code>.</li>
+<li>You can use interfaces such as <a href="https://www.elastic.co/downloads/kibana">Kibana</a>, which also provide some nice vizualization options. This one might come the most natural to you if you are used to using SQL-Clients.</li>
+<li>You could query from python using the <a href="https://elasticsearch-py.readthedocs.io/en/v7.10.1/">ElasticSearch Client</a></li>
+</ul>
+<h2 id="using-elasticsearch-query-dsl">Using ElasticSearch Query DSL</h2>
+<p>Instead of using <code>SELECT FROM WHERE</code> syntax, you will write your query in json format. This is the basic anatomy of an elastic search query. </p>
+<pre><code>{
+“query”: { ... } 
+“sort”:  { ... } 
+”from”:  { ... } 
+“size”:  { ... } 
+}
+</code></pre><p>So what does that mean?</p>
+<ul>
+<li><code>query</code>: is just a wrapper for your ES query.</li>
+<li><code>sort</code>:  is your <code>ORDER BY</code>. By default, it sorts by descending <code>_score</code></li>
+<li><code>from</code>:  is your <code>OFFSET</code>.</li>
+<li><code>size</code>:  is your <code>LIMIT</code>.</li>
+</ul>
+<p>The query clause is mandatory. Sorting, offsetting and limiting your search results is optional. So let&rsquo;s dive deeper into the queries:
+There are two different kinds of <code>query</code> clauses. </p>
+<ul>
+<li>
+<p><strong>Leaf query clauses</strong> Leaf query clauses look for a particular value in a particular field. These queries can be used by themselves. Examples are <code>term</code> and <code>range</code>. We&rsquo;ll see examples in a minute.</p>
+</li>
+<li>
+<p><strong><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/compound-queries.html">Compound query clauses</a></strong> Compound query clauses wrap leaf or other compound queries and therefore combine multiple queries (for example with boolean operators (<code>must</code>, <code>must_not</code>, <code>should</code>) or by boosting specific matches with altering the <code>_score</code>. We&rsquo;ll get into some examples soon.</p>
+</li>
+</ul>
+<h2 id="leaf-query-clauses">Leaf query clauses</h2>
+<h3 id="filtering-with-match-and-term">Filtering with <code>match</code> and <code>term</code></h3>
+<p>The <strong><code>term</code> and <code>terms</code> query clauses</strong> are used for &ldquo;strict filters&rdquo;. You apply those queries to <code>keyword</code> (exact value) fields. The field then must exactly match the field value, which includes whitespace and capitalization. It&rsquo;s like a simple <code>WHERE</code> clause in SQL without regexes. There is an analyzer applied. You can filter by single or multiple values. For example, this query finds all documents in field <code>&lt;&lt;field&gt;&gt;</code> with value <code>&lt;value&gt;</code></p>
+<pre><code>{ &quot;term&quot;: { &quot;&lt;field&gt;&quot;: &quot;&lt;value&gt;&quot; }}
+
+</code></pre><p>while this query retrieves all documents with <code>&lt;value_a&gt;</code> <strong>or</strong> <code>&lt;value_b&gt;</code>.</p>
+<pre><code>{ &quot;terms&quot;: { &quot;&lt;field&gt;&quot;: [&quot;&quot;&lt;value_a&gt;&quot;&quot;, &quot;&lt;value_b&gt;&quot;] }}
+</code></pre><p>The <strong><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-match-query.html">match query</a> clause</strong> is the most generic and commonly used query clause. You can use it for <code>text</code> and <code>keyword</code> fields. It automatically figures out what to do: If you apply <code>match</code> on a <code>keyword</code> field, it will work as a filter and return documents with exact matches. If you use <code>match</code> on a <code>text</code> field it will perform an analyzed search, meaning that it applies the same analyzer as the field mapping, if you do not explicitly choose a different analyzer. You can write a match query as follows: </p>
+<pre><code>{ &quot;match&quot;: { &quot;&lt;field name&gt;&quot;: &quot;&lt;text to be matched&gt;&quot; }}
+</code></pre><h2 id="compound-query-clauses">Compound query clauses</h2>
+<p>The bool query clause is an example of a compound query clause, as it is used to combine multiple query clauses using boolean operators. Just wrap the <code>bool</code> around your operators <code>must</code> (&ldquo;AND&rdquo;), <code>must_not</code> (&ldquo;NOT&rdquo;) and <code>should</code> (&ldquo;OR&rdquo;). The scores from <code>must</code>, <code>must_not</code>, and <code>should</code> will be added together to provide the final score.</p>
+<pre><code>{
+    &quot;bool&quot;: {
+        &quot;must&quot;:     { &quot;term&quot;: { &quot;tag&quot;:    &quot;math&quot; }},
+        &quot;must_not&quot;: { &quot;term&quot;: { &quot;tag&quot;:    &quot;probability&quot;  }},
+        &quot;should&quot;: [
+                    { &quot;term&quot;: { &quot;favorite&quot;: true   }},
+                    { &quot;term&quot;: { &quot;unread&quot;:  true   }}
+        ]
+    }
+}
+</code></pre><p>You can also change the score of documents. For example a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-constant-score-query.html"><code>constant score query</code></a> sets the relevance score equal to a specified value given by <code>boost</code>. For example this query doubles the default score of 1 for an exact match in <code>&lt;field&gt;</code>.</p>
+<pre><code>{
+  &quot;query&quot;: {
+    &quot;constant_score&quot;: {
+      &quot;filter&quot;: {
+        &quot;term&quot;: { &quot;&lt;field&gt;&quot;: &quot;&lt;some query string&gt;&quot; }
+      },
+      &quot;boost&quot;: 2
+    }
+  }
+}
+</code></pre><p>You can also (de)boost documents without excluding them from the search results with a <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-boosting-query.html">boosting query</a> or boost matches in some fields more than in others. You can even apply ranking models like XGBoost for personalized search. But this is subject for another blogpost.</p>
+<h1 id="how-to-start-querying">How to start querying?</h1>
+<h3 id="1-get-to-know-the-mapping-of-your-index">1. <strong>Get to know the mapping of your index</strong></h3>
+<p>Check the mappings of the index with</p>
+<pre><code>GET &lt;indexname&gt;/_mapping
+</code></pre><p>You have to understand, if the text field was mapped as a <code>keyword</code>  or as <code>text</code>. If it is mapped as <code>keyword</code> (or other structured fields) you can only search for exact matches in the exact way the field was indexed. You find an overview for all <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/term-level-queries.html">term-level queries in the ES documentation</a>. If the field is mapped as <code>text</code> it means it was modified by an analyzer. Your query string will be processed by the same analyzer (You have to figure out which analyzer is in place. Most analyzers tokenize and remove stop words. Some analyzers include synonyms, some use stemming or lemmatization techniques). You find an overview of all <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/full-text-queries.html">full text queries in the ES documentation</a></p>
+<h3 id="2-decide-what-you-need-all-documents-that-match-vs-most-relevant-documents">2. <strong>Decide what you need: all documents that match vs. most relevant documents</strong></h3>
+<p><strong>All documents</strong>: You just want to know, if there is a match or there isn&rsquo;t. Then you can use <code>filter</code> queries, which do not compute a score. You would mostly use them on structured fields like <code>keyword</code>, date or boolean fields. Just wrap a <code>filter</code> clause(s) around  your queries.</p>
+<pre><code>	{
+			&quot;filter&quot;: [ 
+	        { &quot;term&quot;:  { &quot;&lt;field&gt;&quot;: &quot;&lt;value&gt;&quot; }},
+	        { &quot;range&quot;: { &quot;&lt;field&gt;&quot;: { &quot;gte&quot;: &quot;&lt;date&gt;&quot; }}}
+	}
+</code></pre><p><strong>Documents ordered by relevance</strong>: Put your queries inside a <code>query</code> clause (&ldquo;Query Context&rdquo;) to automatically compute relevance score and maybe change the scores for reranking for example with <code>boost</code>.  </p>
+<pre><code>	{
+	  &quot;query&quot;: { 
+	    &quot;bool&quot;: { 
+	      &quot;must&quot;: [
+	        { &quot;match&quot;: { &quot;&lt;field_a&gt;&quot;: &quot;&lt;value_a&gt;&quot;}},
+	        { &quot;match&quot;: { &quot;&lt;field_b&gt;&quot;: &quot;&lt;value_b&gt;&quot; }}
+	      ],
+	    }
+	  }
+	}
+</code></pre><pre><code> 
+</code></pre>
+<h3 id="3-decide-how-you-want-to-query-querystring-as-is-vs-analyzed-querystring">3. <strong>Decide how you want to query: querystring as is vs. analyzed querystring</strong></h3>
+<p><strong>Send query string as is without modification</strong>: You have to use a <code>term</code> query or other <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/term-level-queries.html">term-level queries</a>. For example, if you search for “Hello World!” with a term query, the query engine will check the inverted index for an exact match for “Hello World!”. &ldquo;hello world!&rdquo;, &ldquo;Hello World&rdquo; or &ldquo;Hallo World!&rdquo; would not be retrieved. </p>
+<p><strong>Send query string analyzed</strong>: For that choice, you have to use the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/full-text-queries.html">full text queries in the ES documentation</a>. The querystring will process through the same analyzer as the field in the index, i.e. it will be tokenized, standardized, filtered. For example, if you search for the phrase “Hello World” then the query engine might check the inverted index for “hello” and “world” and (&rdquo;!&quot;) (depending on the analyzer you chose before).</p>
+<h2 id="overview">Overview</h2>
+<ul>
+<li><code>query</code>— main query container</li>
+<li><code>bool</code> — compound query container for <code>must</code> (&ldquo;AND&rdquo;), <code>must_not</code> (&ldquo;NOT&rdquo;) and <code>should</code> (&ldquo;OR&rdquo;)</li>
+<li><code>filter</code> — filter container for strict filtering: Each leaf query inside it won’t contribute to the score of the matching documents</li>
+<li><code>match</code> — this is a <strong>full-text</strong> query, meaning the text will pass through the analyzer and transformed.</li>
+<li><code>term</code> — this is a term level query. The text won’t pass through the analyzer and will be sent as is to the search engine.</li>
+<li>apply expert knowledge by boosting with <code>constant_score</code> or bosting .(by<code>^</code> operator, e.g. <code>[&quot;&lt;field1&gt;^2&quot;, &quot;&lt;field2&gt;^3]&quot;</code>).</li>
+</ul>
+
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="/tags/elasticsearch/">ElasticSearch</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/dsl/">DSL</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/fulltext-search/">Fulltext Search</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/inverted-index/">Inverted Index</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/scoring/">Scoring</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/06/24/how-the-inverted-index-and-scoring-work-in-elasticsearch/" data-tooltip="How the Inverted Index and Scoring Work in ElasticSearch">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/07/12/jupyter-notebooks-boost-your-productivity-with-extensions-and-magic-commands/" data-tooltip="Jupyter Notebooks: Boost your productivity with Extensions and Magic Commands">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2020/06/27/mastering-elasticsearch-queries-if-you-have-only-worked-with-sql-before/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2020/06/27/mastering-elasticsearch-queries-if-you-have-only-worked-with-sql-before/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2021 Heike W. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="1">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/06/24/how-the-inverted-index-and-scoring-work-in-elasticsearch/" data-tooltip="How the Inverted Index and Scoring Work in ElasticSearch">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/07/12/jupyter-notebooks-boost-your-productivity-with-extensions-and-magic-commands/" data-tooltip="Jupyter Notebooks: Boost your productivity with Extensions and Magic Commands">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2020/06/27/mastering-elasticsearch-queries-if-you-have-only-worked-with-sql-before/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2020/06/27/mastering-elasticsearch-queries-if-you-have-only-worked-with-sql-before/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="1">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=%2F2020%2F06%2F27%2Fmastering-elasticsearch-queries-if-you-have-only-worked-with-sql-before%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2F2020%2F06%2F27%2Fmastering-elasticsearch-queries-if-you-have-only-worked-with-sql-before%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="/me.jpg" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Heike W</h4>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Data Scientist @ Xing GmbH
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Germany
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('source/assets/img/banner');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = '\/2020\/06\/27\/mastering-elasticsearch-queries-if-you-have-only-worked-with-sql-before\/';
+          
+            this.page.identifier = '\/2020\/06\/27\/mastering-elasticsearch-queries-if-you-have-only-worked-with-sql-before\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'Heike';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+
