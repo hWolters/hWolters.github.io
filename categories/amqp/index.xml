@@ -13,7 +13,7 @@
       <pubDate>Tue, 26 Jan 2021 16:26:57 +0100</pubDate>
       
       <guid>/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/</guid>
-      <description>&lt;p&gt;In this blogpost you will get a basic understanding about message brokers. We will look at two very popular message brokers, Kafka and RabbitMQ, and learn, how they handle messages.&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;strong&gt;In this blogpost you will get a basic understanding about message brokers. We will look at two very popular message brokers, Kafka and RabbitMQ, and learn, how they handle messages.&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>
