@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.74.3 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="generator" content="Hugo 0.87.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Heike W">
 <meta name="keywords" content=", SQL, Data Science, Analytics, ElasticSeacg, Python, Pandas, Analytics, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive, Data Analysis, Data Mining">
 <meta name="description" content="table { width:80% !important;}  The basic idea of complex datatypes is to store multiple values in a single column. So if you are working with a Hive database and you query a column, but then you notice &ldquo;This value I need is trapped in a column among other values&hellip;&rdquo; you just came across a complex a.k.a. nested datatype.
@@ -115,7 +115,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
     
     
   </head>
@@ -292,30 +291,30 @@ table { width:80% !important;}
 <table>
 <thead>
 <tr>
-<th align="left">type</th>
-<th align="left">what is it?</th>
-<th align="left">how do they look like</th>
-<th align="left">example</th>
+<th style="text-align:left">type</th>
+<th style="text-align:left">what is it?</th>
+<th style="text-align:left">how do they look like</th>
+<th style="text-align:left">example</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>Array</code></td>
-<td align="left">ordered collection  of elements of the <em>same</em> type</td>
-<td align="left">a comma-separated list surrounded with [&hellip;]</td>
-<td align="left"><code>[&quot;a&quot;,&quot;b&quot;]</code></td>
+<td style="text-align:left"><code>Array</code></td>
+<td style="text-align:left">ordered collection  of elements of the <em>same</em> type</td>
+<td style="text-align:left">a comma-separated list surrounded with [&hellip;]</td>
+<td style="text-align:left"><code>[&quot;a&quot;,&quot;b&quot;]</code></td>
 </tr>
 <tr>
-<td align="left"><code>Map</code></td>
-<td align="left">unordered collection of key-value paris</td>
-<td align="left">comma-separated list of key:value pairs, surrounded with {&hellip;}</td>
-<td align="left"><code>{&quot;a&quot;:1, &quot;b&quot;:2}</code></td>
+<td style="text-align:left"><code>Map</code></td>
+<td style="text-align:left">unordered collection of key-value paris</td>
+<td style="text-align:left">comma-separated list of key:value pairs, surrounded with {&hellip;}</td>
+<td style="text-align:left"><code>{&quot;a&quot;:1, &quot;b&quot;:2}</code></td>
 </tr>
 <tr>
-<td align="left"><code>Struct</code></td>
-<td align="left">collection of elements of different types</td>
-<td align="left">written using the JSON map format</td>
-<td align="left"><code>{&quot;a&quot;: 1, &quot;b&quot;:&quot;c&quot;}</code></td>
+<td style="text-align:left"><code>Struct</code></td>
+<td style="text-align:left">collection of elements of different types</td>
+<td style="text-align:left">written using the JSON map format</td>
+<td style="text-align:left"><code>{&quot;a&quot;: 1, &quot;b&quot;:&quot;c&quot;}</code></td>
 </tr>
 </tbody>
 </table>
@@ -412,17 +411,17 @@ FROM
 <thead>
 <tr>
 <th>first_name</th>
-<th align="left">grade</th>
+<th style="text-align:left">grade</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Tom</td>
-<td align="left">{&lsquo;math&rsquo;: &lsquo;B&rsquo;, &lsquo;english&rsquo;: &lsquo;B&rsquo;}</td>
+<td style="text-align:left">{&lsquo;math&rsquo;: &lsquo;B&rsquo;, &lsquo;english&rsquo;: &lsquo;B&rsquo;}</td>
 </tr>
 <tr>
 <td>Ann</td>
-<td align="left">{&lsquo;math&rsquo;: &lsquo;A&rsquo;, &lsquo;english&rsquo;: &lsquo;B&rsquo;, &lsquo;biology&rsquo;: &lsquo;C&rsquo;}</td>
+<td style="text-align:left">{&lsquo;math&rsquo;: &lsquo;A&rsquo;, &lsquo;english&rsquo;: &lsquo;B&rsquo;, &lsquo;biology&rsquo;: &lsquo;C&rsquo;}</td>
 </tr>
 </tbody>
 </table>
@@ -437,17 +436,17 @@ FROM
 <thead>
 <tr>
 <th>first_name</th>
-<th align="left">math_grade</th>
+<th style="text-align:left">math_grade</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Tom</td>
-<td align="left">B</td>
+<td style="text-align:left">B</td>
 </tr>
 <tr>
 <td>Ann</td>
-<td align="left">A</td>
+<td style="text-align:left">A</td>
 </tr>
 </tbody>
 </table>
@@ -502,29 +501,29 @@ FROM
 <table>
 <thead>
 <tr>
-<th align="left">Type</th>
-<th align="left">How to extract elements</th>
-<th align="left">Example</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">How to extract elements</th>
+<th style="text-align:left">Example</th>
 <th></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>Array</code></td>
-<td align="left">by index</td>
-<td align="left"><code>my_array[0]</code></td>
+<td style="text-align:left"><code>Array</code></td>
+<td style="text-align:left">by index</td>
+<td style="text-align:left"><code>my_array[0]</code></td>
 <td></td>
 </tr>
 <tr>
-<td align="left"><code>Map </code></td>
-<td align="left">by key</td>
-<td align="left"><code>my_map['key']</code></td>
+<td style="text-align:left"><code>Map </code></td>
+<td style="text-align:left">by key</td>
+<td style="text-align:left"><code>my_map['key']</code></td>
 <td></td>
 </tr>
 <tr>
-<td align="left"><code>Struct </code></td>
-<td align="left">by dot notation</td>
-<td align="left"><code>my_struct.name</code></td>
+<td style="text-align:left"><code>Struct </code></td>
+<td style="text-align:left">by dot notation</td>
+<td style="text-align:left"><code>my_struct.name</code></td>
 <td></td>
 </tr>
 </tbody>

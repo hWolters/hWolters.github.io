@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.74.3 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="generator" content="Hugo 0.87.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Heike W">
 <meta name="keywords" content=", SQL, Data Science, Analytics, ElasticSeacg, Python, Pandas, Analytics, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive, Data Analysis, Data Mining">
 <meta name="description" content="In ElasticSearch querying fulltext fields is among the least resource intensive tasks and your query results are ordered putting the most relevant results on top. But how does this work?">
@@ -107,7 +107,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
     
     
   </head>
@@ -258,26 +257,26 @@ if (!doNotTrack) {
 <table>
 <thead>
 <tr>
-<th align="left">Document</th>
-<th align="left">Terms</th>
+<th style="text-align:left">Document</th>
+<th style="text-align:left">Terms</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">Elephant</td>
-<td align="left">mammal, largest, existing, animal, endangered, species, african, asian &hellip;</td>
+<td style="text-align:left">Elephant</td>
+<td style="text-align:left">mammal, largest, existing, animal, endangered, species, african, asian &hellip;</td>
 </tr>
 <tr>
-<td align="left">Turtle</td>
-<td align="left">reptile, shell, special, bony, cortilaginous, shell, ribs, shield, species&hellip;</td>
+<td style="text-align:left">Turtle</td>
+<td style="text-align:left">reptile, shell, special, bony, cortilaginous, shell, ribs, shield, species&hellip;</td>
 </tr>
 <tr>
-<td align="left">Hippopotamus</td>
-<td align="left">herbivorous, mammal, species, african &hellip;</td>
+<td style="text-align:left">Hippopotamus</td>
+<td style="text-align:left">herbivorous, mammal, species, african &hellip;</td>
 </tr>
 <tr>
-<td align="left">&hellip;</td>
-<td align="left"></td>
+<td style="text-align:left">&hellip;</td>
+<td style="text-align:left"></td>
 </tr>
 </tbody>
 </table>
@@ -287,30 +286,30 @@ if (!doNotTrack) {
 <table>
 <thead>
 <tr>
-<th align="left">Terms</th>
-<th align="left">Documents</th>
+<th style="text-align:left">Terms</th>
+<th style="text-align:left">Documents</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">mammal</td>
-<td align="left">Elephant, Hippopotamus, &hellip;</td>
+<td style="text-align:left">mammal</td>
+<td style="text-align:left">Elephant, Hippopotamus, &hellip;</td>
 </tr>
 <tr>
-<td align="left">largest</td>
-<td align="left">Elephant, &hellip;</td>
+<td style="text-align:left">largest</td>
+<td style="text-align:left">Elephant, &hellip;</td>
 </tr>
 <tr>
-<td align="left">reptile</td>
-<td align="left">Turtle, &hellip;</td>
+<td style="text-align:left">reptile</td>
+<td style="text-align:left">Turtle, &hellip;</td>
 </tr>
 <tr>
-<td align="left">species</td>
-<td align="left">Elephant, Turtle, Hippopotamus, &hellip;</td>
+<td style="text-align:left">species</td>
+<td style="text-align:left">Elephant, Turtle, Hippopotamus, &hellip;</td>
 </tr>
 <tr>
-<td align="left">&hellip;</td>
-<td align="left"></td>
+<td style="text-align:left">&hellip;</td>
+<td style="text-align:left"></td>
 </tr>
 </tbody>
 </table>
@@ -341,29 +340,29 @@ if (!doNotTrack) {
 <table>
 <thead>
 <tr>
-<th align="left">Part of the score</th>
-<th align="left">Interpretation</th>
-<th align="left">How is it calculated</th>
+<th style="text-align:left">Part of the score</th>
+<th style="text-align:left">Interpretation</th>
+<th style="text-align:left">How is it calculated</th>
 <th></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">Term Frequency</td>
-<td align="left">higher TF -&gt; higher relevance</td>
-<td align="left">tf(t in d) = √frequency</td>
+<td style="text-align:left">Term Frequency</td>
+<td style="text-align:left">higher TF -&gt; higher relevance</td>
+<td style="text-align:left">tf(t in d) = √frequency</td>
 <td></td>
 </tr>
 <tr>
-<td align="left">Inverse Document Frequency</td>
-<td align="left">higher IDF &ndash;&gt; lower relevance</td>
-<td align="left">idf(t) = 1 + log ( numDocs / (docFreq + 1))</td>
+<td style="text-align:left">Inverse Document Frequency</td>
+<td style="text-align:left">higher IDF &ndash;&gt; lower relevance</td>
+<td style="text-align:left">idf(t) = 1 + log ( numDocs / (docFreq + 1))</td>
 <td></td>
 </tr>
 <tr>
-<td align="left">Field Length</td>
-<td align="left">shorter field -&gt; higher relevance</td>
-<td align="left">norm(d) = 1 / √numTerms</td>
+<td style="text-align:left">Field Length</td>
+<td style="text-align:left">shorter field -&gt; higher relevance</td>
+<td style="text-align:left">norm(d) = 1 / √numTerms</td>
 <td></td>
 </tr>
 </tbody>

@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.74.3 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="generator" content="Hugo 0.87.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Heike W">
 <meta name="keywords" content="curl, api, rest, SQL, Data Science, Analytics, ElasticSeacg, Python, Pandas, Analytics, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive, Data Analysis, Data Mining">
 <meta name="description" content="This post will teach you the inution of REST APIs and how you can use them to get interesting datasets for your data projects. First, we will look at the four components of a request. In the second part of this blogpost, we will go through one example and access the coingecko API via curl.">
@@ -103,7 +103,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
     
     
   </head>
@@ -275,30 +274,30 @@ if (!doNotTrack) {
 <table>
 <thead>
 <tr>
-<th align="left">method</th>
-<th align="left">what it does</th>
+<th style="text-align:left">method</th>
+<th style="text-align:left">what it does</th>
 <th></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>GET</code></td>
-<td align="left">requests data from a server</td>
+<td style="text-align:left"><code>GET</code></td>
+<td style="text-align:left">requests data from a server</td>
 <td></td>
 </tr>
 <tr>
-<td align="left"><code>POST</code></td>
-<td align="left">adds new data to the server</td>
-<td align="left"> </td>
+<td style="text-align:left"><code>POST</code></td>
+<td style="text-align:left">adds new data to the server</td>
+<td style="text-align:left"> </td>
 </tr>
 <tr>
-<td align="left"><code>PUT</code></td>
-<td align="left">change existing data</td>
-<td align="left"> </td>
+<td style="text-align:left"><code>PUT</code></td>
+<td style="text-align:left">change existing data</td>
+<td style="text-align:left"> </td>
 </tr>
 <tr>
-<td align="left"><code>DELETE</code></td>
-<td align="left">delete existing data</td>
+<td style="text-align:left"><code>DELETE</code></td>
+<td style="text-align:left">delete existing data</td>
 <td></td>
 </tr>
 </tbody>
@@ -352,26 +351,26 @@ So you you know where to go, the next step is what to do.</li>
 <table>
 <thead>
 <tr>
-<th align="left">short</th>
-<th align="left">long</th>
-<th align="left">what it does</th>
+<th style="text-align:left">short</th>
+<th style="text-align:left">long</th>
+<th style="text-align:left">what it does</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>-X</code></td>
-<td align="left"><code> --request</code></td>
-<td align="left">HTTP method to be used (<strong>can be omitted????</strong>)</td>
+<td style="text-align:left"><code>-X</code></td>
+<td style="text-align:left"><code> --request</code></td>
+<td style="text-align:left">HTTP method to be used (<strong>can be omitted????</strong>)</td>
 </tr>
 <tr>
-<td align="left"><code>-d</code></td>
-<td align="left"><code> --data</code></td>
-<td align="left">Data/body to be sent</td>
+<td style="text-align:left"><code>-d</code></td>
+<td style="text-align:left"><code> --data</code></td>
+<td style="text-align:left">Data/body to be sent</td>
 </tr>
 <tr>
-<td align="left"><code>-H</code></td>
-<td align="left"><code> --header</code></td>
-<td align="left">Header to be sent</td>
+<td style="text-align:left"><code>-H</code></td>
+<td style="text-align:left"><code> --header</code></td>
+<td style="text-align:left">Header to be sent</td>
 </tr>
 </tbody>
 </table>
@@ -452,31 +451,31 @@ So you you know where to go, the next step is what to do.</li>
 <table>
 <thead>
 <tr>
-<th align="left">number</th>
-<th align="left">what does it mean?</th>
-<th align="left">example</th>
+<th style="text-align:left">number</th>
+<th style="text-align:left">what does it mean?</th>
+<th style="text-align:left">example</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">200+</td>
-<td align="left">request has succeeded</td>
-<td align="left">any of the above requests</td>
+<td style="text-align:left">200+</td>
+<td style="text-align:left">request has succeeded</td>
+<td style="text-align:left">any of the above requests</td>
 </tr>
 <tr>
-<td align="left">300+</td>
-<td align="left">request is redirected to another URL</td>
-<td align="left">your request is redirected to from <code>https://api.coingecko.com/api/v3/</code> to an older version <code>https://api.coingecko.com/api/v2/</code></td>
+<td style="text-align:left">300+</td>
+<td style="text-align:left">request is redirected to another URL</td>
+<td style="text-align:left">your request is redirected to from <code>https://api.coingecko.com/api/v3/</code> to an older version <code>https://api.coingecko.com/api/v2/</code></td>
 </tr>
 <tr>
-<td align="left">400+</td>
-<td align="left">an error from the client side has occurred</td>
-<td align="left">e.g. you have a typo one of your parameter values, e.g. in the coin id <code>/https://api.coingecko.com/api/v3/coins/bitcion/history</code></td>
+<td style="text-align:left">400+</td>
+<td style="text-align:left">an error from the client side has occurred</td>
+<td style="text-align:left">e.g. you have a typo one of your parameter values, e.g. in the coin id <code>/https://api.coingecko.com/api/v3/coins/bitcion/history</code></td>
 </tr>
 <tr>
-<td align="left">500+</td>
-<td align="left">an error from the server has occurred</td>
-<td align="left">e.g. there is a problem with the software running on the coingecko server. You can try running the request again or you will have to wait untill someone restarted the server</td>
+<td style="text-align:left">500+</td>
+<td style="text-align:left">an error from the server has occurred</td>
+<td style="text-align:left">e.g. there is a problem with the software running on the coingecko server. You can try running the request again or you will have to wait untill someone restarted the server</td>
 </tr>
 </tbody>
 </table>
@@ -521,7 +520,7 @@ So you you know where to go, the next step is what to do.</li>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/" data-tooltip="A Gentle Intro to the Basic Architecture of Message Brokers: RabbitMQ vs. Kafka">
               
                   <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                   <i class="fa fa-angle-right"></i>
@@ -601,7 +600,7 @@ So you you know where to go, the next step is what to do.</li>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/" data-tooltip="A Gentle Intro to the Basic Architecture of Message Brokers: RabbitMQ vs. Kafka">
               
                   <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                   <i class="fa fa-angle-right"></i>

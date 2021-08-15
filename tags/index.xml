@@ -6,10 +6,42 @@
     <description>Recent content in Tags on A Potpourri of Data Science Topics for Analysts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 26 Nov 2020 16:26:57 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 26 Jan 2021 16:26:57 +0100</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>amqp</title>
+      <link>/tags/amqp/</link>
+      <pubDate>Tue, 26 Jan 2021 16:26:57 +0100</pubDate>
+      
+      <guid>/tags/amqp/</guid>
+      <description></description>
+    </item>
     
-	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>kafka</title>
+      <link>/tags/kafka/</link>
+      <pubDate>Tue, 26 Jan 2021 16:26:57 +0100</pubDate>
+      
+      <guid>/tags/kafka/</guid>
+      <description></description>
+    </item>
     
+    <item>
+      <title>message brokers</title>
+      <link>/tags/message-brokers/</link>
+      <pubDate>Tue, 26 Jan 2021 16:26:57 +0100</pubDate>
+      
+      <guid>/tags/message-brokers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rabbitmq</title>
+      <link>/tags/rabbitmq/</link>
+      <pubDate>Tue, 26 Jan 2021 16:26:57 +0100</pubDate>
+      
+      <guid>/tags/rabbitmq/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>api</title>
@@ -107,42 +139,6 @@
       <pubDate>Mon, 31 Aug 2020 21:17:58 +0200</pubDate>
       
       <guid>/tags/word-embeddings/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Word2Vec</title>
-      <link>/tags/word2vec/</link>
-      <pubDate>Mon, 31 Aug 2020 21:17:58 +0200</pubDate>
-      
-      <guid>/tags/word2vec/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>extension</title>
-      <link>/tags/extension/</link>
-      <pubDate>Sun, 12 Jul 2020 21:17:58 +0200</pubDate>
-      
-      <guid>/tags/extension/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>jupyter</title>
-      <link>/tags/jupyter/</link>
-      <pubDate>Sun, 12 Jul 2020 21:17:58 +0200</pubDate>
-      
-      <guid>/tags/jupyter/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>magic commands</title>
-      <link>/tags/magic-commands/</link>
-      <pubDate>Sun, 12 Jul 2020 21:17:58 +0200</pubDate>
-      
-      <guid>/tags/magic-commands/</guid>
       <description></description>
     </item>
     

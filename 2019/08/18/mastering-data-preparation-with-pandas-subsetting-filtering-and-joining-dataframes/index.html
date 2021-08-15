@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.74.3 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="generator" content="Hugo 0.87.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Heike W">
 <meta name="keywords" content="boolean mask, python, pandas, data preparation, subset, merge, concat, join, filter, SQL, Data Science, Analytics, ElasticSeacg, Python, Pandas, Analytics, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive, Data Analysis, Data Mining">
 <meta name="description" content="table { width:80% !important;}  When I started working with pandas I noticed that there were so many ways how to subset, filter and join data with pandas. But I was lacking a systematic overview. How do the different approaches differ and when to use which?
@@ -113,7 +113,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
     
     
   </head>
@@ -292,26 +291,26 @@ df.iloc[:,0:10] # first 10 column of data frame
 <table>
 <thead>
 <tr>
-<th align="left">index</th>
-<th align="left">how</th>
-<th align="left">Example with slice object</th>
+<th style="text-align:left">index</th>
+<th style="text-align:left">how</th>
+<th style="text-align:left">Example with slice object</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>.iloc</code></td>
-<td align="left">by index (row)</td>
-<td align="left"><code>df.iloc[&lt;row_nr_start&gt;:&lt;row_nr_end&gt;, '&lt;col_nr_start&gt;':'&lt;col_nr_end&gt;']</code></td>
+<td style="text-align:left"><code>.iloc</code></td>
+<td style="text-align:left">by index (row)</td>
+<td style="text-align:left"><code>df.iloc[&lt;row_nr_start&gt;:&lt;row_nr_end&gt;, '&lt;col_nr_start&gt;':'&lt;col_nr_end&gt;']</code></td>
 </tr>
 <tr>
-<td align="left"><code>.loc</code></td>
-<td align="left">by label</td>
-<td align="left"><code>df.loc[&lt;row_label_start&gt;:&lt;row_label_end&gt;, '&lt;col_name_start&gt;':'&lt;col_name_end&gt;']</code></td>
+<td style="text-align:left"><code>.loc</code></td>
+<td style="text-align:left">by label</td>
+<td style="text-align:left"><code>df.loc[&lt;row_label_start&gt;:&lt;row_label_end&gt;, '&lt;col_name_start&gt;':'&lt;col_name_end&gt;']</code></td>
 </tr>
 <tr>
-<td align="left"><code>filter</code></td>
-<td align="left">by label and regexes</td>
-<td align="left"><code>df.filter(like =&lt;some_string&gt;, axis = 0</code>)</td>
+<td style="text-align:left"><code>filter</code></td>
+<td style="text-align:left">by label and regexes</td>
+<td style="text-align:left"><code>df.filter(like =&lt;some_string&gt;, axis = 0</code>)</td>
 </tr>
 </tbody>
 </table>
@@ -414,26 +413,26 @@ df.head()
 <table>
 <thead>
 <tr>
-<th align="left"></th>
-<th align="left">code</th>
-<th align="left">returns</th>
+<th style="text-align:left"></th>
+<th style="text-align:left">code</th>
+<th style="text-align:left">returns</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>iloc</code></td>
-<td align="left"><code>df.iloc[:,0]</code>, <code>df.iloc[0]</code></td>
-<td align="left"><code>Series</code></td>
+<td style="text-align:left"><code>iloc</code></td>
+<td style="text-align:left"><code>df.iloc[:,0]</code>, <code>df.iloc[0]</code></td>
+<td style="text-align:left"><code>Series</code></td>
 </tr>
 <tr>
-<td align="left"><code>loc</code></td>
-<td align="left"><code>df.loc[:,['age']] </code></td>
-<td align="left"><code>DataFrame</code></td>
+<td style="text-align:left"><code>loc</code></td>
+<td style="text-align:left"><code>df.loc[:,['age']] </code></td>
+<td style="text-align:left"><code>DataFrame</code></td>
 </tr>
 <tr>
-<td align="left"><code>filter</code></td>
-<td align="left"><code>df.filter(items = ['age'])</code></td>
-<td align="left"><code>DataFrame</code></td>
+<td style="text-align:left"><code>filter</code></td>
+<td style="text-align:left"><code>df.filter(items = ['age'])</code></td>
+<td style="text-align:left"><code>DataFrame</code></td>
 </tr>
 </tbody>
 </table>
@@ -444,26 +443,26 @@ df.head()
 <table>
 <thead>
 <tr>
-<th align="left"></th>
-<th align="left">code</th>
-<th align="left">returns</th>
+<th style="text-align:left"></th>
+<th style="text-align:left">code</th>
+<th style="text-align:left">returns</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>iloc</code></td>
-<td align="left"><code>df.iloc[:,4:10]</code></td>
-<td align="left"><code>DataFrame</code></td>
+<td style="text-align:left"><code>iloc</code></td>
+<td style="text-align:left"><code>df.iloc[:,4:10]</code></td>
+<td style="text-align:left"><code>DataFrame</code></td>
 </tr>
 <tr>
-<td align="left"><code>loc</code></td>
-<td align="left"><code>df.loc[:,'s1':'s6']</code></td>
-<td align="left"><code>DataFrame</code></td>
+<td style="text-align:left"><code>loc</code></td>
+<td style="text-align:left"><code>df.loc[:,'s1':'s6']</code></td>
+<td style="text-align:left"><code>DataFrame</code></td>
 </tr>
 <tr>
-<td align="left"><code>filter</code></td>
-<td align="left"><code>df.filter(regex ='s\d')</code></td>
-<td align="left"><code>DataFrame</code></td>
+<td style="text-align:left"><code>filter</code></td>
+<td style="text-align:left"><code>df.filter(regex ='s\d')</code></td>
+<td style="text-align:left"><code>DataFrame</code></td>
 </tr>
 </tbody>
 </table>
@@ -483,7 +482,7 @@ df.head()
 <tbody>
 <tr>
 <td><code>OR</code></td>
-<td><code>|</code></td>
+<td>`</td>
 </tr>
 <tr>
 <td><code>AND</code></td>
@@ -618,29 +617,29 @@ df.head()
 <table>
 <thead>
 <tr>
-<th align="left"></th>
-<th align="left"><code>query</code></th>
-<th align="left">boolean mask</th>
+<th style="text-align:left"></th>
+<th style="text-align:left"><code>query</code></th>
+<th style="text-align:left">boolean mask</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">one condition</td>
-<td align="left"><code>df.query(&quot;AGE &lt; 50&quot;)</code></td>
-<td align="left"><code>df[df.AGE &lt; 50]</code></td>
+<td style="text-align:left">one condition</td>
+<td style="text-align:left"><code>df.query(&quot;AGE &lt; 50&quot;)</code></td>
+<td style="text-align:left"><code>df[df.AGE &lt; 50]</code></td>
 </tr>
 <tr>
-<td align="left">two conditions</td>
-<td align="left"><code>df.query(&quot;AGE &lt; 50 &amp; RAD == 2&quot;)</code></td>
-<td align="left"><code>df[(df.AGE &lt; 50) &amp; (df.RAD == 2)]</code></td>
+<td style="text-align:left">two conditions</td>
+<td style="text-align:left"><code>df.query(&quot;AGE &lt; 50 &amp; RAD == 2&quot;)</code></td>
+<td style="text-align:left"><code>df[(df.AGE &lt; 50) &amp; (df.RAD == 2)]</code></td>
 </tr>
 <tr>
-<td align="left">multiple values</td>
-<td align="left"><code>df.query('RAD in[1,2]')</code></td>
-<td align="left"><code>df[df.RAD.isin([1,2])]</code></td>
+<td style="text-align:left">multiple values</td>
+<td style="text-align:left"><code>df.query('RAD in[1,2]')</code></td>
+<td style="text-align:left"><code>df[df.RAD.isin([1,2])]</code></td>
 </tr>
 <tr>
-<td align="left"><br></td>
+<td style="text-align:left"><br></td>
 <td></td>
 <td></td>
 </tr>

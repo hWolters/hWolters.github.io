@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.74.3 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="generator" content="Hugo 0.87.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Heike W">
 <meta name="keywords" content="search, ltr, ndcg, RankSVM, SQL, Data Science, Analytics, ElasticSeacg, Python, Pandas, Analytics, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive, Data Analysis, Data Mining">
 <meta name="description" content="In many scenarios, such as a google search or a product recommendation in an online shop, we have tons of data and limited space to display it. We cannot show all the products of an online shop to the user as a possible next best offer. Neither would a user want to scroll through all the pages indexed by a search engine to find the most relevant page that matches his search keywords. The most relevant content should be on top. Learning to rank (LTR) models are supervised machine learning models that attempt to optimize the order of items. This blogpost introduces three approaches to optimize ranks.">
@@ -99,7 +99,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
     
     
   </head>
@@ -259,7 +258,7 @@ if (!doNotTrack) {
 <p>The models you would use are the same as for classical classification or regression problems, e.g. a logistic regression or a support vector machine model. You can evaluate your model by looking at your usual metrics (accuracy, precision, recall, root mean squared error etc.) at a position k. For example how many of the relevant items made it in the top k?</p>
 <h2 id="pairwise-ltr">Pairwise LTR</h2>
 <p>Pairwise LTR models optimize the <strong>relative order of pairs</strong>. The idea is to compare the order of two items at a time. So as a first step, you have to create item pairs. The best model with the lowest loss has the maximum number of pairs in the correct order. So if the more relevant item is on the top, great! You would not add any loss. If the more relevant item is on the bottom position, this adds to the loss. You evaluate your model by looking at pairwise metrics, e.g. pairwise accuracy at position: The number of pairs in the correct order divided by the total number of pairs.</p>
-<p>RankSVM is a model you could use. It applies the ideas of a classical Support Vector Machine Model and computes loss by minimizing the discordant pairs of the model with the perfect&rdquo; order from the ground truth. In other words: it punishes item-pairs where the order is opposite from the ideal order.</p>
+<p>RankSVM is a model you could use. It applies the ideas of a classical Support Vector Machine Model and computes loss by minimizing the discordant pairs of the model with the perfect&quot; order from the ground truth. In other words: it punishes item-pairs where the order is opposite from the ideal order.</p>
 <h2 id="listwise-ltr">Listwise LTR</h2>
 <p>Listwise LTR models optimize the <strong>total order of pairs</strong>.  So instead of looking at individual pairs, the entire resultset is evaluated. Listwise models are often applied, if there is a limited number of items that can be selected. For example, if you have only 50 products in your online shop and you want to display those in the best order. Listwise LTR models make sure that you find the optimal order for those 50 items.</p>
 <p>For example you can use an XGboost model that optimizes for NDCG (Normalized Discounted Cumulative Gain). NDCG relies on three assumptions:</p>

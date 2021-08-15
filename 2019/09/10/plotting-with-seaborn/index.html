@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.74.3 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="generator" content="Hugo 0.87.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Heike W">
 <meta name="keywords" content="python, plot, seaborn, data visualization, SQL, Data Science, Analytics, ElasticSeacg, Python, Pandas, Analytics, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive, Data Analysis, Data Mining">
 <meta name="description" content="Seaborn is a python library for creating plots. It is based on matplotlib  and provides a high-level interface for drawing statistical graphics.
@@ -107,7 +107,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
     
     
   </head>
@@ -305,26 +304,26 @@ import seaborn as sns
 <table>
 <thead>
 <tr>
-<th align="left">type of plot</th>
-<th align="left">figure-level function</th>
-<th align="left">axes-level functions</th>
+<th style="text-align:left">type of plot</th>
+<th style="text-align:left">figure-level function</th>
+<th style="text-align:left">axes-level functions</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">distributions</td>
-<td align="left"><code>displot</code></td>
-<td align="left">e.g. <code>histplot</code>, <code>rugplot</code></td>
+<td style="text-align:left">distributions</td>
+<td style="text-align:left"><code>displot</code></td>
+<td style="text-align:left">e.g. <code>histplot</code>, <code>rugplot</code></td>
 </tr>
 <tr>
-<td align="left">categorical</td>
-<td align="left"><code>catplot</code></td>
-<td align="left">e.g. <code>barplot</code>, <code>boxplot</code></td>
+<td style="text-align:left">categorical</td>
+<td style="text-align:left"><code>catplot</code></td>
+<td style="text-align:left">e.g. <code>barplot</code>, <code>boxplot</code></td>
 </tr>
 <tr>
-<td align="left">relational</td>
-<td align="left"><code>relplot</code></td>
-<td align="left">e.g. <code>scatterplot</code>, <code>lineplot</code></td>
+<td style="text-align:left">relational</td>
+<td style="text-align:left"><code>relplot</code></td>
+<td style="text-align:left">e.g. <code>scatterplot</code>, <code>lineplot</code></td>
 </tr>
 </tbody>
 </table>
@@ -357,114 +356,114 @@ titanic.head(5)
 </code></pre><table>
 <thead>
 <tr>
-<th align="right"></th>
-<th align="right">survived</th>
-<th align="right">pclass</th>
-<th align="left">sex</th>
-<th align="right">age</th>
-<th align="right">sibsp</th>
-<th align="right">parch</th>
-<th align="right">fare</th>
-<th align="left">embarked</th>
-<th align="left">class</th>
-<th align="left">who</th>
-<th align="left">adult_male</th>
-<th align="left">deck</th>
-<th align="left">embark_town</th>
-<th align="left">alive</th>
-<th align="left">alone</th>
+<th style="text-align:right"></th>
+<th style="text-align:right">survived</th>
+<th style="text-align:right">pclass</th>
+<th style="text-align:left">sex</th>
+<th style="text-align:right">age</th>
+<th style="text-align:right">sibsp</th>
+<th style="text-align:right">parch</th>
+<th style="text-align:right">fare</th>
+<th style="text-align:left">embarked</th>
+<th style="text-align:left">class</th>
+<th style="text-align:left">who</th>
+<th style="text-align:left">adult_male</th>
+<th style="text-align:left">deck</th>
+<th style="text-align:left">embark_town</th>
+<th style="text-align:left">alive</th>
+<th style="text-align:left">alone</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">3</td>
-<td align="left">male</td>
-<td align="right">22</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="right">7.25</td>
-<td align="left">S</td>
-<td align="left">Third</td>
-<td align="left">man</td>
-<td align="left">True</td>
-<td align="left">nan</td>
-<td align="left">Southampton</td>
-<td align="left">no</td>
-<td align="left">False</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">3</td>
+<td style="text-align:left">male</td>
+<td style="text-align:right">22</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">7.25</td>
+<td style="text-align:left">S</td>
+<td style="text-align:left">Third</td>
+<td style="text-align:left">man</td>
+<td style="text-align:left">True</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:left">Southampton</td>
+<td style="text-align:left">no</td>
+<td style="text-align:left">False</td>
 </tr>
 <tr>
-<td align="right">1</td>
-<td align="right">1</td>
-<td align="right">1</td>
-<td align="left">female</td>
-<td align="right">38</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="right">71.2833</td>
-<td align="left">C</td>
-<td align="left">First</td>
-<td align="left">woman</td>
-<td align="left">False</td>
-<td align="left">C</td>
-<td align="left">Cherbourg</td>
-<td align="left">yes</td>
-<td align="left">False</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1</td>
+<td style="text-align:left">female</td>
+<td style="text-align:right">38</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">71.2833</td>
+<td style="text-align:left">C</td>
+<td style="text-align:left">First</td>
+<td style="text-align:left">woman</td>
+<td style="text-align:left">False</td>
+<td style="text-align:left">C</td>
+<td style="text-align:left">Cherbourg</td>
+<td style="text-align:left">yes</td>
+<td style="text-align:left">False</td>
 </tr>
 <tr>
-<td align="right">2</td>
-<td align="right">1</td>
-<td align="right">3</td>
-<td align="left">female</td>
-<td align="right">26</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">7.925</td>
-<td align="left">S</td>
-<td align="left">Third</td>
-<td align="left">woman</td>
-<td align="left">False</td>
-<td align="left">nan</td>
-<td align="left">Southampton</td>
-<td align="left">yes</td>
-<td align="left">True</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">3</td>
+<td style="text-align:left">female</td>
+<td style="text-align:right">26</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">7.925</td>
+<td style="text-align:left">S</td>
+<td style="text-align:left">Third</td>
+<td style="text-align:left">woman</td>
+<td style="text-align:left">False</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:left">Southampton</td>
+<td style="text-align:left">yes</td>
+<td style="text-align:left">True</td>
 </tr>
 <tr>
-<td align="right">3</td>
-<td align="right">1</td>
-<td align="right">1</td>
-<td align="left">female</td>
-<td align="right">35</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="right">53.1</td>
-<td align="left">S</td>
-<td align="left">First</td>
-<td align="left">woman</td>
-<td align="left">False</td>
-<td align="left">C</td>
-<td align="left">Southampton</td>
-<td align="left">yes</td>
-<td align="left">False</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1</td>
+<td style="text-align:left">female</td>
+<td style="text-align:right">35</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">53.1</td>
+<td style="text-align:left">S</td>
+<td style="text-align:left">First</td>
+<td style="text-align:left">woman</td>
+<td style="text-align:left">False</td>
+<td style="text-align:left">C</td>
+<td style="text-align:left">Southampton</td>
+<td style="text-align:left">yes</td>
+<td style="text-align:left">False</td>
 </tr>
 <tr>
-<td align="right">4</td>
-<td align="right">0</td>
-<td align="right">3</td>
-<td align="left">male</td>
-<td align="right">35</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">8.05</td>
-<td align="left">S</td>
-<td align="left">Third</td>
-<td align="left">man</td>
-<td align="left">True</td>
-<td align="left">nan</td>
-<td align="left">Southampton</td>
-<td align="left">no</td>
-<td align="left">True</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">3</td>
+<td style="text-align:left">male</td>
+<td style="text-align:right">35</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">8.05</td>
+<td style="text-align:left">S</td>
+<td style="text-align:left">Third</td>
+<td style="text-align:left">man</td>
+<td style="text-align:left">True</td>
+<td style="text-align:left">nan</td>
+<td style="text-align:left">Southampton</td>
+<td style="text-align:left">no</td>
+<td style="text-align:left">True</td>
 </tr>
 </tbody>
 </table>

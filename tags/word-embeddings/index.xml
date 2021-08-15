@@ -6,11 +6,7 @@
     <description>Recent content in Word Embeddings on A Potpourri of Data Science Topics for Analysts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 31 Aug 2020 21:17:58 +0200</lastBuildDate>
-    
-	<atom:link href="/tags/word-embeddings/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 31 Aug 2020 21:17:58 +0200</lastBuildDate><atom:link href="/tags/word-embeddings/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Intuition of Word Embeddings: How you Teach A Computer to Understand Text</title>
       <link>/2020/08/31/the-intuition-of-word-embeddings-how-you-teach-a-computer-to-understand-text/</link>

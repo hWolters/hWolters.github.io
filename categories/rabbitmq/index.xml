@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rabbitmq on A Potpourri of Data Science Topics for Analysts</title>
+    <link>/categories/rabbitmq/</link>
+    <description>Recent content in rabbitmq on A Potpourri of Data Science Topics for Analysts</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 26 Jan 2021 16:26:57 +0100</lastBuildDate><atom:link href="/categories/rabbitmq/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Gentle Intro to the Basic Architecture of Message Brokers: RabbitMQ vs. Kafka</title>
+      <link>/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/</link>
+      <pubDate>Tue, 26 Jan 2021 16:26:57 +0100</pubDate>
+      
+      <guid>/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/</guid>
+      <description>&lt;p&gt;In this blogpost you will get a basic understanding about message brokers. We will look at two very popular message brokers, Kafka and RabbitMQ, and learn, how they handle messages.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

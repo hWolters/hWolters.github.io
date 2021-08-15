@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.74.3 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="generator" content="Hugo 0.87.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Heike W">
 <meta name="keywords" content=", SQL, Data Science, Analytics, ElasticSeacg, Python, Pandas, Analytics, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive, Data Analysis, Data Mining">
 <meta name="description" content="Elasticsearch is often the storage engine of choice for storing and querying full text data. But writing an ElasticSearch query is pretty different compared to querying a relational database in SQL. In this blogpost, you will learn some basics you need to understand before working with ElasticSearch. In the second part, you learn how to write queries in ElasticSearch.">
@@ -101,7 +101,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
     
     
   </head>
@@ -251,34 +250,34 @@ if (!doNotTrack) {
 <table>
 <thead>
 <tr>
-<th align="left">Elastic Search</th>
-<th align="left">RDBMS-Equivalent</th>
+<th style="text-align:left">Elastic Search</th>
+<th style="text-align:left">RDBMS-Equivalent</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">Index</td>
-<td align="left">Database</td>
+<td style="text-align:left">Index</td>
+<td style="text-align:left">Database</td>
 </tr>
 <tr>
-<td align="left">Type</td>
-<td align="left">Table</td>
+<td style="text-align:left">Type</td>
+<td style="text-align:left">Table</td>
 </tr>
 <tr>
-<td align="left">Document</td>
-<td align="left">Row</td>
+<td style="text-align:left">Document</td>
+<td style="text-align:left">Row</td>
 </tr>
 <tr>
-<td align="left">Field</td>
-<td align="left">Column</td>
+<td style="text-align:left">Field</td>
+<td style="text-align:left">Column</td>
 </tr>
 <tr>
-<td align="left">Mapping</td>
-<td align="left">Schema</td>
+<td style="text-align:left">Mapping</td>
+<td style="text-align:left">Schema</td>
 </tr>
 <tr>
-<td align="left">Shards</td>
-<td align="left">partitions</td>
+<td style="text-align:left">Shards</td>
+<td style="text-align:left">partitions</td>
 </tr>
 </tbody>
 </table>
@@ -384,7 +383,7 @@ There are two different kinds of <code>query</code> clauses. </p>
 </code></pre>
 <h3 id="3-decide-how-you-want-to-query-querystring-as-is-vs-analyzed-querystring">3. <strong>Decide how you want to query: querystring as is vs. analyzed querystring</strong></h3>
 <p><strong>Send query string as is without modification</strong>: You have to use a <code>term</code> query or other <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/term-level-queries.html">term-level queries</a>. For example, if you search for “Hello World!” with a term query, the query engine will check the inverted index for an exact match for “Hello World!”. &ldquo;hello world!&rdquo;, &ldquo;Hello World&rdquo; or &ldquo;Hallo World!&rdquo; would not be retrieved. </p>
-<p><strong>Send query string analyzed</strong>: For that choice, you have to use the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/full-text-queries.html">full text queries in the ES documentation</a>. The querystring will process through the same analyzer as the field in the index, i.e. it will be tokenized, standardized, filtered. For example, if you search for the phrase “Hello World” then the query engine might check the inverted index for “hello” and “world” and (&rdquo;!&quot;) (depending on the analyzer you chose before).</p>
+<p><strong>Send query string analyzed</strong>: For that choice, you have to use the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/full-text-queries.html">full text queries in the ES documentation</a>. The querystring will process through the same analyzer as the field in the index, i.e. it will be tokenized, standardized, filtered. For example, if you search for the phrase “Hello World” then the query engine might check the inverted index for “hello” and “world” and (&quot;!&quot;) (depending on the analyzer you chose before).</p>
 <h2 id="overview">Overview</h2>
 <ul>
 <li><code>query</code>— main query container</li>

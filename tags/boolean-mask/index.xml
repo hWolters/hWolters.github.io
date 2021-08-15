@@ -6,11 +6,7 @@
     <description>Recent content in boolean mask on A Potpourri of Data Science Topics for Analysts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 Aug 2019 10:55:48 +0200</lastBuildDate>
-    
-	<atom:link href="/tags/boolean-mask/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 18 Aug 2019 10:55:48 +0200</lastBuildDate><atom:link href="/tags/boolean-mask/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Mastering Data Preparation with Pandas: Subsetting, Filtering and Joining DataFrames</title>
       <link>/2019/08/18/mastering-data-preparation-with-pandas-subsetting-filtering-and-joining-dataframes/</link>
