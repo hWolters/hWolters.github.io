@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>app on A Potpourri of Data Science Topics for Analysts</title>
+    <link>/categories/app/</link>
+    <description>Recent content in app on A Potpourri of Data Science Topics for Analysts</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 05 Sep 2021 20:44:39 +0200</lastBuildDate><atom:link href="/categories/app/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>From localhost to a web server -  How to host your Streamlit App on Heroku (for free)</title>
+      <link>/2021/09/05/from-localhost-to-a-web-server-how-to-host-your-streamlit-app-on-heroku-for-free/</link>
+      <pubDate>Sun, 05 Sep 2021 20:44:39 +0200</pubDate>
+      
+      <guid>/2021/09/05/from-localhost-to-a-web-server-how-to-host-your-streamlit-app-on-heroku-for-free/</guid>
+      <description>You have built a great streamlit app. So far, you only ran it locally on your computer on localhost:8501. Now you would like to share your app with others, but wonder how. This blogpost introduces you to one option: Heroku. Heroku is a platform as a service that allows you to deploy your apps (not just streamlit apps, but also jvm apps, ruby apps etc.). This post will guide you through the deployment of a streamlit app on Heroku.</description>
+    </item>
+    
+  </channel>
+</rss>

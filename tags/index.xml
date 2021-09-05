@@ -6,7 +6,34 @@
     <description>Recent content in Tags on A Potpourri of Data Science Topics for Analysts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 26 Jan 2021 16:26:57 +0100</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 Sep 2021 20:44:39 +0200</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>app</title>
+      <link>/tags/app/</link>
+      <pubDate>Sun, 05 Sep 2021 20:44:39 +0200</pubDate>
+      
+      <guid>/tags/app/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>deployment</title>
+      <link>/tags/deployment/</link>
+      <pubDate>Sun, 05 Sep 2021 20:44:39 +0200</pubDate>
+      
+      <guid>/tags/deployment/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hosting</title>
+      <link>/tags/hosting/</link>
+      <pubDate>Sun, 05 Sep 2021 20:44:39 +0200</pubDate>
+      
+      <guid>/tags/hosting/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>amqp</title>
       <link>/tags/amqp/</link>
@@ -112,33 +139,6 @@
       <pubDate>Thu, 10 Sep 2020 22:20:39 +0200</pubDate>
       
       <guid>/tags/nlp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>BERT</title>
-      <link>/tags/bert/</link>
-      <pubDate>Mon, 31 Aug 2020 21:17:58 +0200</pubDate>
-      
-      <guid>/tags/bert/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>One-Hot-Encoding</title>
-      <link>/tags/one-hot-encoding/</link>
-      <pubDate>Mon, 31 Aug 2020 21:17:58 +0200</pubDate>
-      
-      <guid>/tags/one-hot-encoding/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Word Embeddings</title>
-      <link>/tags/word-embeddings/</link>
-      <pubDate>Mon, 31 Aug 2020 21:17:58 +0200</pubDate>
-      
-      <guid>/tags/word-embeddings/</guid>
       <description></description>
     </item>
     

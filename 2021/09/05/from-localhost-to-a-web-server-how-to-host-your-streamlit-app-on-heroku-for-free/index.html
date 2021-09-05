@@ -16,48 +16,46 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.87.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Heike W">
-<meta name="keywords" content="kafka, message brokers, amqp, rabbitmq, SQL, Data Science, Analytics, ElasticSeacg, Python, Pandas, Analytics, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive, Data Analysis, Data Mining">
-<meta name="description" content="In this blogpost you will get a basic understanding about message brokers. We will look at two very popular message brokers, Kafka and RabbitMQ, and learn, how they handle messages.">
+<meta name="keywords" content="app, hosting, deployment, SQL, Data Science, Analytics, ElasticSeacg, Python, Pandas, Analytics, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive, Data Analysis, Data Mining">
+<meta name="description" content="You have built a great streamlit app. So far, you only ran it locally on your computer on localhost:8501. Now you would like to share your app with others, but wonder how. This blogpost introduces you to one option: Heroku. Heroku is a platform as a service that allows you to deploy your apps (not just streamlit apps, but also jvm apps, ruby apps etc.). This post will guide you through the deployment of a streamlit app on Heroku.">
 
 
-<meta property="og:description" content="In this blogpost you will get a basic understanding about message brokers. We will look at two very popular message brokers, Kafka and RabbitMQ, and learn, how they handle messages.">
+<meta property="og:description" content="You have built a great streamlit app. So far, you only ran it locally on your computer on localhost:8501. Now you would like to share your app with others, but wonder how. This blogpost introduces you to one option: Heroku. Heroku is a platform as a service that allows you to deploy your apps (not just streamlit apps, but also jvm apps, ruby apps etc.). This post will guide you through the deployment of a streamlit app on Heroku.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="A Gentle Intro to the Basic Architecture of Message Brokers: RabbitMQ vs. Kafka">
-<meta name="twitter:title" content="A Gentle Intro to the Basic Architecture of Message Brokers: RabbitMQ vs. Kafka">
-<meta property="og:url" content="/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/">
-<meta property="twitter:url" content="/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/">
+<meta property="og:title" content="From localhost to a web server -  How to host your Streamlit App on Heroku (for free)">
+<meta name="twitter:title" content="From localhost to a web server -  How to host your Streamlit App on Heroku (for free)">
+<meta property="og:url" content="/2021/09/05/from-localhost-to-a-web-server-how-to-host-your-streamlit-app-on-heroku-for-free/">
+<meta property="twitter:url" content="/2021/09/05/from-localhost-to-a-web-server-how-to-host-your-streamlit-app-on-heroku-for-free/">
 <meta property="og:site_name" content="A Potpourri of Data Science Topics for Analysts">
-<meta property="og:description" content="In this blogpost you will get a basic understanding about message brokers. We will look at two very popular message brokers, Kafka and RabbitMQ, and learn, how they handle messages.">
-<meta name="twitter:description" content="In this blogpost you will get a basic understanding about message brokers. We will look at two very popular message brokers, Kafka and RabbitMQ, and learn, how they handle messages.">
+<meta property="og:description" content="You have built a great streamlit app. So far, you only ran it locally on your computer on localhost:8501. Now you would like to share your app with others, but wonder how. This blogpost introduces you to one option: Heroku. Heroku is a platform as a service that allows you to deploy your apps (not just streamlit apps, but also jvm apps, ruby apps etc.). This post will guide you through the deployment of a streamlit app on Heroku.">
+<meta name="twitter:description" content="You have built a great streamlit app. So far, you only ran it locally on your computer on localhost:8501. Now you would like to share your app with others, but wonder how. This blogpost introduces you to one option: Heroku. Heroku is a platform as a service that allows you to deploy your apps (not just streamlit apps, but also jvm apps, ruby apps etc.). This post will guide you through the deployment of a streamlit app on Heroku.">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2021-01-26T16:26:57">
+    <meta property="article:published_time" content="2021-09-05T20:44:39">
   
   
-    <meta property="article:modified_time" content="2021-01-26T16:26:57">
+    <meta property="article:modified_time" content="2021-09-05T20:44:39">
   
-  
-  
-    
-      <meta property="article:section" content="kafka">
-    
-      <meta property="article:section" content="amqp">
-    
-      <meta property="article:section" content="rabbitmq">
-    
-      <meta property="article:section" content="message brokers">
-    
   
   
     
-      <meta property="article:tag" content="kafka">
+      <meta property="article:section" content="Streamlit">
     
-      <meta property="article:tag" content="message brokers">
+      <meta property="article:section" content="app">
     
-      <meta property="article:tag" content="amqp">
+      <meta property="article:section" content="hosting">
     
-      <meta property="article:tag" content="rabbitmq">
+      <meta property="article:section" content="deployment">
+    
+  
+  
+    
+      <meta property="article:tag" content="app">
+    
+      <meta property="article:tag" content="hosting">
+    
+      <meta property="article:tag" content="deployment">
     
   
 
@@ -70,20 +68,20 @@
 
 
 
-  <meta property="og:image" content="/post/message_box.jpg">
-  <meta property="twitter:image" content="/post/message_box.jpg">
+  <meta property="og:image" content="/post/hosting.jpg">
+  <meta property="twitter:image" content="/post/hosting.jpg">
 
 
 
 
-    <title>A Gentle Intro to the Basic Architecture of Message Brokers: RabbitMQ vs. Kafka</title>
+    <title>From localhost to a web server -  How to host your Streamlit App on Heroku (for free)</title>
 
     <link rel="icon" href="/favicon.png">
     
 
     
 
-    <link rel="canonical" href="/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/">
+    <link rel="canonical" href="/2021/09/05/from-localhost-to-a-web-server-how-to-host-your-streamlit-app-on-heroku-for-free/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -213,25 +211,25 @@ if (!doNotTrack) {
   <div class="post-header-cover
               text-left
               "
-       style="background-image:url('/post/message_box.jpg')"
+       style="background-image:url('/post/hosting.jpg')"
        data-behavior="1">
     
       <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      A Gentle Intro to the Basic Architecture of Message Brokers: RabbitMQ vs. Kafka
+      From localhost to a web server -  How to host your Streamlit App on Heroku (for free)
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2021-01-26T16:26:57&#43;01:00">
+      <time itemprop="datePublished" datetime="2021-09-05T20:44:39&#43;02:00">
         
   
   
   
   
-    26 January 2021
+    5 September 2021
   
 
       </time>
@@ -241,13 +239,13 @@ if (!doNotTrack) {
   
     <span>in</span>
     
-      <a class="category-link" href="/categories/kafka">kafka</a>, 
+      <a class="category-link" href="/categories/streamlit">Streamlit</a>, 
     
-      <a class="category-link" href="/categories/amqp">amqp</a>, 
+      <a class="category-link" href="/categories/app">app</a>, 
     
-      <a class="category-link" href="/categories/rabbitmq">rabbitmq</a>, 
+      <a class="category-link" href="/categories/hosting">hosting</a>, 
     
-      <a class="category-link" href="/categories/message-brokers">message brokers</a>
+      <a class="category-link" href="/categories/deployment">deployment</a>
     
   
 
@@ -267,40 +265,84 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p><strong>In this blogpost you will get a basic understanding about message brokers. We will look at two very popular message brokers, Kafka and RabbitMQ, and learn, how they handle messages.</strong></p>
-<p>Let&rsquo;s start with a short intro about what message brokers are and how they are different from an API: Message brokers allow communication between applications, systems and services. On a high level, can understand message brokers as translators: They receive messages, which they &ldquo;translate&rdquo; and pass on to other systems.</p>
-<p>While for example REST APIs are designed to expect an immediate response, message brokers can communicate asynchronously. That means, a sending service does not have to wait for the reply of the receiving service.</p>
-<p>Let&rsquo;s go more into detail. There are four components in message brokers:</p>
+              <p>You have built a great streamlit app. So far, you only ran it locally on your computer on <code>localhost:8501</code>. Now you would like to share your app with others, but wonder how. This blogpost introduces you to one option: Heroku. Heroku is a platform as a service that allows you to deploy your apps (not just streamlit apps, but also jvm apps, ruby apps etc.). This post will guide you through the deployment of a streamlit app on Heroku. It&rsquo;s free for non-commercial apps smaller than 300 MB. You need</p>
 <ul>
-<li>
-<p><strong>Producers</strong>: The senders of a message. For example, if a user creates an account on your website, a producer, let&rsquo;s call hom &ldquo;New User Service&rdquo; creates a message, that an account has been created.</p>
-</li>
-<li>
-<p><strong>Consumers</strong>: The receiver of a message. Consumers looks at incoming messages and may execute some action, e.g. sending an Email to this new customer to verify his account.</p>
-</li>
-<li>
-<p><strong>Queues</strong>: Storage of the messages until they are consumed.</p>
-</li>
-<li>
-<p><strong>Exchange</strong>: A &ldquo;config&rdquo; for routing messages. The producer transmits a message to the <strong>exchange</strong> using a specified protocol (e.g. AMQP). The echange makes sure to route the message to the correct queue.</p>
-</li>
+<li>a streamlit project with a repo on Github</li>
+<li>your terminal</li>
 </ul>
-<p>The producers can issue messages without knowing where the consumers are, whether or not they are active, or how many of them exist.</p>
-<p>Let&rsquo;s look at two different architectural approaches: RabbitMQ or Kafka Architecture;</p>
-<h2 id="basic-architecture-rabbitmq-amqp">Basic Architecture RabbitMQ (AMQP)</h2>
-<p>RabbitMQ consists of exchanges and queues. Exchanges are responsible for routing incoming messages. The queues store messages.</p>
-<p>A producer generates messages and pushes them into an exchange. The exchange receives the messages and routes them into a queue. The <strong>routing key</strong> is like the address of the message, so the exchange knows to which queue the message should be routed. The queues store the messages until a consumer takes a message off the queue. RabbitMQ is a general purpose message broker that supports different protocols including, MQTT, AMQP, and STOMP.</p>
-<p><img src="https://miro.medium.com/max/1400/1*_ucX-gnGYuKl71LsmfOmSQ.png" alt="Message Exchange RabbitMQ">
-<a href="https://miro.medium.com/max/1400/1*_ucX-gnGYuKl71LsmfOmSQ.png">Source</a></p>
-<h2 id="basic-architecture-kafka">Basic Architecture Kafka</h2>
-<p>Instead of pushing messages to a queue, Kafka stores messages in <strong>topics</strong>. A topic is a partitioned log of messages, where each partition is an <strong>ordered</strong>, immutable sequence of records. Kafka appends messages to the topics as they arrive. The messages stay for a specified number of time. Kafka does not care if messages are read or not. During the timeframe, consumers can <strong>persist</strong> and re-process the data as they need (Dumb broker / smart consumer approach). Because partitions are ordered, messages can be processed in batches.</p>
-<p><img src="https://miro.medium.com/max/1400/1*Ex6oX0h2k39fK_KPq5gVQQ.png" alt="Kafka producers">
-<img src="https://miro.medium.com/max/1400/1*fB3VV7HLNI9Vg1VjjLCPkQ.png" alt="Kafka consumers"></p>
-<p><a href="https://miro.medium.com/max/1400/1*_ucX-gnGYuKl71LsmfOmSQ.png">Source</a></p>
-<h2 id="summing-up">Summing up</h2>
-<p>RabbitMQ and Kafka use different approaches for processing messages:</p>
-<p>RabbitMQ uses a <strong>push model</strong>. It distributes messages individually through configurable routing and sends them to the consumers. Once consumed, the messages are gone.</p>
-<p>Kafka uses a <strong>pull model</strong>. Consumers have to request messages from a specific offset. Messages are retained in a partition and can be reread.</p>
+<h2 id="first-you-need-to-add-3-files-to-your-projects-repository-on-github">First you need to add 3 Files to your project&rsquo;s repository on Github</h2>
+<p>A <code>requirements.txt </code> for your environment, <code>setup.sh</code> for creating a config file for your environment and <code>Procfile</code>, which will execute your app. You need to spell all file names correctly:</p>
+<ul>
+<li><code>requirements.txt </code> (no caps)</li>
+<li><code>setup.sh</code> (no caps)</li>
+<li><code>Procfile</code> (first letter cap, no extension)</li>
+</ul>
+<p>All three files need to be located directly in the root directory of you project. Let&rsquo;s look into each file in more detail.</p>
+<h3 id="1-requirementstxt">1. Requirements.txt</h3>
+<p>Heroku will install all the packages needed for your app to run. It will look for <code>requirements.txt</code>.  You can create it with</p>
+<pre><code>pip freeze &gt; requirements.txt
+</code></pre><p>Make sure you only have the relevant packages to speed up deployment.</p>
+<h3 id="2-setupsh">2. Setup.sh</h3>
+<p>Just copypaste the following code in <code>setup.sh</code>. It will create a hidden folder called <code>.streamlit/</code> and put a config file (<code>config.toml</code>) inside with port and server info.</p>
+<pre><code>mkdir -p ~/.streamlit/
+
+echo &quot;\
+[server]\n\
+headless = true\n\
+enableCORS=false\n\
+port = $PORT\n\
+&quot; &gt; ~/.streamlit/config.toml
+
+</code></pre><h3 id="3-procfile">3. Procfile</h3>
+<p>Procfiles list <em>process types</em>. A process type is a named command that can be executed against your built application. Each line in the <code>Procfile</code> declares a process type (e.g. <code>web</code> for a webapp and <code>worker</code> for a worker&hellip;) and the command that you want to execute</p>
+<pre><code>&lt;process type&gt;: &lt;command&gt;
+</code></pre><p>So have to specify the process type and the commands that should be executed. In our case we have a webapp (<code>web:</code>) and we need to execute <code>setup.sh</code> and run our streamlit app with <code>streamlit run $Appname.py</code></p>
+<pre><code>web: sh setup.sh &amp;&amp; streamlit run $Appname.py
+</code></pre><p>One line. That&rsquo;s it. Heroku will spinn up one web <em>dyno</em> automatically. A &ldquo;dyno&rdquo; is Heroku&rsquo;s name for a [lightweight Linux container] (<a href="https://devcenter.Heroku.com/articles/dyno-types)">https://devcenter.Heroku.com/articles/dyno-types)</a>. Web dynos should be created automatically. But  if you get an error, like I did the first time, you can manually start the process with <code>heroku ps:scale web=1</code>.</p>
+<h3 id="brief-recap">Brief recap</h3>
+<p>Up till now, you should have created 3 additional files in your project folder.</p>
+<ul>
+<li><code>requirements.txt </code></li>
+<li><code>setup.sh</code></li>
+<li><code>Procfile</code></li>
+</ul>
+<p>Now let&rsquo;s get your app up and running using your terminal with</p>
+<h2 id="heroku">Heroku</h2>
+<ol>
+<li>
+<p><strong>Create an Account</strong> on <a href="https://www.Heroku.com/">Heroku</a> and download <a href="https://devcenter.Heroku.com/articles/Heroku-cli">Heroku  Command Line Interface  (CLI)</a>. This allows you to use your terminal to interact with Heroku.</p>
+</li>
+<li>
+<p><strong>Log into Heroku</strong>.
+In your terminal, go to your project folder, type</p>
+</li>
+</ol>
+<pre><code>heroku login
+</code></pre><p>Press any key and it will direct you to the website so you can login.</p>
+<ol start="3">
+<li><strong>Create an app</strong></li>
+</ol>
+<pre><code>heroku create $AppName
+</code></pre><p>Your <code>$AppName</code> will be in your Heroku url. You should now see your app in the personal section when you log into Heroku website.</p>
+<ol start="4">
+<li><strong>Push files to Heroku and automatically start the deployment</strong>.
+You just push the code from your local repository’s master branch to your Heroku remote</li>
+</ol>
+<pre><code>git push heroku master
+</code></pre><p>If you do not get an error, the deployment probably worked correctly. Double check the logs in your terminal. You should see something like</p>
+<pre><code>remote: -----&gt; Discovering process types
+remote:        Procfile declares types -&gt; web
+remote: 
+remote: -----&gt; Compressing...
+remote:        Done: 155M
+remote: -----&gt; Launching...
+remote:        Released v5
+remote:        https://your-apps-name.Herokuapp.com/ deployed to heroku
+remote: 
+remote: Verifying deploy... done.
+To https://git.heroku.com/your-apps-name.git
+</code></pre><p><code>https://your-apps-name.heroku.com/ </code> is the URL to your deployed project on Heroku. Congrats! If you want to redirect to another URL, just click through the Heroku web interface. It is quite intuitive to find your way around.</p>
+
               
             </div>
           </div>
@@ -312,13 +354,11 @@ if (!doNotTrack) {
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="/tags/kafka/">kafka</a>
+  <a class="tag tag--primary tag--small" href="/tags/app/">app</a>
 
-  <a class="tag tag--primary tag--small" href="/tags/message-brokers/">message brokers</a>
+  <a class="tag tag--primary tag--small" href="/tags/hosting/">hosting</a>
 
-  <a class="tag tag--primary tag--small" href="/tags/amqp/">amqp</a>
-
-  <a class="tag tag--primary tag--small" href="/tags/rabbitmq/">rabbitmq</a>
+  <a class="tag tag--primary tag--small" href="/tags/deployment/">deployment</a>
 
                   </div>
                 
@@ -331,7 +371,7 @@ if (!doNotTrack) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/11/26/intro-into-apis-how-to-access-data-from-public-rest-apis-with-curl/" data-tooltip="Intro into APIs: How to access data from public REST APIs with `curl`">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/" data-tooltip="A Gentle Intro to the Basic Architecture of Message Brokers: RabbitMQ vs. Kafka">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -339,7 +379,7 @@ if (!doNotTrack) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2021/09/05/from-localhost-to-a-web-server-how-to-host-your-streamlit-app-on-heroku-for-free/" data-tooltip="From localhost to a web server -  How to host your Streamlit App on Heroku (for free)">
+                <a class="post-action-btn btn btn--disabled">
               
                   <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                   <i class="fa fa-angle-right"></i>
@@ -357,13 +397,13 @@ if (!doNotTrack) {
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2021/09/05/from-localhost-to-a-web-server-how-to-host-your-streamlit-app-on-heroku-for-free/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2021/09/05/from-localhost-to-a-web-server-how-to-host-your-streamlit-app-on-heroku-for-free/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -411,7 +451,7 @@ if (!doNotTrack) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/11/26/intro-into-apis-how-to-access-data-from-public-rest-apis-with-curl/" data-tooltip="Intro into APIs: How to access data from public REST APIs with `curl`">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/" data-tooltip="A Gentle Intro to the Basic Architecture of Message Brokers: RabbitMQ vs. Kafka">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -419,7 +459,7 @@ if (!doNotTrack) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2021/09/05/from-localhost-to-a-web-server-how-to-host-your-streamlit-app-on-heroku-for-free/" data-tooltip="From localhost to a web server -  How to host your Streamlit App on Heroku (for free)">
+                <a class="post-action-btn btn btn--disabled">
               
                   <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                   <i class="fa fa-angle-right"></i>
@@ -437,13 +477,13 @@ if (!doNotTrack) {
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2021/09/05/from-localhost-to-a-web-server-how-to-host-your-streamlit-app-on-heroku-for-free/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2021/09/05/from-localhost-to-a-web-server-how-to-host-your-streamlit-app-on-heroku-for-free/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -473,13 +513,13 @@ if (!doNotTrack) {
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=%2F2021%2F01%2F26%2Fa-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=%2F2021%2F09%2F05%2Ffrom-localhost-to-a-web-server-how-to-host-your-streamlit-app-on-heroku-for-free%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2F2021%2F01%2F26%2Fa-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2F2021%2F09%2F05%2Ffrom-localhost-to-a-web-server-how-to-host-your-streamlit-app-on-heroku-for-free%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
@@ -569,9 +609,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = '\/2021\/01\/26\/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka\/';
+          this.page.url = '\/2021\/09\/05\/from-localhost-to-a-web-server-how-to-host-your-streamlit-app-on-heroku-for-free\/';
           
-            this.page.identifier = '\/2021\/01\/26\/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka\/'
+            this.page.identifier = '\/2021\/09\/05\/from-localhost-to-a-web-server-how-to-host-your-streamlit-app-on-heroku-for-free\/'
           
         };
         (function() {
