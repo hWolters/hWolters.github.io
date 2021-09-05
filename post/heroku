@@ -1,0 +1,123 @@
+---
+title: "From localhost to a web server -  How to host your Streamlit App on Heroku (for free)"
+date: 2021-09-05T20:44:39+02:00
+categories:
+- Streamlit
+- app
+- hosting
+- deployment
+tags:
+- app
+- hosting
+- deployment
+keywords:
+- app
+- hosting
+- deployment
+thumbnailImage:  /post/hosting.jpg
+thumbnailImagePosition: bottom
+coverImage: /post/hosting.jpg
+---
+
+
+You have built a great streamlit app. So far, you only ran it locally on your computer on `localhost:8501`. Now you would like to share your app with others, but wonder how. This blogpost introduces you to one option: Heroku. Heroku is a platform as a service that allows you to deploy your apps (not just streamlit apps, but also jvm apps, ruby apps etc.). This post will guide you through the deployment of a streamlit app on Heroku. It's free for non-commercial apps smaller than 300 MB. You need
+
+- a streamlit project with a repo on Github
+- your terminal
+
+## First you need to add 3 Files to your project's repository on Github
+
+A `requirements.txt ` for your environment, `setup.sh` for creating a config file for your environment and `Procfile`, which will execute your app. You need to spell all file names correctly:
+
+- `requirements.txt ` (no caps)
+- `setup.sh` (no caps)
+- `Procfile` (first letter cap, no extension)
+
+All three files need to be located directly in the root directory of you project. Let's look into each file in more detail.
+
+### 1. Requirements.txt
+Heroku will install all the packages needed for your app to run. It will look for `requirements.txt`.  You can create it with 
+
+```
+pip freeze > requirements.txt
+``` 
+
+Make sure you only have the relevant packages to speed up deployment. 
+	
+### 2. Setup.sh
+Just copypaste the following code in `setup.sh`. It will create a hidden folder called `.streamlit/` and put a config file (`config.toml`) inside with port and server info.
+
+```
+mkdir -p ~/.streamlit/
+
+echo "\
+[server]\n\
+headless = true\n\
+enableCORS=false\n\
+port = $PORT\n\
+" > ~/.streamlit/config.toml
+
+```
+### 3. Procfile 
+Procfiles list *process types*. A process type is a named command that can be executed against your built application. Each line in the `Procfile` declares a process type (e.g. `web` for a webapp and `worker` for a worker...) and the command that you want to execute
+ 
+```
+<process type>: <command>
+```
+So have to specify the process type and the commands that should be executed. In our case we have a webapp (`web:`) and we need to execute `setup.sh` and run our streamlit app with `streamlit run $Appname.py`
+
+```
+web: sh setup.sh && streamlit run $Appname.py
+```
+
+One line. That's it. Heroku will spinn up one web *dyno* automatically. A "dyno" is Heroku's name for a [lightweight Linux container] (https://devcenter.Heroku.com/articles/dyno-types). Web dynos should be created automatically. But  if you get an error, like I did the first time, you can manually start the process with `heroku ps:scale web=1`.
+
+### Brief recap
+Up till now, you should have created 3 additional files in your project folder. 
+
+- `requirements.txt ` 
+- `setup.sh` 
+- `Procfile` 
+
+Now let's get your app up and running using your terminal with
+
+## Heroku
+
+1. **Create an Account** on [Heroku](https://www.Heroku.com/) and download [Heroku  Command Line Interface  (CLI)](https://devcenter.Heroku.com/articles/Heroku-cli). This allows you to use your terminal to interact with Heroku.
+
+2. **Log into Heroku**. 
+In your terminal, go to your project folder, type 
+```
+heroku login
+``` 
+Press any key and it will direct you to the website so you can login.
+
+3. **Create an app** 
+```
+heroku create $AppName
+``` 
+Your `$AppName` will be in your Heroku url. You should now see your app in the personal section when you log into Heroku website. 
+
+4. **Push files to Heroku and automatically start the deployment**.
+	You just push the code from your local repository’s master branch to your Heroku remote
+```
+git push heroku master
+```
+
+If you do not get an error, the deployment probably worked correctly. Double check the logs in your terminal. You should see something like
+
+```
+remote: -----> Discovering process types
+remote:        Procfile declares types -> web
+remote: 
+remote: -----> Compressing...
+remote:        Done: 155M
+remote: -----> Launching...
+remote:        Released v5
+remote:        https://your-apps-name.Herokuapp.com/ deployed to heroku
+remote: 
+remote: Verifying deploy... done.
+To https://git.heroku.com/your-apps-name.git
+```
+
+`https://your-apps-name.heroku.com/ ` is the URL to your deployed project on Heroku. Congrats! If you want to redirect to another URL, just click through the Heroku web interface. It is quite intuitive to find your way around.
