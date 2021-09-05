@@ -298,7 +298,7 @@ port = $PORT\n\
 <pre><code>&lt;process type&gt;: &lt;command&gt;
 </code></pre><p>So have to specify the process type and the commands that should be executed. In our case we have a webapp (<code>web:</code>) and we need to execute <code>setup.sh</code> and run our streamlit app with <code>streamlit run $Appname.py</code></p>
 <pre><code>web: sh setup.sh &amp;&amp; streamlit run $Appname.py
-</code></pre><p>One line. That&rsquo;s it. Heroku will spinn up one web <em>dyno</em> automatically. A &ldquo;dyno&rdquo; is Heroku&rsquo;s name for a [lightweight Linux container] (<a href="https://devcenter.Heroku.com/articles/dyno-types)">https://devcenter.Heroku.com/articles/dyno-types)</a>. Web dynos should be created automatically. But  if you get an error, like I did the first time, you can manually start the process with <code>heroku ps:scale web=1</code>.</p>
+</code></pre><p>One line. That&rsquo;s it. Heroku will spinn up one web <em>dyno</em> automatically. A &ldquo;dyno&rdquo; is Heroku&rsquo;s name for a <a href="https://devcenter.Heroku.com/articles/dyno-types">lightweight Linux container</a>. Web dynos should be created automatically. But  if you get an error, like I did the first time, you can manually start the process with <code>heroku ps:scale web=1</code>.</p>
 <h3 id="brief-recap">Brief recap</h3>
 <p>Up till now, you should have created 3 additional files in your project folder.</p>
 <ul>
@@ -315,21 +315,23 @@ port = $PORT\n\
 <li>
 <p><strong>Log into Heroku</strong>.
 In your terminal, go to your project folder, type</p>
+<pre><code>heroku login
+</code></pre><p>`
+Press any key and it will direct you to the website so you can login.</p>
+</li>
+<li>
+<p><strong>Create an app</strong></p>
+<pre><code>heroku create $AppName
+</code></pre><p><code>Your </code>$AppName` will be in your Heroku url. You should now see your app in the personal section when you log into Heroku website.</p>
+</li>
+<li>
+<p><strong>Push files to Heroku and automatically start the deployment</strong>.
+You just push the code from your local repository’s master branch to your Heroku remote</p>
+<pre><code>git push heroku master
+</code></pre><p>``</p>
 </li>
 </ol>
-<pre><code>heroku login
-</code></pre><p>Press any key and it will direct you to the website so you can login.</p>
-<ol start="3">
-<li><strong>Create an app</strong></li>
-</ol>
-<pre><code>heroku create $AppName
-</code></pre><p>Your <code>$AppName</code> will be in your Heroku url. You should now see your app in the personal section when you log into Heroku website.</p>
-<ol start="4">
-<li><strong>Push files to Heroku and automatically start the deployment</strong>.
-You just push the code from your local repository’s master branch to your Heroku remote</li>
-</ol>
-<pre><code>git push heroku master
-</code></pre><p>If you do not get an error, the deployment probably worked correctly. Double check the logs in your terminal. You should see something like</p>
+<p>If you do not get an error, the deployment probably worked correctly. Double check the logs in your terminal. You should see something like</p>
 <pre><code>remote: -----&gt; Discovering process types
 remote:        Procfile declares types -&gt; web
 remote: 
