@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>message brokers on A Potpourri of Data Science Topics for Analysts</title>
+    <title>message brokers on A Potpourri of Data Science &amp; Data Engineering Topics</title>
     <link>/categories/message-brokers/</link>
-    <description>Recent content in message brokers on A Potpourri of Data Science Topics for Analysts</description>
+    <description>Recent content in message brokers on A Potpourri of Data Science &amp; Data Engineering Topics</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 26 Jan 2021 16:26:57 +0100</lastBuildDate><atom:link href="/categories/message-brokers/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <pubDate>Tue, 26 Jan 2021 16:26:57 +0100</pubDate>
       
       <guid>/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;In this blogpost you will get a basic understanding about message brokers. We will look at two very popular message brokers, Kafka and RabbitMQ, and learn, how they handle messages.&lt;/strong&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;In this blogpost you will get a basic understanding about message brokers. We will look at two very popular message brokers, Kafka and RabbitMQ, and learn, how they handle messages.&lt;/p&gt;</description>
     </item>
     
   </channel>

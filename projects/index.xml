@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on A Potpourri of Data Science Topics for Analysts</title>
+    <link>/projects/</link>
+    <description>Recent content in Projects on A Potpourri of Data Science Topics for Analysts</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>/projects/my-choco-db/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/my-choco-db/</guid>
+      <description>Chocolate DB: App for chocolate I love chocolate. So I created a sqlite database of most chocolates that me and my husband ate (including a rating).
+Chocolate information can be requested via my chocolate-db api (built with fast api). I build a simple search interface with streamlit and hosted the app on digital ocean.
+Check it out here</description>
+    </item>
+    
+  </channel>
+</rss>

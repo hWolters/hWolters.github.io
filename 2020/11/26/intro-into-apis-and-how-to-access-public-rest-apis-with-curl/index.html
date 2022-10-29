@@ -1,0 +1,781 @@
+<style>
+.sidebar-button-desc {
+  color: darkgrey !important;
+}
+.sidebar-button-icon {
+  color: darkgrey !important;
+}
+.sidebar-profile-name {
+  color: darkgrey !important;
+</style><!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.87.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="Heike Maria (PhD)">
+<meta name="keywords" content="curl, api, rest, SQL, Data Science, Analytics, ElasticSeach, Python, Pandas, Analytics, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive, Data Analysis, Data Mining">
+<meta name="description" content="This post will teach you the inution of REST APIs and how you can use them to get interesting datasets for your data projects. First, we will look at the four components of a request. In the second part of this blogpost, we will go through one example and access the coingecko API via curl.">
+
+
+<meta property="og:description" content="This post will teach you the inution of REST APIs and how you can use them to get interesting datasets for your data projects. First, we will look at the four components of a request. In the second part of this blogpost, we will go through one example and access the coingecko API via curl.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Intro into APIs and how to access public REST APIs with `curl`">
+<meta name="twitter:title" content="Intro into APIs and how to access public REST APIs with `curl`">
+<meta property="og:url" content="/2020/11/26/intro-into-apis-and-how-to-access-public-rest-apis-with-curl/">
+<meta property="twitter:url" content="/2020/11/26/intro-into-apis-and-how-to-access-public-rest-apis-with-curl/">
+<meta property="og:site_name" content="A Potpourri of Data Science &amp; Data Engineering Topics">
+<meta property="og:description" content="This post will teach you the inution of REST APIs and how you can use them to get interesting datasets for your data projects. First, we will look at the four components of a request. In the second part of this blogpost, we will go through one example and access the coingecko API via curl.">
+<meta name="twitter:description" content="This post will teach you the inution of REST APIs and how you can use them to get interesting datasets for your data projects. First, we will look at the four components of a request. In the second part of this blogpost, we will go through one example and access the coingecko API via curl.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2020-11-26T16:26:57">
+  
+  
+    <meta property="article:modified_time" content="2020-11-26T16:26:57">
+  
+  
+  
+    
+      <meta property="article:section" content="api">
+    
+      <meta property="article:section" content="rest">
+    
+  
+  
+    
+      <meta property="article:tag" content="curl">
+    
+      <meta property="article:tag" content="api">
+    
+      <meta property="article:tag" content="rest">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="/post/2020-11-intro-into-apis/curl.jpg">
+  <meta property="twitter:image" content="/post/2020-11-intro-into-apis/curl.jpg">
+
+
+
+
+    <title>Intro into APIs and how to access public REST APIs with `curl`</title>
+
+    <link rel="icon" href="/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="/2020/11/26/intro-into-apis-and-how-to-access-public-rest-apis-with-curl/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-128956833-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="1">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="/">A Potpourri of Data Science &amp; Data Engineering Topics</a>
+  </div>
+  
+    
+      <a class="header-right-icon open-algolia-search"
+         href="/#search">
+    
+    
+      <i class="fa fa-lg fa-search"></i>
+    
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="1">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="/#about">
+          <img class="sidebar-profile-picture" src="/me.jpg" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Heike Maria (PhD)</h4>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link open-algolia-search" href="/#search">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+      
+      <span class="sidebar-button-desc">Search</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-left
+              "
+       style="background-image:url('/post/2020-11-intro-into-apis/curl.jpg')"
+       data-behavior="1">
+    
+      <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Intro into APIs and how to access public REST APIs with `curl`
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2020-11-26T16:26:57&#43;01:00">
+        
+  
+  
+  
+  
+    26 November 2020
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="/categories/api">api</a>, 
+    
+      <a class="category-link" href="/categories/rest">rest</a>
+    
+  
+
+  </div>
+
+</div>
+    
+  </div>
+
+
+      <div id="main" data-behavior="1"
+        class="hasCover
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>This post will teach you the inution of REST APIs and how you can use them to get interesting datasets for your data projects. First, we will look at the four components of a request. In the second part of this blogpost, we will go through one example and access the coingecko API via <code>curl</code>.</p>
+<p>So let&rsquo;s start from 0: What is an API? API stands for <strong>a</strong>pplication <strong>p</strong>rogramming <strong>i</strong>nterface. APIs contain a set of methods that allow the communication between your computer and a server.  In other words, they send back and forth data using HTTP requests. You can retrieve data (<code>GET</code>), send data (<code>POST</code>,<code>PUT</code>) or delete data (<code>DELETE</code>). You have probably seen the “Like on Facebook” or “Share on Twitter” buttons on various websites. When you click one of these buttons, the site you’re visiting communicates with your Facebook or Twitter account, and alters its data by adding new likes or creating a tweet. For you as a data scientist/analyst APIs provide a great opportunity to retrieve interesting datasets. For example the Kayak API let&rsquo;s you access a lot of travel data while the imdb API contains movie data. Also some models like <a href="https://pypi.org/project/bert-api/">BERT</a> are accessible through an API. </p>
+<p>There are different ways and rules to follow when creating APIs. REST stands for &ldquo;Representational State Transfer” and is just one option. A REST request can have four components:</p>
+<br>
+<ol>
+<li>method</li>
+<li>endpoint </li>
+<li>header</li>
+<li>body</li>
+</ol>
+<p>We&rsquo;ll look into each component and then puzzle them together. After this chapter, you will understand the structure of a REST call and how to use it to get data.</p>
+<h3 id="1-method">1. Method </h3>
+<p>Request methods characterize what action we are going to take by referring to the API. In total, there are four main types of actions, but only the <code>GET</code> method is important when downloading data. <code>POST</code>, <code>PUT</code> and <code>DELETE</code> modify data. The following table gives an overview.</p>
+<br>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">method</th>
+<th style="text-align:left">what it does</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>GET</code></td>
+<td style="text-align:left">requests data from a server</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>POST</code></td>
+<td style="text-align:left">adds new data to the server</td>
+<td style="text-align:left"> </td>
+</tr>
+<tr>
+<td style="text-align:left"><code>PUT</code></td>
+<td style="text-align:left">change existing data</td>
+<td style="text-align:left"> </td>
+</tr>
+<tr>
+<td style="text-align:left"><code>DELETE</code></td>
+<td style="text-align:left">delete existing data</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="2-endpoint">2. Endpoint</h3>
+<p>An endpoint is the Unique Resource Location (URL) where a service is accessed. So it is like a navigation that routes you to your destination. Let&rsquo;s briefly talk about the different components of a URL by looking at an endpoint. One example from the twitter API for getting tweets from a specified location:</p>
+<br>
+`https://api.twitter.com/2/tweets/:ID?expansions=geo.place_id`
+<br>
+<ul>
+<li><strong>Scheme</strong>: identifies the protocol of the browser, e.g. <code>http</code> or <code>https</code>. The <code>:</code> is the scheme separator. The <code>//</code> establishes the start of a domain.</li>
+<li><strong>Domain Name, a.k.a. host</strong>: name of intended host or web server that is being requested (here: <code>api.twitter.com</code>)</li>
+<li><strong>Path</strong>: route to the resource you want to access. Paths are just like paths on a website. Any colons <code>(:)</code> on a path denote a variable, which you need to replace with an actual value. E.g. you replace <code>:ID</code> with your user id. This is one option to pass parameters to a rest request.</li>
+<li><strong>Querystring</strong>: query parameters give you the option to modify a request. A querystring begins with <code>?</code> followed by parameters and their values. Multiple parameters are separated with a <code>&amp;</code> (e.g. <code>?param1=1&amp;param2=2</code>). You find information about parameters in the API documentation.
+So you you know where to go, the next step is what to do.</li>
+</ul>
+<h3 id="3-header">3. Header</h3>
+<p>Headers contain meta information e.g. for authentication or for passing information about the body content ([see] (<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers))">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers))</a>. In a REST request, you can add a header by typing <code>--header</code> (or short <code>-H</code>) followed by a string containing the header fields as colon-separated key-value pairs. For example if we wanted to authenticate accessing the twitter API:</p>
+<pre><code>curl 'https://api.twitter.com/2/tweets/:ID?expansions=geo.place_id' --header 'Authorization: Bearer $BEARER_TOKEN'
+</code></pre><p><code>--header</code> denotes that the header arguments start. <code>Authorization</code> is the key and <code>Bearer $BEARER_TOKEN</code> is the value (in this case the <a href="https://en.wikipedia.org/wiki/JSON_Web_Token">token</a>) we pass.</p>
+<h3 id="4-body">4. Body</h3>
+<p>The request body is used to send and receive data. So instead of passing data/parameters in the url (path parameters) or as a querystring, you can also send information in the body. The body can be in HTML, XML, JSON or other formats. You can add a body with <code>--data</code> (or short <code>-d</code>) as in this example from the twitter API.</p>
+<pre><code>curl --request POST 
+  --url https://data-api.twitter.com/insights/engagement/totals 
+  --header 'accept-encoding: gzip' 
+  --header 'authorization: OAuth oauth_consumer_key=&quot;consumer-key-for-app&quot;,oauth_nonce=&quot;generated-nonce&quot;,oauth_signature=&quot;generated-signature&quot;,oauth_signature_method=&quot;HMAC-SHA1&quot;, oauth_timestamp=&quot;generated-timestamp&quot;,oauth_token=&quot;access-token-for-authed-user&quot;, oauth_version=&quot;1.0&quot;' 
+  --header 'content-type: application/json' 
+  --data '{
+                &quot;tweet_ids&quot;: [
+                    &quot;1060976163948904448&quot;,&quot;1045709644067471360&quot;
+                ],
+                &quot;engagement_types&quot;: [
+                    &quot;favorites&quot;,&quot;replies&quot;,&quot;retweets&quot;,&quot;video_views&quot;,&quot;impressions&quot;,&quot;engagements&quot;
+                ],
+                &quot;groupings&quot;: {
+                    &quot;perTweetMetricsOwned&quot;: {
+                        &quot;group_by&quot;: [
+                            &quot;tweet.id&quot;,
+                            &quot;engagement.type&quot;
+                        ]
+                    }
+                }
+            }' 
+</code></pre><h2 id="example-sending-requests-via-curl">Example: Sending requests via curl</h2>
+<p>There are different ways to access APIs. One quick appoach is through using the <code>curl</code> command from your terminal. You just need the keyword <code>curl</code> (which stands for <strong>c</strong>lient <strong>url</strong>) and our four components of the REST call.</p>
+<h3 id="anatomy-of-a-rest-call-via-curl">Anatomy of a rest call via curl</h3>
+<p>Let&rsquo;s recapitulate the different components of a rest call. We need a method, a URL and optionally a header and a body. So you can write a request with the following options:</p>
+<p><code>curl</code> <code>--request</code> + method (<code>GET</code>/<code>POST</code>/<code>DELETE</code>/<code>PUT</code>) + header (<code>--header</code>) + URL (in quotes) + body (<code>--data</code>)</p>
+<p>You can use a long or a short version to pass options when making the request.</p>
+<br>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">short</th>
+<th style="text-align:left">long</th>
+<th style="text-align:left">what it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>-X</code></td>
+<td style="text-align:left"><code> --request</code></td>
+<td style="text-align:left">HTTP method to be used (<strong>can be omitted????</strong>)</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-d</code></td>
+<td style="text-align:left"><code> --data</code></td>
+<td style="text-align:left">Data/body to be sent</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-H</code></td>
+<td style="text-align:left"><code> --header</code></td>
+<td style="text-align:left">Header to be sent</td>
+</tr>
+</tbody>
+</table>
+<p>Before you make your first request, check if you have curl installed:</p>
+<pre><code>curl -version.
+</code></pre><p>If you don&rsquo;t, you can get it <a href="https://curl.haxx.se/download.html">here</a></p>
+<p>Amazing, you can start making requests to (?????) an API. Oftentimes you will need to request developer access. Don&rsquo;t let that scare you off. Usually, you will be allowed to use the API a couple of days later. For this blogpost example, let&rsquo;s work with the <a href="https://www.coingecko.com/api/documentations/v3">coingecko API</a>, because you can directly start using it. Coingecko is a website that contains information and metrics of the crypto currencies.</p>
+<p>We will start with a test request to make sure, the API server is available</p>
+<pre><code>curl -X GET &quot;https://api.coingecko.com/api/v3/ping&quot; -H &quot;accept: application/json&quot;
+</code></pre><p>returns</p>
+<pre><code>{
+	&quot;gecko_says&quot;: &quot;(V3) To the Moon!&quot;
+}
+</code></pre><p>Good, looks like it is running.</p>
+<p>Now you can study the documentation for the data you&rsquo;re interested in. Let&rsquo;s say you want to get the exchange rates of your crypto currencies in the current moment.</p>
+<ul>
+<li>base url: <code>https://api.coingecko.com/api/v3/</code></li>
+<li>path: <code>/exchange_rates</code></li>
+<li>Head: <code>accept: application/json</code> (this API returns a response in json format per default)</li>
+</ul>
+<p>Wrapping this into a <code>curl</code> request:</p>
+<pre><code>curl -X GET &quot;https://api.coingecko.com/api/v3/exchange_rates&quot; -H &quot;accept: application/json&quot;
+</code></pre><p>You will get the exchange rates in json format:</p>
+<pre><code>{
+  &quot;rates&quot;: {
+    &quot;btc&quot;: {
+      &quot;name&quot;: &quot;Bitcoin&quot;,
+      &quot;unit&quot;: &quot;BTC&quot;,
+      &quot;value&quot;: 1,
+      &quot;type&quot;: &quot;crypto&quot;
+    },
+    &quot;eth&quot;: {
+      &quot;name&quot;: &quot;Ether&quot;,
+      &quot;unit&quot;: &quot;ETH&quot;,
+      &quot;value&quot;: 38.915,
+      &quot;type&quot;: &quot;crypto&quot;
+    },
+    &quot;ltc&quot;: {
+      &quot;name&quot;: &quot;Litecoin&quot;,
+      &quot;unit&quot;: &quot;LTC&quot;,
+      &quot;value&quot;: 202.191,
+      &quot;type&quot;: &quot;crypto&quot;
+    },
+    
+    ...
+    
+</code></pre><p>As a Data Scientist/Analyst you may be more interested in the historical development of a specific currency. Checking <a href="https://www.coingecko.com/api/documentations/v3#/coins/get_coins__id__history">the API documentation</a> you will find out, that you will need to pass the coin id through a path parameter and a date as a query parameter and an optional query parameter for localization.</p>
+<ul>
+<li>base url is the same as before <code>https://api.coingecko.com/api/v3/</code></li>
+<li>path with a placeholder for the coin id <code>/https://api.coingecko.com/api/v3/coins/{id}/history</code>. Let&rsquo;s go with <code>bitcoin</code> here.</li>
+<li>query parameter for date as string in <code>dd-mm-yyyy</code> format</li>
+</ul>
+<p>Leads to the following request:</p>
+<p><code>curl -X GET &quot;https://api.coingecko.com/api/v3/coins/bitcoin/history?date=01-01-2020&quot; -H &quot;accept: application/json&quot;</code></p>
+<p>Which returns a lot of data about bitcoin (price, market cap, facebook likes etc.) on that date.</p>
+<pre><code>{
+  &quot;id&quot;: &quot;bitcoin&quot;,
+  &quot;symbol&quot;: &quot;btc&quot;,
+  &quot;name&quot;: &quot;Bitcoin&quot;,
+  &quot;image&quot;: {
+    &quot;thumb&quot;: &quot;https://assets.coingecko.com/coins/images/1/thumb/bitcoin.png?1547033579&quot;,
+    &quot;small&quot;: &quot;https://assets.coingecko.com/coins/images/1/small/bitcoin.png?1547033579&quot;
+  },
+  &quot;market_data&quot;: {
+    &quot;current_price&quot;: {
+      &quot;aed&quot;: 26429.239288693556,
+      &quot;ars&quot;: 430563.0457102599,
+      &quot;aud&quot;: 10256.814195551682,
+      &quot;bch&quot;: 35.13945542496315,
+      &quot;bdt&quot;: 610699.0910671571,
+      &quot;bhd&quot;: 2712.9039956563156,
+      
+      ....
+      
+</code></pre><h4 id="request-messages">Request messages</h4>
+<p>Nice, if everything worked well, you should have received 200 messages. This means your request has succeeded. Let&rsquo;s briefly look into the different messages that you might see. Messages with a number &gt;= 400 indicate an error.</p>
+<br>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">number</th>
+<th style="text-align:left">what does it mean?</th>
+<th style="text-align:left">example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">200+</td>
+<td style="text-align:left">request has succeeded</td>
+<td style="text-align:left">any of the above requests</td>
+</tr>
+<tr>
+<td style="text-align:left">300+</td>
+<td style="text-align:left">request is redirected to another URL</td>
+<td style="text-align:left">your request is redirected to from <code>https://api.coingecko.com/api/v3/</code> to an older version <code>https://api.coingecko.com/api/v2/</code></td>
+</tr>
+<tr>
+<td style="text-align:left">400+</td>
+<td style="text-align:left">an error from the client side has occurred</td>
+<td style="text-align:left">e.g. you have a typo one of your parameter values, e.g. in the coin id <code>/https://api.coingecko.com/api/v3/coins/bitcion/history</code></td>
+</tr>
+<tr>
+<td style="text-align:left">500+</td>
+<td style="text-align:left">an error from the server has occurred</td>
+<td style="text-align:left">e.g. there is a problem with the software running on the coingecko server. You can try running the request again or you will have to wait untill someone restarted the server</td>
+</tr>
+</tbody>
+</table>
+<p>Now you might be wondering, how to deal with all this json printouts in your console. One option would be, to write them into a file</p>
+<pre><code>curl -X GET &quot;https://api.coingecko.com/api/v3/coins/bitcoin/history?date=01-01-2020&quot; -H &quot;accept: application/json&quot; &gt;&gt; output.json
+</code></pre><p>There is also the very useful <code>jq</code> tool which formats and highlights JSON. If you have <a href="https://stedolan.github.io/jq/">jq</a> installed, you can just run <code>curl ... | jq</code> to format the output:</p>
+<pre><code>curl -X GET &quot;https://api.coingecko.com/api/v3/coins/bitcoin/history?date=01-01-2020&quot; -H &quot;accept: application/json&quot; &gt;&gt; output.json | jq
+</code></pre><p>Or you make your requests directly from python and write the results into python variables. You can use the <a href="https://requests.readthedocs.io/en/master/">python requests</a> package.</p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="/tags/curl/">curl</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/api/">api</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/rest/">rest</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/10/15/pointwise-pairswise-and-listwise-learning-to-rank-models-three-approaches-to-optimize-relative-ordering/" data-tooltip="Pointwise, Pairswise and Listwise Learning to Rank Models - Three Approaches to Optimize Relative Ordering">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/" data-tooltip="A Gentle Intro to the Basic Architecture of Message Brokers: RabbitMQ vs. Kafka">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2020/11/26/intro-into-apis-and-how-to-access-public-rest-apis-with-curl/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2020/11/26/intro-into-apis-and-how-to-access-public-rest-apis-with-curl/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2022 Heike Maria (PhD). All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="1">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/10/15/pointwise-pairswise-and-listwise-learning-to-rank-models-three-approaches-to-optimize-relative-ordering/" data-tooltip="Pointwise, Pairswise and Listwise Learning to Rank Models - Three Approaches to Optimize Relative Ordering">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/" data-tooltip="A Gentle Intro to the Basic Architecture of Message Brokers: RabbitMQ vs. Kafka">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2020/11/26/intro-into-apis-and-how-to-access-public-rest-apis-with-curl/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2020/11/26/intro-into-apis-and-how-to-access-public-rest-apis-with-curl/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="1">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=%2F2020%2F11%2F26%2Fintro-into-apis-and-how-to-access-public-rest-apis-with-curl%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2F2020%2F11%2F26%2Fintro-into-apis-and-how-to-access-public-rest-apis-with-curl%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="/me.jpg" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Heike Maria (PhD)</h4>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Data Science <a href="https://www.moia.io/en">@MOIA</a> working on the future of mobility, previously Data Science at <a href="https://www.xing.com/">@Xing</a> on recommender systems and search
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Germany
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('source/assets/img/banner');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = '\/2020\/11\/26\/intro-into-apis-and-how-to-access-public-rest-apis-with-curl\/';
+          
+            this.page.identifier = '\/2020\/11\/26\/intro-into-apis-and-how-to-access-public-rest-apis-with-curl\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'Heike';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+

@@ -1,36 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>A Potpourri of Data Science Topics for Analysts</title>
+    <title>A Potpourri of Data Science &amp; Data Engineering Topics</title>
     <link>/</link>
-    <description>Recent content on A Potpourri of Data Science Topics for Analysts</description>
+    <description>Recent content on A Potpourri of Data Science &amp; Data Engineering Topics</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 05 Sep 2021 20:44:39 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>From localhost to a web server -  How to host your Streamlit App on Heroku (for free)</title>
-      <link>/2021/09/05/from-localhost-to-a-web-server-how-to-host-your-streamlit-app-on-heroku-for-free/</link>
-      <pubDate>Sun, 05 Sep 2021 20:44:39 +0200</pubDate>
-      
-      <guid>/2021/09/05/from-localhost-to-a-web-server-how-to-host-your-streamlit-app-on-heroku-for-free/</guid>
-      <description>You have built a great streamlit app. So far, you only ran it locally on your computer on localhost:8501. Now you would like to share your app with others, but wonder how. This blogpost introduces you to one option: Heroku. Heroku is a platform as a service that allows you to deploy your apps (not just streamlit apps, but also jvm apps, ruby apps etc.). This post will guide you through the deployment of a streamlit app on Heroku.</description>
-    </item>
-    
+    <lastBuildDate>Tue, 26 Jan 2021 16:26:57 +0100</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A Gentle Intro to the Basic Architecture of Message Brokers: RabbitMQ vs. Kafka</title>
       <link>/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/</link>
       <pubDate>Tue, 26 Jan 2021 16:26:57 +0100</pubDate>
       
       <guid>/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;In this blogpost you will get a basic understanding about message brokers. We will look at two very popular message brokers, Kafka and RabbitMQ, and learn, how they handle messages.&lt;/strong&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;In this blogpost you will get a basic understanding about message brokers. We will look at two very popular message brokers, Kafka and RabbitMQ, and learn, how they handle messages.&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>Intro into APIs: How to access data from public REST APIs with `curl`</title>
-      <link>/2020/11/26/intro-into-apis-how-to-access-data-from-public-rest-apis-with-curl/</link>
+      <title>Intro into APIs and how to access public REST APIs with `curl`</title>
+      <link>/2020/11/26/intro-into-apis-and-how-to-access-public-rest-apis-with-curl/</link>
       <pubDate>Thu, 26 Nov 2020 16:26:57 +0100</pubDate>
       
-      <guid>/2020/11/26/intro-into-apis-how-to-access-data-from-public-rest-apis-with-curl/</guid>
+      <guid>/2020/11/26/intro-into-apis-and-how-to-access-public-rest-apis-with-curl/</guid>
       <description>&lt;p&gt;This post will teach you the inution of REST APIs and how you can use them to get interesting datasets for your data projects. First, we will look at the four components of a request. In the second part of this blogpost, we will go through one example and access the coingecko API via &lt;code&gt;curl&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
     
@@ -150,6 +141,18 @@ Why would I want to do that? You need this as soon as your script interacts with
 How to generally format tables (font, size, color... )
  How to create tables with conditional formating (e.g. coloring values &amp;lt; 0 red)
   The basics: the R package kableExtra kableExtra is an awesome package that allows you to format and style your tables. It works similar to ggplot2: You create a base table and then add formating layers with the pipe operator %&amp;gt;%.</description>
+    </item>
+    
+    <item>
+      <title>R Markdown for Novices: All you need to know to get started</title>
+      <link>/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/</link>
+      <pubDate>Sat, 03 Nov 2018 21:13:14 -0500</pubDate>
+      
+      <guid>/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/</guid>
+      <description>I write this blogpost for someone, who has never worked with R Markdown. After you read this post, you will
+understand why R Markdown may be useful for your daily work as a student, researcher, analyst or data scientist.
+ understand the basic structure of an R Markdown document and how you can get startet.
+  I strongly encourage everybody working with R to use R Markdown. I promise, it will make your life so much easier.</description>
     </item>
     
   </channel>

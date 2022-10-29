@@ -1,39 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on A Potpourri of Data Science Topics for Analysts</title>
+    <title>Tags on A Potpourri of Data Science &amp; Data Engineering Topics</title>
     <link>/tags/</link>
-    <description>Recent content in Tags on A Potpourri of Data Science Topics for Analysts</description>
+    <description>Recent content in Tags on A Potpourri of Data Science &amp; Data Engineering Topics</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 05 Sep 2021 20:44:39 +0200</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>app</title>
-      <link>/tags/app/</link>
-      <pubDate>Sun, 05 Sep 2021 20:44:39 +0200</pubDate>
-      
-      <guid>/tags/app/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>deployment</title>
-      <link>/tags/deployment/</link>
-      <pubDate>Sun, 05 Sep 2021 20:44:39 +0200</pubDate>
-      
-      <guid>/tags/deployment/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>hosting</title>
-      <link>/tags/hosting/</link>
-      <pubDate>Sun, 05 Sep 2021 20:44:39 +0200</pubDate>
-      
-      <guid>/tags/hosting/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Tue, 26 Jan 2021 16:26:57 +0100</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>amqp</title>
       <link>/tags/amqp/</link>
@@ -139,6 +112,33 @@
       <pubDate>Thu, 10 Sep 2020 22:20:39 +0200</pubDate>
       
       <guid>/tags/nlp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>BERT</title>
+      <link>/tags/bert/</link>
+      <pubDate>Mon, 31 Aug 2020 21:17:58 +0200</pubDate>
+      
+      <guid>/tags/bert/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>One-Hot-Encoding</title>
+      <link>/tags/one-hot-encoding/</link>
+      <pubDate>Mon, 31 Aug 2020 21:17:58 +0200</pubDate>
+      
+      <guid>/tags/one-hot-encoding/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Word Embeddings</title>
+      <link>/tags/word-embeddings/</link>
+      <pubDate>Mon, 31 Aug 2020 21:17:58 +0200</pubDate>
+      
+      <guid>/tags/word-embeddings/</guid>
       <description></description>
     </item>
     

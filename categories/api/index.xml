@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>api on A Potpourri of Data Science Topics for Analysts</title>
+    <title>api on A Potpourri of Data Science &amp; Data Engineering Topics</title>
     <link>/categories/api/</link>
-    <description>Recent content in api on A Potpourri of Data Science Topics for Analysts</description>
+    <description>Recent content in api on A Potpourri of Data Science &amp; Data Engineering Topics</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 26 Nov 2020 16:26:57 +0100</lastBuildDate><atom:link href="/categories/api/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Intro into APIs: How to access data from public REST APIs with `curl`</title>
-      <link>/2020/11/26/intro-into-apis-how-to-access-data-from-public-rest-apis-with-curl/</link>
+      <title>Intro into APIs and how to access public REST APIs with `curl`</title>
+      <link>/2020/11/26/intro-into-apis-and-how-to-access-public-rest-apis-with-curl/</link>
       <pubDate>Thu, 26 Nov 2020 16:26:57 +0100</pubDate>
       
-      <guid>/2020/11/26/intro-into-apis-how-to-access-data-from-public-rest-apis-with-curl/</guid>
+      <guid>/2020/11/26/intro-into-apis-and-how-to-access-public-rest-apis-with-curl/</guid>
       <description>&lt;p&gt;This post will teach you the inution of REST APIs and how you can use them to get interesting datasets for your data projects. First, we will look at the four components of a request. In the second part of this blogpost, we will go through one example and access the coingecko API via &lt;code&gt;curl&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
     
