@@ -15,8 +15,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.87.0 with theme Tranquilpeak 0.4.8-BETA">
-<meta name="author" content="Heike Maria (PhD)">
-<meta name="keywords" content=", SQL, Data Science, Analytics, ElasticSeach, Python, Pandas, Analytics, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive, Data Analysis, Data Mining">
+<meta name="author" content="Heike W">
+<meta name="keywords" content=", SQL, Data Science, Analytics, ElasticSeacg, Python, Pandas, Analytics, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive, Data Analysis, Data Mining">
 <meta name="description" content="So many people have recommended Git as a version control system to me. I had a look at it, but I was pretty overwhelmed. Since I did not have a technical background, everything seemed so complex! Many tutorials let me copy paste code without giving you a deeper understanding of what and why I am actually doing this. This copy pasting feels like success at first, but when I tried working with it, I could not.">
 
 
@@ -26,7 +26,7 @@
 <meta name="twitter:title" content="Everything You Need to Know to Use Git for Version Control">
 <meta property="og:url" content="/2018/12/17/everything-you-need-to-know-to-use-git-for-version-control/">
 <meta property="twitter:url" content="/2018/12/17/everything-you-need-to-know-to-use-git-for-version-control/">
-<meta property="og:site_name" content="A Potpourri of Data Science &amp; Data Engineering Topics">
+<meta property="og:site_name" content="A Potpourri of Data Science Topics for Analysts">
 <meta property="og:description" content="So many people have recommended Git as a version control system to me. I had a look at it, but I was pretty overwhelmed. Since I did not have a technical background, everything seemed so complex! Many tutorials let me copy paste code without giving you a deeper understanding of what and why I am actually doing this. This copy pasting feels like success at first, but when I tried working with it, I could not.">
 <meta name="twitter:description" content="So many people have recommended Git as a version control system to me. I had a look at it, but I was pretty overwhelmed. Since I did not have a technical background, everything seemed so complex! Many tutorials let me copy paste code without giving you a deeper understanding of what and why I am actually doing this. This copy pasting feels like success at first, but when I tried working with it, I could not.">
 <meta property="og:locale" content="en-us">
@@ -95,7 +95,7 @@ if (!doNotTrack) {
       <header id="header" data-behavior="1">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
-    <a class="header-title-link" href="/">A Potpourri of Data Science &amp; Data Engineering Topics</a>
+    <a class="header-title-link" href="/">A Potpourri of Data Science Topics for Analysts</a>
   </div>
   
     
@@ -117,7 +117,7 @@ if (!doNotTrack) {
         <a href="/#about">
           <img class="sidebar-profile-picture" src="/me.jpg" alt="Author&#39;s picture" />
         </a>
-        <h4 class="sidebar-profile-name">Heike Maria (PhD)</h4>
+        <h4 class="sidebar-profile-name">Heike W</h4>
         
       </div>
     
@@ -222,56 +222,55 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>So many people have recommended Git as a version control system to me. I had a look at it, but I was pretty overwhelmed. Since I did not have a technical background, everything seemed so complex! Many tutorials let me copy paste code without giving you a deeper understanding of what and why I am actually doing this. This copy pasting feels like success at first, but when I tried working with it, I could not.</p>
-<p>The goal of this post is to teach you everything you need to know about Git on how use it as your version control system. We&rsquo;re not going to talk about collaboration with git so far. First you need to understand some basic things.</p>
-<p>Git does not store differences but entire <strong>snapshots</strong> of your filesystem. So if you &ldquo;save&rdquo; a reference, git</p>
-<ul>
-<li>takes a &ldquo;picture&rdquo; of all files at that moment</li>
-<li>uses checksumming to find out if files are identical (<em>SHA-1</em>)
-<ul>
-<li><em>file is identical</em> &ndash;&gt; point to previous identical file</li>
-<li><em>file has changed</em>  &ndash;&gt; create new pointer</li>
-</ul>
-</li>
-</ul>
-<p>Git works with <strong>repositories</strong>. A repository is a folder, that contains a <code>.git</code> folder. All your history is stored in this folder.</p>
-<p>In git there are several stages where you save your code:</p>
+              
+
+
+<p>So many people have recommended Git as a version control system to me. I had a look at it, but I was pretty overwhelmed. Since I did not have a technical background, everything seemed so complex! Many tutorials let me copy paste code without giving you a deeper understanding of what and why I am actually doing this. This copy pasting feels like success at first, but when I tried working with it, I could not.</p>
+<p>The goal of this post is to teach you everything you need to know about Git on how use it as your version control system. We're not going to talk about collaboration with git so far. First you need to understand some basic things.</p>
+<p>Git works with <strong>repositories</strong>. A repository is a folder, that contains a <code>.git</code> file.</p>
+<p>In git there are several directories where you save your code:</p>
 <ul>
 <li><strong>Working directory</strong>: This is where you save your files on your local file system</li>
-<li><strong>Stating Area (a.k.a. Index)</strong>: This is basically temporary memory. You can use this to save a file, that is not done, yet, but you reached a point where you feel the need to save something.</li>
-<li><strong>Local repo</strong>: This is your repository. Everything you save there, will show up in your history.</li>
+<li><strong>Staging Area (a.k.a. Index)</strong>: This is basically temporary memory. You can use this to save a file, that is not done, yet, but you reached a point where you feel the need to save something.</li>
+<li><strong>Local repo</strong>: This is a local copy of the repo. Everything you save there, will show up in your history.</li>
 <li><strong>Upstream repo</strong>: This is a remote copy of a repo. So this is not on your computer, but saved for example on Github or Gitlab.</li>
 </ul>
 <p>Every file has to pass through the different stages. By using <code>git add</code> you put a local file into the staging area. Use <code>git commit</code> to save a file to your local repo.</p>
-<table>
+<table style="width:93%;">
+<colgroup>
+<col width="25%" />
+<col width="68%" />
+</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>location</th>
 <th>what should I put there?</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>working directory</td>
 <td>anything! This is your local file system</td>
 </tr>
-<tr>
+<tr class="even">
 <td>staging area</td>
 <td>everything, that reached a certain milestone, but is not completely done</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>local repo</td>
 <td>everything you want to see in your file history</td>
 </tr>
-<tr>
+<tr class="even">
 <td>upstream repo</td>
 <td>everything, that is part of a finished unit</td>
 </tr>
 </tbody>
 </table>
-<p><img src="/post/2018-12-17-everything-you-need-to-know-to-use-git-for-version-control_files/git_basics.png" alt=""></p>
-<p>So you have learned, that there are different stages in which you can save your files. Let&rsquo;s say you want to go back to an older version of a file. You can use <code>git reset</code>. Depending on the next parameter, you will either reset the file in your working directory (<code>git reset --hard</code>), in your staging area (<code>git reset --mixed</code>) or in your local repo (<code>git reset --soft</code>)
-<img src="/post/2018-12-17-everything-you-need-to-know-to-use-git-for-version-control_files/gitreset.png" alt=""></p>
+<div class="figure">
+<img src="/post/2018-12-17-everything-you-need-to-know-to-use-git-for-version-control_files/git_basics.png" />
+
+</div>
+<p>So you have learned, that there are different stages in which you can save your files. Let's say you want to go back to an older version of a file. You can use <code>git reset</code>. Depending on the next parameter, you will either reset the file in your working directory (<code>git reset --hard</code>), in your staging area (<code>git reset --mixed</code>) or in your local repo (<code>git reset --soft</code>) <img src="/post/2018-12-17-everything-you-need-to-know-to-use-git-for-version-control_files/gitreset.png" /></p>
 
               
             </div>
@@ -354,7 +353,7 @@ if (!doNotTrack) {
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2022 Heike Maria (PhD). All Rights Reserved
+    &copy; 2022 Heike W. All Rights Reserved
   </span>
 </footer>
 
@@ -453,13 +452,13 @@ if (!doNotTrack) {
     
       <img id="about-card-picture" src="/me.jpg" alt="Author&#39;s picture" />
     
-    <h4 id="about-card-name">Heike Maria (PhD)</h4>
+    <h4 id="about-card-name">Heike W</h4>
     
     
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        Data Science <a href="https://www.moia.io/en">@MOIA</a> working on the future of mobility, previously Data Science at <a href="https://www.xing.com/">@Xing</a> on recommender systems and search
+        Data Scientist @ Xing GmbH
       </div>
     
     

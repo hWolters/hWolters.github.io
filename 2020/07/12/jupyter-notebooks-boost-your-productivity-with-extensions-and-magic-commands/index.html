@@ -15,8 +15,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.87.0 with theme Tranquilpeak 0.4.8-BETA">
-<meta name="author" content="Heike Maria (PhD)">
-<meta name="keywords" content="python, jupyter, extension, magic commands, SQL, Data Science, Analytics, ElasticSeach, Python, Pandas, Analytics, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive, Data Analysis, Data Mining">
+<meta name="author" content="Heike W">
+<meta name="keywords" content="python, jupyter, extension, magic commands, SQL, Data Science, Analytics, ElasticSeacg, Python, Pandas, Analytics, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive, Data Analysis, Data Mining">
 <meta name="description" content="In this blogpost I will share some tips for working with Jupyter Notebooks. Those tips greatly improved my productivity when working with Jupyter Notebooks and I wish someone would have told me earlier. The two main topics of this post are extensions and magic commands.">
 
 
@@ -26,7 +26,7 @@
 <meta name="twitter:title" content="Jupyter Notebooks: Boost your productivity with Extensions and Magic Commands">
 <meta property="og:url" content="/2020/07/12/jupyter-notebooks-boost-your-productivity-with-extensions-and-magic-commands/">
 <meta property="twitter:url" content="/2020/07/12/jupyter-notebooks-boost-your-productivity-with-extensions-and-magic-commands/">
-<meta property="og:site_name" content="A Potpourri of Data Science &amp; Data Engineering Topics">
+<meta property="og:site_name" content="A Potpourri of Data Science Topics for Analysts">
 <meta property="og:description" content="In this blogpost I will share some tips for working with Jupyter Notebooks. Those tips greatly improved my productivity when working with Jupyter Notebooks and I wish someone would have told me earlier. The two main topics of this post are extensions and magic commands.">
 <meta name="twitter:description" content="In this blogpost I will share some tips for working with Jupyter Notebooks. Those tips greatly improved my productivity when working with Jupyter Notebooks and I wish someone would have told me earlier. The two main topics of this post are extensions and magic commands.">
 <meta property="og:locale" content="en-us">
@@ -66,8 +66,8 @@
 
 
 
-  <meta property="og:image" content="/post/2020-07-jupyter-notbooks-boost-your-productivity/JupyterBlogMagic_.jpg">
-  <meta property="twitter:image" content="/post/2020-07-jupyter-notbooks-boost-your-productivity/JupyterBlogMagic_.jpg">
+  <meta property="og:image" content="/post/ranking_cover.jpg">
+  <meta property="twitter:image" content="/post/ranking_cover.jpg">
 
 
 
@@ -114,7 +114,7 @@ if (!doNotTrack) {
       <header id="header" data-behavior="1">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
-    <a class="header-title-link" href="/">A Potpourri of Data Science &amp; Data Engineering Topics</a>
+    <a class="header-title-link" href="/">A Potpourri of Data Science Topics for Analysts</a>
   </div>
   
     
@@ -136,7 +136,7 @@ if (!doNotTrack) {
         <a href="/#about">
           <img class="sidebar-profile-picture" src="/me.jpg" alt="Author&#39;s picture" />
         </a>
-        <h4 class="sidebar-profile-name">Heike Maria (PhD)</h4>
+        <h4 class="sidebar-profile-name">Heike W</h4>
         
       </div>
     
@@ -209,7 +209,7 @@ if (!doNotTrack) {
   <div class="post-header-cover
               text-left
               "
-       style="background-image:url('/post/2020-07-jupyter-notbooks-boost-your-productivity/JupyterBlogMagic_.jpg')"
+       style="background-image:url('/post/ranking_cover.jpg')"
        data-behavior="1">
     
       <div class="post-header main-content-wrap text-left">
@@ -262,12 +262,12 @@ if (!doNotTrack) {
               <p>In this blogpost I will share some tips for working with Jupyter Notebooks. Those tips greatly improved my productivity when working with Jupyter Notebooks and I wish someone would have told me earlier. The two main topics of this post are extensions and magic commands.</p>
 <h2 id="jupyter-extensions">Jupyter Extensions</h2>
 <p>Have you ever missed a feature in your Jupyter Notebook that IDEs have? E.g. you were hoping for autocompletion or automatically formatting code? Then there might be a Jupyter Notebook extension for you. Jupyter extensions simply add features to your Jupyter Notebook, similar to what browser plug-ins do to browsers. Just pip install <a href="https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/install.html"><code>jupyter-contrib-nbextensions</code></a>. On your <code>localhost:8888</code> you will now find a tab called Nbextensions. There, you can select the extensions you would like to use by checking the boxes. Usually, you have to restart your kernel for the extension to work. In the following, I&rsquo;ll show you my five favorite extensions.</p>
-<p><img src="/post/2020-07-jupyter-notbooks-boost-your-productivity/JupyterExtensions.png" alt="">
+<p><img src="/post/2020-07-12-jupyter-extensions/JupyterExtensions.png" alt="">
 <br></p>
 <h3 id="notify">Notify</h3>
 <p>Have you ever waited for some time consuming code to execute, switched tabs and then forgot about it? Or you kept staring at your notebook to wait for the execution of the cell to finally have finished? No need for that with the <code>Notify</code> extension: It displays a web notification, when a cell has run.
 After you added this extension, you will see a new dropdown menu in your notebook&rsquo;s toolbar. You can choose, if and when you want to be notified. Your choices are: Disabled, 0, 5, 10 and 30. If you select for example 5, you will get a notification, if the kernel is busy longer than 5 seconds. I am using the extension with Safari and it works great. It should also work with Firefox and Chrome browsers.</p>
-<p><img src="/post/2020-07-jupyter-notbooks-boost-your-productivity/JupyterToolBarNotify.png" alt="">
+<p><img src="/post/2020-07-12-jupyter-extensions/JupyterToolBarNotify.png" alt="">
 <br></p>
 <h3 id="snippets">Snippets</h3>
 <p>Do you sometimes find yourself typing the same code snippets over and over again? Maybe you copy paste your database connection strings, some of your most used functions or you always load the same packages? Then the <code>Snippets</code> extension may be useful for you.</p>
@@ -282,12 +282,12 @@ After you added this extension, you will see a new dropdown menu in your noteboo
             ]
         }
 </code></pre><p>After you added a snippet, it shows up in the tool bar in the drop down menu snippets. I use this a lot for database configurations and loading the standard packages.</p>
-<p><img src="/post/2020-07-jupyter-notbooks-boost-your-productivity/JupyterToolBarSnippet.png" alt="">
+<p><img src="/post/2020-07-12-jupyter-extensions/JupyterToolBarSnippet.png" alt="">
 <br></p>
 <h3 id="autopep8">Autopep8</h3>
 <p>If you neglected coding style guidelines Autopep8 could help you. It automatically reformates your code to meet the <a href="Phttps://www.python.org/dev/peps/pep-0008/">PEP 8 standards</a>, Python’s most popular style guide. If you do not already have it, you need to <code>%%pip install autopep8</code>.
 Then you can autoformat your code by pressing <code>Alt-A</code> for a cell or <code>Alt-Shift-A</code> for the entire notebook. Or you could also select a cell and click on the little hammer icon on the right of your toolbar and your code will be prettified!</p>
-<p><img src="/post/2020-07-jupyter-notbooks-boost-your-productivity/JupyterToolBarFormat.png" alt="">
+<p><img src="/post/2020-07-12-jupyter-extensions/JupyterToolBarFormat.png" alt="">
 <br></p>
 <h3 id="hinterland">hinterland</h3>
 <p>Autocompletion in Jupyter Notebooks exists, but it is cumbersome: You need to press <code>tab</code> everytime you need it. So I really missed the quick autocompletion with every keypress  until I found out about <code>hinterland</code>. With <code>hinterland</code> you will have the autocompletion with every key press. You just need to add the extension.</p>
@@ -472,7 +472,7 @@ output.show()
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2022 Heike Maria (PhD). All Rights Reserved
+    &copy; 2022 Heike W. All Rights Reserved
   </span>
 </footer>
 
@@ -571,13 +571,13 @@ output.show()
     
       <img id="about-card-picture" src="/me.jpg" alt="Author&#39;s picture" />
     
-    <h4 id="about-card-name">Heike Maria (PhD)</h4>
+    <h4 id="about-card-name">Heike W</h4>
     
     
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        Data Science <a href="https://www.moia.io/en">@MOIA</a> working on the future of mobility, previously Data Science at <a href="https://www.xing.com/">@Xing</a> on recommender systems and search
+        Data Scientist @ Xing GmbH
       </div>
     
     

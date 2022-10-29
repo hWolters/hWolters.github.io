@@ -15,8 +15,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.87.0 with theme Tranquilpeak 0.4.8-BETA">
-<meta name="author" content="Heike Maria (PhD)">
-<meta name="keywords" content="search, ltr, ndcg, RankSVM, SQL, Data Science, Analytics, ElasticSeach, Python, Pandas, Analytics, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive, Data Analysis, Data Mining">
+<meta name="author" content="Heike W">
+<meta name="keywords" content="search, ltr, ndcg, RankSVM, SQL, Data Science, Analytics, ElasticSeacg, Python, Pandas, Analytics, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive, Data Analysis, Data Mining">
 <meta name="description" content="In many scenarios, such as a google search or a product recommendation in an online shop, we have tons of data and limited space to display it. We cannot show all the products of an online shop to the user as a possible next best offer. Neither would a user want to scroll through all the pages indexed by a search engine to find the most relevant page that matches his search keywords. The most relevant content should be on top. Learning to rank (LTR) models are supervised machine learning models that attempt to optimize the order of items. This blogpost introduces three approaches to optimize ranks.">
 
 
@@ -26,7 +26,7 @@
 <meta name="twitter:title" content="Pointwise, Pairswise and Listwise Learning to Rank Models - Three Approaches to Optimize Relative Ordering">
 <meta property="og:url" content="/2020/10/15/pointwise-pairswise-and-listwise-learning-to-rank-models-three-approaches-to-optimize-relative-ordering/">
 <meta property="twitter:url" content="/2020/10/15/pointwise-pairswise-and-listwise-learning-to-rank-models-three-approaches-to-optimize-relative-ordering/">
-<meta property="og:site_name" content="A Potpourri of Data Science &amp; Data Engineering Topics">
+<meta property="og:site_name" content="A Potpourri of Data Science Topics for Analysts">
 <meta property="og:description" content="In many scenarios, such as a google search or a product recommendation in an online shop, we have tons of data and limited space to display it. We cannot show all the products of an online shop to the user as a possible next best offer. Neither would a user want to scroll through all the pages indexed by a search engine to find the most relevant page that matches his search keywords. The most relevant content should be on top. Learning to rank (LTR) models are supervised machine learning models that attempt to optimize the order of items. This blogpost introduces three approaches to optimize ranks.">
 <meta name="twitter:description" content="In many scenarios, such as a google search or a product recommendation in an online shop, we have tons of data and limited space to display it. We cannot show all the products of an online shop to the user as a possible next best offer. Neither would a user want to scroll through all the pages indexed by a search engine to find the most relevant page that matches his search keywords. The most relevant content should be on top. Learning to rank (LTR) models are supervised machine learning models that attempt to optimize the order of items. This blogpost introduces three approaches to optimize ranks.">
 <meta property="og:locale" content="en-us">
@@ -60,8 +60,8 @@
 
 
 
-  <meta property="og:image" content="/post/2020-10-pointwise-pairwise-listwise-ltr-models/ranking_cover.jpg">
-  <meta property="twitter:image" content="/post/2020-10-pointwise-pairwise-listwise-ltr-models/ranking_cover.jpg">
+  <meta property="og:image" content="/post/ranking_cover.jpg">
+  <meta property="twitter:image" content="/post/ranking_cover.jpg">
 
 
 
@@ -108,7 +108,7 @@ if (!doNotTrack) {
       <header id="header" data-behavior="1">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
-    <a class="header-title-link" href="/">A Potpourri of Data Science &amp; Data Engineering Topics</a>
+    <a class="header-title-link" href="/">A Potpourri of Data Science Topics for Analysts</a>
   </div>
   
     
@@ -130,7 +130,7 @@ if (!doNotTrack) {
         <a href="/#about">
           <img class="sidebar-profile-picture" src="/me.jpg" alt="Author&#39;s picture" />
         </a>
-        <h4 class="sidebar-profile-name">Heike Maria (PhD)</h4>
+        <h4 class="sidebar-profile-name">Heike W</h4>
         
       </div>
     
@@ -203,7 +203,7 @@ if (!doNotTrack) {
   <div class="post-header-cover
               text-left
               "
-       style="background-image:url('/post/2020-10-pointwise-pairwise-listwise-ltr-models/ranking_cover.jpg')"
+       style="background-image:url('/post/ranking_cover.jpg')"
        data-behavior="1">
     
       <div class="post-header main-content-wrap text-left">
@@ -345,7 +345,7 @@ if (!doNotTrack) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/11/26/intro-into-apis-and-how-to-access-public-rest-apis-with-curl/" data-tooltip="Intro into APIs and how to access public REST APIs with `curl`">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/11/26/intro-into-apis-how-to-access-data-from-public-rest-apis-with-curl/" data-tooltip="Intro into APIs: How to access data from public REST APIs with `curl`">
               
                   <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                   <i class="fa fa-angle-right"></i>
@@ -404,7 +404,7 @@ if (!doNotTrack) {
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2022 Heike Maria (PhD). All Rights Reserved
+    &copy; 2022 Heike W. All Rights Reserved
   </span>
 </footer>
 
@@ -425,7 +425,7 @@ if (!doNotTrack) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/11/26/intro-into-apis-and-how-to-access-public-rest-apis-with-curl/" data-tooltip="Intro into APIs and how to access public REST APIs with `curl`">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/11/26/intro-into-apis-how-to-access-data-from-public-rest-apis-with-curl/" data-tooltip="Intro into APIs: How to access data from public REST APIs with `curl`">
               
                   <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                   <i class="fa fa-angle-right"></i>
@@ -503,13 +503,13 @@ if (!doNotTrack) {
     
       <img id="about-card-picture" src="/me.jpg" alt="Author&#39;s picture" />
     
-    <h4 id="about-card-name">Heike Maria (PhD)</h4>
+    <h4 id="about-card-name">Heike W</h4>
     
     
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        Data Science <a href="https://www.moia.io/en">@MOIA</a> working on the future of mobility, previously Data Science at <a href="https://www.xing.com/">@Xing</a> on recommender systems and search
+        Data Scientist @ Xing GmbH
       </div>
     
     
