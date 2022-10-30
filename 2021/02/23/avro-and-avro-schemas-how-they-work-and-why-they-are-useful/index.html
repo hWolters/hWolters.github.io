@@ -16,48 +16,40 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.87.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Heike Maria (PhD)">
-<meta name="keywords" content="kafka, message brokers, amqp, rabbitmq, SQL, Data Science, Analytics, ElasticSeach, Python, Pandas, Analytics, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive, Data Analysis, Data Mining">
-<meta name="description" content="In this blogpost you will get a basic understanding about message brokers. We will look at two very popular message brokers, Kafka and RabbitMQ, and learn, how they handle messages.">
+<meta name="keywords" content="tech, SQL, Data Science, Analytics, ElasticSeach, Python, Pandas, Analytics, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive, Data Analysis, Data Mining">
+<meta name="description" content="You have kafka as your message broker up and running and you may wonder: In which format should I send my data around? Maybe the string format pops up in your mind. Why not just put all fields into a long string and separate them with a comma?">
 
 
-<meta property="og:description" content="In this blogpost you will get a basic understanding about message brokers. We will look at two very popular message brokers, Kafka and RabbitMQ, and learn, how they handle messages.">
+<meta property="og:description" content="You have kafka as your message broker up and running and you may wonder: In which format should I send my data around? Maybe the string format pops up in your mind. Why not just put all fields into a long string and separate them with a comma?">
 <meta property="og:type" content="article">
-<meta property="og:title" content="A Gentle Intro to the Basic Architecture of Message Brokers: RabbitMQ vs. Kafka">
-<meta name="twitter:title" content="A Gentle Intro to the Basic Architecture of Message Brokers: RabbitMQ vs. Kafka">
-<meta property="og:url" content="/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/">
-<meta property="twitter:url" content="/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/">
+<meta property="og:title" content="Avro and avro schemas - how they work and why they are useful">
+<meta name="twitter:title" content="Avro and avro schemas - how they work and why they are useful">
+<meta property="og:url" content="/2021/02/23/avro-and-avro-schemas-how-they-work-and-why-they-are-useful/">
+<meta property="twitter:url" content="/2021/02/23/avro-and-avro-schemas-how-they-work-and-why-they-are-useful/">
 <meta property="og:site_name" content="A Potpourri of Data Science &amp; Data Engineering Topics">
-<meta property="og:description" content="In this blogpost you will get a basic understanding about message brokers. We will look at two very popular message brokers, Kafka and RabbitMQ, and learn, how they handle messages.">
-<meta name="twitter:description" content="In this blogpost you will get a basic understanding about message brokers. We will look at two very popular message brokers, Kafka and RabbitMQ, and learn, how they handle messages.">
+<meta property="og:description" content="You have kafka as your message broker up and running and you may wonder: In which format should I send my data around? Maybe the string format pops up in your mind. Why not just put all fields into a long string and separate them with a comma?">
+<meta name="twitter:description" content="You have kafka as your message broker up and running and you may wonder: In which format should I send my data around? Maybe the string format pops up in your mind. Why not just put all fields into a long string and separate them with a comma?">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2021-01-26T16:26:57">
+    <meta property="article:published_time" content="2021-02-23T15:16:09">
   
   
-    <meta property="article:modified_time" content="2021-01-26T16:26:57">
+    <meta property="article:modified_time" content="2021-02-23T15:16:09">
   
   
   
     
-      <meta property="article:section" content="kafka">
-    
-      <meta property="article:section" content="amqp">
-    
-      <meta property="article:section" content="rabbitmq">
-    
-      <meta property="article:section" content="message brokers">
+      <meta property="article:section" content="data engineering">
     
   
   
+    
+      <meta property="article:tag" content="avro">
     
       <meta property="article:tag" content="kafka">
     
       <meta property="article:tag" content="message brokers">
-    
-      <meta property="article:tag" content="amqp">
-    
-      <meta property="article:tag" content="rabbitmq">
     
   
 
@@ -70,20 +62,20 @@
 
 
 
-  <meta property="og:image" content="/post/2021-01-intro-to-message-brokers/message_box.jpg">
-  <meta property="twitter:image" content="/post/2021-01-intro-to-message-brokers/message_box.jpg">
+  <meta property="og:image" content="/post/2021-02-avro-schemas/shelf_dark.jpg">
+  <meta property="twitter:image" content="/post/2021-02-avro-schemas/shelf_dark.jpg">
 
 
 
 
-    <title>A Gentle Intro to the Basic Architecture of Message Brokers: RabbitMQ vs. Kafka</title>
+    <title>Avro and avro schemas - how they work and why they are useful</title>
 
     <link rel="icon" href="/favicon.png">
     
 
     
 
-    <link rel="canonical" href="/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/">
+    <link rel="canonical" href="/2021/02/23/avro-and-avro-schemas-how-they-work-and-why-they-are-useful/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -213,25 +205,25 @@ if (!doNotTrack) {
   <div class="post-header-cover
               text-left
               "
-       style="background-image:url('/post/2021-01-intro-to-message-brokers/message_box.jpg')"
+       style="background-image:url('/post/2021-02-avro-schemas/shelf_dark.jpg')"
        data-behavior="1">
     
       <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      A Gentle Intro to the Basic Architecture of Message Brokers: RabbitMQ vs. Kafka
+      Avro and avro schemas - how they work and why they are useful
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2021-01-26T16:26:57&#43;01:00">
+      <time itemprop="datePublished" datetime="2021-02-23T15:16:09&#43;02:00">
         
   
   
   
   
-    26 January 2021
+    23 February 2021
   
 
       </time>
@@ -241,13 +233,7 @@ if (!doNotTrack) {
   
     <span>in</span>
     
-      <a class="category-link" href="/categories/kafka">kafka</a>, 
-    
-      <a class="category-link" href="/categories/amqp">amqp</a>, 
-    
-      <a class="category-link" href="/categories/rabbitmq">rabbitmq</a>, 
-    
-      <a class="category-link" href="/categories/message-brokers">message brokers</a>
+      <a class="category-link" href="/categories/data-engineering">data engineering</a>
     
   
 
@@ -267,40 +253,46 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>In this blogpost you will get a basic understanding about message brokers. We will look at two very popular message brokers, Kafka and RabbitMQ, and learn, how they handle messages.</p>
-<p>Let&rsquo;s start with a short intro about what message brokers are and how they are different from an API: Message brokers allow communication between applications, systems and services. On a high level, can understand message brokers as translators: They receive messages, which they &ldquo;translate&rdquo; and pass on to other systems.</p>
-<p>While for example REST APIs are designed to expect an immediate response, message brokers can communicate asynchronously. That means, a sending service does not have to wait for the reply of the receiving service.</p>
-<p>Let&rsquo;s go more into detail. There are four components in message brokers:</p>
+              <p>You have kafka as your message broker up and running and you may wonder: In which format should I send my data around? Maybe the string format pops up in your mind. Why not just put all fields into a long string and separate them with a comma?</p>
+<p>What a great option, no need to worry about the format of the data! And yes, you you could do that. But it will get really messy. Trust me. Let&rsquo;s assume you wanted to send some data:</p>
+<p><code>&quot;Max, Mustermann, 42, null&quot;</code></p>
+<p>What would that mean? What is 42? Which information is missing? And what would happen if you decide to add more fields or remove a field?</p>
+<p>If you store your data in a relational database such as mysql or postgres, you would create a table definition with named columns and specify data types. You should do the same for streaming platforms. Avro let&rsquo;s you define a schema for your data and serializes the data using this schema into a binary format, which can be deserialized by any other application.  </p>
+<p> <code>&quot;Max, Mustermann, 42, null&quot;</code> could be associated with an avro schema like this.</p>
+<pre><code>{
+  &quot;type&quot;: &quot;record&quot;,
+  &quot;name&quot;: &quot;person&quot;,
+  &quot;fields&quot;: [
+      {&quot;name&quot;: &quot;first_name&quot;,  &quot;type&quot;: &quot;string&quot; }
+    , {&quot;name&quot;: &quot;last_name&quot;, &quot;type&quot;: &quot;string&quot; }
+    , {&quot;name&quot;: &quot;age&quot;, &quot;type&quot;: &quot;float&quot; }
+    , {&quot;name&quot;: &quot;nationality&quot;, &quot;type&quot;: &quot;string&quot;, &quot;default&quot;: null}
+  ]
+}
+</code></pre><p>So the <strong>avro schema</strong> is just json format declared data structured with a schema attached to it. Like for relational databases, you have to specify a <code>name</code> and <code>type</code> (and optionally other fields such as <code>doc</code> and <code>default</code> values).</p>
 <ul>
-<li>
-<p><strong>Producers</strong>: The senders of a message. For example, if a user creates an account on your website, a producer, let&rsquo;s call hom &ldquo;New User Service&rdquo; creates a message, that an account has been created.</p>
-</li>
-<li>
-<p><strong>Consumers</strong>: The receiver of a message. Consumers looks at incoming messages and may execute some action, e.g. sending an Email to this new customer to verify his account.</p>
-</li>
-<li>
-<p><strong>Queues</strong>: Storage of the messages until they are consumed.</p>
-</li>
-<li>
-<p><strong>Exchange</strong>: A &ldquo;config&rdquo; for routing messages. The producer transmits a message to the <strong>exchange</strong> using a specified protocol (e.g. AMQP). The echange makes sure to route the message to the correct queue.</p>
-</li>
+<li><code>name</code>: name of your field</li>
+<li><code>doc</code>: documentation of your field (optional)</li>
+<li><code>type</code>: data type for your field. Can be primitive (<code>&quot;boolean&quot;</code>, <code>&quot;int&quot;</code>), complex (<code>record</code>,<code>arrays</code>, <code>maps</code>, <code>unions</code>), names and aliases e.g. <code>&quot;boolean&quot;</code>, <code>&quot;int&quot;</code></li>
+<li><code>default</code>:  default value for your field (optional)</li>
 </ul>
-<p>The producers can issue messages without knowing where the consumers are, whether or not they are active, or how many of them exist.</p>
-<p>Let&rsquo;s look at two different architectural approaches: RabbitMQ or Kafka Architecture;</p>
-<h2 id="basic-architecture-rabbitmq-amqp">Basic Architecture RabbitMQ (AMQP)</h2>
-<p>RabbitMQ consists of exchanges and queues. Exchanges are responsible for routing incoming messages. The queues store messages.</p>
-<p>A producer generates messages and pushes them into an exchange. The exchange receives the messages and routes them into a queue. The <strong>routing key</strong> is like the address of the message, so the exchange knows to which queue the message should be routed. The queues store the messages until a consumer takes a message off the queue. RabbitMQ is a general purpose message broker that supports different protocols including, MQTT, AMQP, and STOMP.</p>
-<p><img src="https://miro.medium.com/max/1400/1*_ucX-gnGYuKl71LsmfOmSQ.png" alt="Message Exchange RabbitMQ">
-<a href="https://miro.medium.com/max/1400/1*_ucX-gnGYuKl71LsmfOmSQ.png">Source</a></p>
-<h2 id="basic-architecture-kafka">Basic Architecture Kafka</h2>
-<p>Instead of pushing messages to a queue, Kafka stores messages in <strong>topics</strong>. A topic is a partitioned log of messages, where each partition is an <strong>ordered</strong>, immutable sequence of records. Kafka appends messages to the topics as they arrive. The messages stay for a specified number of time. Kafka does not care if messages are read or not. During the timeframe, consumers can <strong>persist</strong> and re-process the data as they need (Dumb broker / smart consumer approach). Because partitions are ordered, messages can be processed in batches.</p>
-<p><img src="https://miro.medium.com/max/1400/1*Ex6oX0h2k39fK_KPq5gVQQ.png" alt="Kafka producers">
-<img src="https://miro.medium.com/max/1400/1*fB3VV7HLNI9Vg1VjjLCPkQ.png" alt="Kafka consumers"></p>
-<p><a href="https://miro.medium.com/max/1400/1*_ucX-gnGYuKl71LsmfOmSQ.png">Source</a></p>
-<h2 id="summing-up">Summing up</h2>
-<p>RabbitMQ and Kafka use different approaches for processing messages:</p>
-<p>RabbitMQ uses a <strong>push model</strong>. It distributes messages individually through configurable routing and sends them to the consumers. Once consumed, the messages are gone.</p>
-<p>Kafka uses a <strong>pull model</strong>. Consumers have to request messages from a specific offset. Messages are retained in a partition and can be reread.</p>
+<p>The schema is stored in json format at the beginning of each message. The <em>schema registry</em> is an app that holds a local copy of a schema and handles the distribution of schemas to the producer and consumer. It should be hosted in a schema registry outside of your Kafka cluster (e.g. with Confluent). It also checks if the data you send and received complies with the defined schema. Nice!</p>
+<p>Every schema has a unique id and captures &ldquo;only&rdquo; a certain point in time. We all know that data and schemas will evolve over time. Fields are added, fields are removed.  Let&rsquo;s assume you wanted to add a new field &ldquo;gender&rdquo;. For relational databases this is an issue, because they require the same schema for every row.</p>
+<p>Avro schemas are backward and forward compatible. You need to specify a default value for the new field. If old data is encoded with the new schema, the default value will be automatically assigned to this field.</p>
+<pre><code>{
+  &quot;type&quot;: &quot;record&quot;,
+  &quot;name&quot;: &quot;person&quot;,
+  &quot;fields&quot;: [
+      {&quot;name&quot;: &quot;first_name&quot;,  &quot;type&quot;: &quot;string&quot; }
+    , {&quot;name&quot;: &quot;last_name&quot;, &quot;type&quot;: &quot;string&quot; }
+    , {&quot;name&quot;: &quot;age&quot;, &quot;type&quot;: &quot;float&quot; }
+    , {&quot;name&quot;: &quot;nationality&quot;, &quot;type&quot;: &quot;string&quot;, &quot;default&quot;: null}
+    , {&quot;name&quot;: &quot;gender&quot;, &quot;type&quot;: &quot;string&quot;, &quot;default&quot;: null}
+  ]
+}
+</code></pre><p>The new schema is also forward compatible with the old schema. When projecting data written with the new schema to the old one, the new field is simply dropped. Had the new schema dropped the field <code>nationality</code>, it would not be forward compatible with the original user schema since we wouldn’t know how to fill in the value for <code>nationality</code> for the new data. You can read old data with the new schema and new data with the old schema. Very convenient!</p>
+<h2 id="summary">Summary</h2>
+<p>avro is a row-based binary storage format that supports serialization. It uses JSON to describe the data and a binary format to optimize storage size. Schema changes are forward and backward compatible.</p>
               
             </div>
           </div>
@@ -312,13 +304,11 @@ if (!doNotTrack) {
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
+  <a class="tag tag--primary tag--small" href="/tags/avro/">avro</a>
+
   <a class="tag tag--primary tag--small" href="/tags/kafka/">kafka</a>
 
   <a class="tag tag--primary tag--small" href="/tags/message-brokers/">message brokers</a>
-
-  <a class="tag tag--primary tag--small" href="/tags/amqp/">amqp</a>
-
-  <a class="tag tag--primary tag--small" href="/tags/rabbitmq/">rabbitmq</a>
 
                   </div>
                 
@@ -331,7 +321,7 @@ if (!doNotTrack) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/11/26/intro-into-apis-and-how-to-access-public-rest-apis-with-curl/" data-tooltip="Intro into APIs and how to access public REST APIs with `curl`">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/" data-tooltip="A Gentle Intro to the Basic Architecture of Message Brokers: RabbitMQ vs. Kafka">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -339,7 +329,7 @@ if (!doNotTrack) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2021/02/23/avro-and-avro-schemas-how-they-work-and-why-they-are-useful/" data-tooltip="Avro and avro schemas - how they work and why they are useful">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2021/04/29/biases-in-learning-to-rank-models-and-three-approaches-to-deal-with-them/" data-tooltip="Biases in learning to rank models and three approaches to deal with them">
               
                   <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                   <i class="fa fa-angle-right"></i>
@@ -357,13 +347,13 @@ if (!doNotTrack) {
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2021/02/23/avro-and-avro-schemas-how-they-work-and-why-they-are-useful/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2021/02/23/avro-and-avro-schemas-how-they-work-and-why-they-are-useful/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -411,7 +401,7 @@ if (!doNotTrack) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/11/26/intro-into-apis-and-how-to-access-public-rest-apis-with-curl/" data-tooltip="Intro into APIs and how to access public REST APIs with `curl`">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/" data-tooltip="A Gentle Intro to the Basic Architecture of Message Brokers: RabbitMQ vs. Kafka">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -419,7 +409,7 @@ if (!doNotTrack) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2021/02/23/avro-and-avro-schemas-how-they-work-and-why-they-are-useful/" data-tooltip="Avro and avro schemas - how they work and why they are useful">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2021/04/29/biases-in-learning-to-rank-models-and-three-approaches-to-deal-with-them/" data-tooltip="Biases in learning to rank models and three approaches to deal with them">
               
                   <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                   <i class="fa fa-angle-right"></i>
@@ -437,13 +427,13 @@ if (!doNotTrack) {
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2021/02/23/avro-and-avro-schemas-how-they-work-and-why-they-are-useful/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2021/02/23/avro-and-avro-schemas-how-they-work-and-why-they-are-useful/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -473,13 +463,13 @@ if (!doNotTrack) {
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=%2F2021%2F01%2F26%2Fa-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=%2F2021%2F02%2F23%2Favro-and-avro-schemas-how-they-work-and-why-they-are-useful%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2F2021%2F01%2F26%2Fa-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2F2021%2F02%2F23%2Favro-and-avro-schemas-how-they-work-and-why-they-are-useful%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
@@ -569,9 +559,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = '\/2021\/01\/26\/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka\/';
+          this.page.url = '\/2021\/02\/23\/avro-and-avro-schemas-how-they-work-and-why-they-are-useful\/';
           
-            this.page.identifier = '\/2021\/01\/26\/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka\/'
+            this.page.identifier = '\/2021\/02\/23\/avro-and-avro-schemas-how-they-work-and-why-they-are-useful\/'
           
         };
         (function() {

@@ -16,48 +16,38 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="generator" content="Hugo 0.87.0 with theme Tranquilpeak 0.4.8-BETA">
 <meta name="author" content="Heike Maria (PhD)">
-<meta name="keywords" content="kafka, message brokers, amqp, rabbitmq, SQL, Data Science, Analytics, ElasticSeach, Python, Pandas, Analytics, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive, Data Analysis, Data Mining">
-<meta name="description" content="In this blogpost you will get a basic understanding about message brokers. We will look at two very popular message brokers, Kafka and RabbitMQ, and learn, how they handle messages.">
+<meta name="keywords" content="ltr, learning to rank models, bias, position bias, selection bias, SQL, Data Science, Analytics, ElasticSeach, Python, Pandas, Analytics, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive, Data Analysis, Data Mining">
+<meta name="description" content="Search engines rely on models, which rank the matching results for a given user query. These models optimize the order of items. They learn how to rank items in a result list, therefore the name Learning-to-Rank (LTR) models.">
 
 
-<meta property="og:description" content="In this blogpost you will get a basic understanding about message brokers. We will look at two very popular message brokers, Kafka and RabbitMQ, and learn, how they handle messages.">
+<meta property="og:description" content="Search engines rely on models, which rank the matching results for a given user query. These models optimize the order of items. They learn how to rank items in a result list, therefore the name Learning-to-Rank (LTR) models.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="A Gentle Intro to the Basic Architecture of Message Brokers: RabbitMQ vs. Kafka">
-<meta name="twitter:title" content="A Gentle Intro to the Basic Architecture of Message Brokers: RabbitMQ vs. Kafka">
-<meta property="og:url" content="/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/">
-<meta property="twitter:url" content="/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/">
+<meta property="og:title" content="Biases in learning to rank models and three approaches to deal with them">
+<meta name="twitter:title" content="Biases in learning to rank models and three approaches to deal with them">
+<meta property="og:url" content="/2021/04/29/biases-in-learning-to-rank-models-and-three-approaches-to-deal-with-them/">
+<meta property="twitter:url" content="/2021/04/29/biases-in-learning-to-rank-models-and-three-approaches-to-deal-with-them/">
 <meta property="og:site_name" content="A Potpourri of Data Science &amp; Data Engineering Topics">
-<meta property="og:description" content="In this blogpost you will get a basic understanding about message brokers. We will look at two very popular message brokers, Kafka and RabbitMQ, and learn, how they handle messages.">
-<meta name="twitter:description" content="In this blogpost you will get a basic understanding about message brokers. We will look at two very popular message brokers, Kafka and RabbitMQ, and learn, how they handle messages.">
+<meta property="og:description" content="Search engines rely on models, which rank the matching results for a given user query. These models optimize the order of items. They learn how to rank items in a result list, therefore the name Learning-to-Rank (LTR) models.">
+<meta name="twitter:description" content="Search engines rely on models, which rank the matching results for a given user query. These models optimize the order of items. They learn how to rank items in a result list, therefore the name Learning-to-Rank (LTR) models.">
 <meta property="og:locale" content="en-us">
 
   
-    <meta property="article:published_time" content="2021-01-26T16:26:57">
+    <meta property="article:published_time" content="2021-04-29T15:15:38">
   
   
-    <meta property="article:modified_time" content="2021-01-26T16:26:57">
+    <meta property="article:modified_time" content="2021-04-29T15:15:38">
   
   
   
     
-      <meta property="article:section" content="kafka">
-    
-      <meta property="article:section" content="amqp">
-    
-      <meta property="article:section" content="rabbitmq">
-    
-      <meta property="article:section" content="message brokers">
+      <meta property="article:section" content="machine learning">
     
   
   
     
-      <meta property="article:tag" content="kafka">
+      <meta property="article:tag" content="ltr">
     
-      <meta property="article:tag" content="message brokers">
-    
-      <meta property="article:tag" content="amqp">
-    
-      <meta property="article:tag" content="rabbitmq">
+      <meta property="article:tag" content="bias">
     
   
 
@@ -70,20 +60,20 @@
 
 
 
-  <meta property="og:image" content="/post/2021-01-intro-to-message-brokers/message_box.jpg">
-  <meta property="twitter:image" content="/post/2021-01-intro-to-message-brokers/message_box.jpg">
+  <meta property="og:image" content="/post/2021-04-ranking-biases/books_ranked_dark.jpeg">
+  <meta property="twitter:image" content="/post/2021-04-ranking-biases/books_ranked_dark.jpeg">
 
 
 
 
-    <title>A Gentle Intro to the Basic Architecture of Message Brokers: RabbitMQ vs. Kafka</title>
+    <title>Biases in learning to rank models and three approaches to deal with them</title>
 
     <link rel="icon" href="/favicon.png">
     
 
     
 
-    <link rel="canonical" href="/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/">
+    <link rel="canonical" href="/2021/04/29/biases-in-learning-to-rank-models-and-three-approaches-to-deal-with-them/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -213,25 +203,25 @@ if (!doNotTrack) {
   <div class="post-header-cover
               text-left
               "
-       style="background-image:url('/post/2021-01-intro-to-message-brokers/message_box.jpg')"
+       style="background-image:url('/post/2021-04-ranking-biases/books_ranked_dark.jpeg')"
        data-behavior="1">
     
       <div class="post-header main-content-wrap text-left">
   
     <h1 class="post-title" itemprop="headline">
-      A Gentle Intro to the Basic Architecture of Message Brokers: RabbitMQ vs. Kafka
+      Biases in learning to rank models and three approaches to deal with them
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2021-01-26T16:26:57&#43;01:00">
+      <time itemprop="datePublished" datetime="2021-04-29T15:15:38&#43;02:00">
         
   
   
   
   
-    26 January 2021
+    29 April 2021
   
 
       </time>
@@ -241,13 +231,7 @@ if (!doNotTrack) {
   
     <span>in</span>
     
-      <a class="category-link" href="/categories/kafka">kafka</a>, 
-    
-      <a class="category-link" href="/categories/amqp">amqp</a>, 
-    
-      <a class="category-link" href="/categories/rabbitmq">rabbitmq</a>, 
-    
-      <a class="category-link" href="/categories/message-brokers">message brokers</a>
+      <a class="category-link" href="/categories/machine-learning">machine learning</a>
     
   
 
@@ -267,40 +251,40 @@ if (!doNotTrack) {
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>In this blogpost you will get a basic understanding about message brokers. We will look at two very popular message brokers, Kafka and RabbitMQ, and learn, how they handle messages.</p>
-<p>Let&rsquo;s start with a short intro about what message brokers are and how they are different from an API: Message brokers allow communication between applications, systems and services. On a high level, can understand message brokers as translators: They receive messages, which they &ldquo;translate&rdquo; and pass on to other systems.</p>
-<p>While for example REST APIs are designed to expect an immediate response, message brokers can communicate asynchronously. That means, a sending service does not have to wait for the reply of the receiving service.</p>
-<p>Let&rsquo;s go more into detail. There are four components in message brokers:</p>
-<ul>
+              <p>Search engines rely on models, which rank the matching results for a given user query. These models optimize the order of items. They learn how to rank items in a result list, therefore the name Learning-to-Rank (LTR) models.</p>
+<p>It&rsquo;s a challenging task to build the ground truth for these LTR models: Oftentimes, we data scientists &ldquo;build&rdquo; labels based on implicit user feedback: User interactions with items in a result list are interpreted as relevant, not relevant or some degree of relevance. For example a click or a long view time on an item may be considered as a signal for relevance, while an impression without a click may indicate that the item was not relevant to the user. As a data scientist, you have to come up with a logic for how relevant an item was. This is a difficult task, because you cannot be sure. I spend a lot of time reading papers pondering about how to assign labels.</p>
+<p>However, these approaches to distinguish relevant from non-relevant items, were flawed. There are other factors that influence user interaction. These ground truth datasets would suffer always from biases:
+ 
+<strong>Position Bias</strong>: Users have learned to click on the highest ranked results. Thus, the top ranked items are more likely to be clicked even if they are not the most relevant items. By looking at historic data, you cannot differentiate whether a user clicked, because the result was truly relevant or because the item was ranked high. If you plot your CTR by position, you&rsquo;re likely to see a steep decline after the first position.</p>
+<p><strong>Selection bias</strong>: Users can only interact with items that they saw. Oftentimes, users just look at the first result page and never make it to the second or third. How could your model learn that the item that was on position 100 and that the user never saw was actually relevant? It cannot.</p>
+<p>The probability, that a user clicks on an item depends on examination and the relevance of an item at position k. So what can you do?</p>
+<h2 id="online-randomize-order-of-items">Online: randomize order of items</h2>
+<p>If you are really bold, you create an AB-Test and change your search rank on production: Group A sees the results ranked by your model and you display items for users in group B in random order. Group B will have irrelevant items on top. Nevertheless, the b-users will still click on items in the first position. Compare the CTR of both groups and you will have an estimation about how big your position bias is. You can later weigh your observations in the ground truth according to the bias. Let&rsquo;s assume the first position is 10 times more likely to be clicked than the 20th position. You could then count an item shown at first position as one impression, while if it is shown at the 20th position, you only count it as one 10th of an impression because the propensity to purchase at the first position is 10 times larger than the propensity to purchase at the 20th position.</p>
+<p>Completely randomizing the order will likely reduce the quality of search results in the B group severly and may reduce your companies revenue. In most companies, management would not let you experiment around like that for the sake of understanding a bias.</p>
+<p>You could be less extreme and rerank only the top n positions or swap positions between a pair of items. If you swap pairs, you need a lot of users or patience or both. Swapping pairs or the top n positions, will only help you understand your biases if you have few items to rerank, but would not let you estimate the bias for larger result sets. In addition, it will not help you understand, if your ranking model suffers from selection bias.</p>
+<h2 id="offline-model-inverse-propensities">Offline: model inverse propensities</h2>
+<p>There are several papers on estimating position bias in an offline setting which avoids changing your search models in production. Authors try to estimate the click propensities correcting for position bias by estimating relevance with Inverse Propensity Scoring.</p>
+<p>Do your items in the result set change over time or is your model trained with time dependent features? Do users repeat their search queries? This is often the case in e-commerce settings, where the availability of items changes over time: Products are added or removed from an online shop. You could estimate bias by training a model with item-pairs that appeared in different positions for the same search query.</p>
+<p>In practise, this rarely works. Depending on your context, there are few identical queries and novelty may be an important feature that contributes to the item being relevant. You may also not have enough variation in your ranks for the same query to train a model with item pairs. Wang et al. (2018)[2] could show that it is also possible to estimate propensities without using ranking features. They directly estimate the propensities by maximizing a likelihood function and eliminate the relevance from the likelihood function.</p>
+<h2 id="offline-add-randomness-to-your-ground-truth-as-not-relevant-items">Offline: add randomness to your ground truth as &ldquo;not relevant&rdquo; items</h2>
+<p>We improved our models by simply adding randomness to the ground truth as irrelevant items: We assumed that any random item is worse than an item the user clicked on. By pairing a random item with a relevant (clicked) item for 10 % of our ground truth pairs, we would increase the diversity of search results in our offline evaluation and increase the CTR of users in an AB-Test.</p>
+<h2 id="summary">Summary</h2>
+<p>There are different approaches how reduce bias in LTR:</p>
+<ol>
 <li>
-<p><strong>Producers</strong>: The senders of a message. For example, if a user creates an account on your website, a producer, let&rsquo;s call hom &ldquo;New User Service&rdquo; creates a message, that an account has been created.</p>
+<p>Randomization of the result list may help you estimate the biases, but comes at the cost of quality.</p>
 </li>
 <li>
-<p><strong>Consumers</strong>: The receiver of a message. Consumers looks at incoming messages and may execute some action, e.g. sending an Email to this new customer to verify his account.</p>
+<p>Modelling the bias offline could be a less risky yet challenging option. You would still need to AB-Test your model online to see if it indeed leads to more relevance for the user.</p>
 </li>
 <li>
-<p><strong>Queues</strong>: Storage of the messages until they are consumed.</p>
+<p>Adding randomness to your ground truth could be a quick and easy AB-Test you should try out.</p>
 </li>
-<li>
-<p><strong>Exchange</strong>: A &ldquo;config&rdquo; for routing messages. The producer transmits a message to the <strong>exchange</strong> using a specified protocol (e.g. AMQP). The echange makes sure to route the message to the correct queue.</p>
-</li>
-</ul>
-<p>The producers can issue messages without knowing where the consumers are, whether or not they are active, or how many of them exist.</p>
-<p>Let&rsquo;s look at two different architectural approaches: RabbitMQ or Kafka Architecture;</p>
-<h2 id="basic-architecture-rabbitmq-amqp">Basic Architecture RabbitMQ (AMQP)</h2>
-<p>RabbitMQ consists of exchanges and queues. Exchanges are responsible for routing incoming messages. The queues store messages.</p>
-<p>A producer generates messages and pushes them into an exchange. The exchange receives the messages and routes them into a queue. The <strong>routing key</strong> is like the address of the message, so the exchange knows to which queue the message should be routed. The queues store the messages until a consumer takes a message off the queue. RabbitMQ is a general purpose message broker that supports different protocols including, MQTT, AMQP, and STOMP.</p>
-<p><img src="https://miro.medium.com/max/1400/1*_ucX-gnGYuKl71LsmfOmSQ.png" alt="Message Exchange RabbitMQ">
-<a href="https://miro.medium.com/max/1400/1*_ucX-gnGYuKl71LsmfOmSQ.png">Source</a></p>
-<h2 id="basic-architecture-kafka">Basic Architecture Kafka</h2>
-<p>Instead of pushing messages to a queue, Kafka stores messages in <strong>topics</strong>. A topic is a partitioned log of messages, where each partition is an <strong>ordered</strong>, immutable sequence of records. Kafka appends messages to the topics as they arrive. The messages stay for a specified number of time. Kafka does not care if messages are read or not. During the timeframe, consumers can <strong>persist</strong> and re-process the data as they need (Dumb broker / smart consumer approach). Because partitions are ordered, messages can be processed in batches.</p>
-<p><img src="https://miro.medium.com/max/1400/1*Ex6oX0h2k39fK_KPq5gVQQ.png" alt="Kafka producers">
-<img src="https://miro.medium.com/max/1400/1*fB3VV7HLNI9Vg1VjjLCPkQ.png" alt="Kafka consumers"></p>
-<p><a href="https://miro.medium.com/max/1400/1*_ucX-gnGYuKl71LsmfOmSQ.png">Source</a></p>
-<h2 id="summing-up">Summing up</h2>
-<p>RabbitMQ and Kafka use different approaches for processing messages:</p>
-<p>RabbitMQ uses a <strong>push model</strong>. It distributes messages individually through configurable routing and sends them to the consumers. Once consumed, the messages are gone.</p>
-<p>Kafka uses a <strong>pull model</strong>. Consumers have to request messages from a specific offset. Messages are retained in a partition and can be reread.</p>
+</ol>
+<p>Further reading on bias estimation</p>
+<p>[1] Xuanhui Wang, Nadav Golbandi, Michael Bendersky, Donald Metzler, and Marc Najork. 2018. Position Bias Estimation for Unbiased Learning to Rank in Personal Search. In Proceedings of the Eleventh ACM International Conference on Web Search and Data Mining (WSDM ’18). ACM, New York, NY, USA, 610–618.
+<a href="https://doi.org/10.1145/3159652.3159732">https://doi.org/10.1145/3159652.3159732</a></p>
+<p>[2] Thorsten Joachims, Adith Swaminathan, and Tobias Schnabel. 2017. Unbiased Learning-to-Rank with Biased Feedback. In Proceedings of the Tenth ACM Inter- national Conference on Web Search and Data Mining (WSDM ’17). ACM, New York, NY, USA, 781–789. <a href="https://doi.org/10.1145/3018661.3018699">https://doi.org/10.1145/3018661.3018699</a></p>
               
             </div>
           </div>
@@ -312,13 +296,9 @@ if (!doNotTrack) {
                   <div class="post-footer-tags">
                     <span class="text-color-light text-small">TAGGED IN</span><br/>
                     
-  <a class="tag tag--primary tag--small" href="/tags/kafka/">kafka</a>
+  <a class="tag tag--primary tag--small" href="/tags/ltr/">ltr</a>
 
-  <a class="tag tag--primary tag--small" href="/tags/message-brokers/">message brokers</a>
-
-  <a class="tag tag--primary tag--small" href="/tags/amqp/">amqp</a>
-
-  <a class="tag tag--primary tag--small" href="/tags/rabbitmq/">rabbitmq</a>
+  <a class="tag tag--primary tag--small" href="/tags/bias/">bias</a>
 
                   </div>
                 
@@ -331,7 +311,7 @@ if (!doNotTrack) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/11/26/intro-into-apis-and-how-to-access-public-rest-apis-with-curl/" data-tooltip="Intro into APIs and how to access public REST APIs with `curl`">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2021/02/23/avro-and-avro-schemas-how-they-work-and-why-they-are-useful/" data-tooltip="Avro and avro schemas - how they work and why they are useful">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -339,7 +319,7 @@ if (!doNotTrack) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2021/02/23/avro-and-avro-schemas-how-they-work-and-why-they-are-useful/" data-tooltip="Avro and avro schemas - how they work and why they are useful">
+                <a class="post-action-btn btn btn--disabled">
               
                   <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                   <i class="fa fa-angle-right"></i>
@@ -357,13 +337,13 @@ if (!doNotTrack) {
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2021/04/29/biases-in-learning-to-rank-models-and-three-approaches-to-deal-with-them/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2021/04/29/biases-in-learning-to-rank-models-and-three-approaches-to-deal-with-them/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -411,7 +391,7 @@ if (!doNotTrack) {
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2020/11/26/intro-into-apis-and-how-to-access-public-rest-apis-with-curl/" data-tooltip="Intro into APIs and how to access public REST APIs with `curl`">
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2021/02/23/avro-and-avro-schemas-how-they-work-and-why-they-are-useful/" data-tooltip="Avro and avro schemas - how they work and why they are useful">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -419,7 +399,7 @@ if (!doNotTrack) {
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="/2021/02/23/avro-and-avro-schemas-how-they-work-and-why-they-are-useful/" data-tooltip="Avro and avro schemas - how they work and why they are useful">
+                <a class="post-action-btn btn btn--disabled">
               
                   <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                   <i class="fa fa-angle-right"></i>
@@ -437,13 +417,13 @@ if (!doNotTrack) {
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2021/04/29/biases-in-learning-to-rank-models-and-three-approaches-to-deal-with-them/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2021/04/29/biases-in-learning-to-rank-models-and-three-approaches-to-deal-with-them/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -473,13 +453,13 @@ if (!doNotTrack) {
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=%2F2021%2F01%2F26%2Fa-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=%2F2021%2F04%2F29%2Fbiases-in-learning-to-rank-models-and-three-approaches-to-deal-with-them%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2F2021%2F01%2F26%2Fa-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2F2021%2F04%2F29%2Fbiases-in-learning-to-rank-models-and-three-approaches-to-deal-with-them%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
@@ -569,9 +549,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = '\/2021\/01\/26\/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka\/';
+          this.page.url = '\/2021\/04\/29\/biases-in-learning-to-rank-models-and-three-approaches-to-deal-with-them\/';
           
-            this.page.identifier = '\/2021\/01\/26\/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka\/'
+            this.page.identifier = '\/2021\/04\/29\/biases-in-learning-to-rank-models-and-three-approaches-to-deal-with-them\/'
           
         };
         (function() {

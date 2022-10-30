@@ -6,7 +6,16 @@
     <description>Recent content in kafka on A Potpourri of Data Science &amp; Data Engineering Topics</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 26 Jan 2021 16:26:57 +0100</lastBuildDate><atom:link href="/tags/kafka/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 23 Feb 2021 15:16:09 +0200</lastBuildDate><atom:link href="/tags/kafka/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Avro and avro schemas - how they work and why they are useful</title>
+      <link>/2021/02/23/avro-and-avro-schemas-how-they-work-and-why-they-are-useful/</link>
+      <pubDate>Tue, 23 Feb 2021 15:16:09 +0200</pubDate>
+      
+      <guid>/2021/02/23/avro-and-avro-schemas-how-they-work-and-why-they-are-useful/</guid>
+      <description>&lt;p&gt;You have kafka as your message broker up and running and you may wonder: In which format should I send my data around? Maybe the string format pops up in your mind. Why not just put all fields into a long string and separate them with a comma?&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>A Gentle Intro to the Basic Architecture of Message Brokers: RabbitMQ vs. Kafka</title>
       <link>/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/</link>

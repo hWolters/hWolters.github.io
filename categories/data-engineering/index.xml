@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>data engineering on A Potpourri of Data Science &amp; Data Engineering Topics</title>
+    <link>/categories/data-engineering/</link>
+    <description>Recent content in data engineering on A Potpourri of Data Science &amp; Data Engineering Topics</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 23 Feb 2021 15:16:09 +0200</lastBuildDate><atom:link href="/categories/data-engineering/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Avro and avro schemas - how they work and why they are useful</title>
+      <link>/2021/02/23/avro-and-avro-schemas-how-they-work-and-why-they-are-useful/</link>
+      <pubDate>Tue, 23 Feb 2021 15:16:09 +0200</pubDate>
+      
+      <guid>/2021/02/23/avro-and-avro-schemas-how-they-work-and-why-they-are-useful/</guid>
+      <description>&lt;p&gt;You have kafka as your message broker up and running and you may wonder: In which format should I send my data around? Maybe the string format pops up in your mind. Why not just put all fields into a long string and separate them with a comma?&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

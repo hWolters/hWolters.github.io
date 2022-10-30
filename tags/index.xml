@@ -6,20 +6,38 @@
     <description>Recent content in Tags on A Potpourri of Data Science &amp; Data Engineering Topics</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 26 Jan 2021 16:26:57 +0100</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 29 Apr 2021 15:15:38 +0200</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>amqp</title>
-      <link>/tags/amqp/</link>
-      <pubDate>Tue, 26 Jan 2021 16:26:57 +0100</pubDate>
+      <title>bias</title>
+      <link>/tags/bias/</link>
+      <pubDate>Thu, 29 Apr 2021 15:15:38 +0200</pubDate>
       
-      <guid>/tags/amqp/</guid>
+      <guid>/tags/bias/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ltr</title>
+      <link>/tags/ltr/</link>
+      <pubDate>Thu, 29 Apr 2021 15:15:38 +0200</pubDate>
+      
+      <guid>/tags/ltr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>avro</title>
+      <link>/tags/avro/</link>
+      <pubDate>Tue, 23 Feb 2021 15:16:09 +0200</pubDate>
+      
+      <guid>/tags/avro/</guid>
       <description></description>
     </item>
     
     <item>
       <title>kafka</title>
       <link>/tags/kafka/</link>
-      <pubDate>Tue, 26 Jan 2021 16:26:57 +0100</pubDate>
+      <pubDate>Tue, 23 Feb 2021 15:16:09 +0200</pubDate>
       
       <guid>/tags/kafka/</guid>
       <description></description>
@@ -28,9 +46,18 @@
     <item>
       <title>message brokers</title>
       <link>/tags/message-brokers/</link>
-      <pubDate>Tue, 26 Jan 2021 16:26:57 +0100</pubDate>
+      <pubDate>Tue, 23 Feb 2021 15:16:09 +0200</pubDate>
       
       <guid>/tags/message-brokers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>amqp</title>
+      <link>/tags/amqp/</link>
+      <pubDate>Tue, 26 Jan 2021 16:26:57 +0100</pubDate>
+      
+      <guid>/tags/amqp/</guid>
       <description></description>
     </item>
     
@@ -67,15 +94,6 @@
       <pubDate>Thu, 26 Nov 2020 16:26:57 +0100</pubDate>
       
       <guid>/tags/rest/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ltr</title>
-      <link>/tags/ltr/</link>
-      <pubDate>Thu, 15 Oct 2020 18:36:40 +0100</pubDate>
-      
-      <guid>/tags/ltr/</guid>
       <description></description>
     </item>
     
@@ -121,24 +139,6 @@
       <pubDate>Mon, 31 Aug 2020 21:17:58 +0200</pubDate>
       
       <guid>/tags/bert/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>One-Hot-Encoding</title>
-      <link>/tags/one-hot-encoding/</link>
-      <pubDate>Mon, 31 Aug 2020 21:17:58 +0200</pubDate>
-      
-      <guid>/tags/one-hot-encoding/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Word Embeddings</title>
-      <link>/tags/word-embeddings/</link>
-      <pubDate>Mon, 31 Aug 2020 21:17:58 +0200</pubDate>
-      
-      <guid>/tags/word-embeddings/</guid>
       <description></description>
     </item>
     
