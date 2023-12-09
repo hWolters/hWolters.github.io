@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Athena on A Potpourri of Data Science &amp; Data Engineering Topics</title>
+    <link>/tags/athena/</link>
+    <description>Recent content in Athena on A Potpourri of Data Science &amp; Data Engineering Topics</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 09 Dec 2022 10:07:54 +0100</lastBuildDate><atom:link href="/tags/athena/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mastering Differences and Pitfalls when Switching SQL Databases: PostgreSQL vs. MySQL vs. SQLITE vs. Hive vs. Presto (AWS Athena)</title>
+      <link>/2022/12/09/mastering-differences-and-pitfalls-when-switching-sql-databases-postgresql-vs.-mysql-vs.-sqlite-vs.-hive-vs.-presto-aws-athena/</link>
+      <pubDate>Fri, 09 Dec 2022 10:07:54 +0100</pubDate>
+      
+      <guid>/2022/12/09/mastering-differences-and-pitfalls-when-switching-sql-databases-postgresql-vs.-mysql-vs.-sqlite-vs.-hive-vs.-presto-aws-athena/</guid>
+      <description>&lt;p&gt;Transitioning to another SQL database? This blog post is for you. Shifting from one SQL dialect to another can be a journey full of surprises. While the basic syntax (SELECT FROM WHERE) is similar, there are important differences, that will make your queries slow, fast, fail or worse: fail silently!&lt;/p&gt;
+&lt;p&gt;In this blog post I&amp;rsquo;ll guide you through the intricate pathways of databases I have come across during my work as a data scientist: Postgres, MySQL, SQLite, Hive and Presto (AWS Athena). We&amp;rsquo;ll start with a brief introduction into the databases and some differences. Then we jump into three pitfalls you have to be aware of.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

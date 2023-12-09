@@ -1,0 +1,996 @@
+<style>
+.sidebar-button-desc {
+  color: darkgrey !important;
+}
+.sidebar-button-icon {
+  color: darkgrey !important;
+}
+.sidebar-profile-name {
+  color: darkgrey !important;
+</style><!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.87.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="author" content="Heike Maria (PhD)">
+<meta name="keywords" content="MySQL, Postgres, PostgreSQL, Hive, Athena, Presto, SQL, , SQL, Data Science, Analytics, ElasticSeach, Python, Pandas, Analytics, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive, Data Analysis, Data Mining">
+<meta name="description" content="Transitioning to another SQL database? This blog post is for you. Shifting from one SQL dialect to another can be a journey full of surprises. While the basic syntax (SELECT FROM WHERE) is similar, there are important differences, that will make your queries slow, fast, fail or worse: fail silently!
+In this blog post I&rsquo;ll guide you through the intricate pathways of databases I have come across during my work as a data scientist: Postgres, MySQL, SQLite, Hive and Presto (AWS Athena). We&rsquo;ll start with a brief introduction into the databases and some differences. Then we jump into three pitfalls you have to be aware of.">
+
+
+<meta property="og:description" content="Transitioning to another SQL database? This blog post is for you. Shifting from one SQL dialect to another can be a journey full of surprises. While the basic syntax (SELECT FROM WHERE) is similar, there are important differences, that will make your queries slow, fast, fail or worse: fail silently!
+In this blog post I&rsquo;ll guide you through the intricate pathways of databases I have come across during my work as a data scientist: Postgres, MySQL, SQLite, Hive and Presto (AWS Athena). We&rsquo;ll start with a brief introduction into the databases and some differences. Then we jump into three pitfalls you have to be aware of.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mastering Differences and Pitfalls when Switching SQL Databases: PostgreSQL vs. MySQL vs. SQLITE vs. Hive vs. Presto (AWS Athena)">
+<meta name="twitter:title" content="Mastering Differences and Pitfalls when Switching SQL Databases: PostgreSQL vs. MySQL vs. SQLITE vs. Hive vs. Presto (AWS Athena)">
+<meta property="og:url" content="/2022/12/09/mastering-differences-and-pitfalls-when-switching-sql-databases-postgresql-vs.-mysql-vs.-sqlite-vs.-hive-vs.-presto-aws-athena/">
+<meta property="twitter:url" content="/2022/12/09/mastering-differences-and-pitfalls-when-switching-sql-databases-postgresql-vs.-mysql-vs.-sqlite-vs.-hive-vs.-presto-aws-athena/">
+<meta property="og:site_name" content="A Potpourri of Data Science &amp; Data Engineering Topics">
+<meta property="og:description" content="Transitioning to another SQL database? This blog post is for you. Shifting from one SQL dialect to another can be a journey full of surprises. While the basic syntax (SELECT FROM WHERE) is similar, there are important differences, that will make your queries slow, fast, fail or worse: fail silently!
+In this blog post I&rsquo;ll guide you through the intricate pathways of databases I have come across during my work as a data scientist: Postgres, MySQL, SQLite, Hive and Presto (AWS Athena). We&rsquo;ll start with a brief introduction into the databases and some differences. Then we jump into three pitfalls you have to be aware of.">
+<meta name="twitter:description" content="Transitioning to another SQL database? This blog post is for you. Shifting from one SQL dialect to another can be a journey full of surprises. While the basic syntax (SELECT FROM WHERE) is similar, there are important differences, that will make your queries slow, fast, fail or worse: fail silently!
+In this blog post I&rsquo;ll guide you through the intricate pathways of databases I have come across during my work as a data scientist: Postgres, MySQL, SQLite, Hive and Presto (AWS Athena). We&rsquo;ll start with a brief introduction into the databases and some differences. Then we jump into three pitfalls you have to be aware of.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2022-12-09T10:07:54">
+  
+  
+    <meta property="article:modified_time" content="2022-12-09T10:07:54">
+  
+  
+  
+    
+      <meta property="article:section" content="SQL">
+    
+      <meta property="article:section" content="Database">
+    
+  
+  
+    
+      <meta property="article:tag" content="MySQL">
+    
+      <meta property="article:tag" content="PostgreSQL">
+    
+      <meta property="article:tag" content="Hive">
+    
+      <meta property="article:tag" content="Athena">
+    
+      <meta property="article:tag" content="Presto">
+    
+      <meta property="article:tag" content="SQL">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="/post/2022-12-databases/databases_cover_dark.jpeg">
+  <meta property="twitter:image" content="/post/2022-12-databases/databases_cover_dark.jpeg">
+
+
+
+
+    <title>Mastering Differences and Pitfalls when Switching SQL Databases: PostgreSQL vs. MySQL vs. SQLITE vs. Hive vs. Presto (AWS Athena)</title>
+
+    <link rel="icon" href="/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="/2022/12/09/mastering-differences-and-pitfalls-when-switching-sql-databases-postgresql-vs.-mysql-vs.-sqlite-vs.-hive-vs.-presto-aws-athena/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-128956833-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="1">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="/">A Potpourri of Data Science &amp; Data Engineering Topics</a>
+  </div>
+  
+    
+      <a class="header-right-icon open-algolia-search"
+         href="/#search">
+    
+    
+      <i class="fa fa-lg fa-search"></i>
+    
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="1">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="/#about">
+          <img class="sidebar-profile-picture" src="/me.jpg" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Heike Maria (PhD)</h4>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link open-algolia-search" href="/#search">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+      
+      <span class="sidebar-button-desc">Search</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-left
+              "
+       style="background-image:url('/post/2022-12-databases/databases_cover_dark.jpeg')"
+       data-behavior="1">
+    
+      <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      Mastering Differences and Pitfalls when Switching SQL Databases: PostgreSQL vs. MySQL vs. SQLITE vs. Hive vs. Presto (AWS Athena)
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2022-12-09T10:07:54&#43;01:00">
+        
+  
+  
+  
+  
+    9 December 2022
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="/categories/sql">SQL</a>, 
+    
+      <a class="category-link" href="/categories/database">Database</a>
+    
+  
+
+  </div>
+
+</div>
+    
+  </div>
+
+
+      <div id="main" data-behavior="1"
+        class="hasCover
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>Transitioning to another SQL database? This blog post is for you. Shifting from one SQL dialect to another can be a journey full of surprises. While the basic syntax (SELECT FROM WHERE) is similar, there are important differences, that will make your queries slow, fast, fail or worse: fail silently!</p>
+<p>In this blog post I&rsquo;ll guide you through the intricate pathways of databases I have come across during my work as a data scientist: Postgres, MySQL, SQLite, Hive and Presto (AWS Athena). We&rsquo;ll start with a brief introduction into the databases and some differences. Then we jump into three pitfalls you have to be aware of.</p>
+<h3 id="quick-overview">Quick Overview</h3>
+<p><strong>PostgreSQL</strong>: PostgreSQL is an open-source DBMS with an active community and regular updates. It is is an all-rounder database that excels in features, performance, and extensibility. You find it applied for all sorts of use cases from analytics to production usage. I started using Postgres in 2013 as a database during my PHD and have come across it at different companies and projects. Many larger companies like Netflix, Spotify and Appke chose Postgres for all sorts of use cases.</p>
+<p><strong>MySQL</strong>: MySQL has gained significant popularity as a go-to choice for web apps and small to medium-sized projects. It is fast in storing and retrieving data. I have used MySQL e.g. as production database for retrieving data used by a recommender system.</p>
+<p><strong>SQLite</strong>: SQLite is a self-contained, serverless, and embeddable DBMS. The entire SQLite database is contained within a single file on the local file system. Unlike PostgreSQL or MySQL, SQLite does not require a separate server process to run. That&rsquo;s why I often use SQLite for my small side projects, where I do not want to go through the hassle of spinning up a database instance in a Docker containers.</p>
+<p><strong>Hive</strong>: Hive is a distributed data warehouse system built on top of Hadoop. HiveQL has an SQL-like interface to query data stored in various databases and file systems that integrate with Hadoop. Under the hood queries are implemented using the MapReduce Java API. Hive is not the fastest option to write and retrieve data. That&rsquo;s why I have used Hivein an &ldquo;offline&rdquo; setting for analytical tasks, e.g. running analysis or creating training datasets for ml models.</p>
+<p><strong>Presto</strong>: Presto is not a database in the traditional sense. It is a distributed SQL query engine that allows you to run SQL queries on data stored in various data sources. Facebook originally developed on Presto, because Hive was too slow. Like Hive, Presto Query Engine applies MapReduce, but does not write intermediate results to disk. It can run on top and combine multiple datasources.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Hive</th>
+<th>Postgres</th>
+<th>MySQL</th>
+<th>SQLite</th>
+<th>Presto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Initial Release Date</td>
+<td>2012</td>
+<td>1996</td>
+<td>1995</td>
+<td>2000</td>
+<td>2012</td>
+</tr>
+<tr>
+<td>System Language</td>
+<td>Java</td>
+<td>C</td>
+<td>C, C++</td>
+<td>C</td>
+<td>Java</td>
+</tr>
+<tr>
+<td>Hosting</td>
+<td>Server</td>
+<td>Server</td>
+<td>Server</td>
+<td>Serverless</td>
+<td>Server</td>
+</tr>
+<tr>
+<td>Concurrency</td>
+<td>Supported</td>
+<td>Supported</td>
+<td>Supported (writing is slow)</td>
+<td>Only one process can write</td>
+<td>Supported</td>
+</tr>
+<tr>
+<td>Data Storage</td>
+<td>Column-based</td>
+<td>Row-based</td>
+<td>Row-based</td>
+<td>Row-based</td>
+<td>Column-based</td>
+</tr>
+<tr>
+<td>Storage Formats</td>
+<td>ORC, Parquet, Text, others</td>
+<td>Custom, Text, JSON, others</td>
+<td>InnoDB, MyISAM, others</td>
+<td>SQLite3, others</td>
+<td>Various via connectors</td>
+</tr>
+<tr>
+<td>Query Engine</td>
+<td>MapReduce</td>
+<td>PostgreSQL Executor</td>
+<td>MySQL Executor</td>
+<td>SQLite Executor</td>
+<td>Presto Executor</td>
+</tr>
+<tr>
+<td>Read Speed</td>
+<td>Moderate</td>
+<td>Fast</td>
+<td>Fast</td>
+<td>Fast</td>
+<td>Fast</td>
+</tr>
+<tr>
+<td>Write Speed</td>
+<td>Slow</td>
+<td>Fast</td>
+<td>Fast</td>
+<td>Fast</td>
+<td>Moderate</td>
+</tr>
+<tr>
+<td>Aggregation Speed</td>
+<td>Moderate</td>
+<td>Fast</td>
+<td>Moderate</td>
+<td>Moderate</td>
+<td>Fast</td>
+</tr>
+</tbody>
+</table>
+<h3 id="implications-of-data-storage-on-speed">Implications of data storage on speed</h3>
+<p>Data storage and data storage formats differ, which has implications of the speed of your queries.</p>
+<p>In row-based storage, as seen in &ldquo;traditional&rdquo; relational database systems like PostgreSQL or MySQL, data is stored in rows. Imagine a library catalog card: each card (row) contains all the information (columns) about a single book. This approach is highly efficient if we are often interested in the entirety of the record, like retrieving all the details of a customer’s profile. However, calculating the average balance from a column in a table with millions of rows means the database has to scan each row, which can be resource-intensive and slow.</p>
+<p>Column-based storage, as seen in databases like Hive and Presto, flips this model. Instead of storing data row by row, data is stored column by column. It’s like rearranging the library catalog to have a separate card for each type of information— one for titles, one for authors, and so on. Column based storage excels in analytical processing where queries often aggregate values from specific columns, like calculating averages or sums. Since the data in each column is of the same type, it allows for better compression, and the database can fetch the data more efficiently, improving query performance.</p>
+<h3 id="understand-how-your-query-will-be-executed-with-explain">Understand how your query will be executed with <code>EXPLAIN</code></h3>
+<p>The different databases use different query engines. The <code>EXPLAIN</code> statement is a powerful tool that you can use to gain insights into how a particular SQL query is executed by the database engine. Just prefix your SQL query with the <code>EXPLAIN</code> keyword and the database returns a query execution plan. This plan doesn’t execute the query, but instead provides a detailed roadmap of how the database intends to retrieve or modify the data, offering a glimpse into the internal strategies and operations used by the database optimizer. It can help you understand, which subqueries you should unnest or if you should update your index.</p>
+<h3 id="types">Types</h3>
+<p>Understanding the data types available in each database is essential for effective data storage and retrieval. For instance, using the appropriate numeric types can optimize storage, and leveraging specialized types like JSON can enhance the handling of complex data structures.</p>
+<p>Here is a brief overview (please doublecheck the current docs!)</p>
+<table>
+<thead>
+<tr>
+<th>Data Type Categories</th>
+<th>PostgreSQL</th>
+<th>MySQL</th>
+<th>SQLite</th>
+<th>Hive</th>
+<th>Presto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Numeric</td>
+<td>INTEGER, NUMERIC, FLOAT8, SERIAL</td>
+<td>INT, FLOAT, DECIMAL, TINYINT</td>
+<td>INTEGER, REAL</td>
+<td>INT, FLOAT, DOUBLE</td>
+<td>INTEGER, DOUBLE, REAL</td>
+</tr>
+<tr>
+<td>Character Strings</td>
+<td>VARCHAR, TEXT, CHAR</td>
+<td>VARCHAR, TEXT, CHAR</td>
+<td>TEXT</td>
+<td>STRING</td>
+<td>VARCHAR, CHAR</td>
+</tr>
+<tr>
+<td>Binary Data</td>
+<td>BYTEA</td>
+<td>BLOB, BINARY</td>
+<td>BLOB</td>
+<td>BINARY</td>
+<td>VARBINARY</td>
+</tr>
+<tr>
+<td>Date and Time</td>
+<td>TIMESTAMP, DATE, INTERVAL</td>
+<td>DATETIME, DATE, TIMESTAMP</td>
+<td>DATETIME, DATE</td>
+<td>TIMESTAMP, DATE</td>
+<td>TIMESTAMP, DATE</td>
+</tr>
+<tr>
+<td>Boolean</td>
+<td>BOOLEAN</td>
+<td>BOOLEAN, TINYINT</td>
+<td>INTEGER (0 or 1)</td>
+<td>BOOLEAN</td>
+<td>BOOLEAN</td>
+</tr>
+<tr>
+<td>JSON</td>
+<td>JSON, JSONB</td>
+<td>JSON</td>
+<td>TEXT (JSON as string)</td>
+<td>STRING (JSON as string)</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>UUID</td>
+<td>UUID</td>
+<td>CHAR(36)</td>
+<td>TEXT</td>
+<td>STRING</td>
+<td>VARCHAR</td>
+</tr>
+<tr>
+<td>Arrays and Composite</td>
+<td>ARRAY, Composite Types</td>
+<td>-</td>
+<td>-</td>
+<td>ARRAY, MAP, STRUCT</td>
+<td>ARRAY, MAP, ROW</td>
+</tr>
+<tr>
+<td>Specialized</td>
+<td>ENUM, CIDR, INET</td>
+<td>SET, ENUM</td>
+<td>-</td>
+<td>UNIONTYPE</td>
+<td>IPADDRESS, HYPERLOGLOG, QDIGEST</td>
+</tr>
+</tbody>
+</table>
+<p>Working with date fields is always painfully different. Here is a quick overview on how to do basic date operations.</p>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Hive</th>
+<th>Postgres</th>
+<th>MySQL</th>
+<th>SQLite</th>
+<th>Presto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Current Date</td>
+<td><code>CURRENT_DATE</code></td>
+<td><code>CURRENT_DATE</code></td>
+<td><code>CURDATE()</code></td>
+<td><code>date('now')</code></td>
+<td><code>CURRENT_DATE</code></td>
+</tr>
+<tr>
+<td>Date Addition (Add 1 day to current date)</td>
+<td><code>date_add(CURRENT_DATE, 1)</code></td>
+<td><code>CURRENT_DATE + INTERVAL '1 day'</code></td>
+<td><code>DATE_ADD(CURDATE(), INTERVAL 1 DAY)</code></td>
+<td><code>date('now','+1 day')</code></td>
+<td><code>date_add('day', 1, CURRENT_DATE)</code></td>
+</tr>
+<tr>
+<td>Extract Year</td>
+<td><code>year(CURRENT_DATE)</code></td>
+<td><code>EXTRACT(YEAR FROM CURRENT_DATE)</code></td>
+<td><code>YEAR(CURDATE())</code></td>
+<td><code>strftime('%Y', 'now')</code></td>
+<td><code>EXTRACT(year FROM CURRENT_DATE)</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="pitfalls">Pitfalls</h2>
+<h3 id="the-pitfalls-of-type-casting-where-it-goes-wrong">The Pitfalls of Type Casting: Where It Goes Wrong&hellip;</h3>
+<p>Be careful when casting types! Casting to types that don&rsquo;t exist, will notifify you with an error. E.g. when trying to cast to a Boolean in SQLite.</p>
+<pre><code>SELECT CAST(1 AS BOOLEAN);
+</code></pre><p>However if the type exists, but it is not clear how to cast it, the behavior may differ. So what happens if you try to cast the String <code>abc</code> to Integer?</p>
+<p><code>SELECT CAST('abc' AS INT)</code></p>
+<p>Postgres and Hive will return <code>Null</code>, Postgres will give you a <code>0</code> and MySQL and SQLite will throw an error.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left"><code>CAST('abc' AS INT)</code></th>
+<th style="text-align:left">Behaviour</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Postgres</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">defaults to 0 when it can&rsquo;t cast a non-numeric string to integer.</td>
+</tr>
+<tr>
+<td style="text-align:left">MySQL</td>
+<td style="text-align:left">Error</td>
+<td style="text-align:left">throws an error indicating it cannot cast the string to an integer.</td>
+</tr>
+<tr>
+<td style="text-align:left">SQLite</td>
+<td style="text-align:left">Error</td>
+<td style="text-align:left">throws an error due to the invalid cast.</td>
+</tr>
+<tr>
+<td style="text-align:left">Hive</td>
+<td style="text-align:left"><code>Null</code></td>
+<td style="text-align:left">returns a <code>Null</code> value when it fails to cast a non-numeric string.</td>
+</tr>
+<tr>
+<td style="text-align:left">Presto</td>
+<td style="text-align:left"><code>Null</code></td>
+<td style="text-align:left">returns a <code>Null</code> value for the unsuccessful cast.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-pitfalls-of-type-concatinating-null-values-where-it-goes-wrong">The Pitfalls of Type Concatinating NULL values: Where It Goes Wrong&hellip;</h3>
+<p>What happens if you want to concatenate columns and one column contains a <code>NULL</code> value?</p>
+<pre><code>CONCAT('Hello', NULL, 'World')
+</code></pre><p>Postgres, SQLite and Hive will return <code>NULL</code> while MySQL and Presto will just ignore the <code>NULL</code> value.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left"><code>CONCAT('Hello', NULL, 'World')</code></th>
+<th style="text-align:left">Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">PostgreSQL</td>
+<td style="text-align:left"><code>NULL</code></td>
+<td style="text-align:left">Result is <code>NULL</code></td>
+</tr>
+<tr>
+<td style="text-align:left">MySQL</td>
+<td style="text-align:left"><code>'HelloWorld'</code></td>
+<td style="text-align:left">Ignores <code>NULL</code></td>
+</tr>
+<tr>
+<td style="text-align:left">SQLite</td>
+<td style="text-align:left"><code>NULL</code></td>
+<td style="text-align:left">Result is <code>NULL</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Hive</td>
+<td style="text-align:left"><code>NULL</code></td>
+<td style="text-align:left">Result is <code>NULL</code></td>
+</tr>
+<tr>
+<td style="text-align:left">Presto</td>
+<td style="text-align:left"><code>'HelloWorld'</code></td>
+<td style="text-align:left">Ignores <code>NULL</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-pitfalls-of-integer-division-where-it-goes-wrong">The Pitfalls of Integer Division: Where It Goes Wrong&hellip;</h3>
+<p>Different databases have distinct behaviors when it comes to division operations. For instance, some databases return an integer value in integer division, while others might return a decimal. E.g. let&rsquo;s look at the example of dividing two integers:</p>
+<pre><code>SELECT 1/2;
+</code></pre><p>The return type and the result will be different. Hive, MySQL and Presto will return a decimal, while Postgres and SQLite will return integer. And the result will be different, returning 0, 0.5 and 1 as a result. Postgres will round up to the next integeger, while SQLlite will round down.</p>
+<table>
+<thead>
+<tr>
+<th>Database</th>
+<th>Return Type For Integer Division</th>
+<th>Result of <code>SELECT 1/2</code></th>
+<th>Behaviour</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Postgres</td>
+<td>Integer</td>
+<td>1</td>
+<td>Returns integer value for integer division, truncating any decimals.</td>
+</tr>
+<tr>
+<td>MySQL</td>
+<td>Decimal</td>
+<td>0.500000</td>
+<td>Returns decimal value for integer division, preserving fractional parts.</td>
+</tr>
+<tr>
+<td>SQLite</td>
+<td>Integer</td>
+<td>0</td>
+<td>Returns integer value for integer division, truncating any decimals.</td>
+</tr>
+<tr>
+<td>Hive</td>
+<td>Decimal</td>
+<td>0.500000</td>
+<td>Returns decimal value for integer division, preserving fractional parts.</td>
+</tr>
+<tr>
+<td>Presto</td>
+<td>Decimal</td>
+<td>0.500000</td>
+<td>Returns decimal value for integer division, preserving fractional parts.</td>
+</tr>
+</tbody>
+</table>
+<p>You get consistent results, if you use a decimal instead of an integer.</p>
+<pre><code>SELECT 1.0/2;
+</code></pre><table>
+<thead>
+<tr>
+<th>Database</th>
+<th>Result of <code>SELECT 1.0/2</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Postgres</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>MySQL</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>SQLite</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>Hive</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>Presto</td>
+<td>0.5</td>
+</tr>
+</tbody>
+</table>
+<h3 id="syntax">Syntax</h3>
+<p>There are slight differences in the syntax, but don&rsquo;t worry too much about it. Wrong syntax will make your query fail and then you can fix it. E.g. aliases in group by statements</p>
+<pre><code>SELECT 
+	CASE WHEN nr &gt; 10 THEN 1 ELSE 0 END AS new_column,
+	count(*)
+FROM 
+	table_name
+GROUP BY 
+	new_column
+</code></pre><table>
+<thead>
+<tr>
+<th>Group by alias</th>
+<th>Hive</th>
+<th>Postgres</th>
+<th>MySQL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>no</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+</tbody>
+</table>
+<p>Postgres and MySQL allow aliases in the GROUP BY clause, while Hive does not. When using aliases in your GROUP BY statement in Hive, it will simply fail and you can remove the alias. Also <code>LIMIT</code> and <code>OFFSET</code> to restrict query results may or may not exist.</p>
+<p>It&rsquo;s rather important to understand the &ldquo;silent&rdquo; failures.</p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="/tags/mysql/">MySQL</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/postgresql/">PostgreSQL</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/hive/">Hive</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/athena/">Athena</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/presto/">Presto</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/sql/">SQL</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2021/04/29/biases-in-learning-to-rank-models-and-three-approaches-to-deal-with-them/" data-tooltip="Biases in learning to rank models and three approaches to deal with them">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2022/12/09/mastering-differences-and-pitfalls-when-switching-sql-databases-postgresql-vs.-mysql-vs.-sqlite-vs.-hive-vs.-presto-aws-athena/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2022/12/09/mastering-differences-and-pitfalls-when-switching-sql-databases-postgresql-vs.-mysql-vs.-sqlite-vs.-hive-vs.-presto-aws-athena/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2023 Heike Maria (PhD). All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="1">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2021/04/29/biases-in-learning-to-rank-models-and-three-approaches-to-deal-with-them/" data-tooltip="Biases in learning to rank models and three approaches to deal with them">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2022/12/09/mastering-differences-and-pitfalls-when-switching-sql-databases-postgresql-vs.-mysql-vs.-sqlite-vs.-hive-vs.-presto-aws-athena/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2022/12/09/mastering-differences-and-pitfalls-when-switching-sql-databases-postgresql-vs.-mysql-vs.-sqlite-vs.-hive-vs.-presto-aws-athena/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="1">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=%2F2022%2F12%2F09%2Fmastering-differences-and-pitfalls-when-switching-sql-databases-postgresql-vs.-mysql-vs.-sqlite-vs.-hive-vs.-presto-aws-athena%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2F2022%2F12%2F09%2Fmastering-differences-and-pitfalls-when-switching-sql-databases-postgresql-vs.-mysql-vs.-sqlite-vs.-hive-vs.-presto-aws-athena%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="/me.jpg" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Heike Maria (PhD)</h4>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Data Science <a href="https://www.moia.io/en">@MOIA</a> working on the future of mobility, previously Data Science at <a href="https://www.xing.com/">@Xing</a> on recommender systems and search
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Germany
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('source/assets/img/banner');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = '\/2022\/12\/09\/mastering-differences-and-pitfalls-when-switching-sql-databases-postgresql-vs.-mysql-vs.-sqlite-vs.-hive-vs.-presto-aws-athena\/';
+          
+            this.page.identifier = '\/2022\/12\/09\/mastering-differences-and-pitfalls-when-switching-sql-databases-postgresql-vs.-mysql-vs.-sqlite-vs.-hive-vs.-presto-aws-athena\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'Heike';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+

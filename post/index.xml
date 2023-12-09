@@ -6,7 +6,17 @@
     <description>Recent content in Posts on A Potpourri of Data Science &amp; Data Engineering Topics</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 29 Apr 2021 15:15:38 +0200</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 09 Dec 2022 10:07:54 +0100</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mastering Differences and Pitfalls when Switching SQL Databases: PostgreSQL vs. MySQL vs. SQLITE vs. Hive vs. Presto (AWS Athena)</title>
+      <link>/2022/12/09/mastering-differences-and-pitfalls-when-switching-sql-databases-postgresql-vs.-mysql-vs.-sqlite-vs.-hive-vs.-presto-aws-athena/</link>
+      <pubDate>Fri, 09 Dec 2022 10:07:54 +0100</pubDate>
+      
+      <guid>/2022/12/09/mastering-differences-and-pitfalls-when-switching-sql-databases-postgresql-vs.-mysql-vs.-sqlite-vs.-hive-vs.-presto-aws-athena/</guid>
+      <description>&lt;p&gt;Transitioning to another SQL database? This blog post is for you. Shifting from one SQL dialect to another can be a journey full of surprises. While the basic syntax (SELECT FROM WHERE) is similar, there are important differences, that will make your queries slow, fast, fail or worse: fail silently!&lt;/p&gt;
+&lt;p&gt;In this blog post I&amp;rsquo;ll guide you through the intricate pathways of databases I have come across during my work as a data scientist: Postgres, MySQL, SQLite, Hive and Presto (AWS Athena). We&amp;rsquo;ll start with a brief introduction into the databases and some differences. Then we jump into three pitfalls you have to be aware of.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Biases in learning to rank models and three approaches to deal with them</title>
       <link>/2021/04/29/biases-in-learning-to-rank-models-and-three-approaches-to-deal-with-them/</link>
@@ -137,16 +147,6 @@ Subsetting Data: Selecting subsets of rows and columns by labels and positions .
       
       <guid>/2018/12/17/everything-you-need-to-know-to-use-git-for-version-control/</guid>
       <description>So many people have recommended Git as a version control system to me. I had a look at it, but I was pretty overwhelmed. Since I did not have a technical background, everything seemed so complex! Many tutorials let me copy paste code without giving you a deeper understanding of what and why I am actually doing this. This copy pasting feels like success at first, but when I tried working with it, I could not.</description>
-    </item>
-    
-    <item>
-      <title>Automatically changing the R working directory on Mac OS to source file location</title>
-      <link>/2018/12/07/changing-working-directories/</link>
-      <pubDate>Fri, 07 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/2018/12/07/changing-working-directories/</guid>
-      <description>This post is about how to change your R working directory. You might be wondering:
-Why would I want to do that? You need this as soon as your script interacts with folders on your computer. For example for imports or exports of data or figures. So probably almost always. Let&#39;s say you have a script that creates plots and saves them in the folder &amp;quot;Plots&amp;quot;, which is located in your source file directory.</description>
     </item>
     
   </channel>
