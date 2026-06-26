@@ -31,7 +31,9 @@ scripts/build-site.sh
 
 Review the generated `public/` directory before copying any generated files into the repository root for publication.
 
-Hugo is required for the build step. The helper script can create Markdown drafts without Hugo.
+Hugo `0.87.0` is required for the build step. The restored Tranquilpeak theme uses APIs that were removed from newer Hugo releases, so `scripts/build-site.sh` refuses to run with a different Hugo version. If your Hugo binary has a non-standard name, run the build with `HUGO_BIN=/path/to/hugo-0.87.0 scripts/build-site.sh`.
+
+The helper script can create Markdown drafts without Hugo.
 
 ## Current Cleanup Status
 
