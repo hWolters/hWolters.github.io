@@ -1,0 +1,34 @@
+---
+title: "Everything You Need to Know to Use Git for Version Control"
+date: 2018-12-17T21:17:58+01:00
+draft: true
+---
+
+So many people have recommended Git as a version control system to me. I had a look at it, but I was pretty overwhelmed. Since I did not have a technical background, everything seemed so complex! Many tutorials let me copy paste code without giving you a deeper understanding of what and why I am actually doing this. This copy pasting feels like success at first, but when I tried working with it, I could not.
+
+The goal of this post is to teach you everything you need to know about Git on how use it as your version control system. We're not going to talk about collaboration with git so far. First you need to understand some basic things.
+
+Git works with **repositories**. A repository is a folder, that contains a `.git` file.
+
+In git there are several directories where you save your code:
+
+- **Working directory**: This is where you save your files on your local file system
+- **Stating Area (a.k.a. Index)**: This is basically temporary memory. You can use this to save a file, that is not done, yet, but you reached a point where you feel the need to save something.
+- **Local repo**: This is a local copy of the repo. Everything you save there, will show up in your history.
+- **Upstream repo**: This is a remote copy of a repo. So this is not on your computer, but saved for example on Github or Gitlab.
+
+
+Every file has to pass through the different stages. By using `git add` you put a local file into the staging area. Use `git commit` to save a file to your local repo. 
+
+location | what should I put there?|
+|-----------------|------------------------------------------------|
+|working directory | anything! This is your local file system|
+|staging area | everything, that reached a certain milestone, but is not completely done|
+|local repo | everything you want to see in your file history|
+|upstream repo | everything, that is part of a finished unit|
+
+
+![](/post/2018-12-17-everything-you-need-to-know-to-use-git-for-version-control_files/git_basics.png)
+
+So you have learned, that there are different stages in which you can save your files. Let's say you want to go back to an older version of a file. You can use `git reset`. Depending on the next parameter, you will either reset the file in your working directory (`git reset --hard`), in your staging area (`git reset --mixed`) or in your local repo (`git reset --soft`)
+![](/post/2018-12-17-everything-you-need-to-know-to-use-git-for-version-control_files/gitreset.png)

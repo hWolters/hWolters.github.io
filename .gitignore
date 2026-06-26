@@ -4,3 +4,6 @@
 .Ruserdata
 2015-01-01-lorem-ipsum.md
 2016-12-30-hello-markdown.md
+.DS_Store
+*.sb-*
+/public/

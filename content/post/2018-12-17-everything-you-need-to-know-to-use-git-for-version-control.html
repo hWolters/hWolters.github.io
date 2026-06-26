@@ -1,0 +1,54 @@
+---
+title: "Everything You Need to Know to Use Git for Version Control"
+date: 2018-12-17T21:17:58+01:00
+draft: true
+---
+
+
+
+<p>So many people have recommended Git as a version control system to me. I had a look at it, but I was pretty overwhelmed. Since I did not have a technical background, everything seemed so complex! Many tutorials let me copy paste code without giving you a deeper understanding of what and why I am actually doing this. This copy pasting feels like success at first, but when I tried working with it, I could not.</p>
+<p>The goal of this post is to teach you everything you need to know about Git on how use it as your version control system. We’re not going to talk about collaboration with git so far. First you need to understand some basic things.</p>
+<p>Git works with <strong>repositories</strong>. A repository is a folder, that contains a <code>.git</code> file.</p>
+<p>In git there are several directories where you save your code:</p>
+<ul>
+<li><strong>Working directory</strong>: This is where you save your files on your local file system</li>
+<li><strong>Stating Area (a.k.a. Index)</strong>: This is basically temporary memory. You can use this to save a file, that is not done, yet, but you reached a point where you feel the need to save something.</li>
+<li><strong>Local repo</strong>: This is a local copy of the repo. Everything you save there, will show up in your history.</li>
+<li><strong>Upstream repo</strong>: This is a remote copy of a repo. So this is not on your computer, but saved for example on Github or Gitlab.</li>
+</ul>
+<p>Every file has to pass through the different stages. By using <code>git add</code> you put a local file into the staging area. Use <code>git commit</code> to save a file to your local repo.</p>
+<table style="width:93%;">
+<colgroup>
+<col width="25%" />
+<col width="68%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>location</th>
+<th>what should I put there?</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>working directory</td>
+<td>anything! This is your local file system</td>
+</tr>
+<tr class="even">
+<td>staging area</td>
+<td>everything, that reached a certain milestone, but is not completely done</td>
+</tr>
+<tr class="odd">
+<td>local repo</td>
+<td>everything you want to see in your file history</td>
+</tr>
+<tr class="even">
+<td>upstream repo</td>
+<td>everything, that is part of a finished unit</td>
+</tr>
+</tbody>
+</table>
+<div class="figure">
+<img src="/post/2018-12-17-everything-you-need-to-know-to-use-git-for-version-control_files/git_basics.png" />
+
+</div>
+<p>So you have learned, that there are different stages in which you can save your files. Let’s say you want to go back to an older version of a file. You can use <code>git reset</code>. Depending on the next parameter, you will either reset the file in your working directory (<code>git reset --hard</code>), in your staging area (<code>git reset --mixed</code>) or in your local repo (<code>git reset --soft</code>) <img src="/post/2018-12-17-everything-you-need-to-know-to-use-git-for-version-control_files/gitreset.png" /></p>
