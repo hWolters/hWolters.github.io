@@ -206,6 +206,17 @@ git status --short
 
 Commit both the source files and any publication output that should be served by GitHub Pages.
 
+## Theme Assets
+
+The Tranquilpeak theme's compiled CSS and JavaScript are committed under
+`themes/hugo-tranquilpeak-theme-master/static/` and are consumed directly by
+Hugo. The theme's historical NPM/Grunt dependency manifest was removed because
+that asset pipeline is not part of the site build and is incompatible with
+supported Node.js versions. Use `scripts/build-site.sh` for normal post builds.
+
+Before changing the theme's source SCSS or JavaScript, introduce a maintained
+asset pipeline rather than restoring the obsolete dependencies.
+
 ## Current Cleanup Status
 
 The root-level static site is still the canonical published output. Legacy duplicate typo URLs are kept as redirect pages so old links continue to work.
