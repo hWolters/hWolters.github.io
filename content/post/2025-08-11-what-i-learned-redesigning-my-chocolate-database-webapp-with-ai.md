@@ -1,7 +1,7 @@
 ---
 title: "What I Learned Redesigning My Chocolate Database Webapp with AI"
 date: 2025-08-11T09:00:00+02:00
-draft: true
+draft: false
 categories:
 - AI
 - Web Development
