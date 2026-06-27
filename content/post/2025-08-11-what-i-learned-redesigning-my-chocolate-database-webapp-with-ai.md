@@ -18,20 +18,27 @@ keywords:
 - Playwright screenshots
 thumbnailImage: /post/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/redesigned-search-results-with-stitch.png
 thumbnailImagePosition: bottom
-coverImage: /post/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/redesigned-search-results-with-stitch.png
 ---
 
-In summer 2020 I had a small Python web app around one of my favorite datasets: a chocolate database with around 300 chocolates, ratings, metadata, and a search interface.
+In summer 2020 I had a small Python web app around one of my favorite datasets: 300 chocolates that my hunsband and me had tried over the years with reviews and ratings and a machine learning model that predicts how much we may like an unknown chocolate. 
 
-It worked.
+Technically, it was a SQLite database with a search interface that was a simple keyword match.
 
-It was also ugly. I used Streamlit, so my UI options were limited.
+It worked: It was also really ugly. Because I am not a frontend developer, I had happily used Streamlit. That was a good choice for getting something working quickly, but it also meant the interface looked like what it was: a table with some hacky filters on the side.
 
-With the help of aider around 2023 and later Codex, the app had grown the usual side-project way: one useful feature after another, no coherent design system, and lots of boxes. Search box. Result boxes. Detail boxes. Filter boxes. Boxes inside boxes. It had the energy of a database admin interface that accidentally became public.
+![Original table-based chocolate search interface](/post/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/original-table-search.png)
 
-I tried to fix it with AI design prompts. "Make this more modern." "Improve the UX." "Use better spacing." I also tried design-focused coding assistants and design skills. The results were better in the way a cleaned-up spreadsheet is better: less embarrassing, still obviously the same thing.
+And yes, I am a little embarrassed to show this screenshot to you.
 
-The game changer was [Google Stitch](https://stitch.withgoogle.com/), an AI tool for generating web and mobile UI from prompts or images. What changed for me was not just the output quality. It was the workflow.
+With the help of aider around 2023 and later Codex, the app had grown the usual side-project way: adding more features like more information about chocolates and an admin interface. However, the design was still terrible: emojis and lots of boxes. 
+
+I tried to fix it with AI design prompts. "Make this more modern." "Improve the UX." "Use better spacing." I also tried design-focused coding assistants and design skills. It was still an inconsistent design with lot's of boxes. In my chocolate search resultlist every field from the SQLite Table got it's own box.
+
+
+![Summer 2025 search results](/post/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/summer-2025-search-results.png)
+
+
+The useful shift came when I stopped asking AI to decorate the old interface and started using [Google Stitch](https://stitch.withgoogle.com/) to rethink what the database was for.
 
 <!--more-->
 
@@ -41,30 +48,30 @@ My first approach was obvious:
 
 > Here is my existing web app. Please redesign it.
 
-This sounds sensible. It preserves the current product. It gives the AI real context. It should reduce hallucination.
+This sounds sensible. It preserves the current app. It gives the AI real context. It should reduce hallucination.
 
 In practice, it preserved too much.
 
-The AI kept inheriting the old structure: the same page hierarchy, the same mental model, the same "database table with decoration" feeling. Even when it improved typography and spacing, it stayed trapped inside the original app's assumptions.
+The AI kept inheriting the old structure: mostlhy the same page hierarchy, the same mental model, the same "database table with decoration" feeling. The design was slightly better, because there were less boxes. But it was still overloaded and buggy.
 
 ![Redesign based on the previous website](/post/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/redesign-from-previous-website.png)
 
-I iterated on this for about a week, between other projects. The pages got prettier. They did not get good.
+I iterated on this for about a week. The pages got more consistent but they did not get good.
 
 The important lesson was: if your current UI is the problem, giving it as the main source of truth can anchor the redesign to exactly the wrong thing.
 
-## The Better Approach: Describe The Product, Not The Implementation
+## The Better Approach: Describe The Dataset, Not The Implementation
 
-The second approach was more radical:
+The second approach was more useful:
 
-> Forget the existing app. Design the best chocolate discovery website for these features.
+> Forget the existing app. Design a small chocolate discovery website around this dataset. 
 
-Instead of feeding Stitch my old UI, I described what I wanted users to do:
+Instead of feeding Google Stitch my old UI, I described what the data contained and what I wanted a visitor to do:
 
 - search chocolates
-- browse the database
+- browse a small database
 - compare ratings
-- inspect chocolate details
+- inspect details, tasting notes, and metadata
 - make the site feel more like discovery than administration
 
 You do not even have to write this feature list yourself. A surprisingly useful step is to ask an AI:
@@ -73,7 +80,8 @@ You do not even have to write this feature list yourself. A surprisingly useful 
 
 Then review the answer critically.
 
-This produced a much better first draft. The design finally stopped looking like a web form around a CSV file. It became closer to a real product: more visual hierarchy, better emphasis on discovery, clearer entry points, and fewer meaningless containers.
+This produced a much better first draft. The design finally stopped looking like a web form around a CSV file. It became closer to a small data experience: more visual hierarchy, better emphasis on discovery, clearer entry points, and fewer meaningless containers.
+
 
 ![Redesigned search results with Stitch](/post/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/redesigned-search-results-with-stitch.png)
 
@@ -89,7 +97,6 @@ So I used Playwright as a design review loop.
 
 Not in a fancy way. I used it to open the page, take screenshots, compare desktop and mobile states, and catch the obvious regressions that I would otherwise miss while staring at code. This mattered because the goal was not "does the CSS compile?" The goal was "does this still look like the design I accepted?"
 
-![Summer 2025 search results](/post/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/summer-2025-search-results.png)
 
 This is one of my biggest learnings from the project:
 
@@ -103,20 +110,18 @@ After the frontend redesign worked, I became less attached to the backend.
 
 The old backend had accumulated along with the old UI. I decided to rebuild it from scratch as well, but with one important constraint: releases had to pass a small set of tests.
 
-The stack stayed boring: Python, FastAPI, SQLAlchemy, Postgres, Docker. The AI wrote a lot of code I would not have written by hand as quickly. Some of it I did not fully understand line by line at first.
-
+The stack stayed boring: Python, FastAPI, SQLAlchemy, Postgres, Docker. The AI wrote a lot of code I would not have written by hand as quickly. 
 But I understood the contract:
 
 - the database must initialize
 - the app must start
-- search must work
+- keyword search must return expected chocolates for known queries
 - important pages must render
-- predictions or data endpoints must keep returning sensible results
+- detail pages must keep showing the right metadata and reviews
 - smoke tests must pass before release
 
 That distinction matters. I do not need to lovingly understand every line of framework glue. I do need to know what behavior must never break.
 
-![Summer 2025 best chocolates](/post/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/summer-2025-best-chocolates-sonnet.png)
 
 ## The Uncomfortable Part: You Can Use A Stack You Do Not Know
 
@@ -130,7 +135,7 @@ I still mostly believe that. But now I would phrase it differently:
 
 There is a difference.
 
-If AI chooses a language or tech stack I would not have chosen myself, that is not automatically a problem. If I cannot test whether authentication, database access, error handling, and page rendering still work, that is a problem.
+If AI chooses a framework or library I would not have chosen myself, that is not automatically a problem. If I cannot test whether database access, search, error handling, and page rendering still work, that is a problem.
 
 AI lets you move faster into unfamiliar territory. Testing is what stops that from becoming random wandering.
 
@@ -138,9 +143,9 @@ AI lets you move faster into unfamiliar territory. Testing is what stops that fr
 
 ### 1. Redesigning from the old UI can preserve the wrong assumptions
 
-If the current app is ugly because the underlying mental model is wrong, do not start with screenshots of the current app. Start with the user journeys.
+If the current app is ugly because the underlying mental model is wrong, do not start with screenshots of the current app. Start with the data and the user journeys.
 
-### 2. Design tools are better at product shape than coding agents are
+### 2. Design tools are better at experience shape than coding agents are
 
 Coding agents can improve CSS, but dedicated design tools like Stitch gave me much better first principles for layout, hierarchy, and visual direction.
 
@@ -166,10 +171,12 @@ The surprising thing was not that AI could make my app prettier. I expected that
 
 The surprising thing was that the best result came from being willing to throw more away.
 
-My old chocolate database app worked, but its structure kept pulling every redesign back toward the same boring interface. Once I described the product I wanted instead of the app I had, the AI became much more useful.
+My old chocolate database app worked, but its structure kept pulling every redesign back toward the same boring interface. Once I described the dataset and the experience I wanted instead of the app I had, the AI became much more useful.
 
 So my current rule is:
 
-> Use AI to explore the product from scratch. Use tests to keep the implementation grounded.
+> Use AI to explore the experience from scratch. Use tests to keep the implementation grounded.
 
 That combination worked much better than asking AI to decorate old boxes.
+
+An in case you're curious how this website looks like today: [Kakaokunde](https://kakaokunde.vercel.app). The design and website is far from perfect. 

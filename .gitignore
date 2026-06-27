@@ -7,3 +7,5 @@
 .DS_Store
 *.sb-*
 /public/
+/.tools/
+/.playwright-cli/

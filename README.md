@@ -27,6 +27,40 @@ HUGO_BIN=/path/to/hugo-0.87.0 scripts/build-site.sh
 
 The helper script for creating Markdown drafts does not require Hugo.
 
+### Local Hugo Install For Preview
+
+On Apple Silicon macOS, you can install the pinned Hugo version locally inside the repo:
+
+```sh
+mkdir -p .tools/hugo-0.87.0
+curl -L -o .tools/hugo-0.87.0/hugo_extended_0.87.0_macOS-ARM64.tar.gz https://github.com/gohugoio/hugo/releases/download/v0.87.0/hugo_extended_0.87.0_macOS-ARM64.tar.gz
+curl -L -o .tools/hugo-0.87.0/hugo_0.87.0_checksums.txt https://github.com/gohugoio/hugo/releases/download/v0.87.0/hugo_0.87.0_checksums.txt
+shasum -a 256 .tools/hugo-0.87.0/hugo_extended_0.87.0_macOS-ARM64.tar.gz
+grep hugo_extended_0.87.0_macOS-ARM64.tar.gz .tools/hugo-0.87.0/hugo_0.87.0_checksums.txt
+tar -xzf .tools/hugo-0.87.0/hugo_extended_0.87.0_macOS-ARM64.tar.gz -C .tools/hugo-0.87.0
+.tools/hugo-0.87.0/hugo version
+```
+
+The checksum printed by `shasum` should match the checksum line from `hugo_0.87.0_checksums.txt`.
+
+Build with the local binary:
+
+```sh
+HUGO_BIN=.tools/hugo-0.87.0/hugo scripts/build-site.sh
+```
+
+For local preview of drafts, build with drafts enabled and serve the generated `public/` directory:
+
+```sh
+.tools/hugo-0.87.0/hugo -D --cleanDestinationDir --baseURL http://127.0.0.1:1515/
+cd public
+python3 -m http.server 1515 --bind 127.0.0.1
+```
+
+Then open `http://127.0.0.1:1515/`.
+
+The `.tools/` directory is ignored by git.
+
 ## Add Content
 
 Most new writing should go under `content/post/`. Static assets such as screenshots, diagrams, and cover images should go under `static/post/<slug>/`.
