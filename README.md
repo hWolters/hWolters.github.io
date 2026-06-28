@@ -7,7 +7,7 @@ Hugo source and published assets for [datadojo.dev](https://datadojo.dev/).
 - Hugo source lives in `content/`, `static/`, `themes/`, and `config.toml`.
 - Historical generated output lives at the repository root. Some published posts do not have restored source, so this output must be preserved.
 - Local builds write to the ignored `public/` directory.
-- `.github/workflows/deploy-pages.yml` overlays a fresh Hugo build onto the historical output and deploys the combined artifact to GitHub Pages.
+- `.github/workflows/deploy-pages.yml` overlays a fresh Hugo build onto the historical output on `master`; GitHub Pages serves that branch from the repository root.
 
 ## Requirements
 
@@ -47,6 +47,6 @@ The production build excludes drafts and writes to `public/`. Do not commit that
 
 ## Deployment
 
-Pushes and merges to `master` deploy through `.github/workflows/deploy-pages.yml`. The workflow can also be run manually from the Actions tab.
+Source changes merged to `master` run `.github/workflows/deploy-pages.yml`. The workflow commits generated output back to `master`, after which the configured branch-based GitHub Pages deployment publishes it. Generated-only commits do not retrigger the workflow.
 
-GitHub Pages must be configured once with **Settings → Pages → Build and deployment → Source → GitHub Actions**.
+The workflow can also be run manually from the Actions tab.
