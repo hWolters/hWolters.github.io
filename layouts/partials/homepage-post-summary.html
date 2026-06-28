@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="postShorten-excerpt" itemprop="articleBody">
-      {{ if eq .Type "post" }}{{ .Summary }}{{ end }}
+      {{ partial "post-first-paragraph.html" . }}
       <p>
         <a href="{{ $url }}" class="postShorten-excerpt_link link">Continue reading</a>
       </p>

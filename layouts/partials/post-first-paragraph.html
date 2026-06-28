@@ -1,0 +1,8 @@
+{{ $postContent := .Content }}
+{{ if eq .Type "legacy-post" }}
+  {{ $sourcePath := printf "%sindex.html" (strings.TrimPrefix "/" .Params.targetURL) }}
+  {{ $postContent = readFile $sourcePath }}
+{{ end }}
+{{ with findRE `(?s)<p(?:\s[^>]*)?>.*?</p>` $postContent 1 }}
+  {{ index . 0 | safeHTML }}
+{{ end }}
