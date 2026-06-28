@@ -8,6 +8,7 @@ on:
       - .github/workflows/deploy-pages.yml
       - config.toml
       - content/**
+      - layouts/**
       - scripts/build-site.sh
       - static/**
       - themes/**

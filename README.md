@@ -6,6 +6,7 @@ Hugo source and published assets for [datadojo.dev](https://datadojo.dev/).
 
 - Hugo source lives in `content/`, `static/`, `themes/`, and `config.toml`.
 - Historical generated output lives at the repository root. Some published posts do not have restored source, so this output must be preserved.
+- `content/homepage/` contains metadata-only entries that include those legacy posts in homepage pagination without regenerating their article pages.
 - Local builds write to the ignored `public/` directory.
 - `.github/workflows/deploy-pages.yml` overlays a fresh Hugo build onto the historical output on `master`; GitHub Pages serves that branch from the repository root.
 
