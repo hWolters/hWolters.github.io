@@ -1,0 +1,90 @@
+name: Deploy Hugo site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+env:
+  HUGO_VERSION: 0.87.0
+  HUGO_ARCHIVE_SHA256: f216af92c06809c03981296f513ce54d3d690715d3c9fdfaff802d4a6759a260
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v6
+
+      - name: Install Hugo
+        shell: bash
+        run: |
+          archive="${RUNNER_TEMP}/hugo.tar.gz"
+          curl --fail --location --silent --show-error \
+            --output "${archive}" \
+            "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_Linux-64bit.tar.gz"
+          echo "${HUGO_ARCHIVE_SHA256}  ${archive}" | sha256sum --check -
+          tar --extract --gzip --file "${archive}" --directory "${RUNNER_TEMP}" hugo
+          "${RUNNER_TEMP}/hugo" version
+
+      - name: Build site
+        env:
+          HUGO_BIN: ${{ runner.temp }}/hugo
+        run: scripts/build-site.sh
+
+      - name: Assemble site artifact
+        shell: bash
+        run: |
+          site="${RUNNER_TEMP}/site"
+          mkdir --parents "${site}"
+
+          # Preserve legacy pages that are not represented by restored Hugo source.
+          rsync --archive \
+            --exclude '/.git/' \
+            --exclude '/.github/' \
+            --exclude '/.gitignore' \
+            --exclude '/.playwright-cli/' \
+            --exclude '/.tool-versions' \
+            --exclude '/.tools/' \
+            --exclude '/README.md' \
+            --exclude '/archetypes/' \
+            --exclude '/config.toml' \
+            --exclude '/content/' \
+            --exclude '/public/' \
+            --exclude '/scripts/' \
+            --exclude '/static/' \
+            --exclude '/themes/' \
+            ./ "${site}/"
+
+          # Let the fresh Hugo build replace overlapping legacy output.
+          rsync --archive public/ "${site}/"
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: ${{ runner.temp }}/site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
