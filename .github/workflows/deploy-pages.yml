@@ -1,16 +1,24 @@
-name: Deploy Hugo site to GitHub Pages
+name: Publish Hugo site
 
 on:
   push:
     branches:
       - master
+    paths:
+      - .github/workflows/deploy-pages.yml
+      - config.toml
+      - content/**
+      - scripts/build-site.sh
+      - static/**
+      - themes/**
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
+  pages: write
 
 concurrency:
-  group: github-pages
+  group: publish-site
   cancel-in-progress: false
 
 env:
@@ -18,14 +26,13 @@ env:
   HUGO_ARCHIVE_SHA256: f216af92c06809c03981296f513ce54d3d690715d3c9fdfaff802d4a6759a260
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
+      - name: Check out master
         uses: actions/checkout@v6
-
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v6
+        with:
+          ref: master
 
       - name: Install Hugo
         shell: bash
@@ -43,48 +50,23 @@ jobs:
           HUGO_BIN: ${{ runner.temp }}/hugo
         run: scripts/build-site.sh
 
-      - name: Assemble site artifact
+      - name: Publish generated output
         shell: bash
         run: |
-          site="${RUNNER_TEMP}/site"
-          mkdir --parents "${site}"
+          rsync --archive public/ ./
+          git add --all
 
-          # Preserve legacy pages that are not represented by restored Hugo source.
-          rsync --archive \
-            --exclude '/.git/' \
-            --exclude '/.github/' \
-            --exclude '/.gitignore' \
-            --exclude '/.playwright-cli/' \
-            --exclude '/.tool-versions' \
-            --exclude '/.tools/' \
-            --exclude '/README.md' \
-            --exclude '/archetypes/' \
-            --exclude '/config.toml' \
-            --exclude '/content/' \
-            --exclude '/public/' \
-            --exclude '/scripts/' \
-            --exclude '/static/' \
-            --exclude '/themes/' \
-            ./ "${site}/"
+          if git diff --cached --quiet; then
+            echo "Generated output is already current."
+            exit 0
+          fi
 
-          # Let the fresh Hugo build replace overlapping legacy output.
-          rsync --archive public/ "${site}/"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit --message "Publish site for ${GITHUB_SHA}"
+          git push origin HEAD:master
 
-      - name: Upload GitHub Pages artifact
-        uses: actions/upload-pages-artifact@v5
-        with:
-          path: ${{ runner.temp }}/site
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v5
+      - name: Request GitHub Pages build
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST "repos/${GITHUB_REPOSITORY}/pages/builds"
