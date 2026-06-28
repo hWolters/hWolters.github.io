@@ -2,143 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on A Potpourri of Data Science &amp; Data Engineering Topics</title>
-    <link>/categories/</link>
+    <link>https://hwolters.github.io/categories/</link>
     <description>Recent content in Categories on A Potpourri of Data Science &amp; Data Engineering Topics</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 09 Dec 2022 10:07:54 +0100</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Aug 2025 09:00:00 +0200</lastBuildDate><atom:link href="https://hwolters.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Database</title>
-      <link>/categories/database/</link>
-      <pubDate>Fri, 09 Dec 2022 10:07:54 +0100</pubDate>
+      <title>AI</title>
+      <link>https://hwolters.github.io/categories/ai/</link>
+      <pubDate>Mon, 11 Aug 2025 09:00:00 +0200</pubDate>
       
-      <guid>/categories/database/</guid>
+      <guid>https://hwolters.github.io/categories/ai/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>SQL</title>
-      <link>/categories/sql/</link>
-      <pubDate>Fri, 09 Dec 2022 10:07:54 +0100</pubDate>
+      <title>Web Development</title>
+      <link>https://hwolters.github.io/categories/web-development/</link>
+      <pubDate>Mon, 11 Aug 2025 09:00:00 +0200</pubDate>
       
-      <guid>/categories/sql/</guid>
+      <guid>https://hwolters.github.io/categories/web-development/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Machine Learning</title>
-      <link>/categories/machine-learning/</link>
-      <pubDate>Thu, 29 Apr 2021 15:15:38 +0200</pubDate>
+      <title>R</title>
+      <link>https://hwolters.github.io/categories/r/</link>
+      <pubDate>Sat, 03 Nov 2018 21:13:14 -0500</pubDate>
       
-      <guid>/categories/machine-learning/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>data engineering</title>
-      <link>/categories/data-engineering/</link>
-      <pubDate>Tue, 23 Feb 2021 15:16:09 +0200</pubDate>
-      
-      <guid>/categories/data-engineering/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>amqp</title>
-      <link>/categories/amqp/</link>
-      <pubDate>Tue, 26 Jan 2021 16:26:57 +0100</pubDate>
-      
-      <guid>/categories/amqp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>kafka</title>
-      <link>/categories/kafka/</link>
-      <pubDate>Tue, 26 Jan 2021 16:26:57 +0100</pubDate>
-      
-      <guid>/categories/kafka/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>message brokers</title>
-      <link>/categories/message-brokers/</link>
-      <pubDate>Tue, 26 Jan 2021 16:26:57 +0100</pubDate>
-      
-      <guid>/categories/message-brokers/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>rabbitmq</title>
-      <link>/categories/rabbitmq/</link>
-      <pubDate>Tue, 26 Jan 2021 16:26:57 +0100</pubDate>
-      
-      <guid>/categories/rabbitmq/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>api</title>
-      <link>/categories/api/</link>
-      <pubDate>Thu, 26 Nov 2020 16:26:57 +0100</pubDate>
-      
-      <guid>/categories/api/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>rest</title>
-      <link>/categories/rest/</link>
-      <pubDate>Thu, 26 Nov 2020 16:26:57 +0100</pubDate>
-      
-      <guid>/categories/rest/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ai</title>
-      <link>/categories/ai/</link>
-      <pubDate>Thu, 10 Sep 2020 22:20:39 +0200</pubDate>
-      
-      <guid>/categories/ai/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>NLP</title>
-      <link>/categories/nlp/</link>
-      <pubDate>Mon, 31 Aug 2020 21:17:58 +0200</pubDate>
-      
-      <guid>/categories/nlp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Jupyter Notebooks</title>
-      <link>/categories/jupyter-notebooks/</link>
-      <pubDate>Sun, 12 Jul 2020 21:17:58 +0200</pubDate>
-      
-      <guid>/categories/jupyter-notebooks/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Python</title>
-      <link>/categories/python/</link>
-      <pubDate>Sun, 12 Jul 2020 21:17:58 +0200</pubDate>
-      
-      <guid>/categories/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Databases</title>
-      <link>/categories/databases/</link>
-      <pubDate>Sun, 07 Jun 2020 08:29:09 +0200</pubDate>
-      
-      <guid>/categories/databases/</guid>
+      <guid>https://hwolters.github.io/categories/r/</guid>
       <description></description>
     </item>
     

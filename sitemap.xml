@@ -1,123 +1,99 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
-    <loc>/./2018/12/17/everything-you-need-to-know-to-use-git-for-version-control/</loc>
+    <loc>https://hwolters.github.io/</loc>
+    <lastmod>2025-08-11T09:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://hwolters.github.io/tags/ai/</loc>
+    <lastmod>2025-08-11T09:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://hwolters.github.io/categories/ai/</loc>
+    <lastmod>2025-08-11T09:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://hwolters.github.io/categories/</loc>
+    <lastmod>2025-08-11T09:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://hwolters.github.io/tags/fastapi/</loc>
+    <lastmod>2025-08-11T09:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://hwolters.github.io/tags/google-stitch/</loc>
+    <lastmod>2025-08-11T09:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://hwolters.github.io/tags/playwright/</loc>
+    <lastmod>2025-08-11T09:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://hwolters.github.io/post/</loc>
+    <lastmod>2025-08-11T09:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://hwolters.github.io/tags/</loc>
+    <lastmod>2025-08-11T09:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://hwolters.github.io/tags/ux/</loc>
+    <lastmod>2025-08-11T09:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://hwolters.github.io/categories/web-development/</loc>
+    <lastmod>2025-08-11T09:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://hwolters.github.io/2025/08/11/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/</loc>
+    <lastmod>2025-08-11T09:00:00+02:00</lastmod>
+  </url><url>
+    <loc>https://hwolters.github.io/2018/12/17/everything-you-need-to-know-to-use-git-for-version-control/</loc>
     <lastmod>2018-12-17T21:17:58+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/./</loc>
-    <lastmod>2018-12-17T21:17:58+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/./post/</loc>
-    <lastmod>2018-12-17T21:17:58+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/./2018/12/07/changing-working-directories/</loc>
+  </url><url>
+    <loc>https://hwolters.github.io/2018/12/07/changing-working-directories/</loc>
     <lastmod>2018-12-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/./tags/macos/</loc>
+  </url><url>
+    <loc>https://hwolters.github.io/tags/macos/</loc>
     <lastmod>2018-12-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/./tags/r/</loc>
+  </url><url>
+    <loc>https://hwolters.github.io/tags/r/</loc>
     <lastmod>2018-12-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/./tags/reproducible-research/</loc>
+  </url><url>
+    <loc>https://hwolters.github.io/tags/reproducible-research/</loc>
     <lastmod>2018-12-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/./tags/</loc>
+  </url><url>
+    <loc>https://hwolters.github.io/tags/working-directory/</loc>
     <lastmod>2018-12-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/./tags/working-directory/</loc>
-    <lastmod>2018-12-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/./tags/analytics/</loc>
+  </url><url>
+    <loc>https://hwolters.github.io/tags/analytics/</loc>
     <lastmod>2018-11-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/./2018/11/05/formatting-tables-in-r-markdown-with-kableextra/</loc>
+  </url><url>
+    <loc>https://hwolters.github.io/2018/11/05/formatting-tables-in-r-markdown-with-kableextra/</loc>
     <lastmod>2018-11-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/./tags/kableextra/</loc>
+  </url><url>
+    <loc>https://hwolters.github.io/tags/kableextra/</loc>
     <lastmod>2018-11-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/./tags/knitr/</loc>
+  </url><url>
+    <loc>https://hwolters.github.io/tags/knitr/</loc>
     <lastmod>2018-11-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/./tags/r-markdown/</loc>
+  </url><url>
+    <loc>https://hwolters.github.io/tags/r-markdown/</loc>
     <lastmod>2018-11-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/./tags/reporting/</loc>
+  </url><url>
+    <loc>https://hwolters.github.io/tags/reporting/</loc>
     <lastmod>2018-11-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/./tags/tables/</loc>
+  </url><url>
+    <loc>https://hwolters.github.io/tags/tables/</loc>
     <lastmod>2018-11-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/./categories/</loc>
+  </url><url>
+    <loc>https://hwolters.github.io/tags/documentation/</loc>
     <lastmod>2018-11-03T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/./tags/documentation/</loc>
+  </url><url>
+    <loc>https://hwolters.github.io/tags/markdown/</loc>
     <lastmod>2018-11-03T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/./tags/markdown/</loc>
+  </url><url>
+    <loc>https://hwolters.github.io/categories/r/</loc>
     <lastmod>2018-11-03T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/./categories/r/</loc>
+  </url><url>
+    <loc>https://hwolters.github.io/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/</loc>
     <lastmod>2018-11-03T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/./2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/</loc>
+  </url><url>
+    <loc>https://hwolters.github.io/tags/yaml/</loc>
     <lastmod>2018-11-03T21:13:14-05:00</lastmod>
+  </url><url>
+    <loc>https://hwolters.github.io/about/</loc>
+  </url><url>
+    <loc>https://hwolters.github.io/archives/</loc>
   </url>
-  
-  <url>
-    <loc>/./tags/yaml/</loc>
-    <lastmod>2018-11-03T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/./about/</loc>
-  </url>
-  
-  <url>
-    <loc>/./archives/</loc>
-  </url>
-  
 </urlset>

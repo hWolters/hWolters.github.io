@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.87.0 with theme Tranquilpeak 0.4.3-SNAPSHOT">
+<meta name="author" content="Heike Maria (PhD)">
+<meta name="keywords" content="AI web app redesign, chocolate database, Google Stitch, Playwright screenshots, SQL, Data Science, Analytics, ElasticSearch, Python, Pandas, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive, Data Analysis, Data Mining">
+<meta name="description" content="In summer 2020 I had a small Python web app around one of my favorite datasets: 300 chocolates that my hunsband and me had tried over the years with reviews and ratings and a machine learning model that predicts how much we may like an unknown chocolate.
+Technically, it was a SQLite database with a search interface that was a simple keyword match.
+It worked: It was also really ugly. Because I am not a frontend developer, I had happily used Streamlit. That was a good choice for getting something working quickly, but it also meant the interface looked like what it was: a table with some hacky filters on the side.
+
+And yes, I am a little embarrassed to show this screenshot to you.
+With the help of aider around 2023 and later Codex, the app had grown the usual side-project way: adding more features like more information about chocolates and an admin interface. However, the design was still terrible: emojis and lots of boxes.
+I tried to fix it with AI design prompts. &ldquo;Make this more modern.&rdquo; &ldquo;Improve the UX.&rdquo; &ldquo;Use better spacing.&rdquo; I also tried design-focused coding assistants and design skills. It was still an inconsistent design with lot&rsquo;s of boxes. In my chocolate search resultlist every field from the SQLite Table got it&rsquo;s own box.
+
+The useful shift came when I stopped asking AI to decorate the old interface and started using Google Stitch to rethink what the database was for.">
+
+
+<meta property="og:description" content="In summer 2020 I had a small Python web app around one of my favorite datasets: 300 chocolates that my hunsband and me had tried over the years with reviews and ratings and a machine learning model that predicts how much we may like an unknown chocolate.
+Technically, it was a SQLite database with a search interface that was a simple keyword match.
+It worked: It was also really ugly. Because I am not a frontend developer, I had happily used Streamlit. That was a good choice for getting something working quickly, but it also meant the interface looked like what it was: a table with some hacky filters on the side.
+
+And yes, I am a little embarrassed to show this screenshot to you.
+With the help of aider around 2023 and later Codex, the app had grown the usual side-project way: adding more features like more information about chocolates and an admin interface. However, the design was still terrible: emojis and lots of boxes.
+I tried to fix it with AI design prompts. &ldquo;Make this more modern.&rdquo; &ldquo;Improve the UX.&rdquo; &ldquo;Use better spacing.&rdquo; I also tried design-focused coding assistants and design skills. It was still an inconsistent design with lot&rsquo;s of boxes. In my chocolate search resultlist every field from the SQLite Table got it&rsquo;s own box.
+
+The useful shift came when I stopped asking AI to decorate the old interface and started using Google Stitch to rethink what the database was for.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What I Learned Redesigning My Chocolate Database Webapp with AI">
+<meta name="twitter:title" content="What I Learned Redesigning My Chocolate Database Webapp with AI">
+<meta property="og:url" content="https://hwolters.github.io/2025/08/11/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/">
+<meta property="twitter:url" content="https://hwolters.github.io/2025/08/11/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/">
+<meta property="og:site_name" content="A Potpourri of Data Science &amp; Data Engineering Topics">
+<meta property="og:description" content="In summer 2020 I had a small Python web app around one of my favorite datasets: 300 chocolates that my hunsband and me had tried over the years with reviews and ratings and a machine learning model that predicts how much we may like an unknown chocolate.
+Technically, it was a SQLite database with a search interface that was a simple keyword match.
+It worked: It was also really ugly. Because I am not a frontend developer, I had happily used Streamlit. That was a good choice for getting something working quickly, but it also meant the interface looked like what it was: a table with some hacky filters on the side.
+
+And yes, I am a little embarrassed to show this screenshot to you.
+With the help of aider around 2023 and later Codex, the app had grown the usual side-project way: adding more features like more information about chocolates and an admin interface. However, the design was still terrible: emojis and lots of boxes.
+I tried to fix it with AI design prompts. &ldquo;Make this more modern.&rdquo; &ldquo;Improve the UX.&rdquo; &ldquo;Use better spacing.&rdquo; I also tried design-focused coding assistants and design skills. It was still an inconsistent design with lot&rsquo;s of boxes. In my chocolate search resultlist every field from the SQLite Table got it&rsquo;s own box.
+
+The useful shift came when I stopped asking AI to decorate the old interface and started using Google Stitch to rethink what the database was for.">
+<meta name="twitter:description" content="In summer 2020 I had a small Python web app around one of my favorite datasets: 300 chocolates that my hunsband and me had tried over the years with reviews and ratings and a machine learning model that predicts how much we may like an unknown chocolate.
+Technically, it was a SQLite database with a search interface that was a simple keyword match.
+It worked: It was also really ugly. Because I am not a frontend developer, I had happily used Streamlit. That was a good choice for getting something working quickly, but it also meant the interface looked like what it was: a table with some hacky filters on the side.
+
+And yes, I am a little embarrassed to show this screenshot to you.
+With the help of aider around 2023 and later Codex, the app had grown the usual side-project way: adding more features like more information about chocolates and an admin interface. However, the design was still terrible: emojis and lots of boxes.
+I tried to fix it with AI design prompts. &ldquo;Make this more modern.&rdquo; &ldquo;Improve the UX.&rdquo; &ldquo;Use better spacing.&rdquo; I also tried design-focused coding assistants and design skills. It was still an inconsistent design with lot&rsquo;s of boxes. In my chocolate search resultlist every field from the SQLite Table got it&rsquo;s own box.
+
+The useful shift came when I stopped asking AI to decorate the old interface and started using Google Stitch to rethink what the database was for.">
+<meta property="og:locale" content="en-us">
+
+  
+    <meta property="article:published_time" content="2025-08-11T09:00:00">
+  
+  
+    <meta property="article:modified_time" content="2025-08-11T09:00:00">
+  
+  
+  
+    
+      <meta property="article:section" content="AI">
+    
+      <meta property="article:section" content="Web Development">
+    
+  
+  
+    
+      <meta property="article:tag" content="AI">
+    
+      <meta property="article:tag" content="Google Stitch">
+    
+      <meta property="article:tag" content="Playwright">
+    
+      <meta property="article:tag" content="FastAPI">
+    
+      <meta property="article:tag" content="UX">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://hwolters.github.io/post/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/redesigned-search-results-with-stitch.png">
+  <meta property="twitter:image" content="https://hwolters.github.io/post/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/redesigned-search-results-with-stitch.png">
+
+
+
+
+
+  <meta property="og:image" content="https://hwolters.github.io/me.jpg">
+  <meta property="twitter:image" content="https://hwolters.github.io/me.jpg">
+
+
+    <title>What I Learned Redesigning My Chocolate Database Webapp with AI</title>
+
+    <link rel="icon" href="/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://hwolters.github.io/2025/08/11/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
+    
+    
+
+    
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-128956833-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="1">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="/">A Potpourri of Data Science &amp; Data Engineering Topics</a>
+  </div>
+  
+    
+      <a class="header-right-icon open-algolia-search"
+         href="/#search">
+    
+    
+      <i class="fa fa-lg fa-search"></i>
+    
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="1">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="/#about">
+          <img class="sidebar-profile-picture" src="https://hwolters.github.io/me.jpg" alt="Author&#39;s picture" />
+        </a>
+        <h4 class="sidebar-profile-name">Heike Maria (PhD)</h4>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">Archives</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link open-algolia-search" href="/#search">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+      
+      <span class="sidebar-button-desc">Search</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/hWolters" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+
+    </ul>
+  </div>
+</nav>
+
+      
+
+      <div id="main" data-behavior="1"
+        class="
+               hasCoverMetaIn
+               ">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-left">
+  
+    <h1 class="post-title" itemprop="headline">
+      What I Learned Redesigning My Chocolate Database Webapp with AI
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2025-08-11T09:00:00&#43;02:00">
+        
+  
+  
+  
+  
+    11 August 2025
+  
+
+      </time>
+    
+    
+  
+  
+    <span>in</span>
+    
+      <a class="category-link" href="/categories/ai">AI</a>, 
+    
+      <a class="category-link" href="/categories/web-development">Web Development</a>
+    
+  
+
+  </div>
+
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>In summer 2020 I had a small Python web app around one of my favorite datasets: 300 chocolates that my hunsband and me had tried over the years with reviews and ratings and a machine learning model that predicts how much we may like an unknown chocolate.</p>
+<p>Technically, it was a SQLite database with a search interface that was a simple keyword match.</p>
+<p>It worked: It was also really ugly. Because I am not a frontend developer, I had happily used Streamlit. That was a good choice for getting something working quickly, but it also meant the interface looked like what it was: a table with some hacky filters on the side.</p>
+<p><img src="/post/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/original-table-search.png" alt="Original table-based chocolate search interface"></p>
+<p>And yes, I am a little embarrassed to show this screenshot to you.</p>
+<p>With the help of aider around 2023 and later Codex, the app had grown the usual side-project way: adding more features like more information about chocolates and an admin interface. However, the design was still terrible: emojis and lots of boxes.</p>
+<p>I tried to fix it with AI design prompts. &ldquo;Make this more modern.&rdquo; &ldquo;Improve the UX.&rdquo; &ldquo;Use better spacing.&rdquo; I also tried design-focused coding assistants and design skills. It was still an inconsistent design with lot&rsquo;s of boxes. In my chocolate search resultlist every field from the SQLite Table got it&rsquo;s own box.</p>
+<p><img src="/post/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/summer-2025-search-results.png" alt="Summer 2025 search results"></p>
+<p>The useful shift came when I stopped asking AI to decorate the old interface and started using <a href="https://stitch.withgoogle.com/">Google Stitch</a> to rethink what the database was for.</p>
+<h2 id="the-first-mistake-asking-ai-to-redesign-the-existing-app">The First Mistake: Asking AI To Redesign The Existing App</h2>
+<p>My first approach was obvious:</p>
+<blockquote>
+<p>Here is my existing web app. Please redesign it.</p>
+</blockquote>
+<p>This sounds sensible. It preserves the current app. It gives the AI real context. It should reduce hallucination.</p>
+<p>In practice, it preserved too much.</p>
+<p>The AI kept inheriting the old structure: mostlhy the same page hierarchy, the same mental model, the same &ldquo;database table with decoration&rdquo; feeling. The design was slightly better, because there were less boxes. But it was still overloaded and buggy.</p>
+<p><img src="/post/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/redesign-from-previous-website.png" alt="Redesign based on the previous website"></p>
+<p>I iterated on this for about a week. The pages got more consistent but they did not get good.</p>
+<p>The important lesson was: if your current UI is the problem, giving it as the main source of truth can anchor the redesign to exactly the wrong thing.</p>
+<h2 id="the-better-approach-describe-the-dataset-not-the-implementation">The Better Approach: Describe The Dataset, Not The Implementation</h2>
+<p>The second approach was more useful:</p>
+<blockquote>
+<p>Forget the existing app. Design a small chocolate discovery website around this dataset.</p>
+</blockquote>
+<p>Instead of feeding Google Stitch my old UI, I described what the data contained and what I wanted a visitor to do:</p>
+<ul>
+<li>search chocolates</li>
+<li>browse a small database</li>
+<li>compare ratings</li>
+<li>inspect details, tasting notes, and metadata</li>
+<li>make the site feel more like discovery than administration</li>
+</ul>
+<p>You do not even have to write this feature list yourself. A surprisingly useful step is to ask an AI:</p>
+<blockquote>
+<p>Given this app and dataset, what are the core user journeys? What would make this useful and delightful?</p>
+</blockquote>
+<p>Then review the answer critically.</p>
+<p>This produced a much better first draft. The design finally stopped looking like a web form around a CSV file. It became closer to a small data experience: more visual hierarchy, better emphasis on discovery, clearer entry points, and fewer meaningless containers.</p>
+<p><img src="/post/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/redesigned-search-results-with-stitch.png" alt="Redesigned search results with Stitch"></p>
+<p>That first Stitch draft became the basis for the current website.</p>
+<h2 id="playwright-became-my-design-review-loop">Playwright Became My Design Review Loop</h2>
+<p>The next problem was implementation.</p>
+<p>AI-generated UI often looks good in the screenshot and then breaks in the browser. Text wraps badly. Cards become uneven. Mobile layouts collapse. Spacing changes when real data arrives.</p>
+<p>So I used Playwright as a design review loop.</p>
+<p>Not in a fancy way. I used it to open the page, take screenshots, compare desktop and mobile states, and catch the obvious regressions that I would otherwise miss while staring at code. This mattered because the goal was not &ldquo;does the CSS compile?&rdquo; The goal was &ldquo;does this still look like the design I accepted?&rdquo;</p>
+<p>This is one of my biggest learnings from the project:</p>
+<blockquote>
+<p>For AI-built frontends, screenshots are tests.</p>
+</blockquote>
+<p>Unit tests will not tell you that your beautiful card grid now has one item with a three-line title pushing everything out of alignment. A browser check will.</p>
+<h2 id="then-i-threw-away-the-backend-too">Then I Threw Away The Backend Too</h2>
+<p>After the frontend redesign worked, I became less attached to the backend.</p>
+<p>The old backend had accumulated along with the old UI. I decided to rebuild it from scratch as well, but with one important constraint: releases had to pass a small set of tests.</p>
+<p>The stack stayed boring: Python, FastAPI, SQLAlchemy, Postgres, Docker. The AI wrote a lot of code I would not have written by hand as quickly.
+But I understood the contract:</p>
+<ul>
+<li>the database must initialize</li>
+<li>the app must start</li>
+<li>keyword search must return expected chocolates for known queries</li>
+<li>important pages must render</li>
+<li>detail pages must keep showing the right metadata and reviews</li>
+<li>smoke tests must pass before release</li>
+</ul>
+<p>That distinction matters. I do not need to lovingly understand every line of framework glue. I do need to know what behavior must never break.</p>
+<h2 id="the-uncomfortable-part-you-can-use-a-stack-you-do-not-know">The Uncomfortable Part: You Can Use A Stack You Do Not Know</h2>
+<p>This project changed my opinion on using unfamiliar tech stacks.</p>
+<p>Previously, I would have said: do not ship code you do not understand.</p>
+<p>I still mostly believe that. But now I would phrase it differently:</p>
+<blockquote>
+<p>Do not ship behavior you cannot verify.</p>
+</blockquote>
+<p>There is a difference.</p>
+<p>If AI chooses a framework or library I would not have chosen myself, that is not automatically a problem. If I cannot test whether database access, search, error handling, and page rendering still work, that is a problem.</p>
+<p>AI lets you move faster into unfamiliar territory. Testing is what stops that from becoming random wandering.</p>
+<h2 id="the-main-lessons">The Main Lessons</h2>
+<h3 id="1-redesigning-from-the-old-ui-can-preserve-the-wrong-assumptions">1. Redesigning from the old UI can preserve the wrong assumptions</h3>
+<p>If the current app is ugly because the underlying mental model is wrong, do not start with screenshots of the current app. Start with the data and the user journeys.</p>
+<h3 id="2-design-tools-are-better-at-experience-shape-than-coding-agents-are">2. Design tools are better at experience shape than coding agents are</h3>
+<p>Coding agents can improve CSS, but dedicated design tools like Stitch gave me much better first principles for layout, hierarchy, and visual direction.</p>
+<h3 id="3-screenshots-are-part-of-the-test-suite-now">3. Screenshots are part of the test suite now</h3>
+<p>For frontend work, Playwright is not only an end-to-end testing tool. It is a way to keep the visual loop honest.</p>
+<h3 id="4-ai-generated-backend-code-is-acceptable-only-when-contracts-are-explicit">4. AI-generated backend code is acceptable only when contracts are explicit</h3>
+<p>If you let AI rebuild backend code, define the tests first. The tests are your understanding made executable.</p>
+<h3 id="5-the-best-prompt-is-often-not-improve-this">5. The best prompt is often not &ldquo;improve this&rdquo;</h3>
+<p>The better prompt is:</p>
+<blockquote>
+<p>Here is the goal. Here are the users. Here are the core workflows. Ignore my current implementation if it gets in the way.</p>
+</blockquote>
+<p>That shift made the biggest difference.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>The surprising thing was not that AI could make my app prettier. I expected that.</p>
+<p>The surprising thing was that the best result came from being willing to throw more away.</p>
+<p>My old chocolate database app worked, but its structure kept pulling every redesign back toward the same boring interface. Once I described the dataset and the experience I wanted instead of the app I had, the AI became much more useful.</p>
+<p>So my current rule is:</p>
+<blockquote>
+<p>Use AI to explore the experience from scratch. Use tests to keep the implementation grounded.</p>
+</blockquote>
+<p>That combination worked much better than asking AI to decorate old boxes.</p>
+<p>An in case you&rsquo;re curious how this website looks like today: <a href="https://kakaokunde.vercel.app">Kakaokunde</a>. The design and website is far from perfect.</p>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="/tags/ai/">AI</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/google-stitch/">Google Stitch</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/playwright/">Playwright</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/fastapi/">FastAPI</a>
+
+  <a class="tag tag--primary tag--small" href="/tags/ux/">UX</a>
+
+                  </div>
+                
+              
+            
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2018/12/17/everything-you-need-to-know-to-use-git-for-version-control/" data-tooltip="Everything You Need to Know to Use Git for Version Control">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://hwolters.github.io/2025/08/11/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://hwolters.github.io/2025/08/11/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2026 Heike Maria (PhD). All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="1">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="/2018/12/17/everything-you-need-to-know-to-use-git-for-version-control/" data-tooltip="Everything You Need to Know to Use Git for Version Control">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://hwolters.github.io/2025/08/11/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://hwolters.github.io/2025/08/11/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="1">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fhwolters.github.io%2F2025%2F08%2F11%2Fwhat-i-learned-redesigning-my-chocolate-database-webapp-with-ai%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fhwolters.github.io%2F2025%2F08%2F11%2Fwhat-i-learned-redesigning-my-chocolate-database-webapp-with-ai%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://hwolters.github.io/me.jpg" alt="Author&#39;s picture" />
+    
+    <h4 id="about-card-name">Heike Maria (PhD)</h4>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Data Science <!-- raw HTML omitted -->@MOIA<!-- raw HTML omitted --> working on the future of mobility, previously Data Science at <!-- raw HTML omitted -->@Xing<!-- raw HTML omitted --> on recommender systems and search
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Germany
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Search" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">no post found</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://hwolters.github.io/2025/08/11/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/">
+                <h3 class="media-heading">What I Learned Redesigning My Chocolate Database Webapp with AI</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Aug 8, 2025
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>In summer 2020 I had a small Python web app around one of my favorite datasets: 300 chocolates that my hunsband and me had tried over the years with reviews and ratings and a machine learning model that predicts how much we may like an unknown chocolate.</p>
+<p>Technically, it was a SQLite database with a search interface that was a simple keyword match.</p>
+<p>It worked: It was also really ugly. Because I am not a frontend developer, I had happily used Streamlit. That was a good choice for getting something working quickly, but it also meant the interface looked like what it was: a table with some hacky filters on the side.</p>
+<p><img src="/post/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/original-table-search.png" alt="Original table-based chocolate search interface"></p>
+<p>And yes, I am a little embarrassed to show this screenshot to you.</p>
+<p>With the help of aider around 2023 and later Codex, the app had grown the usual side-project way: adding more features like more information about chocolates and an admin interface. However, the design was still terrible: emojis and lots of boxes.</p>
+<p>I tried to fix it with AI design prompts. &ldquo;Make this more modern.&rdquo; &ldquo;Improve the UX.&rdquo; &ldquo;Use better spacing.&rdquo; I also tried design-focused coding assistants and design skills. It was still an inconsistent design with lot&rsquo;s of boxes. In my chocolate search resultlist every field from the SQLite Table got it&rsquo;s own box.</p>
+<p><img src="/post/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/summer-2025-search-results.png" alt="Summer 2025 search results"></p>
+<p>The useful shift came when I stopped asking AI to decorate the old interface and started using <a href="https://stitch.withgoogle.com/">Google Stitch</a> to rethink what the database was for.</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://hwolters.github.io/2018/12/17/everything-you-need-to-know-to-use-git-for-version-control/">
+                <h3 class="media-heading">Everything You Need to Know to Use Git for Version Control</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Dec 12, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">So many people have recommended Git as a version control system to me. I had a look at it, but I was pretty overwhelmed. Since I did not have a technical background, everything seemed so complex! Many tutorials let me copy paste code without giving you a deeper understanding of what and why I am actually doing this. This copy pasting feels like success at first, but when I tried working with it, I could not.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://hwolters.github.io/2018/12/07/changing-working-directories/">
+                <h3 class="media-heading">Automatically changing the R working directory on Mac OS to source file location</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Dec 12, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">This post is about how to change your R working directory. You might be wondering:
+Why would I want to do that? You need this as soon as your script interacts with folders on your computer. For example for imports or exports of data or figures. So probably almost always. Let’s say you have a script that creates plots and saves them in the folder “Plots”, which is located in your source file directory.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://hwolters.github.io/2018/11/05/formatting-tables-in-r-markdown-with-kableextra/">
+                <h3 class="media-heading">Formatting tables in R Markdown with kableExtra</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">In this post, I will show you some of my best practises for formatting tables in R Markdown. We will cover
+How to generally format tables (font, size, color… )
+ How to create tables with conditional formating (e.g. coloring values &lt; 0 red)
+  The basics: the R package kableExtra kableExtra is an awesome package that allows you to format and style your tables. It works similar to ggplot2: You create a base table and then add formating layers with the pipe operator %&gt;%.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://hwolters.github.io/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/">
+                <h3 class="media-heading">R Markdown for Novices: All you need to know to get started</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">I write this blogpost for someone, who has never worked with R Markdown. After you read this post, you will
+understand why R Markdown may be useful for your daily work as a student, researcher, analyst or data scientist.
+ understand the basic structure of an R Markdown document and how you can get startet.
+  I strongly encourage everybody working with R to use R Markdown. I promise, it will make your life so much easier.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="no post found"
+         data-message-one="1 post found"
+         data-message-other="{n} posts found">
+         5 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://hwolters.github.io/images/source/assets/img/banner');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/hwolters.github.io\/2025\/08\/11\/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai\/';
+          
+            this.page.identifier = '\/2025\/08\/11\/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'Heike';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+

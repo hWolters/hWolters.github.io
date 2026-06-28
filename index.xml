@@ -2,151 +2,78 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>A Potpourri of Data Science &amp; Data Engineering Topics</title>
-    <link>/</link>
+    <link>https://hwolters.github.io/</link>
     <description>Recent content on A Potpourri of Data Science &amp; Data Engineering Topics</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 09 Dec 2022 10:07:54 +0100</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Aug 2025 09:00:00 +0200</lastBuildDate><atom:link href="https://hwolters.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Mastering Differences and Pitfalls when Switching SQL Databases: PostgreSQL vs. MySQL vs. SQLITE vs. Hive vs. Presto (AWS Athena)</title>
-      <link>/2022/12/09/mastering-differences-and-pitfalls-when-switching-sql-databases-postgresql-vs.-mysql-vs.-sqlite-vs.-hive-vs.-presto-aws-athena/</link>
-      <pubDate>Fri, 09 Dec 2022 10:07:54 +0100</pubDate>
+      <title>What I Learned Redesigning My Chocolate Database Webapp with AI</title>
+      <link>https://hwolters.github.io/2025/08/11/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/</link>
+      <pubDate>Mon, 11 Aug 2025 09:00:00 +0200</pubDate>
       
-      <guid>/2022/12/09/mastering-differences-and-pitfalls-when-switching-sql-databases-postgresql-vs.-mysql-vs.-sqlite-vs.-hive-vs.-presto-aws-athena/</guid>
-      <description>&lt;p&gt;Transitioning to another SQL database? This blog post is for you. Shifting from one SQL dialect to another can be a journey full of surprises. While the basic syntax (SELECT FROM WHERE) is similar, there are important differences, that will make your queries slow, fast, fail or worse: fail silently!&lt;/p&gt;
-&lt;p&gt;In this blog post I&amp;rsquo;ll guide you through the intricate pathways of databases I have come across during my work as a data scientist: Postgres, MySQL, SQLite, Hive and Presto (AWS Athena). We&amp;rsquo;ll start with a brief introduction into the databases and some differences. Then we jump into three pitfalls you have to be aware of.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Biases in learning to rank models and three approaches to deal with them</title>
-      <link>/2021/04/29/biases-in-learning-to-rank-models-and-three-approaches-to-deal-with-them/</link>
-      <pubDate>Thu, 29 Apr 2021 15:15:38 +0200</pubDate>
-      
-      <guid>/2021/04/29/biases-in-learning-to-rank-models-and-three-approaches-to-deal-with-them/</guid>
-      <description>&lt;p&gt;Search engines rely on models, which rank the matching results for a given user query. These models optimize the order of items. They learn how to rank items in a result list, therefore the name Learning-to-Rank (LTR) models.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Avro and avro schemas - how they work and why they are useful</title>
-      <link>/2021/02/23/avro-and-avro-schemas-how-they-work-and-why-they-are-useful/</link>
-      <pubDate>Tue, 23 Feb 2021 15:16:09 +0200</pubDate>
-      
-      <guid>/2021/02/23/avro-and-avro-schemas-how-they-work-and-why-they-are-useful/</guid>
-      <description>&lt;p&gt;You have kafka as your message broker up and running and you may wonder: In which format should I send my data around? Maybe the string format pops up in your mind. Why not just put all fields into a long string and separate them with a comma?&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>A Gentle Intro to the Basic Architecture of Message Brokers: RabbitMQ vs. Kafka</title>
-      <link>/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/</link>
-      <pubDate>Tue, 26 Jan 2021 16:26:57 +0100</pubDate>
-      
-      <guid>/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/</guid>
-      <description>&lt;p&gt;In this blogpost you will get a basic understanding about message brokers. We will look at two very popular message brokers, Kafka and RabbitMQ, and learn, how they handle messages.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Intro into APIs and how to access public REST APIs with `curl`</title>
-      <link>/2020/11/26/intro-into-apis-and-how-to-access-public-rest-apis-with-curl/</link>
-      <pubDate>Thu, 26 Nov 2020 16:26:57 +0100</pubDate>
-      
-      <guid>/2020/11/26/intro-into-apis-and-how-to-access-public-rest-apis-with-curl/</guid>
-      <description>&lt;p&gt;This post will teach you the inution of REST APIs and how you can use them to get interesting datasets for your data projects. First, we will look at the four components of a request. In the second part of this blogpost, we will go through one example and access the coingecko API via &lt;code&gt;curl&lt;/code&gt;.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Pointwise, Pairswise and Listwise Learning to Rank Models - Three Approaches to Optimize Relative Ordering</title>
-      <link>/2020/10/15/pointwise-pairswise-and-listwise-learning-to-rank-models-three-approaches-to-optimize-relative-ordering/</link>
-      <pubDate>Thu, 15 Oct 2020 18:36:40 +0100</pubDate>
-      
-      <guid>/2020/10/15/pointwise-pairswise-and-listwise-learning-to-rank-models-three-approaches-to-optimize-relative-ordering/</guid>
-      <description>&lt;p&gt;In many scenarios, such as a google search or a product recommendation in an online shop, we have tons of data and limited space to display it. We cannot show all the products of an online shop to the user as a possible next best offer. Neither would a user want to scroll through all the pages indexed by a search engine to find the most relevant page that matches his search keywords. The most relevant content should be on top. Learning to rank (LTR) models are supervised machine learning models that attempt to optimize the order of items. So compared to classification or regression models, they do not care about exact scores or predictions, but the relative order. LTR models are typically applied in search engines, but gained popularity in other fields such as product recommendations as well.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>AI-Machine-Learning-Buzzword-Bingo</title>
-      <link>/2020/09/10/ai-machine-learning-buzzword-bingo/</link>
-      <pubDate>Thu, 10 Sep 2020 22:20:39 +0200</pubDate>
-      
-      <guid>/2020/09/10/ai-machine-learning-buzzword-bingo/</guid>
-      <description>I was recently invited to join a panel discussion among developers to dispel the myth of the typical BS Buzzword Bingo around machine learning and AI. In this blog post, I will share some buzzwords we talked about with a little description and links. Ooops, I already used some buzzwords. So let&amp;rsquo;s start.
-AI (Artificial Intelligence) is the magic portion to fix all problems of all companies and will make us unemployed in the future.</description>
-    </item>
-    
-    <item>
-      <title>The Intuition of Word Embeddings: How you Teach A Computer to Understand Text</title>
-      <link>/2020/08/31/the-intuition-of-word-embeddings-how-you-teach-a-computer-to-understand-text/</link>
-      <pubDate>Mon, 31 Aug 2020 21:17:58 +0200</pubDate>
-      
-      <guid>/2020/08/31/the-intuition-of-word-embeddings-how-you-teach-a-computer-to-understand-text/</guid>
-      <description>Humans intuitively understand the meaning of words: Which words are similar, opposites or related to each other? But our machine learning models do not have this intuition. Word embeddings are numeric vectors that represent text. These vectors are learned through neural networks. The objective when creating these embedding vectors is to capture as much &amp;ldquo;meaning&amp;rdquo; as possible: Related words should be closer together than unrelated words. Also, they should be able to preserve mathematical relationships between words such as</description>
-    </item>
-    
-    <item>
-      <title>Jupyter Notebooks: Boost your productivity with Extensions and Magic Commands</title>
-      <link>/2020/07/12/jupyter-notebooks-boost-your-productivity-with-extensions-and-magic-commands/</link>
-      <pubDate>Sun, 12 Jul 2020 21:17:58 +0200</pubDate>
-      
-      <guid>/2020/07/12/jupyter-notebooks-boost-your-productivity-with-extensions-and-magic-commands/</guid>
-      <description>In this blogpost I will share some tips for working with Jupyter Notebooks. Those tips greatly improved my productivity when working with Jupyter Notebooks and I wish someone would have told me earlier. The two main topics of this post are extensions and magic commands.
-Jupyter Extensions Have you ever missed a feature in your Jupyter Notebook that IDEs have? E.g. you were hoping for autocompletion or automatically formatting code? Then there might be a Jupyter Notebook extension for you.</description>
-    </item>
-    
-    <item>
-      <title>Mastering ElasticSearch Queries If You Have Only Worked With SQL Before</title>
-      <link>/2020/06/27/mastering-elasticsearch-queries-if-you-have-only-worked-with-sql-before/</link>
-      <pubDate>Sat, 27 Jun 2020 18:48:24 +0100</pubDate>
-      
-      <guid>/2020/06/27/mastering-elasticsearch-queries-if-you-have-only-worked-with-sql-before/</guid>
-      <description>Elasticsearch is often the storage engine of choice for storing and querying full text data. But writing an ElasticSearch query is pretty different compared to querying a relational database in SQL. In this blogpost, you will learn some basics you need to understand before working with ElasticSearch. In the second part, you learn how to write queries in ElasticSearch. ElasticSearch uses many of the same concepts as your SQL Database. The terminology is just a little different.</description>
-    </item>
-    
-    <item>
-      <title>How the Inverted Index and Scoring Work in ElasticSearch</title>
-      <link>/2020/06/24/how-the-inverted-index-and-scoring-work-in-elasticsearch/</link>
-      <pubDate>Wed, 24 Jun 2020 08:05:59 +0200</pubDate>
-      
-      <guid>/2020/06/24/how-the-inverted-index-and-scoring-work-in-elasticsearch/</guid>
-      <description>Searching through full text fields with regexes in relational database systems like PostgreSQL or MySQL is painful: The query latency is high and your results will be unordered, so you have no idea how relevant your query results are. Elasticsearch is often the storage engine of choice for storing and querying full text data. In ElasticSearch querying fulltext fields is among the least resource intensive tasks and your query results are ordered putting the most relevant results on top.</description>
-    </item>
-    
-    <item>
-      <title>Working with Complex Datatypes in Hive</title>
-      <link>/2020/06/07/working-with-complex-datatypes-in-hive/</link>
-      <pubDate>Sun, 07 Jun 2020 08:29:09 +0200</pubDate>
-      
-      <guid>/2020/06/07/working-with-complex-datatypes-in-hive/</guid>
-      <description>table { width:80% !important;}  The basic idea of complex datatypes is to store multiple values in a single column. So if you are working with a Hive database and you query a column, but then you notice &amp;ldquo;This value I need is trapped in a column among other values&amp;hellip;&amp;rdquo; you just came across a complex a.k.a. nested datatype.
-There are three types: arrays, maps and structs. First, you have to understand, which types are present.</description>
-    </item>
-    
-    <item>
-      <title>Plotting with Seaborn</title>
-      <link>/2019/09/10/plotting-with-seaborn/</link>
-      <pubDate>Tue, 10 Sep 2019 20:17:58 +0200</pubDate>
-      
-      <guid>/2019/09/10/plotting-with-seaborn/</guid>
-      <description>&lt;p&gt;Seaborn is a python library for creating plots. It is based on &lt;a href=&#34;https://matplotlib.org&#34;&gt;matplotlib &lt;/a&gt; and provides a high-level interface for drawing statistical graphics.&lt;/p&gt;
-&lt;p&gt;Seaborn integrates nicely with pandas: It operates on DataFrames and arrays and does aggregations and semantic mapping automatically, which makes it a quick, convenient option for data visualization in your data projects. One you understand the basic concepts, you can create plots really easily without using stack overflow too much.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Mastering Data Preparation with Pandas: Subsetting, Filtering and Joining DataFrames</title>
-      <link>/2019/08/18/mastering-data-preparation-with-pandas-subsetting-filtering-and-joining-dataframes/</link>
-      <pubDate>Sun, 18 Aug 2019 10:55:48 +0200</pubDate>
-      
-      <guid>/2019/08/18/mastering-data-preparation-with-pandas-subsetting-filtering-and-joining-dataframes/</guid>
-      <description>table { width:80% !important;}  When I started working with pandas I noticed that there were so many ways how to subset, filter and join data with pandas. But I was lacking a systematic overview. How do the different approaches differ and when to use which?
-In this blogpost we&amp;rsquo;ll look at different ways for subsetting, filtering and combining DataFrames.
-Subsetting Data: Selecting subsets of rows and columns by labels and positions .</description>
+      <guid>https://hwolters.github.io/2025/08/11/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/</guid>
+      <description>&lt;p&gt;In summer 2020 I had a small Python web app around one of my favorite datasets: 300 chocolates that my hunsband and me had tried over the years with reviews and ratings and a machine learning model that predicts how much we may like an unknown chocolate.&lt;/p&gt;
+&lt;p&gt;Technically, it was a SQLite database with a search interface that was a simple keyword match.&lt;/p&gt;
+&lt;p&gt;It worked: It was also really ugly. Because I am not a frontend developer, I had happily used Streamlit. That was a good choice for getting something working quickly, but it also meant the interface looked like what it was: a table with some hacky filters on the side.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://hwolters.github.io/post/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/original-table-search.png&#34; alt=&#34;Original table-based chocolate search interface&#34;&gt;&lt;/p&gt;
+&lt;p&gt;And yes, I am a little embarrassed to show this screenshot to you.&lt;/p&gt;
+&lt;p&gt;With the help of aider around 2023 and later Codex, the app had grown the usual side-project way: adding more features like more information about chocolates and an admin interface. However, the design was still terrible: emojis and lots of boxes.&lt;/p&gt;
+&lt;p&gt;I tried to fix it with AI design prompts. &amp;ldquo;Make this more modern.&amp;rdquo; &amp;ldquo;Improve the UX.&amp;rdquo; &amp;ldquo;Use better spacing.&amp;rdquo; I also tried design-focused coding assistants and design skills. It was still an inconsistent design with lot&amp;rsquo;s of boxes. In my chocolate search resultlist every field from the SQLite Table got it&amp;rsquo;s own box.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://hwolters.github.io/post/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/summer-2025-search-results.png&#34; alt=&#34;Summer 2025 search results&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The useful shift came when I stopped asking AI to decorate the old interface and started using &lt;a href=&#34;https://stitch.withgoogle.com/&#34;&gt;Google Stitch&lt;/a&gt; to rethink what the database was for.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Everything You Need to Know to Use Git for Version Control</title>
-      <link>/2018/12/17/everything-you-need-to-know-to-use-git-for-version-control/</link>
+      <link>https://hwolters.github.io/2018/12/17/everything-you-need-to-know-to-use-git-for-version-control/</link>
       <pubDate>Mon, 17 Dec 2018 21:17:58 +0100</pubDate>
       
-      <guid>/2018/12/17/everything-you-need-to-know-to-use-git-for-version-control/</guid>
+      <guid>https://hwolters.github.io/2018/12/17/everything-you-need-to-know-to-use-git-for-version-control/</guid>
       <description>So many people have recommended Git as a version control system to me. I had a look at it, but I was pretty overwhelmed. Since I did not have a technical background, everything seemed so complex! Many tutorials let me copy paste code without giving you a deeper understanding of what and why I am actually doing this. This copy pasting feels like success at first, but when I tried working with it, I could not.</description>
+    </item>
+    
+    <item>
+      <title>Automatically changing the R working directory on Mac OS to source file location</title>
+      <link>https://hwolters.github.io/2018/12/07/changing-working-directories/</link>
+      <pubDate>Fri, 07 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://hwolters.github.io/2018/12/07/changing-working-directories/</guid>
+      <description>This post is about how to change your R working directory. You might be wondering:
+Why would I want to do that? You need this as soon as your script interacts with folders on your computer. For example for imports or exports of data or figures. So probably almost always. Let’s say you have a script that creates plots and saves them in the folder “Plots”, which is located in your source file directory.</description>
+    </item>
+    
+    <item>
+      <title>Formatting tables in R Markdown with kableExtra</title>
+      <link>https://hwolters.github.io/2018/11/05/formatting-tables-in-r-markdown-with-kableextra/</link>
+      <pubDate>Mon, 05 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://hwolters.github.io/2018/11/05/formatting-tables-in-r-markdown-with-kableextra/</guid>
+      <description>In this post, I will show you some of my best practises for formatting tables in R Markdown. We will cover
+How to generally format tables (font, size, color… )
+ How to create tables with conditional formating (e.g. coloring values &amp;lt; 0 red)
+  The basics: the R package kableExtra kableExtra is an awesome package that allows you to format and style your tables. It works similar to ggplot2: You create a base table and then add formating layers with the pipe operator %&amp;gt;%.</description>
+    </item>
+    
+    <item>
+      <title>R Markdown for Novices: All you need to know to get started</title>
+      <link>https://hwolters.github.io/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/</link>
+      <pubDate>Sat, 03 Nov 2018 21:13:14 -0500</pubDate>
+      
+      <guid>https://hwolters.github.io/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/</guid>
+      <description>I write this blogpost for someone, who has never worked with R Markdown. After you read this post, you will
+understand why R Markdown may be useful for your daily work as a student, researcher, analyst or data scientist.
+ understand the basic structure of an R Markdown document and how you can get startet.
+  I strongly encourage everybody working with R to use R Markdown. I promise, it will make your life so much easier.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://hwolters.github.io/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hwolters.github.io/about/</guid>
+      <description>The theme of this blog was forked from @jrutheiser/hugo-lithium-theme and modified by Yihui Xie.</description>
     </item>
     
   </channel>

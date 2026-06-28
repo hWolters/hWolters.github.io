@@ -2,143 +2,170 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on A Potpourri of Data Science &amp; Data Engineering Topics</title>
-    <link>/tags/</link>
+    <link>https://hwolters.github.io/tags/</link>
     <description>Recent content in Tags on A Potpourri of Data Science &amp; Data Engineering Topics</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 09 Dec 2022 10:07:54 +0100</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 11 Aug 2025 09:00:00 +0200</lastBuildDate><atom:link href="https://hwolters.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Athena</title>
-      <link>/tags/athena/</link>
-      <pubDate>Fri, 09 Dec 2022 10:07:54 +0100</pubDate>
+      <title>AI</title>
+      <link>https://hwolters.github.io/tags/ai/</link>
+      <pubDate>Mon, 11 Aug 2025 09:00:00 +0200</pubDate>
       
-      <guid>/tags/athena/</guid>
+      <guid>https://hwolters.github.io/tags/ai/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Hive</title>
-      <link>/tags/hive/</link>
-      <pubDate>Fri, 09 Dec 2022 10:07:54 +0100</pubDate>
+      <title>FastAPI</title>
+      <link>https://hwolters.github.io/tags/fastapi/</link>
+      <pubDate>Mon, 11 Aug 2025 09:00:00 +0200</pubDate>
       
-      <guid>/tags/hive/</guid>
+      <guid>https://hwolters.github.io/tags/fastapi/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>MySQL</title>
-      <link>/tags/mysql/</link>
-      <pubDate>Fri, 09 Dec 2022 10:07:54 +0100</pubDate>
+      <title>Google Stitch</title>
+      <link>https://hwolters.github.io/tags/google-stitch/</link>
+      <pubDate>Mon, 11 Aug 2025 09:00:00 +0200</pubDate>
       
-      <guid>/tags/mysql/</guid>
+      <guid>https://hwolters.github.io/tags/google-stitch/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>PostgreSQL</title>
-      <link>/tags/postgresql/</link>
-      <pubDate>Fri, 09 Dec 2022 10:07:54 +0100</pubDate>
+      <title>Playwright</title>
+      <link>https://hwolters.github.io/tags/playwright/</link>
+      <pubDate>Mon, 11 Aug 2025 09:00:00 +0200</pubDate>
       
-      <guid>/tags/postgresql/</guid>
+      <guid>https://hwolters.github.io/tags/playwright/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Presto</title>
-      <link>/tags/presto/</link>
-      <pubDate>Fri, 09 Dec 2022 10:07:54 +0100</pubDate>
+      <title>UX</title>
+      <link>https://hwolters.github.io/tags/ux/</link>
+      <pubDate>Mon, 11 Aug 2025 09:00:00 +0200</pubDate>
       
-      <guid>/tags/presto/</guid>
+      <guid>https://hwolters.github.io/tags/ux/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>SQL</title>
-      <link>/tags/sql/</link>
-      <pubDate>Fri, 09 Dec 2022 10:07:54 +0100</pubDate>
+      <title>MacOS</title>
+      <link>https://hwolters.github.io/tags/macos/</link>
+      <pubDate>Fri, 07 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/sql/</guid>
+      <guid>https://hwolters.github.io/tags/macos/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>bias</title>
-      <link>/tags/bias/</link>
-      <pubDate>Thu, 29 Apr 2021 15:15:38 +0200</pubDate>
+      <title>R</title>
+      <link>https://hwolters.github.io/tags/r/</link>
+      <pubDate>Fri, 07 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/bias/</guid>
+      <guid>https://hwolters.github.io/tags/r/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>ltr</title>
-      <link>/tags/ltr/</link>
-      <pubDate>Thu, 29 Apr 2021 15:15:38 +0200</pubDate>
+      <title>Reproducible Research</title>
+      <link>https://hwolters.github.io/tags/reproducible-research/</link>
+      <pubDate>Fri, 07 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/ltr/</guid>
+      <guid>https://hwolters.github.io/tags/reproducible-research/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>avro</title>
-      <link>/tags/avro/</link>
-      <pubDate>Tue, 23 Feb 2021 15:16:09 +0200</pubDate>
+      <title>working directory</title>
+      <link>https://hwolters.github.io/tags/working-directory/</link>
+      <pubDate>Fri, 07 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/avro/</guid>
+      <guid>https://hwolters.github.io/tags/working-directory/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>kafka</title>
-      <link>/tags/kafka/</link>
-      <pubDate>Tue, 23 Feb 2021 15:16:09 +0200</pubDate>
+      <title>Analytics</title>
+      <link>https://hwolters.github.io/tags/analytics/</link>
+      <pubDate>Mon, 05 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/kafka/</guid>
+      <guid>https://hwolters.github.io/tags/analytics/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>message brokers</title>
-      <link>/tags/message-brokers/</link>
-      <pubDate>Tue, 23 Feb 2021 15:16:09 +0200</pubDate>
+      <title>kableExtra</title>
+      <link>https://hwolters.github.io/tags/kableextra/</link>
+      <pubDate>Mon, 05 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/message-brokers/</guid>
+      <guid>https://hwolters.github.io/tags/kableextra/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>amqp</title>
-      <link>/tags/amqp/</link>
-      <pubDate>Tue, 26 Jan 2021 16:26:57 +0100</pubDate>
+      <title>knitr</title>
+      <link>https://hwolters.github.io/tags/knitr/</link>
+      <pubDate>Mon, 05 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/amqp/</guid>
+      <guid>https://hwolters.github.io/tags/knitr/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>rabbitmq</title>
-      <link>/tags/rabbitmq/</link>
-      <pubDate>Tue, 26 Jan 2021 16:26:57 +0100</pubDate>
+      <title>R Markdown</title>
+      <link>https://hwolters.github.io/tags/r-markdown/</link>
+      <pubDate>Mon, 05 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/rabbitmq/</guid>
+      <guid>https://hwolters.github.io/tags/r-markdown/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>api</title>
-      <link>/tags/api/</link>
-      <pubDate>Thu, 26 Nov 2020 16:26:57 +0100</pubDate>
+      <title>Reporting</title>
+      <link>https://hwolters.github.io/tags/reporting/</link>
+      <pubDate>Mon, 05 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/api/</guid>
+      <guid>https://hwolters.github.io/tags/reporting/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>curl</title>
-      <link>/tags/curl/</link>
-      <pubDate>Thu, 26 Nov 2020 16:26:57 +0100</pubDate>
+      <title>Tables</title>
+      <link>https://hwolters.github.io/tags/tables/</link>
+      <pubDate>Mon, 05 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>/tags/curl/</guid>
+      <guid>https://hwolters.github.io/tags/tables/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Documentation</title>
+      <link>https://hwolters.github.io/tags/documentation/</link>
+      <pubDate>Sat, 03 Nov 2018 21:13:14 -0500</pubDate>
+      
+      <guid>https://hwolters.github.io/tags/documentation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Markdown</title>
+      <link>https://hwolters.github.io/tags/markdown/</link>
+      <pubDate>Sat, 03 Nov 2018 21:13:14 -0500</pubDate>
+      
+      <guid>https://hwolters.github.io/tags/markdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>YAML</title>
+      <link>https://hwolters.github.io/tags/yaml/</link>
+      <pubDate>Sat, 03 Nov 2018 21:13:14 -0500</pubDate>
+      
+      <guid>https://hwolters.github.io/tags/yaml/</guid>
       <description></description>
     </item>
     

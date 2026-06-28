@@ -1,22 +1,13 @@
-<style>
-.sidebar-button-desc {
-  color: darkgrey !important;
-}
-.sidebar-button-icon {
-  color: darkgrey !important;
-}
-.sidebar-profile-name {
-  color: darkgrey !important;
-</style><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.87.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="generator" content="Hugo 0.87.0 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Heike Maria (PhD)">
-<meta name="keywords" content=", SQL, Data Science, Analytics, ElasticSeach, Python, Pandas, Analytics, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive, Data Analysis, Data Mining">
+<meta name="keywords" content=", SQL, Data Science, Analytics, ElasticSearch, Python, Pandas, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive, Data Analysis, Data Mining">
 <meta name="description" content="Random Topics around Data Science an Data Engineering. I share what I learned along the way.">
 
 
@@ -24,8 +15,8 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Tags">
 <meta name="twitter:title" content="Tags">
-<meta property="og:url" content="/tags/">
-<meta property="twitter:url" content="/tags/">
+<meta property="og:url" content="https://hwolters.github.io/tags/">
+<meta property="twitter:url" content="https://hwolters.github.io/tags/">
 <meta property="og:site_name" content="A Potpourri of Data Science &amp; Data Engineering Topics">
 <meta property="og:description" content="Random Topics around Data Science an Data Engineering. I share what I learned along the way.">
 <meta name="twitter:description" content="Random Topics around Data Science an Data Engineering. I share what I learned along the way.">
@@ -43,16 +34,21 @@
 
 
 
+
+  <meta property="og:image" content="https://hwolters.github.io/me.jpg">
+  <meta property="twitter:image" content="https://hwolters.github.io/me.jpg">
+
+
     <title>Tags</title>
 
     <link rel="icon" href="/favicon.png">
     
-      <link rel="alternate" type="application/rss+xml" title="RSS" href="/tags/index.xml">
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://hwolters.github.io/tags/index.xml">
     
 
     
 
-    <link rel="canonical" href="/tags/">
+    <link rel="canonical" href="https://hwolters.github.io/tags/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -60,7 +56,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    <link rel="stylesheet" href="/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
 
@@ -107,7 +103,7 @@ if (!doNotTrack) {
     
       <div class="sidebar-profile">
         <a href="/#about">
-          <img class="sidebar-profile-picture" src="/me.jpg" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://hwolters.github.io/me.jpg" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Heike Maria (PhD)</h4>
         
@@ -117,11 +113,21 @@ if (!doNotTrack) {
       
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="/">
+      <a class="sidebar-button-link " href="/categories">
     
-      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
       
-      <span class="sidebar-button-desc">Home</span>
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
     </a>
   </li>
 
@@ -157,11 +163,11 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="/tags">
+      <a class="sidebar-button-link " href="/">
     
-      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
       
-      <span class="sidebar-button-desc">Tags</span>
+      <span class="sidebar-button-desc">Home</span>
     </a>
   </li>
 
@@ -169,6 +175,16 @@ if (!doNotTrack) {
     </ul>
     <ul class="sidebar-buttons">
       
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/hWolters" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
 
     </ul>
     <ul class="sidebar-buttons">
@@ -196,44 +212,12 @@ if (!doNotTrack) {
 
             <section>
               
-                <a class="tag tag--primary tag--small" href="#python-list" data-tag="python">
-                  python
-                </a>
-              
                 <a class="tag tag--primary tag--small" href="#r-list" data-tag="r">
                   r
                 </a>
               
-                <a class="tag tag--primary tag--small" href="#elasticsearch-list" data-tag="elasticsearch">
-                  elasticsearch
-                </a>
-              
-                <a class="tag tag--primary tag--small" href="#fulltext-search-list" data-tag="fulltext-search">
-                  fulltext-search
-                </a>
-              
-                <a class="tag tag--primary tag--small" href="#hive-list" data-tag="hive">
-                  hive
-                </a>
-              
-                <a class="tag tag--primary tag--small" href="#inverted-index-list" data-tag="inverted-index">
-                  inverted-index
-                </a>
-              
-                <a class="tag tag--primary tag--small" href="#kafka-list" data-tag="kafka">
-                  kafka
-                </a>
-              
                 <a class="tag tag--primary tag--small" href="#knitr-list" data-tag="knitr">
                   knitr
-                </a>
-              
-                <a class="tag tag--primary tag--small" href="#ltr-list" data-tag="ltr">
-                  ltr
-                </a>
-              
-                <a class="tag tag--primary tag--small" href="#message-brokers-list" data-tag="message-brokers">
-                  message-brokers
                 </a>
               
                 <a class="tag tag--primary tag--small" href="#r-markdown-list" data-tag="r-markdown">
@@ -244,184 +228,52 @@ if (!doNotTrack) {
                   reproducible-research
                 </a>
               
-                <a class="tag tag--primary tag--small" href="#scoring-list" data-tag="scoring">
-                  scoring
-                </a>
-              
-                <a class="tag tag--primary tag--small" href="#sql-list" data-tag="sql">
-                  sql
-                </a>
-              
-                <a class="tag tag--primary tag--small" href="#amqp-list" data-tag="amqp">
-                  amqp
+                <a class="tag tag--primary tag--small" href="#ai-list" data-tag="ai">
+                  ai
                 </a>
               
                 <a class="tag tag--primary tag--small" href="#analytics-list" data-tag="analytics">
                   analytics
                 </a>
               
-                <a class="tag tag--primary tag--small" href="#api-list" data-tag="api">
-                  api
-                </a>
-              
-                <a class="tag tag--primary tag--small" href="#array-list" data-tag="array">
-                  array
-                </a>
-              
-                <a class="tag tag--primary tag--small" href="#athena-list" data-tag="athena">
-                  athena
-                </a>
-              
-                <a class="tag tag--primary tag--small" href="#avro-list" data-tag="avro">
-                  avro
-                </a>
-              
-                <a class="tag tag--primary tag--small" href="#bert-list" data-tag="bert">
-                  bert
-                </a>
-              
-                <a class="tag tag--primary tag--small" href="#bias-list" data-tag="bias">
-                  bias
-                </a>
-              
-                <a class="tag tag--primary tag--small" href="#boolean-mask-list" data-tag="boolean-mask">
-                  boolean-mask
-                </a>
-              
-                <a class="tag tag--primary tag--small" href="#complex-list" data-tag="complex">
-                  complex
-                </a>
-              
-                <a class="tag tag--primary tag--small" href="#curl-list" data-tag="curl">
-                  curl
-                </a>
-              
-                <a class="tag tag--primary tag--small" href="#data-preparation-list" data-tag="data-preparation">
-                  data-preparation
-                </a>
-              
-                <a class="tag tag--primary tag--small" href="#deep-learning-list" data-tag="deep-learning">
-                  deep-learning
-                </a>
-              
-                <a class="tag tag--primary tag--small" href="#document-frequency-list" data-tag="document-frequency">
-                  document-frequency
-                </a>
-              
                 <a class="tag tag--primary tag--small" href="#documentation-list" data-tag="documentation">
                   documentation
                 </a>
               
-                <a class="tag tag--primary tag--small" href="#dsl-list" data-tag="dsl">
-                  dsl
+                <a class="tag tag--primary tag--small" href="#fastapi-list" data-tag="fastapi">
+                  fastapi
                 </a>
               
-                <a class="tag tag--primary tag--small" href="#elastic-list" data-tag="elastic">
-                  elastic
-                </a>
-              
-                <a class="tag tag--primary tag--small" href="#extension-list" data-tag="extension">
-                  extension
-                </a>
-              
-                <a class="tag tag--primary tag--small" href="#forward-indexing-list" data-tag="forward-indexing">
-                  forward-indexing
-                </a>
-              
-                <a class="tag tag--primary tag--small" href="#jupyter-list" data-tag="jupyter">
-                  jupyter
+                <a class="tag tag--primary tag--small" href="#google-stitch-list" data-tag="google-stitch">
+                  google-stitch
                 </a>
               
                 <a class="tag tag--primary tag--small" href="#kableextra-list" data-tag="kableextra">
                   kableextra
                 </a>
               
-                <a class="tag tag--primary tag--small" href="#machine-learning-list" data-tag="machine-learning">
-                  machine-learning
-                </a>
-              
                 <a class="tag tag--primary tag--small" href="#macos-list" data-tag="macos">
                   macos
-                </a>
-              
-                <a class="tag tag--primary tag--small" href="#magic-commands-list" data-tag="magic-commands">
-                  magic-commands
-                </a>
-              
-                <a class="tag tag--primary tag--small" href="#map-list" data-tag="map">
-                  map
                 </a>
               
                 <a class="tag tag--primary tag--small" href="#markdown-list" data-tag="markdown">
                   markdown
                 </a>
               
-                <a class="tag tag--primary tag--small" href="#mysql-list" data-tag="mysql">
-                  mysql
-                </a>
-              
-                <a class="tag tag--primary tag--small" href="#nlp-list" data-tag="nlp">
-                  nlp
-                </a>
-              
-                <a class="tag tag--primary tag--small" href="#one-hot-encoding-list" data-tag="one-hot-encoding">
-                  one-hot-encoding
-                </a>
-              
-                <a class="tag tag--primary tag--small" href="#pandas-list" data-tag="pandas">
-                  pandas
-                </a>
-              
-                <a class="tag tag--primary tag--small" href="#plot-list" data-tag="plot">
-                  plot
-                </a>
-              
-                <a class="tag tag--primary tag--small" href="#postgresql-list" data-tag="postgresql">
-                  postgresql
-                </a>
-              
-                <a class="tag tag--primary tag--small" href="#presto-list" data-tag="presto">
-                  presto
-                </a>
-              
-                <a class="tag tag--primary tag--small" href="#rabbitmq-list" data-tag="rabbitmq">
-                  rabbitmq
+                <a class="tag tag--primary tag--small" href="#playwright-list" data-tag="playwright">
+                  playwright
                 </a>
               
                 <a class="tag tag--primary tag--small" href="#reporting-list" data-tag="reporting">
                   reporting
                 </a>
               
-                <a class="tag tag--primary tag--small" href="#rest-list" data-tag="rest">
-                  rest
-                </a>
-              
-                <a class="tag tag--primary tag--small" href="#seaborn-list" data-tag="seaborn">
-                  seaborn
-                </a>
-              
-                <a class="tag tag--primary tag--small" href="#search-list" data-tag="search">
-                  search
-                </a>
-              
-                <a class="tag tag--primary tag--small" href="#struct-list" data-tag="struct">
-                  struct
-                </a>
-              
                 <a class="tag tag--primary tag--small" href="#tables-list" data-tag="tables">
                   tables
                 </a>
               
-                <a class="tag tag--primary tag--small" href="#term-frequency-list" data-tag="term-frequency">
-                  term-frequency
-                </a>
-              
-                <a class="tag tag--primary tag--small" href="#word-embeddings-list" data-tag="word-embeddings">
-                  word-embeddings
-                </a>
-              
-                <a class="tag tag--primary tag--small" href="#word2vec-list" data-tag="word2vec">
-                  word2vec
+                <a class="tag tag--primary tag--small" href="#ux-list" data-tag="ux">
+                  ux
                 </a>
               
                 <a class="tag tag--primary tag--small" href="#working-directory-list" data-tag="working-directory">
@@ -435,59 +287,6 @@ if (!doNotTrack) {
             </section>
             <section class="boxes">
               
-                <div id="python-list" class="archive box" data-tag="python">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="python">
-                      python (3)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2019/08/18/mastering-data-preparation-with-pandas-subsetting-filtering-and-joining-dataframes/">
-                          Mastering Data Preparation with Pandas: Subsetting, Filtering and Joining DataFrames
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    18 August 2019
-  
-</span>
-                      </li>
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2019/09/10/plotting-with-seaborn/">
-                          Plotting with Seaborn
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    10 September 2019
-  
-</span>
-                      </li>
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2020/07/12/jupyter-notebooks-boost-your-productivity-with-extensions-and-magic-commands/">
-                          Jupyter Notebooks: Boost your productivity with Extensions and Magic Commands
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    12 July 2020
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
                 <div id="r-list" class="archive box" data-tag="r">
                   <h4 class="archive-title">
                     <a class="link-unstyled" href="r">
@@ -497,7 +296,7 @@ if (!doNotTrack) {
                   <ul class="archive-posts">
                     
                       <li class="archive-post">
-                        <a class="archive-post-title" href="/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/">
+                        <a class="archive-post-title" href="https://hwolters.github.io/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/">
                           R Markdown for Novices: All you need to know to get started
                         </a>
                         <span class="archive-post-date"> - 
@@ -511,7 +310,7 @@ if (!doNotTrack) {
                       </li>
                     
                       <li class="archive-post">
-                        <a class="archive-post-title" href="/2018/11/05/formatting-tables-in-r-markdown-with-kableextra/">
+                        <a class="archive-post-title" href="https://hwolters.github.io/2018/11/05/formatting-tables-in-r-markdown-with-kableextra/">
                           Formatting tables in R Markdown with kableExtra
                         </a>
                         <span class="archive-post-date"> - 
@@ -525,7 +324,7 @@ if (!doNotTrack) {
                       </li>
                     
                       <li class="archive-post">
-                        <a class="archive-post-title" href="/2018/12/07/changing-working-directories/">
+                        <a class="archive-post-title" href="https://hwolters.github.io/2018/12/07/changing-working-directories/">
                           Automatically changing the R working directory on Mac OS to source file location
                         </a>
                         <span class="archive-post-date"> - 
@@ -534,201 +333,6 @@ if (!doNotTrack) {
   
   
     7 December 2018
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="elasticsearch-list" class="archive box" data-tag="elasticsearch">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="elasticsearch">
-                      elasticsearch (2)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2020/06/24/how-the-inverted-index-and-scoring-work-in-elasticsearch/">
-                          How the Inverted Index and Scoring Work in ElasticSearch
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    24 June 2020
-  
-</span>
-                      </li>
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2020/06/27/mastering-elasticsearch-queries-if-you-have-only-worked-with-sql-before/">
-                          Mastering ElasticSearch Queries If You Have Only Worked With SQL Before
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    27 June 2020
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="fulltext-search-list" class="archive box" data-tag="fulltext-search">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="fulltext-search">
-                      fulltext-search (2)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2020/06/24/how-the-inverted-index-and-scoring-work-in-elasticsearch/">
-                          How the Inverted Index and Scoring Work in ElasticSearch
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    24 June 2020
-  
-</span>
-                      </li>
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2020/06/27/mastering-elasticsearch-queries-if-you-have-only-worked-with-sql-before/">
-                          Mastering ElasticSearch Queries If You Have Only Worked With SQL Before
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    27 June 2020
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="hive-list" class="archive box" data-tag="hive">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="hive">
-                      hive (2)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2020/06/07/working-with-complex-datatypes-in-hive/">
-                          Working with Complex Datatypes in Hive
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    7 June 2020
-  
-</span>
-                      </li>
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2022/12/09/mastering-differences-and-pitfalls-when-switching-sql-databases-postgresql-vs.-mysql-vs.-sqlite-vs.-hive-vs.-presto-aws-athena/">
-                          Mastering Differences and Pitfalls when Switching SQL Databases: PostgreSQL vs. MySQL vs. SQLITE vs. Hive vs. Presto (AWS Athena)
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    9 December 2022
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="inverted-index-list" class="archive box" data-tag="inverted-index">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="inverted-index">
-                      inverted-index (2)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2020/06/24/how-the-inverted-index-and-scoring-work-in-elasticsearch/">
-                          How the Inverted Index and Scoring Work in ElasticSearch
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    24 June 2020
-  
-</span>
-                      </li>
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2020/06/27/mastering-elasticsearch-queries-if-you-have-only-worked-with-sql-before/">
-                          Mastering ElasticSearch Queries If You Have Only Worked With SQL Before
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    27 June 2020
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="kafka-list" class="archive box" data-tag="kafka">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="kafka">
-                      kafka (2)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/">
-                          A Gentle Intro to the Basic Architecture of Message Brokers: RabbitMQ vs. Kafka
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    26 January 2021
-  
-</span>
-                      </li>
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2021/02/23/avro-and-avro-schemas-how-they-work-and-why-they-are-useful/">
-                          Avro and avro schemas - how they work and why they are useful
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    23 February 2021
   
 </span>
                       </li>
@@ -745,7 +349,7 @@ if (!doNotTrack) {
                   <ul class="archive-posts">
                     
                       <li class="archive-post">
-                        <a class="archive-post-title" href="/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/">
+                        <a class="archive-post-title" href="https://hwolters.github.io/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/">
                           R Markdown for Novices: All you need to know to get started
                         </a>
                         <span class="archive-post-date"> - 
@@ -759,7 +363,7 @@ if (!doNotTrack) {
                       </li>
                     
                       <li class="archive-post">
-                        <a class="archive-post-title" href="/2018/11/05/formatting-tables-in-r-markdown-with-kableextra/">
+                        <a class="archive-post-title" href="https://hwolters.github.io/2018/11/05/formatting-tables-in-r-markdown-with-kableextra/">
                           Formatting tables in R Markdown with kableExtra
                         </a>
                         <span class="archive-post-date"> - 
@@ -768,84 +372,6 @@ if (!doNotTrack) {
   
   
     5 November 2018
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="ltr-list" class="archive box" data-tag="ltr">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="ltr">
-                      ltr (2)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2020/10/15/pointwise-pairswise-and-listwise-learning-to-rank-models-three-approaches-to-optimize-relative-ordering/">
-                          Pointwise, Pairswise and Listwise Learning to Rank Models - Three Approaches to Optimize Relative Ordering
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    15 October 2020
-  
-</span>
-                      </li>
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2021/04/29/biases-in-learning-to-rank-models-and-three-approaches-to-deal-with-them/">
-                          Biases in learning to rank models and three approaches to deal with them
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    29 April 2021
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="message-brokers-list" class="archive box" data-tag="message-brokers">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="message-brokers">
-                      message-brokers (2)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/">
-                          A Gentle Intro to the Basic Architecture of Message Brokers: RabbitMQ vs. Kafka
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    26 January 2021
-  
-</span>
-                      </li>
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2021/02/23/avro-and-avro-schemas-how-they-work-and-why-they-are-useful/">
-                          Avro and avro schemas - how they work and why they are useful
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    23 February 2021
   
 </span>
                       </li>
@@ -862,7 +388,7 @@ if (!doNotTrack) {
                   <ul class="archive-posts">
                     
                       <li class="archive-post">
-                        <a class="archive-post-title" href="/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/">
+                        <a class="archive-post-title" href="https://hwolters.github.io/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/">
                           R Markdown for Novices: All you need to know to get started
                         </a>
                         <span class="archive-post-date"> - 
@@ -876,7 +402,7 @@ if (!doNotTrack) {
                       </li>
                     
                       <li class="archive-post">
-                        <a class="archive-post-title" href="/2018/11/05/formatting-tables-in-r-markdown-with-kableextra/">
+                        <a class="archive-post-title" href="https://hwolters.github.io/2018/11/05/formatting-tables-in-r-markdown-with-kableextra/">
                           Formatting tables in R Markdown with kableExtra
                         </a>
                         <span class="archive-post-date"> - 
@@ -901,7 +427,7 @@ if (!doNotTrack) {
                   <ul class="archive-posts">
                     
                       <li class="archive-post">
-                        <a class="archive-post-title" href="/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/">
+                        <a class="archive-post-title" href="https://hwolters.github.io/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/">
                           R Markdown for Novices: All you need to know to get started
                         </a>
                         <span class="archive-post-date"> - 
@@ -915,7 +441,7 @@ if (!doNotTrack) {
                       </li>
                     
                       <li class="archive-post">
-                        <a class="archive-post-title" href="/2018/12/07/changing-working-directories/">
+                        <a class="archive-post-title" href="https://hwolters.github.io/2018/12/07/changing-working-directories/">
                           Automatically changing the R working directory on Mac OS to source file location
                         </a>
                         <span class="archive-post-date"> - 
@@ -931,102 +457,24 @@ if (!doNotTrack) {
                   </ul>
                 </div>
               
-                <div id="scoring-list" class="archive box" data-tag="scoring">
+                <div id="ai-list" class="archive box" data-tag="ai">
                   <h4 class="archive-title">
-                    <a class="link-unstyled" href="scoring">
-                      scoring (2)
+                    <a class="link-unstyled" href="ai">
+                      ai (1)
                     </a>
                   </h4>
                   <ul class="archive-posts">
                     
                       <li class="archive-post">
-                        <a class="archive-post-title" href="/2020/06/24/how-the-inverted-index-and-scoring-work-in-elasticsearch/">
-                          How the Inverted Index and Scoring Work in ElasticSearch
+                        <a class="archive-post-title" href="https://hwolters.github.io/2025/08/11/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/">
+                          What I Learned Redesigning My Chocolate Database Webapp with AI
                         </a>
                         <span class="archive-post-date"> - 
   
   
   
   
-    24 June 2020
-  
-</span>
-                      </li>
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2020/06/27/mastering-elasticsearch-queries-if-you-have-only-worked-with-sql-before/">
-                          Mastering ElasticSearch Queries If You Have Only Worked With SQL Before
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    27 June 2020
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="sql-list" class="archive box" data-tag="sql">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="sql">
-                      sql (2)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2020/06/07/working-with-complex-datatypes-in-hive/">
-                          Working with Complex Datatypes in Hive
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    7 June 2020
-  
-</span>
-                      </li>
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2022/12/09/mastering-differences-and-pitfalls-when-switching-sql-databases-postgresql-vs.-mysql-vs.-sqlite-vs.-hive-vs.-presto-aws-athena/">
-                          Mastering Differences and Pitfalls when Switching SQL Databases: PostgreSQL vs. MySQL vs. SQLITE vs. Hive vs. Presto (AWS Athena)
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    9 December 2022
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="amqp-list" class="archive box" data-tag="amqp">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="amqp">
-                      amqp (1)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/">
-                          A Gentle Intro to the Basic Architecture of Message Brokers: RabbitMQ vs. Kafka
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    26 January 2021
+    11 August 2025
   
 </span>
                       </li>
@@ -1043,7 +491,7 @@ if (!doNotTrack) {
                   <ul class="archive-posts">
                     
                       <li class="archive-post">
-                        <a class="archive-post-title" href="/2018/11/05/formatting-tables-in-r-markdown-with-kableextra/">
+                        <a class="archive-post-title" href="https://hwolters.github.io/2018/11/05/formatting-tables-in-r-markdown-with-kableextra/">
                           Formatting tables in R Markdown with kableExtra
                         </a>
                         <span class="archive-post-date"> - 
@@ -1052,306 +500,6 @@ if (!doNotTrack) {
   
   
     5 November 2018
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="api-list" class="archive box" data-tag="api">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="api">
-                      api (1)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2020/11/26/intro-into-apis-and-how-to-access-public-rest-apis-with-curl/">
-                          Intro into APIs and how to access public REST APIs with `curl`
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    26 November 2020
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="array-list" class="archive box" data-tag="array">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="array">
-                      array (1)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2020/06/07/working-with-complex-datatypes-in-hive/">
-                          Working with Complex Datatypes in Hive
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    7 June 2020
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="athena-list" class="archive box" data-tag="athena">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="athena">
-                      athena (1)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2022/12/09/mastering-differences-and-pitfalls-when-switching-sql-databases-postgresql-vs.-mysql-vs.-sqlite-vs.-hive-vs.-presto-aws-athena/">
-                          Mastering Differences and Pitfalls when Switching SQL Databases: PostgreSQL vs. MySQL vs. SQLITE vs. Hive vs. Presto (AWS Athena)
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    9 December 2022
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="avro-list" class="archive box" data-tag="avro">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="avro">
-                      avro (1)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2021/02/23/avro-and-avro-schemas-how-they-work-and-why-they-are-useful/">
-                          Avro and avro schemas - how they work and why they are useful
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    23 February 2021
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="bert-list" class="archive box" data-tag="bert">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="bert">
-                      bert (1)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2020/08/31/the-intuition-of-word-embeddings-how-you-teach-a-computer-to-understand-text/">
-                          The Intuition of Word Embeddings: How you Teach A Computer to Understand Text
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    31 August 2020
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="bias-list" class="archive box" data-tag="bias">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="bias">
-                      bias (1)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2021/04/29/biases-in-learning-to-rank-models-and-three-approaches-to-deal-with-them/">
-                          Biases in learning to rank models and three approaches to deal with them
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    29 April 2021
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="boolean-mask-list" class="archive box" data-tag="boolean-mask">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="boolean-mask">
-                      boolean-mask (1)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2019/08/18/mastering-data-preparation-with-pandas-subsetting-filtering-and-joining-dataframes/">
-                          Mastering Data Preparation with Pandas: Subsetting, Filtering and Joining DataFrames
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    18 August 2019
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="complex-list" class="archive box" data-tag="complex">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="complex">
-                      complex (1)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2020/06/07/working-with-complex-datatypes-in-hive/">
-                          Working with Complex Datatypes in Hive
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    7 June 2020
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="curl-list" class="archive box" data-tag="curl">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="curl">
-                      curl (1)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2020/11/26/intro-into-apis-and-how-to-access-public-rest-apis-with-curl/">
-                          Intro into APIs and how to access public REST APIs with `curl`
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    26 November 2020
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="data-preparation-list" class="archive box" data-tag="data-preparation">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="data-preparation">
-                      data-preparation (1)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2019/08/18/mastering-data-preparation-with-pandas-subsetting-filtering-and-joining-dataframes/">
-                          Mastering Data Preparation with Pandas: Subsetting, Filtering and Joining DataFrames
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    18 August 2019
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="deep-learning-list" class="archive box" data-tag="deep-learning">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="deep-learning">
-                      deep-learning (1)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2020/09/10/ai-machine-learning-buzzword-bingo/">
-                          AI-Machine-Learning-Buzzword-Bingo
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    10 September 2020
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="document-frequency-list" class="archive box" data-tag="document-frequency">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="document-frequency">
-                      document-frequency (1)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2020/06/24/how-the-inverted-index-and-scoring-work-in-elasticsearch/">
-                          How the Inverted Index and Scoring Work in ElasticSearch
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    24 June 2020
   
 </span>
                       </li>
@@ -1368,7 +516,7 @@ if (!doNotTrack) {
                   <ul class="archive-posts">
                     
                       <li class="archive-post">
-                        <a class="archive-post-title" href="/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/">
+                        <a class="archive-post-title" href="https://hwolters.github.io/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/">
                           R Markdown for Novices: All you need to know to get started
                         </a>
                         <span class="archive-post-date"> - 
@@ -1384,24 +532,24 @@ if (!doNotTrack) {
                   </ul>
                 </div>
               
-                <div id="dsl-list" class="archive box" data-tag="dsl">
+                <div id="fastapi-list" class="archive box" data-tag="fastapi">
                   <h4 class="archive-title">
-                    <a class="link-unstyled" href="dsl">
-                      dsl (1)
+                    <a class="link-unstyled" href="fastapi">
+                      fastapi (1)
                     </a>
                   </h4>
                   <ul class="archive-posts">
                     
                       <li class="archive-post">
-                        <a class="archive-post-title" href="/2020/06/27/mastering-elasticsearch-queries-if-you-have-only-worked-with-sql-before/">
-                          Mastering ElasticSearch Queries If You Have Only Worked With SQL Before
+                        <a class="archive-post-title" href="https://hwolters.github.io/2025/08/11/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/">
+                          What I Learned Redesigning My Chocolate Database Webapp with AI
                         </a>
                         <span class="archive-post-date"> - 
   
   
   
   
-    27 June 2020
+    11 August 2025
   
 </span>
                       </li>
@@ -1409,99 +557,24 @@ if (!doNotTrack) {
                   </ul>
                 </div>
               
-                <div id="elastic-list" class="archive box" data-tag="elastic">
+                <div id="google-stitch-list" class="archive box" data-tag="google-stitch">
                   <h4 class="archive-title">
-                    <a class="link-unstyled" href="elastic">
-                      elastic (1)
+                    <a class="link-unstyled" href="google-stitch">
+                      google-stitch (1)
                     </a>
                   </h4>
                   <ul class="archive-posts">
                     
                       <li class="archive-post">
-                        <a class="archive-post-title" href="/2020/06/24/how-the-inverted-index-and-scoring-work-in-elasticsearch/">
-                          How the Inverted Index and Scoring Work in ElasticSearch
+                        <a class="archive-post-title" href="https://hwolters.github.io/2025/08/11/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/">
+                          What I Learned Redesigning My Chocolate Database Webapp with AI
                         </a>
                         <span class="archive-post-date"> - 
   
   
   
   
-    24 June 2020
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="extension-list" class="archive box" data-tag="extension">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="extension">
-                      extension (1)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2020/07/12/jupyter-notebooks-boost-your-productivity-with-extensions-and-magic-commands/">
-                          Jupyter Notebooks: Boost your productivity with Extensions and Magic Commands
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    12 July 2020
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="forward-indexing-list" class="archive box" data-tag="forward-indexing">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="forward-indexing">
-                      forward-indexing (1)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2020/06/24/how-the-inverted-index-and-scoring-work-in-elasticsearch/">
-                          How the Inverted Index and Scoring Work in ElasticSearch
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    24 June 2020
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="jupyter-list" class="archive box" data-tag="jupyter">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="jupyter">
-                      jupyter (1)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2020/07/12/jupyter-notebooks-boost-your-productivity-with-extensions-and-magic-commands/">
-                          Jupyter Notebooks: Boost your productivity with Extensions and Magic Commands
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    12 July 2020
+    11 August 2025
   
 </span>
                       </li>
@@ -1518,7 +591,7 @@ if (!doNotTrack) {
                   <ul class="archive-posts">
                     
                       <li class="archive-post">
-                        <a class="archive-post-title" href="/2018/11/05/formatting-tables-in-r-markdown-with-kableextra/">
+                        <a class="archive-post-title" href="https://hwolters.github.io/2018/11/05/formatting-tables-in-r-markdown-with-kableextra/">
                           Formatting tables in R Markdown with kableExtra
                         </a>
                         <span class="archive-post-date"> - 
@@ -1527,31 +600,6 @@ if (!doNotTrack) {
   
   
     5 November 2018
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="machine-learning-list" class="archive box" data-tag="machine-learning">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="machine-learning">
-                      machine-learning (1)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2020/09/10/ai-machine-learning-buzzword-bingo/">
-                          AI-Machine-Learning-Buzzword-Bingo
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    10 September 2020
   
 </span>
                       </li>
@@ -1568,7 +616,7 @@ if (!doNotTrack) {
                   <ul class="archive-posts">
                     
                       <li class="archive-post">
-                        <a class="archive-post-title" href="/2018/12/07/changing-working-directories/">
+                        <a class="archive-post-title" href="https://hwolters.github.io/2018/12/07/changing-working-directories/">
                           Automatically changing the R working directory on Mac OS to source file location
                         </a>
                         <span class="archive-post-date"> - 
@@ -1577,56 +625,6 @@ if (!doNotTrack) {
   
   
     7 December 2018
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="magic-commands-list" class="archive box" data-tag="magic-commands">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="magic-commands">
-                      magic-commands (1)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2020/07/12/jupyter-notebooks-boost-your-productivity-with-extensions-and-magic-commands/">
-                          Jupyter Notebooks: Boost your productivity with Extensions and Magic Commands
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    12 July 2020
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="map-list" class="archive box" data-tag="map">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="map">
-                      map (1)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2020/06/07/working-with-complex-datatypes-in-hive/">
-                          Working with Complex Datatypes in Hive
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    7 June 2020
   
 </span>
                       </li>
@@ -1643,7 +641,7 @@ if (!doNotTrack) {
                   <ul class="archive-posts">
                     
                       <li class="archive-post">
-                        <a class="archive-post-title" href="/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/">
+                        <a class="archive-post-title" href="https://hwolters.github.io/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/">
                           R Markdown for Novices: All you need to know to get started
                         </a>
                         <span class="archive-post-date"> - 
@@ -1659,199 +657,24 @@ if (!doNotTrack) {
                   </ul>
                 </div>
               
-                <div id="mysql-list" class="archive box" data-tag="mysql">
+                <div id="playwright-list" class="archive box" data-tag="playwright">
                   <h4 class="archive-title">
-                    <a class="link-unstyled" href="mysql">
-                      mysql (1)
+                    <a class="link-unstyled" href="playwright">
+                      playwright (1)
                     </a>
                   </h4>
                   <ul class="archive-posts">
                     
                       <li class="archive-post">
-                        <a class="archive-post-title" href="/2022/12/09/mastering-differences-and-pitfalls-when-switching-sql-databases-postgresql-vs.-mysql-vs.-sqlite-vs.-hive-vs.-presto-aws-athena/">
-                          Mastering Differences and Pitfalls when Switching SQL Databases: PostgreSQL vs. MySQL vs. SQLITE vs. Hive vs. Presto (AWS Athena)
+                        <a class="archive-post-title" href="https://hwolters.github.io/2025/08/11/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/">
+                          What I Learned Redesigning My Chocolate Database Webapp with AI
                         </a>
                         <span class="archive-post-date"> - 
   
   
   
   
-    9 December 2022
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="nlp-list" class="archive box" data-tag="nlp">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="nlp">
-                      nlp (1)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2020/09/10/ai-machine-learning-buzzword-bingo/">
-                          AI-Machine-Learning-Buzzword-Bingo
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    10 September 2020
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="one-hot-encoding-list" class="archive box" data-tag="one-hot-encoding">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="one-hot-encoding">
-                      one-hot-encoding (1)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2020/08/31/the-intuition-of-word-embeddings-how-you-teach-a-computer-to-understand-text/">
-                          The Intuition of Word Embeddings: How you Teach A Computer to Understand Text
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    31 August 2020
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="pandas-list" class="archive box" data-tag="pandas">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="pandas">
-                      pandas (1)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2019/08/18/mastering-data-preparation-with-pandas-subsetting-filtering-and-joining-dataframes/">
-                          Mastering Data Preparation with Pandas: Subsetting, Filtering and Joining DataFrames
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    18 August 2019
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="plot-list" class="archive box" data-tag="plot">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="plot">
-                      plot (1)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2019/09/10/plotting-with-seaborn/">
-                          Plotting with Seaborn
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    10 September 2019
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="postgresql-list" class="archive box" data-tag="postgresql">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="postgresql">
-                      postgresql (1)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2022/12/09/mastering-differences-and-pitfalls-when-switching-sql-databases-postgresql-vs.-mysql-vs.-sqlite-vs.-hive-vs.-presto-aws-athena/">
-                          Mastering Differences and Pitfalls when Switching SQL Databases: PostgreSQL vs. MySQL vs. SQLITE vs. Hive vs. Presto (AWS Athena)
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    9 December 2022
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="presto-list" class="archive box" data-tag="presto">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="presto">
-                      presto (1)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2022/12/09/mastering-differences-and-pitfalls-when-switching-sql-databases-postgresql-vs.-mysql-vs.-sqlite-vs.-hive-vs.-presto-aws-athena/">
-                          Mastering Differences and Pitfalls when Switching SQL Databases: PostgreSQL vs. MySQL vs. SQLITE vs. Hive vs. Presto (AWS Athena)
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    9 December 2022
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="rabbitmq-list" class="archive box" data-tag="rabbitmq">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="rabbitmq">
-                      rabbitmq (1)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/">
-                          A Gentle Intro to the Basic Architecture of Message Brokers: RabbitMQ vs. Kafka
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    26 January 2021
+    11 August 2025
   
 </span>
                       </li>
@@ -1868,7 +691,7 @@ if (!doNotTrack) {
                   <ul class="archive-posts">
                     
                       <li class="archive-post">
-                        <a class="archive-post-title" href="/2018/11/05/formatting-tables-in-r-markdown-with-kableextra/">
+                        <a class="archive-post-title" href="https://hwolters.github.io/2018/11/05/formatting-tables-in-r-markdown-with-kableextra/">
                           Formatting tables in R Markdown with kableExtra
                         </a>
                         <span class="archive-post-date"> - 
@@ -1877,106 +700,6 @@ if (!doNotTrack) {
   
   
     5 November 2018
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="rest-list" class="archive box" data-tag="rest">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="rest">
-                      rest (1)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2020/11/26/intro-into-apis-and-how-to-access-public-rest-apis-with-curl/">
-                          Intro into APIs and how to access public REST APIs with `curl`
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    26 November 2020
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="seaborn-list" class="archive box" data-tag="seaborn">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="seaborn">
-                      seaborn (1)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2019/09/10/plotting-with-seaborn/">
-                          Plotting with Seaborn
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    10 September 2019
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="search-list" class="archive box" data-tag="search">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="search">
-                      search (1)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2020/10/15/pointwise-pairswise-and-listwise-learning-to-rank-models-three-approaches-to-optimize-relative-ordering/">
-                          Pointwise, Pairswise and Listwise Learning to Rank Models - Three Approaches to Optimize Relative Ordering
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    15 October 2020
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="struct-list" class="archive box" data-tag="struct">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="struct">
-                      struct (1)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2020/06/07/working-with-complex-datatypes-in-hive/">
-                          Working with Complex Datatypes in Hive
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    7 June 2020
   
 </span>
                       </li>
@@ -1993,7 +716,7 @@ if (!doNotTrack) {
                   <ul class="archive-posts">
                     
                       <li class="archive-post">
-                        <a class="archive-post-title" href="/2018/11/05/formatting-tables-in-r-markdown-with-kableextra/">
+                        <a class="archive-post-title" href="https://hwolters.github.io/2018/11/05/formatting-tables-in-r-markdown-with-kableextra/">
                           Formatting tables in R Markdown with kableExtra
                         </a>
                         <span class="archive-post-date"> - 
@@ -2009,74 +732,24 @@ if (!doNotTrack) {
                   </ul>
                 </div>
               
-                <div id="term-frequency-list" class="archive box" data-tag="term-frequency">
+                <div id="ux-list" class="archive box" data-tag="ux">
                   <h4 class="archive-title">
-                    <a class="link-unstyled" href="term-frequency">
-                      term-frequency (1)
+                    <a class="link-unstyled" href="ux">
+                      ux (1)
                     </a>
                   </h4>
                   <ul class="archive-posts">
                     
                       <li class="archive-post">
-                        <a class="archive-post-title" href="/2020/06/24/how-the-inverted-index-and-scoring-work-in-elasticsearch/">
-                          How the Inverted Index and Scoring Work in ElasticSearch
+                        <a class="archive-post-title" href="https://hwolters.github.io/2025/08/11/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/">
+                          What I Learned Redesigning My Chocolate Database Webapp with AI
                         </a>
                         <span class="archive-post-date"> - 
   
   
   
   
-    24 June 2020
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="word-embeddings-list" class="archive box" data-tag="word-embeddings">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="word-embeddings">
-                      word-embeddings (1)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2020/08/31/the-intuition-of-word-embeddings-how-you-teach-a-computer-to-understand-text/">
-                          The Intuition of Word Embeddings: How you Teach A Computer to Understand Text
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    31 August 2020
-  
-</span>
-                      </li>
-                    
-                  </ul>
-                </div>
-              
-                <div id="word2vec-list" class="archive box" data-tag="word2vec">
-                  <h4 class="archive-title">
-                    <a class="link-unstyled" href="word2vec">
-                      word2vec (1)
-                    </a>
-                  </h4>
-                  <ul class="archive-posts">
-                    
-                      <li class="archive-post">
-                        <a class="archive-post-title" href="/2020/08/31/the-intuition-of-word-embeddings-how-you-teach-a-computer-to-understand-text/">
-                          The Intuition of Word Embeddings: How you Teach A Computer to Understand Text
-                        </a>
-                        <span class="archive-post-date"> - 
-  
-  
-  
-  
-    31 August 2020
+    11 August 2025
   
 </span>
                       </li>
@@ -2093,7 +766,7 @@ if (!doNotTrack) {
                   <ul class="archive-posts">
                     
                       <li class="archive-post">
-                        <a class="archive-post-title" href="/2018/12/07/changing-working-directories/">
+                        <a class="archive-post-title" href="https://hwolters.github.io/2018/12/07/changing-working-directories/">
                           Automatically changing the R working directory on Mac OS to source file location
                         </a>
                         <span class="archive-post-date"> - 
@@ -2118,7 +791,7 @@ if (!doNotTrack) {
                   <ul class="archive-posts">
                     
                       <li class="archive-post">
-                        <a class="archive-post-title" href="/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/">
+                        <a class="archive-post-title" href="https://hwolters.github.io/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/">
                           R Markdown for Novices: All you need to know to get started
                         </a>
                         <span class="archive-post-date"> - 
@@ -2138,7 +811,7 @@ if (!doNotTrack) {
          </div>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2023 Heike Maria (PhD). All Rights Reserved
+    &copy; 2026 Heike Maria (PhD). All Rights Reserved
   </span>
 </footer>
 
@@ -2150,7 +823,7 @@ if (!doNotTrack) {
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="/me.jpg" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://hwolters.github.io/me.jpg" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Heike Maria (PhD)</h4>
     
@@ -2158,7 +831,7 @@ if (!doNotTrack) {
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        Data Science <a href="https://www.moia.io/en">@MOIA</a> working on the future of mobility, previously Data Science at <a href="https://www.xing.com/">@Xing</a> on recommender systems and search
+        Data Science <!-- raw HTML omitted -->@MOIA<!-- raw HTML omitted --> working on the future of mobility, previously Data Science at <!-- raw HTML omitted -->@Xing<!-- raw HTML omitted --> on recommender systems and search
       </div>
     
     
@@ -2174,8 +847,7 @@ if (!doNotTrack) {
     
   
     
-      <div id="cover" style="background-image:url('source/assets/img/banner');"></div>
-    
+    <div id="cover" style="background-image:url('https://hwolters.github.io/images/source/assets/img/banner');"></div>
   
 
 
@@ -2188,7 +860,7 @@ if (!doNotTrack) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
-<script src="/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+<script src="/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
 
 
 <script lang="javascript">

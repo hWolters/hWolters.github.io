@@ -1,22 +1,13 @@
-<style>
-.sidebar-button-desc {
-  color: darkgrey !important;
-}
-.sidebar-button-icon {
-  color: darkgrey !important;
-}
-.sidebar-profile-name {
-  color: darkgrey !important;
-</style><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en-us">
   <head>
     
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="generator" content="Hugo 0.87.0 with theme Tranquilpeak 0.4.8-BETA">
+<meta name="generator" content="Hugo 0.87.0 with theme Tranquilpeak 0.4.3-SNAPSHOT">
 <meta name="author" content="Heike Maria (PhD)">
-<meta name="keywords" content=", SQL, Data Science, Analytics, ElasticSeach, Python, Pandas, Analytics, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive, Data Analysis, Data Mining">
+<meta name="keywords" content=", SQL, Data Science, Analytics, ElasticSearch, Python, Pandas, R Markdown, Research, phd, Text Mining, Natural Language Processing, Hive, Data Analysis, Data Mining">
 <meta name="description" content="I write this blogpost for someone, who has never worked with R Markdown. After you read this post, you will
 understand why R Markdown may be useful for your daily work as a student, researcher, analyst or data scientist.
  understand the basic structure of an R Markdown document and how you can get startet.
@@ -30,8 +21,8 @@ understand why R Markdown may be useful for your daily work as a student, resear
 <meta property="og:type" content="article">
 <meta property="og:title" content="R Markdown for Novices: All you need to know to get started">
 <meta name="twitter:title" content="R Markdown for Novices: All you need to know to get started">
-<meta property="og:url" content="/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/">
-<meta property="twitter:url" content="/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/">
+<meta property="og:url" content="https://hwolters.github.io/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/">
+<meta property="twitter:url" content="https://hwolters.github.io/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/">
 <meta property="og:site_name" content="A Potpourri of Data Science &amp; Data Engineering Topics">
 <meta property="og:description" content="I write this blogpost for someone, who has never worked with R Markdown. After you read this post, you will
 understand why R Markdown may be useful for your daily work as a student, researcher, analyst or data scientist.
@@ -85,6 +76,11 @@ understand why R Markdown may be useful for your daily work as a student, resear
 
 
 
+
+  <meta property="og:image" content="https://hwolters.github.io/me.jpg">
+  <meta property="twitter:image" content="https://hwolters.github.io/me.jpg">
+
+
     <title>R Markdown for Novices: All you need to know to get started</title>
 
     <link rel="icon" href="/favicon.png">
@@ -92,7 +88,7 @@ understand why R Markdown may be useful for your daily work as a student, resear
 
     
 
-    <link rel="canonical" href="/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/">
+    <link rel="canonical" href="https://hwolters.github.io/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/">
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
@@ -100,7 +96,7 @@ understand why R Markdown may be useful for your daily work as a student, resear
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    <link rel="stylesheet" href="/css/style-nnm2spxvve8onlujjlegkkytaehyadd4ksxc1hyzzq9a2wvtrgbljqyulomn.min.css" />
     
     
 
@@ -147,7 +143,7 @@ if (!doNotTrack) {
     
       <div class="sidebar-profile">
         <a href="/#about">
-          <img class="sidebar-profile-picture" src="/me.jpg" alt="Author&#39;s picture" />
+          <img class="sidebar-profile-picture" src="https://hwolters.github.io/me.jpg" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Heike Maria (PhD)</h4>
         
@@ -157,11 +153,21 @@ if (!doNotTrack) {
       
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="/">
+      <a class="sidebar-button-link " href="/categories">
     
-      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
       
-      <span class="sidebar-button-desc">Home</span>
+      <span class="sidebar-button-desc">Categories</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">Tags</span>
     </a>
   </li>
 
@@ -197,11 +203,11 @@ if (!doNotTrack) {
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="/tags">
+      <a class="sidebar-button-link " href="/">
     
-      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
       
-      <span class="sidebar-button-desc">Tags</span>
+      <span class="sidebar-button-desc">Home</span>
     </a>
   </li>
 
@@ -209,6 +215,16 @@ if (!doNotTrack) {
     </ul>
     <ul class="sidebar-buttons">
       
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/hWolters" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
 
     </ul>
     <ul class="sidebar-buttons">
@@ -272,22 +288,22 @@ if (!doNotTrack) {
 </ol>
 <p>I strongly encourage everybody working with R to use R Markdown. I promise, it will make your life so much easier. Here are some examples when R Markdown can be very useful:</p>
 <ul>
-<li><p><strong>Results sharing:</strong> You just did a great analysis and want to share your results with your team. Then you start copy pasting your Output into Excel, Word or PowerPoint. Don't do that! It takes so much time and you might forget to copy paste the most curret version of a plot or an analysis. R Markdown can automatically convert your results to many formats such as html, word and pdf. No more copy pasting necessary! This will not only save you lot's of time, it is also less error prone: With R Markdown, everything is up to date automatically!</p></li>
+<li><p><strong>Results sharing:</strong> You just did a great analysis and want to share your results with your team. Then you start copy pasting your Output into Excel, Word or PowerPoint. Don’t do that! It takes so much time and you might forget to copy paste the most curret version of a plot or an analysis. R Markdown can automatically convert your results to many formats such as html, word and pdf. No more copy pasting necessary! This will not only save you lot’s of time, it is also less error prone: With R Markdown, everything is up to date automatically!</p></li>
 <li><p><strong>Data exploration</strong> You are looking at various summary statistics and plots to understand your data. Without R Markdown, you might scroll through your console and use the back and forward button in the R Studio Viewer. This is cumbersome! You can use R Markdown like a Notebook and see multiple output tables and plots without having to use the RStudio Viewer back buttons. At the same time, you can see the code, that produced the plot. Which brings me to my next point:</p></li>
-<li><p><strong>Replicable Analyses:</strong> In general, all your results should be repoducible. If you just save a plot or a result, do you know exaclty which steps you needed? If you're a really organized person, this might be possible with naming conventions. But again, R Markdown can make your life so much easier: You can save your results (e.g. a plot or a table) and the code that created it, in one file.</p></li>
+<li><p><strong>Replicable Analyses:</strong> In general, all your results should be repoducible. If you just save a plot or a result, do you know exaclty which steps you needed? If you’re a really organized person, this might be possible with naming conventions. But again, R Markdown can make your life so much easier: You can save your results (e.g. a plot or a table) and the code that created it, in one file.</p></li>
 <li><p><strong>Automated reports:</strong> With R Markdown, you can automate analyses that need to be consistent and in the same format every time.</p></li>
 </ul>
 <div id="so-how-does-it-work" class="section level3">
 <h3>So how does it work?</h3>
-<p>In an R Markdown File (.Rmd) you can combine <strong>R code chunks</strong> and <strong>text</strong> (which is written in a Markdown language. More in a second!). Your R code will be excecuted and your results will be displayed. Everything is &quot;knitted&quot; together to a Markdown format, which can be converted into almost any format through Pandoc. The outputfile may contain your code, formated text (executed Markdown) and the R output (tables, plots, numbers...). This may sound complicated. But all you have to do is write this file, choose your output format and press the &quot;Knit&quot; button in R studio.</p>
-<p>Sounds magical? Let's create your first R Markdown file in R Studio. I encourage you to use R Studio, because it provides a lot of awesome features, which simplify working with R Markdown.</p>
+<p>In an R Markdown File (.Rmd) you can combine <strong>R code chunks</strong> and <strong>text</strong> (which is written in a Markdown language. More in a second!). Your R code will be excecuted and your results will be displayed. Everything is “knitted” together to a Markdown format, which can be converted into almost any format through Pandoc. The outputfile may contain your code, formated text (executed Markdown) and the R output (tables, plots, numbers…). This may sound complicated. But all you have to do is write this file, choose your output format and press the “Knit” button in R studio.</p>
+<p>Sounds magical? Let’s create your first R Markdown file in R Studio. I encourage you to use R Studio, because it provides a lot of awesome features, which simplify working with R Markdown.</p>
 <ol style="list-style-type: decimal">
-<li><p>Go to File --&gt; New File --&gt; R Markdown.</p></li>
+<li><p>Go to File –&gt; New File –&gt; R Markdown.</p></li>
 <li><p>Choose a Title. It does not matter and can be changed easily afterwards</p></li>
-<li><p>Choose your desired output (Word, Pdf...) format. Let's choose html as a start!</p></li>
+<li><p>Choose your desired output (Word, Pdf…) format. Let’s choose html as a start!</p></li>
 <li><p>(Maybe do you need to install additional packages, R Markdown will tell you which)</p></li>
 </ol>
-<p>There is your first R Markdown file. It already contains a little code. Let's talk about the structure of an R Markdown document.</p>
+<p>There is your first R Markdown file. It already contains a little code. Let’s talk about the structure of an R Markdown document.</p>
 </div>
 <div id="rmd-file-strucutre" class="section level1">
 <h1>.Rmd File Strucutre</h1>
@@ -297,10 +313,10 @@ if (!doNotTrack) {
 <li>Markdown</li>
 <li>R Code Chunks</li>
 </ol>
-<p>If you press the &quot;Knit&quot; button, you see, that this runs perfectly and creates an output file. You just successfully compiled your first .Rmd file! A window with your output file should open up. Let's look at the 3 different kinds of code in your .Rmd example file.</p>
+<p>If you press the “Knit” button, you see, that this runs perfectly and creates an output file. You just successfully compiled your first .Rmd file! A window with your output file should open up. Let’s look at the 3 different kinds of code in your .Rmd example file.</p>
 <div id="yaml-header" class="section level3">
 <h3>YAML Header</h3>
-<p>The header is on top of every .Rmd file. The code is enclosed with 3 dashes. Your Header contains meta data about your .Rmd file, such as the author, date and output format. You can add additional stuff such as gloabal variables. But don't worry about your header too much for now. Let it just be there.</p>
+<p>The header is on top of every .Rmd file. The code is enclosed with 3 dashes. Your Header contains meta data about your .Rmd file, such as the author, date and output format. You can add additional stuff such as gloabal variables. But don’t worry about your header too much for now. Let it just be there.</p>
 <pre class="r"><code>--- 
 title: &quot;My first R Markdown document&quot;
 author: &quot;Heike W&quot;
@@ -310,7 +326,7 @@ output: html_document
 </div>
 <div id="markdown-text" class="section level3">
 <h3>Markdown (Text)</h3>
-<p>Markdown is a simple textformatting language. Similar to HTML or Latex, you write plain text. Punctuation characters indicate the formating. For example a <code># header1</code> indicates a header on the top level. You can make you text italic by enclosing it in 2 asterisk (<code>*italic*</code>). If you have never worked with HTML, Latex or Markdown before, this may appear strange to you: Your text appears to have no format. You cannot see how your formatting looks like until you compile the document. You have to click on the &quot;Knit&quot; button to compile your R Markdown. Then you will see the formating of your output file.The good thing is that you can be sure, that a header level 1 is a header level 1 and all header level 1 will look the same in the final document. Here is an overview of the most common formating:</p>
+<p>Markdown is a simple textformatting language. Similar to HTML or Latex, you write plain text. Punctuation characters indicate the formating. For example a <code># header1</code> indicates a header on the top level. You can make you text italic by enclosing it in 2 asterisk (<code>*italic*</code>). If you have never worked with HTML, Latex or Markdown before, this may appear strange to you: Your text appears to have no format. You cannot see how your formatting looks like until you compile the document. You have to click on the “Knit” button to compile your R Markdown. Then you will see the formating of your output file.The good thing is that you can be sure, that a header level 1 is a header level 1 and all header level 1 will look the same in the final document. Here is an overview of the most common formating:</p>
 <div class="figure">
 <img src="/post/2015-07-23-r-rmarkdown_files/RMarkdownLang.png" width="400" />
 
@@ -319,12 +335,12 @@ output: html_document
 </div>
 <div id="r-code-chunks" class="section level3">
 <h3>R Code Chunks</h3>
-<p>Just write your R code and wrap it around 3 apostrophies followed by <code>{r}</code>. This tells R Markdown that you want to write R code (You could also insert for example python <code>{python}</code>, bash <code>{bash}</code> or sql {<code>sql}</code>). Insert as many code chunks as you want. Instead of typing 3 apostrophies and the curly braces everytime, you can simply press <em>command-option-I</em> on the Mac and <em>Ctrl-Alt-I</em> on Windows to create a new code chunk. Per default, R will execute this code chunk and display the code and the results in the output file when you &quot;knit&quot; your .Rmd file.</p>
+<p>Just write your R code and wrap it around 3 apostrophies followed by <code>{r}</code>. This tells R Markdown that you want to write R code (You could also insert for example python <code>{python}</code>, bash <code>{bash}</code> or sql {<code>sql}</code>). Insert as many code chunks as you want. Instead of typing 3 apostrophies and the curly braces everytime, you can simply press <em>command-option-I</em> on the Mac and <em>Ctrl-Alt-I</em> on Windows to create a new code chunk. Per default, R will execute this code chunk and display the code and the results in the output file when you “knit” your .Rmd file.</p>
 <pre class="r"><code>```{r headCars}
 summary(cars)
 ```</code></pre>
-<p>You have previously executed the example code by clicking on the &quot;Knit&quot; button in R Studio. This opens a new session and runs the entire .Rmd file. This means you're starting with a new clean environment. You can also run single R code chunks separately. Click on the little green triange in the right corner of your code chunk and only this chunk will run. You can see, that the results are shown directly below your code.</p>
-<p>You can give names to your code chunks within the curly braces of your R code chunks. I named our first code chunk &quot;headCars&quot;. In addition, you can pass <em>options</em>. Options tell R what it should do with this code chunk. For example, for not displaying any R code in the output file pass <code>echo = FALSE</code>:</p>
+<p>You have previously executed the example code by clicking on the “Knit” button in R Studio. This opens a new session and runs the entire .Rmd file. This means you’re starting with a new clean environment. You can also run single R code chunks separately. Click on the little green triange in the right corner of your code chunk and only this chunk will run. You can see, that the results are shown directly below your code.</p>
+<p>You can give names to your code chunks within the curly braces of your R code chunks. I named our first code chunk “headCars”. In addition, you can pass <em>options</em>. Options tell R what it should do with this code chunk. For example, for not displaying any R code in the output file pass <code>echo = FALSE</code>:</p>
 <pre class="r"><code>```{r headCars, echo = FALSE}
 summary(cars)
 ```</code></pre>
@@ -383,8 +399,8 @@ summary(cars)
 </tr>
 </tbody>
 </table>
-<p>You can find a comprehensive overview about code chunk options on <a href="https://yihui.name/knitr/options/">Yihui Xie's website</a></p>
-<p>You're wondering whether you have to pass the same options to all your code chunks? You don't. You can determine <strong>global options</strong> at the beginning of your .Rmd file Here in this example, where I told R Markdown to not print any code.</p>
+<p>You can find a comprehensive overview about code chunk options on <a href="https://yihui.name/knitr/options/">Yihui Xie’s website</a></p>
+<p>You’re wondering whether you have to pass the same options to all your code chunks? You don’t. You can determine <strong>global options</strong> at the beginning of your .Rmd file Here in this example, where I told R Markdown to not print any code.</p>
 <pre class="r"><code>```{r globaloptions, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```</code></pre>
@@ -398,8 +414,8 @@ knitr::opts_chunk$set(echo = FALSE)
 plot(cars$speed, cars$dist)
 ```</code></pre>
 <p><img src="/./post/2015-07-23-r-rmarkdown_files/figure-html/firstPlot2-1.png" width="672" /></p>
-<p>As you have done previously, you can use the options of code chunks to alter your output. This works for figures as well. Most figure options start with <code>fig.</code>. For example, you can change the size (<code>fig.height, fig.width</code> (default size = 7 inches)), the alignment (<code>fig.align</code> (&quot;left&quot;,&quot;right&quot;,&quot;center&quot;)) and the caption (<code>fig.cap</code>) of your plot.</p>
-<p>Let's create a wide plot, which with central alignment give it a caption.</p>
+<p>As you have done previously, you can use the options of code chunks to alter your output. This works for figures as well. Most figure options start with <code>fig.</code>. For example, you can change the size (<code>fig.height, fig.width</code> (default size = 7 inches)), the alignment (<code>fig.align</code> (“left”,“right”,“center”)) and the caption (<code>fig.cap</code>) of your plot.</p>
+<p>Let’s create a wide plot, which with central alignment give it a caption.</p>
 <code>r ```{r myWidePlot, fig.height = 4, fig.align = &quot;center&quot;, fig.cap = &quot;my wide plot&quot;} plot(cars$speed, cars$dist) ```</code>
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-1"></span>
 <img src="/./post/2015-07-23-r-rmarkdown_files/figure-html/unnamed-chunk-1-1.png" alt="my wide plot" width="672" />
@@ -443,7 +459,6 @@ FALSE 6     9   10</code></pre>
 library(knitr)
 kable(head(cars))
 ```</code></pre>
-<pre><code>FALSE Warning: package &#39;knitr&#39; was built under R version 3.5.2</code></pre>
 <table>
 <thead>
 <tr class="header">
@@ -543,13 +558,13 @@ kable(head(cars))
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://hwolters.github.io/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://hwolters.github.io/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -584,7 +599,7 @@ kable(head(cars))
         </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
-    &copy; 2023 Heike Maria (PhD). All Rights Reserved
+    &copy; 2026 Heike Maria (PhD). All Rights Reserved
   </span>
 </footer>
 
@@ -623,13 +638,13 @@ kable(head(cars))
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://hwolters.github.io/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://hwolters.github.io/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -659,13 +674,13 @@ kable(head(cars))
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=%2F2018%2F11%2F03%2Fr-markdown-for-novices-all-you-need-to-know-to-get-started%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fhwolters.github.io%2F2018%2F11%2F03%2Fr-markdown-for-novices-all-you-need-to-know-to-get-started%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=%2F2018%2F11%2F03%2Fr-markdown-for-novices-all-you-need-to-know-to-get-started%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fhwolters.github.io%2F2018%2F11%2F03%2Fr-markdown-for-novices-all-you-need-to-know-to-get-started%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
@@ -681,7 +696,7 @@ kable(head(cars))
       <i class="fa fa-remove"></i>
     </div>
     
-      <img id="about-card-picture" src="/me.jpg" alt="Author&#39;s picture" />
+      <img id="about-card-picture" src="https://hwolters.github.io/me.jpg" alt="Author&#39;s picture" />
     
     <h4 id="about-card-name">Heike Maria (PhD)</h4>
     
@@ -689,7 +704,7 @@ kable(head(cars))
       <div id="about-card-job">
         <i class="fa fa-briefcase"></i>
         <br/>
-        Data Science <a href="https://www.moia.io/en">@MOIA</a> working on the future of mobility, previously Data Science at <a href="https://www.xing.com/">@Xing</a> on recommender systems and search
+        Data Science <!-- raw HTML omitted -->@MOIA<!-- raw HTML omitted --> working on the future of mobility, previously Data Science at <!-- raw HTML omitted -->@Xing<!-- raw HTML omitted --> on recommender systems and search
       </div>
     
     
@@ -702,13 +717,141 @@ kable(head(cars))
   </div>
 </div>
 
-    
-
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="Search" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center">no post found</div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://hwolters.github.io/2025/08/11/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/">
+                <h3 class="media-heading">What I Learned Redesigning My Chocolate Database Webapp with AI</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Aug 8, 2025
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather"><p>In summer 2020 I had a small Python web app around one of my favorite datasets: 300 chocolates that my hunsband and me had tried over the years with reviews and ratings and a machine learning model that predicts how much we may like an unknown chocolate.</p>
+<p>Technically, it was a SQLite database with a search interface that was a simple keyword match.</p>
+<p>It worked: It was also really ugly. Because I am not a frontend developer, I had happily used Streamlit. That was a good choice for getting something working quickly, but it also meant the interface looked like what it was: a table with some hacky filters on the side.</p>
+<p><img src="/post/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/original-table-search.png" alt="Original table-based chocolate search interface"></p>
+<p>And yes, I am a little embarrassed to show this screenshot to you.</p>
+<p>With the help of aider around 2023 and later Codex, the app had grown the usual side-project way: adding more features like more information about chocolates and an admin interface. However, the design was still terrible: emojis and lots of boxes.</p>
+<p>I tried to fix it with AI design prompts. &ldquo;Make this more modern.&rdquo; &ldquo;Improve the UX.&rdquo; &ldquo;Use better spacing.&rdquo; I also tried design-focused coding assistants and design skills. It was still an inconsistent design with lot&rsquo;s of boxes. In my chocolate search resultlist every field from the SQLite Table got it&rsquo;s own box.</p>
+<p><img src="/post/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/summer-2025-search-results.png" alt="Summer 2025 search results"></p>
+<p>The useful shift came when I stopped asking AI to decorate the old interface and started using <a href="https://stitch.withgoogle.com/">Google Stitch</a> to rethink what the database was for.</p></div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://hwolters.github.io/2018/12/17/everything-you-need-to-know-to-use-git-for-version-control/">
+                <h3 class="media-heading">Everything You Need to Know to Use Git for Version Control</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Dec 12, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">So many people have recommended Git as a version control system to me. I had a look at it, but I was pretty overwhelmed. Since I did not have a technical background, everything seemed so complex! Many tutorials let me copy paste code without giving you a deeper understanding of what and why I am actually doing this. This copy pasting feels like success at first, but when I tried working with it, I could not.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://hwolters.github.io/2018/12/07/changing-working-directories/">
+                <h3 class="media-heading">Automatically changing the R working directory on Mac OS to source file location</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Dec 12, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">This post is about how to change your R working directory. You might be wondering:
+Why would I want to do that? You need this as soon as your script interacts with folders on your computer. For example for imports or exports of data or figures. So probably almost always. Let’s say you have a script that creates plots and saves them in the folder “Plots”, which is located in your source file directory.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://hwolters.github.io/2018/11/05/formatting-tables-in-r-markdown-with-kableextra/">
+                <h3 class="media-heading">Formatting tables in R Markdown with kableExtra</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">In this post, I will show you some of my best practises for formatting tables in R Markdown. We will cover
+How to generally format tables (font, size, color… )
+ How to create tables with conditional formating (e.g. coloring values &lt; 0 red)
+  The basics: the R package kableExtra kableExtra is an awesome package that allows you to format and style your tables. It works similar to ggplot2: You create a base table and then add formating layers with the pipe operator %&gt;%.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://hwolters.github.io/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/">
+                <h3 class="media-heading">R Markdown for Novices: All you need to know to get started</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Nov 11, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">I write this blogpost for someone, who has never worked with R Markdown. After you read this post, you will
+understand why R Markdown may be useful for your daily work as a student, researcher, analyst or data scientist.
+ understand the basic structure of an R Markdown document and how you can get startet.
+  I strongly encourage everybody working with R to use R Markdown. I promise, it will make your life so much easier.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero="no post found"
+         data-message-one="1 post found"
+         data-message-other="{n} posts found">
+         5 posts found
+      </p>
+    </div>
+  </div>
+</div>
     
   
     
-      <div id="cover" style="background-image:url('source/assets/img/banner');"></div>
-    
+    <div id="cover" style="background-image:url('https://hwolters.github.io/images/source/assets/img/banner');"></div>
   
 
 
@@ -720,7 +863,7 @@ kable(head(cars))
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
-<script src="/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+<script src="/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
 
 
 <script lang="javascript">
@@ -755,7 +898,7 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = '\/2018\/11\/03\/r-markdown-for-novices-all-you-need-to-know-to-get-started\/';
+          this.page.url = 'https:\/\/hwolters.github.io\/2018\/11\/03\/r-markdown-for-novices-all-you-need-to-know-to-get-started\/';
           
             this.page.identifier = '\/2018\/11\/03\/r-markdown-for-novices-all-you-need-to-know-to-get-started\/'
           
