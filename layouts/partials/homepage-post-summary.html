@@ -21,11 +21,13 @@
       </p>
     </div>
   </div>
-  {{ with .Params.thumbnailImage }}
-    <a href="{{ $url }}">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="{{ . }}"/>
-      </div>
-    </a>
+  {{ if not .Params.hideThumbnailOnHomepage }}
+    {{ with .Params.thumbnailImage }}
+      <a href="{{ $url }}">
+        <div class="postShorten-thumbnailimg">
+          <img alt="" itemprop="image" src="{{ . }}"/>
+        </div>
+      </a>
+    {{ end }}
   {{ end }}
 </article>

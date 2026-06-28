@@ -18,6 +18,7 @@ keywords:
 - Playwright screenshots
 thumbnailImage: /post/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/redesigned-search-results-with-stitch.png
 thumbnailImagePosition: bottom
+hideThumbnailOnHomepage: true
 ---
 
 In summer 2020 I had a small Python web app around one of my favorite datasets: 300 chocolates that my hunsband and me had tried over the years with reviews and ratings and a machine learning model that predicts how much we may like an unknown chocolate. 
@@ -179,4 +180,4 @@ So my current rule is:
 
 That combination worked much better than asking AI to decorate old boxes.
 
-An in case you're curious how this website looks like today: [Kakaokunde](https://kakaokunde.vercel.app). The design and website is far from perfect. 
+An in case you're curious how this website looks like today: [Kakaokunde](https://kakaokunde.vercel.app). The design and website is far from perfect.
