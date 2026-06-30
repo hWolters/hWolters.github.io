@@ -22,7 +22,7 @@ Create a draft article:
 npm run new:post -- "Post title"
 ```
 
-Articles live in `src/content/blog/`. Each Markdown file contains validated frontmatter followed by the article body. Set `draft: false` when an article is ready to publish.
+Articles live in `src/content/blog/`. Each Markdown file contains validated frontmatter followed by the article body. The scaffold uses the post title as its initial description; replace it with the final description before setting `draft: false`.
 
 Legacy articles intentionally retain their original wording. Their historical URL aliases are defined in `migration/article-manifest.json`.
 
