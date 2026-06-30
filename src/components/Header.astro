@@ -1,6 +1,4 @@
 ---
-import { SITE } from '../lib/site';
-
 const currentPath = Astro.url.pathname;
 const links = [
   { href: '/', label: 'Home' },
@@ -12,9 +10,6 @@ const links = [
 
 <header class="site-header">
   <div class="shell header-inner">
-    <a class="wordmark" href="/" aria-label={`${SITE.name}, home`}>
-      {SITE.name}
-    </a>
     <nav aria-label="Primary navigation">
       <ul class="nav-list">
         {links.map((link) => (
