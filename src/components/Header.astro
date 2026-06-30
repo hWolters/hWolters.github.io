@@ -4,16 +4,16 @@ import { SITE } from '../lib/site';
 const currentPath = Astro.url.pathname;
 const links = [
   { href: '/', label: 'Home' },
-  { href: '/writing/', label: 'Writing' },
-  { href: '/about/', label: 'About' },
+  { href: '/archive/', label: 'Archive' },
+  { href: '/projects/', label: 'Projects' },
+  { href: '/about/', label: 'About me' },
 ];
 ---
 
 <header class="site-header">
   <div class="shell header-inner">
     <a class="wordmark" href="/" aria-label={`${SITE.name}, home`}>
-      <span>{SITE.name}</span>
-      <small>{SITE.title}</small>
+      {SITE.name}
     </a>
     <nav aria-label="Primary navigation">
       <ul class="nav-list">

@@ -3,21 +3,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE } from '../lib/site';
 ---
 
-<BaseLayout title="About" description="About Heike Maria, a technical leader working across data science, AI, software systems, and teams.">
-  <article class="page-header shell about-page">
-    <div>
-      <p class="eyebrow">About</p>
-      <h1>I care about the path from a promising idea to a system people can rely on.</h1>
-    </div>
-    <div class="about-copy">
-      <p class="lead">{SITE.positioning}</p>
-      <p>
-        This site is a record of things I have learned along the way: from R Markdown and data preparation to search, ranking systems, messaging architectures, databases, and AI-assisted product development.
-      </p>
-      <p>
-        The archive is intentionally complete. Earlier articles remain here alongside newer work because technical practice develops over time, and that progression is part of the story.
-      </p>
-      <p><a class="button" href={SITE.github}>Find me on GitHub <span aria-hidden="true">↗</span></a></p>
-    </div>
+<BaseLayout title="About me" description={SITE.description}>
+  <article class="page prose-page shell">
+    <h1>About me</h1>
+
+    <p>Hi, I’m Heike.</p>
+
+    <p>I like understanding how technology changes the way we work.</p>
+
+    <p>
+      Over the last decade I’ve worked across academia, data science, software engineering, and engineering leadership. Today I’m spending much of my time learning how AI is changing the way we build software.
+    </p>
+
+    <p>
+      I started writing because I kept answering the same questions over and over again. Instead of explaining things from scratch each time, I wrote them down. Along the way, writing also became a way to organize my own thoughts and keep track of what I’d learned.
+    </p>
+
+    <p>
+      This website is a collection of those notes. Some posts are practical guides, some are experiments, and some are reflections on ideas I’m still figuring out. If something here saves you time or helps you see a problem differently, then it has done its job.
+    </p>
+
+    <p><a href={SITE.linkedin}>Contact me on LinkedIn</a></p>
   </article>
 </BaseLayout>

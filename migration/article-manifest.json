@@ -157,12 +157,12 @@
     }
   ],
   "indexAliases": {
-    "/post/": "/writing/",
-    "/archives/": "/writing/"
+    "/post/": "/archive/",
+    "/archives/": "/archive/",
+    "/writing/": "/archive/"
   },
   "excludedRoutes": [
     "/2020/11/15/test/",
-    "/projects/",
     "/projects/my-choco-db/"
   ]
 }

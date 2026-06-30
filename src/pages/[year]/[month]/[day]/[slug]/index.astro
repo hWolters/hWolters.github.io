@@ -1,7 +1,7 @@
 ---
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../../../../layouts/BaseLayout.astro';
-import { articlePath, formatDate, PILLARS, SITE } from '../../../../../lib/site';
+import { articlePath, formatDate, SITE } from '../../../../../lib/site';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
@@ -47,7 +47,6 @@ const jsonLd = {
   <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <article class="article shell">
     <header class="article-header">
-      <p class="eyebrow">{PILLARS[post.data.pillar].name}</p>
       <h1>{post.data.title}</h1>
       <time datetime={post.data.publishDate.toISOString()}>{formatDate(post.data.publishDate)}</time>
     </header>
