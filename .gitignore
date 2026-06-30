@@ -6,6 +6,9 @@
 2016-12-30-hello-markdown.md
 .DS_Store
 *.sb-*
-/public/
+node_modules/
+dist/
+.astro/
 /.tools/
 /.playwright-cli/
+/output/

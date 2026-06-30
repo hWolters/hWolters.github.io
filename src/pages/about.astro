@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../lib/site';
+---
+
+<BaseLayout title="About" description="About Heike Maria, a technical leader working across data science, AI, software systems, and teams.">
+  <article class="page-header shell about-page">
+    <div>
+      <p class="eyebrow">About</p>
+      <h1>I care about the path from a promising idea to a system people can rely on.</h1>
+    </div>
+    <div class="about-copy">
+      <p class="lead">{SITE.positioning}</p>
+      <p>
+        This site is a record of things I have learned along the way: from R Markdown and data preparation to search, ranking systems, messaging architectures, databases, and AI-assisted product development.
+      </p>
+      <p>
+        The archive is intentionally complete. Earlier articles remain here alongside newer work because technical practice develops over time, and that progression is part of the story.
+      </p>
+      <p><a class="button" href={SITE.github}>Find me on GitHub <span aria-hidden="true">↗</span></a></p>
+    </div>
+  </article>
+</BaseLayout>

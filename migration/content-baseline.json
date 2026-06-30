@@ -1,0 +1,82 @@
+{
+  "/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/": {
+    "sha256": "e7f04cad07e6f712bc97ac1f208389318ae67cfd367896ee5a23baf5f3395159",
+    "normalizedCharacters": 9330
+  },
+  "/2018/11/05/formatting-tables-in-r-markdown-with-kableextra/": {
+    "sha256": "e1375316fd319cdc8272d958cf22665e9edf5459a7fa48ab7e5fabebb8db3f24",
+    "normalizedCharacters": 3908
+  },
+  "/2018/12/07/changing-working-directories/": {
+    "sha256": "2c722c86bcbe6749e6d377bd1a2246ad65b6d3506d15d60f654bd30ccac78c09",
+    "normalizedCharacters": 3453
+  },
+  "/2018/12/17/everything-you-need-to-know-to-use-git-for-version-control/": {
+    "sha256": "a0048ff94215dad9006d3ca96fe7b0d53a4d01e5facc765a4543db95dde1cf9f",
+    "normalizedCharacters": 2163
+  },
+  "/2019/08/18/mastering-data-preparation-with-pandas-subsetting-filtering-and-joining-dataframes/": {
+    "sha256": "a1b2b8ebd25efca4b06f6281e0929e0798f8bc20d0ab4d2e62515a893a21d81c",
+    "normalizedCharacters": 8575
+  },
+  "/2019/09/10/plotting-with-seaborn/": {
+    "sha256": "e18a8185bcd902cbbdcfb187df750a3ba4e52c667abcdd1f54ceff846eec731c",
+    "normalizedCharacters": 10617
+  },
+  "/2020/06/07/working-with-complex-datatypes-in-hive/": {
+    "sha256": "2e351258d8be888c8930a21de62d91fcd7feabf33f2fbb7c4d27135e5814b0c1",
+    "normalizedCharacters": 4512
+  },
+  "/2020/06/24/how-the-inverted-index-and-scoring-work-in-elasticsearch/": {
+    "sha256": "6235631c0315de852b1024c6c150abf2e3c474af7a262084c09bd3bfbbfbef63",
+    "normalizedCharacters": 4965
+  },
+  "/2020/06/27/mastering-elasticsearch-queries-if-you-have-only-worked-with-sql-before/": {
+    "sha256": "f77cc58c492e747cdfcf835b4dfb05233216c095dbd926635592cc477a0fe364",
+    "normalizedCharacters": 9070
+  },
+  "/2020/07/12/jupyter-notebooks-boost-your-productivity-with-extensions-and-magic-commands/": {
+    "sha256": "40b41c6a48d39bade242aa40552c18d4f28de1a82405d0889aa87a2097448ffb",
+    "normalizedCharacters": 6426
+  },
+  "/2020/08/31/the-intuition-of-word-embeddings-how-you-teach-a-computer-to-understand-text/": {
+    "sha256": "cb25aedf1e5e68a69aead39e829d55be75db4a495c09f4954e380b9f7cb75055",
+    "normalizedCharacters": 7419
+  },
+  "/2020/09/10/ai-machine-learning-buzzword-bingo/": {
+    "sha256": "e638e8e5048c8c15ea5e59d01d6f4973e8e60a3b2df7682e925bf6767bfcdb92",
+    "normalizedCharacters": 5162
+  },
+  "/2020/10/15/pointwise-pairswise-and-listwise-learning-to-rank-models-three-approaches-to-optimize-relative-ordering/": {
+    "sha256": "c03a4f63ff1969c82f47bb8c3125dfb8148256107ba653d39bd245d1c84816dc",
+    "normalizedCharacters": 3990
+  },
+  "/2020/11/26/intro-into-apis-and-how-to-access-public-rest-apis-with-curl/": {
+    "sha256": "464a8417b665250ec5aa36bb2be8d7f03abe93f66d0d1dd28358f6d3f127f917",
+    "normalizedCharacters": 10033
+  },
+  "/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/": {
+    "sha256": "d19391be80b9a3034ebb2a7b279407aa3f3f49ac9e8a91b5801a2c040eea3ce5",
+    "normalizedCharacters": 3260
+  },
+  "/2021/02/23/avro-and-avro-schemas-how-they-work-and-why-they-are-useful/": {
+    "sha256": "365ab78109a6954737e24acc63efc28e417d5f06cab5d7ef676ffb83d92b3e75",
+    "normalizedCharacters": 3694
+  },
+  "/2021/04/29/biases-in-learning-to-rank-models-and-three-approaches-to-deal-with-them/": {
+    "sha256": "6880dc505d52619df4ce3ce78a4753951f93349231038c141bc654d7f8e29eb4",
+    "normalizedCharacters": 6440
+  },
+  "/2021/09/05/from-localhost-to-a-web-server-how-to-host-your-streamlit-app-on-heroku-for-free/": {
+    "sha256": "74350f3e91f54fccdce9381d183ee2ac9cecc4f3fa1f824b54af8d17a524a4fb",
+    "normalizedCharacters": 4018
+  },
+  "/2022/12/09/mastering-differences-and-pitfalls-when-switching-sql-databases-postgresql-vs.-mysql-vs.-sqlite-vs.-hive-vs.-presto-aws-athena/": {
+    "sha256": "1ab48fe20589731ce756473e42ea5d4cade731fa40239c38a96bc4a1f18da0e8",
+    "normalizedCharacters": 10452
+  },
+  "/2025/08/11/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/": {
+    "sha256": "3dd5780979a5f48fa35ef942b1cee83bb886cd9497285397ffaf5718b3488d13",
+    "normalizedCharacters": 7451
+  }
+}

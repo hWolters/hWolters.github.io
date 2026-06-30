@@ -1,0 +1,168 @@
+{
+  "articles": [
+    {
+      "legacySourceAtMigration": "2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/index.html",
+      "canonicalPath": "/2018/11/03/r-markdown-for-novices-all-you-need-to-know-to-get-started/",
+      "pillar": "ai-data",
+      "featured": false,
+      "aliases": []
+    },
+    {
+      "legacySourceAtMigration": "2018/11/05/formatting-tables-in-r-markdown-with-kableextra/index.html",
+      "canonicalPath": "/2018/11/05/formatting-tables-in-r-markdown-with-kableextra/",
+      "pillar": "ai-data",
+      "featured": false,
+      "aliases": []
+    },
+    {
+      "legacySourceAtMigration": "2018/12/07/changing-working-directories/index.html",
+      "canonicalPath": "/2018/12/07/changing-working-directories/",
+      "pillar": "data-systems",
+      "featured": false,
+      "aliases": []
+    },
+    {
+      "legacySourceAtMigration": "2018/12/17/everything-you-need-to-know-to-use-git-for-version-control/index.html",
+      "canonicalPath": "/2018/12/17/everything-you-need-to-know-to-use-git-for-version-control/",
+      "pillar": "data-systems",
+      "featured": false,
+      "aliases": []
+    },
+    {
+      "legacySourceAtMigration": "2019/08/18/mastering-data-preparation-with-pandas-subsetting-filtering-and-joining-dataframes/index.html",
+      "canonicalPath": "/2019/08/18/mastering-data-preparation-with-pandas-subsetting-filtering-and-joining-dataframes/",
+      "pillar": "ai-data",
+      "featured": false,
+      "aliases": [
+        "/2019/08/18/mastering-data-preparation-with-pandas-comparing-different-ways-of-selecting-filtering-and-combining-dataframes-part-1/",
+        "/2019/08/18/mastering-data-preparation-with-pandas-comparing-different-ways-of-subetting-filtering-and-combining-dataframes-part-1/",
+        "/2019/08/18/mastering-data-preparation-with-pandas-subetting-filtering-and-joining-dataframes/"
+      ]
+    },
+    {
+      "legacySourceAtMigration": "2019/09/10/plotting-with-seaborn/index.html",
+      "canonicalPath": "/2019/09/10/plotting-with-seaborn/",
+      "pillar": "ai-data",
+      "featured": false,
+      "aliases": [
+        "/2019/10/12/plotting-with-seaborn/"
+      ]
+    },
+    {
+      "legacySourceAtMigration": "2020/06/07/working-with-complex-datatypes-in-hive/index.html",
+      "canonicalPath": "/2020/06/07/working-with-complex-datatypes-in-hive/",
+      "pillar": "data-systems",
+      "featured": false,
+      "aliases": []
+    },
+    {
+      "legacySourceAtMigration": "2020/06/24/how-the-inverted-index-and-scoring-work-in-elasticsearch/index.html",
+      "canonicalPath": "/2020/06/24/how-the-inverted-index-and-scoring-work-in-elasticsearch/",
+      "pillar": "ai-data",
+      "featured": false,
+      "aliases": []
+    },
+    {
+      "legacySourceAtMigration": "2020/06/27/mastering-elasticsearch-queries-if-you-have-only-worked-with-sql-before/index.html",
+      "canonicalPath": "/2020/06/27/mastering-elasticsearch-queries-if-you-have-only-worked-with-sql-before/",
+      "pillar": "data-systems",
+      "featured": false,
+      "aliases": []
+    },
+    {
+      "legacySourceAtMigration": "2020/07/12/jupyter-notebooks-boost-your-productivity-with-extensions-and-magic-commands/index.html",
+      "canonicalPath": "/2020/07/12/jupyter-notebooks-boost-your-productivity-with-extensions-and-magic-commands/",
+      "pillar": "ai-data",
+      "featured": false,
+      "aliases": []
+    },
+    {
+      "legacySourceAtMigration": "2020/08/31/the-intuition-of-word-embeddings-how-you-teach-a-computer-to-understand-text/index.html",
+      "canonicalPath": "/2020/08/31/the-intuition-of-word-embeddings-how-you-teach-a-computer-to-understand-text/",
+      "pillar": "ai-data",
+      "featured": true,
+      "aliases": [
+        "/2020/08/25/natural-language-processing-the-intuition-of-word-embeddings/",
+        "/2020/08/31/the-intution-of-word-embeddings-how-you-teach-a-computer-to-understand-text/",
+        "/2020/08/31/the-inution-of-word-embeddings-how-you-teach-a-computer-to-understand-text/"
+      ]
+    },
+    {
+      "legacySourceAtMigration": "2020/09/10/ai-machine-learning-buzzword-bingo/index.html",
+      "canonicalPath": "/2020/09/10/ai-machine-learning-buzzword-bingo/",
+      "pillar": "ai-data",
+      "featured": false,
+      "aliases": []
+    },
+    {
+      "legacySourceAtMigration": "2020/10/15/pointwise-pairswise-and-listwise-learning-to-rank-models-three-approaches-to-optimize-relative-ordering/index.html",
+      "canonicalPath": "/2020/10/15/pointwise-pairswise-and-listwise-learning-to-rank-models-three-approaches-to-optimize-relative-ordering/",
+      "pillar": "ai-data",
+      "featured": true,
+      "aliases": [
+        "/2020/10/15/pointwise-pairswise-and-listwise-learning-to-rank-models-three-appoaches-to-optimize-relative-ordering/",
+        "/2020/11/15/pointwise-pairswise-and-listwise-learning-to-rank-models-three-appoaches-to-optimize-relative-ordering/"
+      ]
+    },
+    {
+      "legacySourceAtMigration": "2020/11/26/intro-into-apis-and-how-to-access-public-rest-apis-with-curl/index.html",
+      "canonicalPath": "/2020/11/26/intro-into-apis-and-how-to-access-public-rest-apis-with-curl/",
+      "pillar": "data-systems",
+      "featured": false,
+      "aliases": [
+        "/2020/11/26/intro-into-apis-how-to-access-data-from-public-rest-apis-with-curl/"
+      ]
+    },
+    {
+      "legacySourceAtMigration": "2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/index.html",
+      "canonicalPath": "/2021/01/26/a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka/",
+      "pillar": "data-systems",
+      "featured": true,
+      "aliases": []
+    },
+    {
+      "legacySourceAtMigration": "2021/02/23/avro-and-avro-schemas-how-they-work-and-why-they-are-useful/index.html",
+      "canonicalPath": "/2021/02/23/avro-and-avro-schemas-how-they-work-and-why-they-are-useful/",
+      "pillar": "data-systems",
+      "featured": false,
+      "aliases": []
+    },
+    {
+      "legacySourceAtMigration": "2021/04/29/biases-in-learning-to-rank-models-and-three-approaches-to-deal-with-them/index.html",
+      "canonicalPath": "/2021/04/29/biases-in-learning-to-rank-models-and-three-approaches-to-deal-with-them/",
+      "pillar": "ai-data",
+      "featured": true,
+      "aliases": []
+    },
+    {
+      "legacySourceAtMigration": "2021/09/05/from-localhost-to-a-web-server-how-to-host-your-streamlit-app-on-heroku-for-free/index.html",
+      "canonicalPath": "/2021/09/05/from-localhost-to-a-web-server-how-to-host-your-streamlit-app-on-heroku-for-free/",
+      "pillar": "data-systems",
+      "featured": false,
+      "aliases": []
+    },
+    {
+      "legacySourceAtMigration": "2022/12/09/mastering-differences-and-pitfalls-when-switching-sql-databases-postgresql-vs.-mysql-vs.-sqlite-vs.-hive-vs.-presto-aws-athena/index.html",
+      "canonicalPath": "/2022/12/09/mastering-differences-and-pitfalls-when-switching-sql-databases-postgresql-vs.-mysql-vs.-sqlite-vs.-hive-vs.-presto-aws-athena/",
+      "pillar": "data-systems",
+      "featured": false,
+      "aliases": []
+    },
+    {
+      "legacySourceAtMigration": "2025/08/11/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/index.html",
+      "canonicalPath": "/2025/08/11/what-i-learned-redesigning-my-chocolate-database-webapp-with-ai/",
+      "pillar": "ai-data",
+      "featured": true,
+      "aliases": []
+    }
+  ],
+  "indexAliases": {
+    "/post/": "/writing/",
+    "/archives/": "/writing/"
+  },
+  "excludedRoutes": [
+    "/2020/11/15/test/",
+    "/projects/",
+    "/projects/my-choco-db/"
+  ]
+}

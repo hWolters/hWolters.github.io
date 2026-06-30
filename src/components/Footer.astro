@@ -1,0 +1,13 @@
+---
+import { SITE } from '../lib/site';
+---
+
+<footer class="site-footer">
+  <div class="shell footer-inner">
+    <p>© {new Date().getFullYear()} {SITE.name}</p>
+    <div class="footer-links">
+      <a href="/rss.xml">RSS</a>
+      <a href={SITE.github} rel="me">GitHub</a>
+    </div>
+  </div>
+</footer>
