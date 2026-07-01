@@ -1,6 +1,6 @@
 ---
 title: "Keeping up with AI Tools"
-description: "The lasting skill in working with AI is not chasing models or writing clever prompts, but designing workflows that humans and agents can execute well together."
+description: "As a developer, I used to know how to keep up with technology. AI broke that."
 publishDate: "2026-06-15"
 slug: "keeping-up-with-ai-tools"
 pillar: "leadership-management"
