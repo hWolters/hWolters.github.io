@@ -1,6 +1,6 @@
 ---
 id: tic-3a67
-status: in_progress
+status: closed
 type: bug
 priority: 2
 assignee: hWolters
@@ -16,4 +16,10 @@ The merged Astro deployment fails because package-lock.json contains versionless
 ## Acceptance Criteria
 
 npm 11.13 accepts the lockfile; npm run verify passes; GitHub Pages deployment completes successfully.
+
+## Notes
+
+### 2026-07-01T06:29:39Z
+
+Regenerated the malformed lockfile, reproduced the GitHub runner install with npm 11.13, and verified the full site. Applied the repair to master as 256012b and completed GitHub Pages workflow run 28497710694 successfully. The deployed Astro site is live at https://hwolters.github.io/. datadojo.dev remains blocked by GitHub custom-domain ownership verification: the repository reports no CNAME, the API says the domain is already taken, and DNS has no _github-pages-challenge-hwolters TXT record.
 
