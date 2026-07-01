@@ -16,13 +16,59 @@ npm run dev
 
 ## Writing
 
-Create a draft article:
+From the repository root, install dependencies and create a draft article:
 
 ```sh
+npm install
 npm run new:post -- "Post title"
 ```
 
-Articles live in `src/content/blog/`. Each Markdown file contains validated frontmatter followed by the article body. The scaffold uses the post title as its initial description; replace it with the final description before setting `draft: false`.
+The command creates a dated Markdown file in `src/content/blog/`. Each article contains validated frontmatter followed by the article body:
+
+```yaml
+---
+title: "Post title"
+description: "A concise summary of the article."
+publishDate: "2026-07-01"
+slug: "post-title"
+pillar: "ai-data"
+tags: ["AI", "Data"]
+draft: true
+featured: false
+---
+```
+
+Replace the generated description, then write the article below the frontmatter using Markdown. `pillar` must be one of:
+
+- `ai-data`
+- `data-systems`
+- `leadership-management`
+
+To add images, place them in `public/post/<slug>/` and reference them from the article with an absolute site path and descriptive alternative text:
+
+```md
+![Description of the image](/post/post-title/image.png)
+```
+
+Preview the site locally while writing:
+
+```sh
+npm run dev
+```
+
+Draft articles are excluded from the site, archive, and RSS feed. When the article is ready to publish, set `draft: false` and run the complete verification:
+
+```sh
+npm run verify
+```
+
+The published URL is derived from `publishDate` and `slug`:
+
+```text
+https://datadojo.dev/YYYY/MM/DD/slug/
+```
+
+Commit the Markdown file and any images, then merge the change into `master`. GitHub Actions verifies and deploys the site to GitHub Pages. Do not commit the generated `dist/` directory.
 
 Legacy articles intentionally retain their original wording. Their historical URL aliases are defined in `migration/article-manifest.json`.
 
