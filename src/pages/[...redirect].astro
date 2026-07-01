@@ -1,0 +1,37 @@
+---
+import manifest from '../../migration/article-manifest.json';
+
+export function getStaticPaths() {
+  const articleAliases = manifest.articles.flatMap((article) => (
+    article.aliases.map((alias) => ({ alias, target: article.canonicalPath }))
+  ));
+  const indexAliases = Object.entries(manifest.indexAliases).map(([alias, target]) => ({ alias, target }));
+
+  return [...articleAliases, ...indexAliases].map(({ alias, target }) => ({
+    params: { redirect: alias.replace(/^\//, '').replace(/\/$/, '') },
+    props: { target },
+  }));
+}
+
+interface Props {
+  target: string;
+}
+
+const { target } = Astro.props;
+const canonical = new URL(target, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="noindex, follow" />
+    <meta http-equiv="refresh" content={`0;url=${target}`} />
+    <link rel="canonical" href={canonical} />
+    <title>{target}</title>
+  </head>
+  <body>
+    <a href={target}>{canonical.pathname}</a>
+  </body>
+</html>

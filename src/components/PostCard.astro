@@ -1,0 +1,20 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { articlePath, formatDate } from '../lib/site';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+  showDescription?: boolean;
+}
+
+const { post, showDescription = true } = Astro.props;
+const href = articlePath(post.data.publishDate, post.data.slug);
+---
+
+<article class="post-entry">
+  <time datetime={post.data.publishDate.toISOString()}>{formatDate(post.data.publishDate)}</time>
+  <div>
+    <h3><a href={href}>{post.data.title}</a></h3>
+    {showDescription && <p>{post.data.description}</p>}
+  </div>
+</article>

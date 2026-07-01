@@ -1,53 +1,41 @@
-# hWolters.github.io
+# Data Dojo
 
-Hugo source and published assets for [datadojo.dev](https://datadojo.dev/).
-
-## Repository model
-
-- Hugo source lives in `content/`, `static/`, `themes/`, and `config.toml`.
-- Historical generated output lives at the repository root. Some published posts do not have restored source, so this output must be preserved.
-- `content/homepage/` contains metadata-only entries that include those legacy posts in homepage pagination without regenerating their article pages.
-- Local builds write to the ignored `public/` directory.
-- `.github/workflows/deploy-pages.yml` overlays a fresh Hugo build onto the historical output on `master`; GitHub Pages serves that branch from the repository root.
+Markdown source and Astro templates for [datadojo.dev](https://datadojo.dev/).
 
 ## Requirements
 
-Use Hugo Extended `0.87.0`, as pinned in `.tool-versions`. The restored theme is incompatible with newer Hugo releases, and `scripts/build-site.sh` rejects other versions.
+- Node.js 24
+- npm 11
 
-If the pinned binary is not on `PATH`, set it explicitly:
-
-```sh
-HUGO_BIN=/path/to/hugo-0.87.0 scripts/build-site.sh
-```
-
-## Authoring
-
-Create a draft:
+Install dependencies and start the local site:
 
 ```sh
-scripts/new-post.sh "Post title" [YYYY-MM-DD]
+npm install
+npm run dev
 ```
 
-Posts and their assets use these locations:
+## Writing
 
-```text
-content/post/YYYY-MM-DD-post-slug.md
-static/post/post-slug/image.png
-```
-
-Reference assets with root-relative paths, for example `/post/post-slug/image.png`. Keep `draft: true` while editing and set it to `false` before publishing. Use `<!--more-->` to define the list-page summary.
-
-## Build and preview
+Create a draft article:
 
 ```sh
-scripts/build-site.sh
-hugo server -D
+npm run new:post -- "Post title"
 ```
 
-The production build excludes drafts and writes to `public/`. Do not commit that directory.
+Articles live in `src/content/blog/`. Each Markdown file contains validated frontmatter followed by the article body. The scaffold uses the post title as its initial description; replace it with the final description before setting `draft: false`.
+
+Legacy articles intentionally retain their original wording. Their historical URL aliases are defined in `migration/article-manifest.json`.
+
+## Verification
+
+Run the complete production verification:
+
+```sh
+npm run verify
+```
+
+This validates Astro content and types, builds the static site, checks all migrated article text against its baseline, verifies canonical and alias routes, and checks local links, images, feeds, and canonical-domain metadata.
 
 ## Deployment
 
-Source changes merged to `master` run `.github/workflows/deploy-pages.yml`. The workflow commits generated output back to `master`, after which the configured branch-based GitHub Pages deployment publishes it. Generated-only commits do not retrigger the workflow.
-
-The workflow can also be run manually from the Actions tab.
+Changes merged to `master` are verified and deployed to GitHub Pages as a build artifact. Generated `dist/` output is never committed.

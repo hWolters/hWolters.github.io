@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../lib/site';
+---
+
+<BaseLayout title="About me" description={SITE.description}>
+  <article class="page prose-page shell">
+    <h1>About me</h1>
+
+    <p>Hi, I’m Heike.</p>
+
+    <p>I like understanding how technology changes the way we work.</p>
+
+    <p>
+      Over the last decade I’ve worked across academia, data science, software engineering, and engineering leadership. Today I’m spending much of my time learning how AI is changing the way we build software.
+    </p>
+
+    <p>
+      I started writing because I kept answering the same questions over and over again. Instead of explaining things from scratch each time, I wrote them down. Along the way, writing also became a way to organize my own thoughts and keep track of what I’d learned.
+    </p>
+
+    <p>
+      This website is a collection of those notes. Some posts are practical guides, some are experiments, and some are reflections on ideas I’m still figuring out. If something here saves you time or helps you see a problem differently, then it has done its job.
+    </p>
+
+    <p><a href={SITE.linkedin}>Contact me on LinkedIn</a></p>
+  </article>
+</BaseLayout>
