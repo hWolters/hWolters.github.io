@@ -72,6 +72,10 @@ Commit the Markdown file and any images, then merge the change into the default 
 
 Legacy articles intentionally retain their original wording. Their historical URL aliases are defined in `migration/article-manifest.json`.
 
+## Analytics
+
+The site uses GoatCounter for lightweight, privacy-focused page analytics. Sign in at [heiketerhechte.goatcounter.com](https://heiketerhechte.goatcounter.com/) to view page visits, referrers, and visitor countries.
+
 ## Verification
 
 Run the complete production verification:
