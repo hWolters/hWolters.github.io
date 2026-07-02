@@ -3,17 +3,8 @@ name: Deploy Astro site to GitHub Pages
 on:
   push:
     branches:
+      - main
       - master
-    paths:
-      - .github/workflows/deploy-pages.yml
-      - astro.config.mjs
-      - migration/**
-      - package.json
-      - package-lock.json
-      - public/**
-      - scripts/**
-      - src/**
-      - tsconfig.json
   workflow_dispatch:
 
 permissions:
@@ -32,12 +23,25 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v6
 
-      - name: Install, verify, build, and upload site
-        uses: withastro/action@v6
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
         with:
           node-version: 24
-          package-manager: npm@11
-          build-cmd: npm run verify
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify and build site
+        run: npm run verify
+
+      - name: Add deployment revision
+        run: printf '%s\n' "${GITHUB_SHA}" > dist/deployment.txt
+
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
 
   deploy:
     needs: build
@@ -49,3 +53,27 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+
+      - name: Verify published revision
+        env:
+          CUSTOM_DOMAIN: https://datadojo.dev
+          EXPECTED_SHA: ${{ github.sha }}
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+        shell: bash
+        run: |
+          for attempt in {1..12}; do
+            cache_buster="deployment=${EXPECTED_SHA}-${attempt}"
+            pages_revision="$(curl --fail --silent --show-error "${PAGE_URL%/}/deployment.txt?${cache_buster}" || true)"
+            custom_revision="$(curl --fail --silent --show-error "${CUSTOM_DOMAIN%/}/deployment.txt?${cache_buster}" || true)"
+
+            if [[ "${pages_revision}" == "${EXPECTED_SHA}" && "${custom_revision}" == "${EXPECTED_SHA}" ]]; then
+              echo "Published ${EXPECTED_SHA} to ${CUSTOM_DOMAIN}."
+              exit 0
+            fi
+
+            echo "Deployment is not visible yet (attempt ${attempt}/12)."
+            sleep 10
+          done
+
+          echo "Expected ${EXPECTED_SHA} at both ${PAGE_URL} and ${CUSTOM_DOMAIN}." >&2
+          exit 1
