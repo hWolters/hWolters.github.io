@@ -17,7 +17,11 @@ const {
   canonicalPath = Astro.url.pathname,
   type = 'website',
 } = Astro.props;
-const pageTitle = title ? `${title} · ${SITE.name}` : `${SITE.name} · ${SITE.title}`;
+const pageTitle = title
+  ? title.includes(SITE.name)
+    ? title
+    : `${title} · ${SITE.name}`
+  : `${SITE.name} — ${SITE.tagline}`;
 const canonical = new URL(canonicalPath, Astro.site);
 ---
 
@@ -30,12 +34,12 @@ const canonical = new URL(canonicalPath, Astro.site);
     <meta name="description" content={description} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="canonical" href={canonical} />
-    <link rel="alternate" type="application/rss+xml" title={`${SITE.title} RSS`} href="/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title={`${SITE.name} RSS`} href="/rss.xml" />
     <meta property="og:type" content={type} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:site_name" content={SITE.title} />
+    <meta property="og:site_name" content={SITE.name} />
     <meta name="twitter:card" content="summary" />
     <title>{pageTitle}</title>
     <script

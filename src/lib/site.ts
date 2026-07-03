@@ -1,8 +1,11 @@
 export const SITE = {
-  name: 'Heike',
-  title: 'Heike',
-  description: 'I like understanding how technology changes the way we work.',
+  name: 'Heike Terhechte',
+  fullName: 'Heike Maria Terhechte',
+  tagline: 'Engineering Leadership, Software, Data & AI',
+  description:
+    'Heike Terhechte is Director of Engineering at MOIA GmbH and writes about engineering leadership, software, data, and AI.',
   url: 'https://datadojo.dev',
+  profileImage: '/images/heike-terhechte.jpg',
   linkedin: 'https://www.linkedin.com/in/heike-terhechte-wolters-24101015b/',
 } as const;
 

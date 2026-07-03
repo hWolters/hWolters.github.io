@@ -1,28 +1,69 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE } from '../lib/site';
+
+const profileJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  mainEntity: {
+    '@type': 'Person',
+    '@id': `${SITE.url}/about/#person`,
+    name: SITE.name,
+    alternateName: SITE.fullName,
+    url: `${SITE.url}/about/`,
+    image: new URL(SITE.profileImage, SITE.url).href,
+    jobTitle: 'Director of Engineering',
+    worksFor: {
+      '@type': 'Organization',
+      name: 'MOIA GmbH',
+    },
+    sameAs: [SITE.linkedin],
+    knowsAbout: ['Engineering leadership', 'Software engineering', 'Data science', 'Artificial intelligence'],
+  },
+};
 ---
 
-<BaseLayout title="About me" description={SITE.description}>
+<BaseLayout title={`About ${SITE.name}`} description={SITE.description}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(profileJsonLd)} />
   <article class="page prose-page shell">
-    <h1>About me</h1>
+    <header class="about-header">
+      <div>
+        <h1>About me</h1>
+        <p class="about-role">Director of Engineering at MOIA GmbH</p>
+      </div>
+      <img
+        class="profile-image"
+        src={SITE.profileImage}
+        alt="Heike Terhechte"
+        width="1080"
+        height="1080"
+        decoding="async"
+      />
+    </header>
 
-    <p>Hi, I’m Heike.</p>
+    <div class="about-copy">
+      <p>Moin.</p>
 
-    <p>I like understanding how technology changes the way we work.</p>
+      <p>I like understanding how technology changes the way we work.</p>
 
-    <p>
-      Over the last decade I’ve worked across academia, data science, software engineering, and engineering leadership. Today I’m spending much of my time learning how AI is changing the way we build software.
-    </p>
+      <p>
+        I’m currently Director of Engineering at MOIA GmbH. Over the last decade I’ve worked
+        across academia, data science, software engineering, and engineering leadership. Today
+        I’m spending much of my time learning how AI is changing the way we build software and
+        lead engineering organizations.
+      </p>
 
-    <p>
-      I started writing because I kept answering the same questions over and over again. Instead of explaining things from scratch each time, I wrote them down. Along the way, writing also became a way to organize my own thoughts and keep track of what I’d learned.
-    </p>
+      <p>
+        I started writing because I kept answering the same questions over and over again. Instead of explaining things from scratch each time, I wrote them down. Along the way, writing also became a way to organize my own thoughts and keep track of what I’d learned.
+      </p>
 
-    <p>
-      This website is a collection of those notes. Some posts are practical guides, some are experiments, and some are reflections on ideas I’m still figuring out. If something here saves you time or helps you see a problem differently, then it has done its job.
-    </p>
+      <p>
+        This website is a collection of those notes. Some posts are practical guides, some are experiments, and some are reflections on ideas I’m still figuring out. If something here saves you time or helps you see a problem differently, then it has done its job.
+      </p>
 
-    <p><a href={SITE.linkedin}>Contact me on LinkedIn</a></p>
+      <p><a href={SITE.linkedin} rel="me">Contact me on LinkedIn</a></p>
+
+      <p class="about-signoff">Heike Terhechte</p>
+    </div>
   </article>
 </BaseLayout>

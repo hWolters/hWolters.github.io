@@ -8,7 +8,7 @@ export async function GET(context) {
   );
 
   return rss({
-    title: `${SITE.name} · ${SITE.title}`,
+    title: `${SITE.name} — ${SITE.tagline}`,
     description: SITE.description,
     site: context.site,
     items: posts.map((post) => ({

@@ -33,7 +33,8 @@ const jsonLd = {
   author: {
     '@type': 'Person',
     name: SITE.name,
-    url: SITE.url,
+    url: `${SITE.url}/about/`,
+    sameAs: SITE.linkedin,
   },
 };
 ---
@@ -48,7 +49,10 @@ const jsonLd = {
   <article class="article shell">
     <header class="article-header">
       <h1>{post.data.title}</h1>
-      <time datetime={post.data.publishDate.toISOString()}>{formatDate(post.data.publishDate)}</time>
+      <div class="article-meta">
+        <time datetime={post.data.publishDate.toISOString()}>{formatDate(post.data.publishDate)}</time>
+        <span>By <a href="/about/">{SITE.name}</a></span>
+      </div>
     </header>
     <div class="article-content">
       <Content />
