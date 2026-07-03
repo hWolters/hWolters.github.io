@@ -1,0 +1,64 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../lib/site';
+import PostCard from './PostCard.astro';
+
+interface Props {
+  posts: CollectionEntry<'blog'>[];
+  top?: CollectionEntry<'blog'>[];
+  currentPage: number;
+  totalPages: number;
+}
+
+const { posts, top = [], currentPage, totalPages } = Astro.props;
+const pageTitle = currentPage === 1 ? 'Archive' : `Archive, page ${currentPage}`;
+const pageNumbers = Array.from({ length: totalPages }, (_, index) => index + 1);
+const pageHref = (page: number) => (page === 1 ? '/archive/' : `/archive/${page}/`);
+const previousPage = currentPage > 1 ? currentPage - 1 : undefined;
+const nextPage = currentPage < totalPages ? currentPage + 1 : undefined;
+---
+
+<BaseLayout title={pageTitle} description={SITE.description}>
+  <div class="page shell">
+    <header class="page-title">
+      <h1>Archive</h1>
+    </header>
+
+    {currentPage === 1 && (
+      <section class="archive-section" aria-labelledby="top-heading">
+        <h2 id="top-heading">Top</h2>
+        <div class="top-list">
+          {top.map((post) => <PostCard post={post} showDescription={false} />)}
+        </div>
+      </section>
+    )}
+
+    <section class="archive-section" aria-labelledby="latest-heading">
+      <h2 id="latest-heading">Latest</h2>
+      <div class="archive-list">
+        {posts.map((post) => <PostCard post={post} />)}
+      </div>
+    </section>
+
+    <nav class="archive-pagination" aria-label="Archive pages">
+      <div class="pagination-edge">
+        {previousPage && <a href={pageHref(previousPage)} rel="prev">← Previous</a>}
+      </div>
+      <ol class="pagination-pages">
+        {pageNumbers.map((page) => (
+          <li>
+            {page === currentPage ? (
+              <span aria-current="page">{page}</span>
+            ) : (
+              <a href={pageHref(page)} aria-label={`Page ${page}`}>{page}</a>
+            )}
+          </li>
+        ))}
+      </ol>
+      <div class="pagination-edge pagination-edge--next">
+        {nextPage && <a href={pageHref(nextPage)} rel="next">Next →</a>}
+      </div>
+    </nav>
+  </div>
+</BaseLayout>
