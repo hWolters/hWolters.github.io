@@ -2,6 +2,12 @@
 
 Markdown source and Astro templates for [datadojo.dev](https://datadojo.dev/).
 
+## Site URL configuration
+
+`BASE_URL` in `site.config.mjs` is the only deployment-specific URL setting. Canonical URLs,
+Open Graph URLs, structured data, feeds, `sitemap.xml`, `robots.txt`, and the generated `CNAME`
+all derive from it. Change that one value when moving the site to another domain.
+
 ## Requirements
 
 - Node.js 24

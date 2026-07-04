@@ -9,7 +9,7 @@ draft: false
 featured: true
 ---
 
-# Keeping Up with AI
+## Keeping Up with AI
 
 As a developer, I used to know how to keep up with technology.
 

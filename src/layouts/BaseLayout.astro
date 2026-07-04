@@ -2,13 +2,17 @@
 import '../styles/global.css';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import { SITE } from '../lib/site';
+import { absoluteUrl, ogImagePath, SITE } from '../lib/site';
 
 interface Props {
   title?: string;
   description?: string;
   canonicalPath?: string;
   type?: 'website' | 'article';
+  image?: string;
+  robots?: string;
+  publishedTime?: string;
+  modifiedTime?: string;
 }
 
 const {
@@ -16,31 +20,45 @@ const {
   description = SITE.description,
   canonicalPath = Astro.url.pathname,
   type = 'website',
+  image,
+  robots,
+  publishedTime,
+  modifiedTime,
 } = Astro.props;
 const pageTitle = title
   ? title.includes(SITE.name)
     ? title
     : `${title} · ${SITE.name}`
   : `${SITE.name} — ${SITE.tagline}`;
-const canonical = new URL(canonicalPath, Astro.site);
+const canonical = absoluteUrl(canonicalPath);
+const socialImage = absoluteUrl(image ?? ogImagePath(title ?? pageTitle));
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
+    {robots && <meta name="robots" content={robots} />}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="canonical" href={canonical} />
-    <link rel="alternate" type="application/rss+xml" title={`${SITE.name} RSS`} href="/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title={`${SITE.name} RSS`} href="/feed.xml" />
     <meta property="og:type" content={type} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content={SITE.name} />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:alt" content={`${pageTitle} — social preview`} />
+    {publishedTime && <meta property="article:published_time" content={publishedTime} />}
+    {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+    <meta name="twitter:image:alt" content={`${pageTitle} — social preview`} />
     <title>{pageTitle}</title>
     <script
       data-goatcounter="https://heiketerhechte.goatcounter.com/count"

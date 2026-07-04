@@ -22,7 +22,7 @@ Then I started looking more closely.
 One illustration placed a paddle inside the boat instead of in the water. Another had someone's leg hanging outside the boat. Clothes slightly changed, small details like a picnic blanket changed color. The boat quietly changed shape from page to page. Even the illustration style drifted over time.
 
 <figure class="post-figure post-figure--small">
-  <img src="/post/prompts-create-pictures-systems-create-books/paddle-position-first-attempt.jpg" alt="An early illustration of a family in a rowing boat with a problematic paddle position">
+  <img loading="lazy" decoding="async" src="/post/prompts-create-pictures-systems-create-books/paddle-position-first-attempt.jpg" alt="An early illustration of a family in a rowing boat with a problematic paddle position">
   <figcaption>An early attempt: charming at first glance, but the paddle position did not make physical sense.</figcaption>
 </figure>
 
@@ -52,8 +52,8 @@ Someone's leg ended up outside the boat.
 
 <figure class="post-figure post-figure--pair">
   <div class="post-image-grid">
-    <img src="/post/prompts-create-pictures-systems-create-books/leg-outside-boat.jpg" alt="A generated boat scene with the woman's leg hanging over the side">
-    <img src="/post/prompts-create-pictures-systems-create-books/leg-outside-boat-variation.jpg" alt="Another generated boat scene with the woman's leg outside the boat">
+    <img loading="lazy" decoding="async" src="/post/prompts-create-pictures-systems-create-books/leg-outside-boat.jpg" alt="A generated boat scene with the woman's leg hanging over the side">
+    <img loading="lazy" decoding="async" src="/post/prompts-create-pictures-systems-create-books/leg-outside-boat-variation.jpg" alt="Another generated boat scene with the woman's leg outside the boat">
   </div>
   <figcaption>Two attempts at fixing the scene, both with the same continuity problem in a different form.</figcaption>
 </figure>
@@ -76,14 +76,14 @@ My first instinct was to improve the instructions. I expanded them, described re
 * Avoid floating objects, disconnected limbs, merged fingers, duplicated body parts, or impossible poses.
 
 <figure class="post-figure post-figure--small">
-  <img src="/post/prompts-create-pictures-systems-create-books/impossible-boat-position.jpg" alt="A generated illustration with awkward knees and an impossible seating position in the boat">
+  <img loading="lazy" decoding="async" src="/post/prompts-create-pictures-systems-create-books/impossible-boat-position.jpg" alt="A generated illustration with awkward knees and an impossible seating position in the boat">
   <figcaption>More detailed instructions still produced impossible body and boat geometry.</figcaption>
 </figure>
 
 The results improved, and the physical mistakes became less frequent. But every improvement seemed to introduce a new inconsistency somewhere else. The model might preserve the clothing but slightly change the boat. It might keep the boat but drift toward a different illustration style. It could satisfy today's constraints while quietly breaking yesterday's. I added more and more constraints and tests.
 
 <figure class="post-figure post-figure--small">
-  <img src="/post/prompts-create-pictures-systems-create-books/legs-inside-weird-paddles.jpg" alt="A later illustration with everyone inside the boat but physically implausible paddles">
+  <img loading="lazy" decoding="async" src="/post/prompts-create-pictures-systems-create-books/legs-inside-weird-paddles.jpg" alt="A later illustration with everyone inside the boat but physically implausible paddles">
   <figcaption>The legs were finally inside the boat, but the paddles became the next regression.</figcaption>
 </figure>
 
