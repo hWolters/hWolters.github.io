@@ -19,7 +19,12 @@ const previousPage = currentPage > 1 ? currentPage - 1 : undefined;
 const nextPage = currentPage < totalPages ? currentPage + 1 : undefined;
 ---
 
-<BaseLayout title={pageTitle} description={SITE.description}>
+<BaseLayout
+  title={pageTitle}
+  description={currentPage === 1
+    ? `Browse all articles by ${SITE.name} about engineering leadership, software, data, and AI.`
+    : `Browse article archive page ${currentPage} by ${SITE.name}.`}
+>
   <div class="page shell">
     <header class="page-title">
       <h1>Archive</h1>

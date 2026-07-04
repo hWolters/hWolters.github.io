@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://datadojo.dev/sitemap-index.xml

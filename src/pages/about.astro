@@ -1,17 +1,17 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { SITE } from '../lib/site';
+import { absoluteUrl, SITE } from '../lib/site';
 
 const profileJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ProfilePage',
   mainEntity: {
     '@type': 'Person',
-    '@id': `${SITE.url}/about/#person`,
+    '@id': absoluteUrl('/about/#person'),
     name: SITE.name,
     alternateName: SITE.fullName,
-    url: `${SITE.url}/about/`,
-    image: new URL(SITE.profileImage, SITE.url).href,
+    url: absoluteUrl('/about/'),
+    image: absoluteUrl(SITE.profileImage),
     jobTitle: 'Director of Engineering',
     worksFor: {
       '@type': 'Organization',
@@ -23,7 +23,10 @@ const profileJsonLd = {
 };
 ---
 
-<BaseLayout title={`About ${SITE.name}`} description={SITE.description}>
+<BaseLayout
+  title={`About ${SITE.name}`}
+  description="About Heike Terhechte, Director of Engineering at MOIA, and her work across software engineering, data science, AI, and leadership."
+>
   <script is:inline type="application/ld+json" set:html={JSON.stringify(profileJsonLd)} />
   <article class="page prose-page shell">
     <header class="about-header">
@@ -38,6 +41,7 @@ const profileJsonLd = {
         width="1080"
         height="1080"
         decoding="async"
+        loading="lazy"
       />
     </header>
 
