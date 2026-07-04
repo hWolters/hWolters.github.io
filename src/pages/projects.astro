@@ -1,9 +1,31 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE } from '../lib/site';
+
+const projects = [
+  ['Kakaokunde', 'https://kakaokunde.vercel.app', 'A personal archive of chocolates, makers, origins, ratings, and tasting notes.'],
+  ['Kleinkindabteil Check for Deutsche Bahn', 'https://db-kleinkindabteil-check.vercel.app', 'A tool that finds available seats in toddler compartments on German trains.'],
+  ['Flashpanol', 'https://flashpanol.fly.dev', 'A Spanish vocabulary trainer with curated and custom vocabulary lists.'],
+  ['Café Finance', 'https://medium.com/café-finance', 'An approachable German-language blog about investing and personal finance.'],
+  ['Sorce', 'https://sorce.io/', 'Algorithms and dashboards that turn physiological and psychological data into actionable insights.'],
+];
+const projectsJsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': projects.map(([name, url, description]) => ({
+    '@type': 'CreativeWork',
+    name,
+    url,
+    description,
+    creator: { '@type': 'Person', name: SITE.name },
+  })),
+};
 ---
 
-<BaseLayout title="Projects" description={SITE.description}>
+<BaseLayout
+  title="Projects"
+  description="Projects by Heike Terhechte spanning data products, software, language learning, personal finance, and applied analytics."
+>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(projectsJsonLd)} />
   <div class="page shell">
     <header class="page-title">
       <h1>Projects</h1>

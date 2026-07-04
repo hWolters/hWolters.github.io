@@ -1,10 +1,11 @@
 ---
-import { getCollection, render, type CollectionEntry } from 'astro:content';
+import { render, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../../../../layouts/BaseLayout.astro';
-import { articlePath, formatDate, SITE } from '../../../../../lib/site';
+import { absoluteUrl, articlePath, formatDate, ogImagePath, SITE } from '../../../../../lib/site';
+import { getPublicPosts } from '../../../../../lib/posts';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  const posts = await getPublicPosts();
 
   return posts.map((post) => {
     const [year, month, day] = post.data.publishDate.toISOString().slice(0, 10).split('-');
@@ -22,6 +23,7 @@ interface Props {
 const { post } = Astro.props;
 const { Content } = await render(post);
 const canonicalPath = articlePath(post.data.publishDate, post.data.slug);
+const socialImage = post.data.hero?.src ?? ogImagePath(post.data.title);
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
@@ -29,7 +31,8 @@ const jsonLd = {
   description: post.data.description,
   datePublished: post.data.publishDate.toISOString(),
   ...(post.data.updatedDate ? { dateModified: post.data.updatedDate.toISOString() } : {}),
-  mainEntityOfPage: new URL(canonicalPath, SITE.url).href,
+  mainEntityOfPage: absoluteUrl(canonicalPath),
+  image: absoluteUrl(socialImage),
   author: {
     '@type': 'Person',
     name: SITE.name,
@@ -44,6 +47,9 @@ const jsonLd = {
   description={post.data.description}
   canonicalPath={canonicalPath}
   type="article"
+  image={socialImage}
+  publishedTime={post.data.publishDate.toISOString()}
+  modifiedTime={post.data.updatedDate?.toISOString()}
 >
   <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <article class="article shell">

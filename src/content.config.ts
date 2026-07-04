@@ -13,6 +13,7 @@ const blog = defineCollection({
     pillar: z.enum(['ai-data', 'data-systems', 'leadership-management']),
     tags: z.array(z.string()).default([]),
     draft: z.boolean().default(false),
+    hidden: z.boolean().default(false),
     featured: z.boolean().default(false),
     hero: z
       .object({
