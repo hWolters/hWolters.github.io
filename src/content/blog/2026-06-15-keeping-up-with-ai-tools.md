@@ -121,6 +121,6 @@ Finally, I would spend less time trying to memorize features and more time pract
 
 Those are rather management skills, not technical skills. The models will continue to improve. The tools will continue to change. New workflows will emerge that make today's best practices look outdated.
 
-But I increasingly suspect that the lasting skill is not keeping up with every model announcement. 
+But I increasingly suspect that the lasting skill is not keeping up with every model announcement.
 
 Ironically, the biggest thing AI has taught me over the past year is not how to write better prompts. It's why good management will continue to matter.
