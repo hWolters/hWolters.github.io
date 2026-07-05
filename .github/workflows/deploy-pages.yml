@@ -57,7 +57,7 @@ jobs:
 
       - name: Verify published revision
         env:
-          CUSTOM_DOMAIN: https://datadojo.dev
+          CUSTOM_DOMAIN: https://heiket.com
           EXPECTED_SHA: ${{ github.sha }}
           PAGE_URL: ${{ steps.deployment.outputs.page_url }}
         shell: bash
