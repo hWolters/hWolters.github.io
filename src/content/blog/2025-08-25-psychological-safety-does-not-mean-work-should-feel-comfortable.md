@@ -11,7 +11,7 @@ featured: true
 
 One of the concepts that has influenced my leadership the most is psychological safety. The research is compelling. Teams perform better when people can admit mistakes, ask for help, challenge ideas, and voice concerns without fear of embarrassment or punishment. Amy Edmondson, who introduced the concept, defines psychological safety as *"a shared belief that the team is safe for interpersonal risk taking."*
 
-But after my first year as a Director of Engineering, I realized there is a misconception: Psychological safety does **not** mean work should feel comfortable.
+In my first year as a Director of Engineering, I realized there is a misconception: Psychological safety does **not** mean work should feel comfortable.
 
 ## Safe does not mean easy
 

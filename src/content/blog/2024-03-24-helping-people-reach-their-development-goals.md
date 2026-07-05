@@ -1,5 +1,5 @@
 ---
-title: "Helping People Reach Their Development Goals"
+title: "How to Create Effective Development Goals: Lessons Learned"
 description: "What I learned about supporting people in choosing meaningful development goals and making steady progress toward them."
 publishDate: "2024-03-24"
 slug: "helping-people-reach-their-development-goals"
