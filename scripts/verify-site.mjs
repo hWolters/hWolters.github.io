@@ -11,6 +11,7 @@ const dist = path.join(root, 'dist');
 const manifest = JSON.parse(await readFile(path.join(root, 'migration/article-manifest.json'), 'utf8'));
 const failures = [];
 const xmlParser = new XMLParser({ ignoreAttributes: false });
+const legacySiteHosts = new Set(['datadojo.dev', 'www.datadojo.dev', 'hwolters.github.io']);
 
 function outputPath(urlPath) {
   const clean = decodeURIComponent(urlPath.split(/[?#]/)[0]);
@@ -78,8 +79,26 @@ for (const file of htmlFiles) {
   for (const element of $('a[href], img[src], script[src], link[href]').toArray()) {
     const attribute = element.name === 'a' || element.name === 'link' ? 'href' : 'src';
     const value = $(element).attr(attribute);
-    if (!value?.startsWith('/') || value.startsWith('//')) continue;
-    if (!existsSync(outputPath(value))) {
+    if (!value) continue;
+
+    let localPath;
+    if (value.startsWith('/') && !value.startsWith('//')) {
+      localPath = value;
+    } else {
+      try {
+        const url = new URL(value);
+        if (legacySiteHosts.has(url.hostname)) {
+          failures.push(`Legacy domain in ${relativeFile}: ${value}`);
+        }
+        if (element.name === 'a' && url.origin === BASE_URL) {
+          localPath = `${url.pathname}${url.search}${url.hash}`;
+        }
+      } catch {
+        // Relative URLs without a leading slash are not site-root links.
+      }
+    }
+
+    if (localPath && !existsSync(outputPath(localPath))) {
       failures.push(`Broken local ${attribute} in ${relativeFile}: ${value}`);
     }
   }

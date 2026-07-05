@@ -1,6 +1,6 @@
-# Data Dojo
+# Heike Terhechte
 
-Markdown source and Astro templates for [datadojo.dev](https://datadojo.dev/).
+Markdown source and Astro templates for [heiket.com](https://heiket.com/).
 
 ## Site URL configuration
 
@@ -71,7 +71,7 @@ npm run verify
 The published URL is derived from `publishDate` and `slug`:
 
 ```text
-https://datadojo.dev/YYYY/MM/DD/slug/
+https://heiket.com/YYYY/MM/DD/slug/
 ```
 
 Commit the Markdown file and any images, then merge the change into the default branch (`master`, or `main` after a future branch rename). Every push to either branch makes GitHub Actions verify and deploy the complete site to GitHub Pages. Do not commit the generated `dist/` directory.
@@ -94,6 +94,6 @@ This validates Astro content and types, builds the static site, checks all migra
 
 ## Deployment
 
-Every push to `master` or `main` is verified and deployed to GitHub Pages as a build artifact. The workflow records the deployed commit in `deployment.txt` and verifies that both the GitHub Pages URL and `https://datadojo.dev` serve that commit before reporting success. Generated `dist/` output is never committed.
+Every push to `master` or `main` is verified and deployed to GitHub Pages as a build artifact. The workflow records the deployed commit in `deployment.txt` and verifies that both the GitHub Pages URL and `https://heiket.com` serve that commit before reporting success. Generated `dist/` output is never committed.
 
-The repository's Pages settings must use **GitHub Actions** as the publishing source and `datadojo.dev` as the custom domain. GitHub ignores `CNAME` files for custom Actions workflows, so the repository setting is the authoritative domain configuration.
+The repository's Pages settings must use **GitHub Actions** as the publishing source and `heiket.com` as the custom domain. GitHub ignores `CNAME` files for custom Actions workflows, so the repository setting is the authoritative domain configuration.
