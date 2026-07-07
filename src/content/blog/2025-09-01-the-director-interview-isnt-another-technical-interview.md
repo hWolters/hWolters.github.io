@@ -97,10 +97,5 @@ Occasionally someone simply answers, *"I think it went well."* There is nothing 
 
 ## A note for candidates
 
-Interviews aren't only there to convince a company to hire you. They are one of the few opportunities you have to understand how the company thinks before you join.
-
-Ask about the role. Ask about the challenges. Ask how decisions are made. Ask what success looks like after six months. Explain what kind of environment helps you do your best work and find out whether this role actually offers it.
-
-A good interview reduces uncertainty for both sides.
-
-The best interviews I've been part of don't end with someone giving the perfect answer. They end with both people having a much clearer picture of whether working together is the right decision.
+A good interview reduces uncertainty for both sides. Interviews are not only there to convince a company to hire you. They are also the opportunity for you have to understand how the company thinks before you join. Ask about the role. Ask about the challenges. Ask how decisions are made. Ask what success looks like after six months. Explain what kind of environment helps you do your best work and find out whether this role actually offers it.
+Good interviews end with both parties having a much clearer picture of whether working together is the right decision.
