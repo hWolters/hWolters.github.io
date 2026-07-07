@@ -3,11 +3,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE } from '../lib/site';
 
 const projects = [
-  ['Kakaokunde', 'https://kakaokunde.vercel.app', 'A personal archive of chocolates, makers, origins, ratings, and tasting notes.'],
-  ['Kleinkindabteil Check for Deutsche Bahn', 'https://db-kleinkindabteil-check.vercel.app', 'A tool that finds available seats in toddler compartments on German trains.'],
-  ['Flashpanol', 'https://flashpanol.fly.dev', 'A Spanish vocabulary trainer with curated and custom vocabulary lists.'],
-  ['Café Finance', 'https://medium.com/café-finance', 'An approachable German-language blog about investing and personal finance.'],
-  ['Sorce', 'https://sorce.io/', 'Algorithms and dashboards that turn physiological and psychological data into actionable insights.'],
+  ['Sorce', 'https://sorce.io/', 'Algorithms and dashboards that turn physiological and psychological data into actionable insights'],
+  ['Kakaokunde', 'https://kakaokunde.vercel.app', 'My personal archive of more than 300 specialty chocolates with ratings and tasting notes'],
+  ['Kleinkindabteil Check for Deutsche Bahn', 'https://db-kleinkindabteil-check.vercel.app', 'A tool that finds available seats in toddler compartments on German trains[GERMAN].'],
+  ['Flashpanol', 'https://flashpanol.fly.dev', 'A Spanish vocabulary trainer with curated and custom vocabulary lists'],
+  ['Café Finance', 'https://medium.com/café-finance', 'An approachable German-language blog about investing and personal finance[GERMAN}]'],
 ];
 const projectsJsonLd = {
   '@context': 'https://schema.org',
@@ -32,9 +32,18 @@ const projectsJsonLd = {
     </header>
 
     <div class="project-list">
+
+      <article class="project-entry">
+        <h2><a href="https://sorce.io/">Sorce</a></h2>
+        <p>Turning physiological data into actionable insights.</p>
+        <p>
+          Sorce is a US startup founded by an inspiring team of female entrepreneurs. I support the team by developing algorithms and dashboards that transform HRV and psychological data into meaningful insights. From recovery and readiness metrics to team-level analytics, my work helps organizations better understand how their teams are doing.
+        </p>
+      </article>
+
       <article class="project-entry">
         <h2><a href="https://kakaokunde.vercel.app">Kakaokunde</a></h2>
-        <p>My personal archive of all the chocolates I tried.</p>
+        <p>My personal archive of more than 300 specialty chocolates with ratings and tasting notes</p>
         <p>
           I love chocolate and realized that every time I bought a chocolate bar I enjoyed, I forgot what it was a few weeks later. Kakaokunde started as a way to keep track of interesting makers, origins, and tasting notes. Along the way it turned into an excuse to learn more about chocolate, from bean varieties to fermentation, and to build a website around a hobby I genuinely enjoy.
         </p>
@@ -42,7 +51,7 @@ const projectsJsonLd = {
 
       <article class="project-entry">
         <h2><a href="https://db-kleinkindabteil-check.vercel.app">Kleinkindabteil Check for Deutsche Bahn</a></h2>
-        <p>A small tool for parents traveling with small children by train.</p>
+        <pA tool that finds available seats in toddler compartments on German trains[GERMAN]</p>
         <p>
           After traveling with our daughter, I noticed that finding available seats in a German train’s toddler compartment required opening every connection one by one. I built a tool that does the tedious part for you by finding the longest available stretch with free seats, making family travel a little less frustrating.
         </p>
@@ -52,7 +61,7 @@ const projectsJsonLd = {
         <h2><a href="https://flashpanol.fly.dev">Flashpanol</a></h2>
         <p>Spanish vocabulary trainer.</p>
         <p>
-          I’ve been learning Spanish for years, but never found a vocabulary app that matched how I wanted to practice. So I built one. Flashpañol focuses on curated vocabulary and the ability to create your own lists.
+          I’ve been learning Spanish for years, but never found a vocabulary app that matched how I wanted to practice. So I built one. Flashpañol focuses on curated vocabulary and the ability to create your my lists.
         </p>
       </article>
       <article class="project-entry">
@@ -63,19 +72,13 @@ const projectsJsonLd = {
         </p>
       </article>
 
-      <article class="project-entry">
-        <h2><a href="https://sorce.io/">Sorce</a></h2>
-        <p>Turning physiological data into actionable insights.</p>
-        <p>
-          Sorce is a US startup founded by an inspiring team of female entrepreneurs. I support the team by developing algorithms and dashboards that transform HRV and psychological data into meaningful insights. From recovery and readiness metrics to team-level analytics, my work helps organizations better understand how their teams are doing.
-        </p>
-      </article>
+
     </div>
 
     <section class="academic-section" aria-labelledby="academic-heading">
       <h2 id="academic-heading">Academic Research &amp; Publications</h2>
       <p>
-        Before moving into industry, I completed a PhD in customer behavior and predictive analytics. Even during my academic career, I worked closely with companies because I wanted my research to solve real-world problems, not just academic ones. My work focused on customer value, referral programs, and statistical modeling, resulting in publications in journals including Marketing Science.
+        Before moving into industry, I completed a PhD in customer behavior and predictive analytics. Even during my academic career, I worked closely with companies because I wanted my research to solve real-world problems, not just academic ones. My work focused on customer value prediction models in non-contractual settings resulting in publications in journals including Marketing Science.
       </p>
 
       <ul class="publication-list">
