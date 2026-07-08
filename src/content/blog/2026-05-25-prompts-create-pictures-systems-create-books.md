@@ -3,7 +3,7 @@ title: "Prompts Create Pictures. Systems Create Books."
 description: "What creating a personalized children's book taught me about visual consistency, shared state, reference material, and treating creative AI projects like software systems."
 publishDate: "2026-05-25"
 slug: "prompts-create-pictures-systems-create-books"
-pillar: "ai-data"
+topic: "ai"
 tags: ["AI", "AI agents", "Image Generation", "Codex", "Creative Workflows"]
 draft: false
 featured: false

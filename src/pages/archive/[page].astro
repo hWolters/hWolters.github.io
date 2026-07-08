@@ -1,6 +1,4 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import ArchivePage from '../../components/ArchivePage.astro';
 import { ARCHIVE_PAGE_SIZE, getArchivePosts } from '../../lib/archive';
 
 export async function getStaticPaths() {
@@ -9,26 +7,24 @@ export async function getStaticPaths() {
 
   return Array.from({ length: Math.max(totalPages - 1, 0) }, (_, index) => {
     const currentPage = index + 2;
-    const start = (currentPage - 1) * ARCHIVE_PAGE_SIZE;
-
     return {
       params: { page: String(currentPage) },
-      props: {
-        posts: allPosts.slice(start, start + ARCHIVE_PAGE_SIZE),
-        currentPage,
-        totalPages,
-      },
     };
   });
 }
-
-interface Props {
-  posts: CollectionEntry<'blog'>[];
-  currentPage: number;
-  totalPages: number;
-}
-
-const { posts, currentPage, totalPages } = Astro.props;
+const target = '/archive/';
+const canonical = new URL(target, Astro.site);
 ---
 
-<ArchivePage posts={posts} currentPage={currentPage} totalPages={totalPages} />
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="noindex, follow" />
+    <meta http-equiv="refresh" content={`0;url=${target}`} />
+    <link rel="canonical" href={canonical} />
+    <title>Writing archive</title>
+  </head>
+  <body><a href={target}>Browse all writing</a></body>
+</html>

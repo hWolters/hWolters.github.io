@@ -3,7 +3,7 @@ title: "Mastering ElasticSearch Queries If You Have Only Worked With SQL Before"
 description: "Elasticsearch is often the storage engine of choice for storing and querying full text data. But writing an ElasticSearch query is pretty different compared to querying a relational database in SQL. In this blogpost, you will learn some basics you need to understand before working with ElasticSearch. In the second part, you learn how to write queries in ElasticSearch."
 publishDate: "2020-06-27"
 slug: "mastering-elasticsearch-queries-if-you-have-only-worked-with-sql-before"
-pillar: "data-systems"
+topic: "software-engineering"
 tags: ["ElasticSearch","DSL","Fulltext Search","Inverted Index","Scoring"]
 draft: false
 featured: false

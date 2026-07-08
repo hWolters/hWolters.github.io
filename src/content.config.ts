@@ -10,8 +10,12 @@ const blog = defineCollection({
     publishDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
     slug: z.string().min(1),
-    pillar: z.enum(['ai-data', 'data-systems', 'leadership-management']),
+    topic: z.enum(['leadership', 'ai', 'software-engineering', 'data']),
     tags: z.array(z.string()).default([]),
+    relatedSlugs: z.array(z.string().min(1)).max(3).refine(
+      (slugs) => new Set(slugs).size === slugs.length,
+      'Related article slugs must be unique',
+    ).default([]),
     draft: z.boolean().default(false),
     hidden: z.boolean().default(false),
     featured: z.boolean().default(false),

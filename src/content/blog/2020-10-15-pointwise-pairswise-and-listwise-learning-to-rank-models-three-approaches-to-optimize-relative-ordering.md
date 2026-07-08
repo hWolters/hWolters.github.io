@@ -3,7 +3,7 @@ title: "Pointwise, Pairwise and Listwise Learning to Rank Models - Three Approac
 description: "In many scenarios, such as a google search or a product recommendation in an online shop, we have tons of data and limited space to display it. We cannot show all the products of an online shop to the user as a possible next best offer. Neither would a user want to scroll through all the pages indexed by a search engine to find the most relevant page that matches his search keywords. The most relevant content should be on top. Learning to rank (LTR) models are supervised machine learning models that attempt to optimize the order of items. This blogpost introduces three approaches to optimize ranks."
 publishDate: "2020-10-15"
 slug: "pointwise-pairswise-and-listwise-learning-to-rank-models-three-approaches-to-optimize-relative-ordering"
-pillar: "ai-data"
+topic: "data"
 tags: ["ltr","search"]
 draft: false
 featured: false

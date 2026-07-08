@@ -3,7 +3,7 @@ title: "AI-Machine-Learning-Buzzword-Bingo"
 description: "I was recently invited to join a panel discussion among developers to dispel the myth of the typical BS Buzzword Bingo around machine learning and AI. In this blog post, I will share some buzzwords we talked about with a little description and links. Ooops, I already used some buzzwords. So let’s start.\nAI (Artificial Intelligence) is the magic portion to fix all problems of all companies and will make us unemployed in the future."
 publishDate: "2020-09-10"
 slug: "ai-machine-learning-buzzword-bingo"
-pillar: "ai-data"
+topic: "ai"
 tags: ["deep learning","nlp","machine learning"]
 draft: false
 featured: false

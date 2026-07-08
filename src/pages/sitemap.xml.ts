@@ -1,5 +1,4 @@
 import type { APIRoute } from 'astro';
-import { ARCHIVE_PAGE_SIZE } from '../lib/archive';
 import { getPublicPosts } from '../lib/posts';
 import { absoluteUrl, articlePath } from '../lib/site';
 
@@ -12,16 +11,11 @@ export const GET: APIRoute = async () => {
     (latest, post) => Math.max(latest, (post.data.updatedDate ?? post.data.publishDate).valueOf()),
     0,
   );
-  const archivePages = Math.ceil(posts.length / ARCHIVE_PAGE_SIZE);
   const commonLastmod = latestModified ? new Date(latestModified).toISOString() : undefined;
   const entries = [
     { path: '/', lastmod: commonLastmod },
-    ...Array.from({ length: archivePages }, (_, index) => ({
-      path: index === 0 ? '/archive/' : `/archive/${index + 1}/`,
-      lastmod: commonLastmod,
-    })),
+    { path: '/archive/', lastmod: commonLastmod },
     { path: '/projects/' },
-    { path: '/about/' },
     ...posts.map((post) => ({
       path: articlePath(post.data.publishDate, post.data.slug),
       lastmod: (post.data.updatedDate ?? post.data.publishDate).toISOString(),

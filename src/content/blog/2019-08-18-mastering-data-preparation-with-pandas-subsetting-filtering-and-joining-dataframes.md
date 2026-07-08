@@ -3,7 +3,7 @@ title: "Mastering Data Preparation with Pandas: Subsetting, Filtering and Joinin
 description: "When I started working with pandas I noticed that there were so many ways how to subset, filter and join data with pandas. But I was lacking a systematic overview. How do the different approaches differ and when to use which?\nIn this blogpost we’ll look at different ways for subsetting, filtering and combining DataFrames.\nSubsetting Data: Selecting subsets of rows and columns by labels and positions ."
 publishDate: "2019-08-18"
 slug: "mastering-data-preparation-with-pandas-subsetting-filtering-and-joining-dataframes"
-pillar: "ai-data"
+topic: "data"
 tags: ["python","data preparation","pandas","boolean mask"]
 draft: false
 featured: false

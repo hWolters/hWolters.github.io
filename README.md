@@ -37,18 +37,22 @@ title: "Post title"
 description: "A concise summary of the article."
 publishDate: "2026-07-01"
 slug: "post-title"
-pillar: "ai-data"
+topic: "ai"
 tags: ["AI", "Data"]
+relatedSlugs: []
 draft: true
 featured: false
 ---
 ```
 
-Replace the generated description, then write the article below the frontmatter using Markdown. `pillar` must be one of:
+Replace the generated description, then write the article below the frontmatter using Markdown. The first meaningful body paragraph is used as the article preview. `topic` must be one of:
 
-- `ai-data`
-- `data-systems`
-- `leadership-management`
+- `leadership`
+- `ai`
+- `software-engineering`
+- `data`
+
+Related articles are selected automatically from the topic and tags. To override the first recommendations, add up to three existing article slugs to `relatedSlugs`; automatic recommendations fill any remaining positions.
 
 To add images, place them in `public/post/<slug>/` and reference them from the article with an absolute site path and descriptive alternative text:
 

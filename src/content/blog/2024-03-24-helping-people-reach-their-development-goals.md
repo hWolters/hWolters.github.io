@@ -3,7 +3,7 @@ title: "How to Create Effective Development Goals: Lessons Learned"
 description: "What I learned about supporting people in choosing meaningful development goals and making steady progress toward them."
 publishDate: "2024-03-24"
 slug: "helping-people-reach-their-development-goals"
-pillar: "leadership-management"
+topic: "leadership"
 tags: ["Engineering Management", "People Development", "Leadership", "Career Growth"]
 draft: false
 featured: false

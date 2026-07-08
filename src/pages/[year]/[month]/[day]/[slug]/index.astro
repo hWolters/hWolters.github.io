@@ -1,8 +1,11 @@
 ---
 import { render, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../../../../layouts/BaseLayout.astro';
+import PostCard from '../../../../../components/PostCard.astro';
+import { getRelatedPosts } from '../../../../../lib/article-discovery';
 import { absoluteUrl, articlePath, formatDate, ogImagePath, SITE } from '../../../../../lib/site';
 import { getPublicPosts } from '../../../../../lib/posts';
+import { TOPICS, topicArchiveUrl } from '../../../../../lib/topics';
 
 export async function getStaticPaths() {
   const posts = await getPublicPosts();
@@ -22,6 +25,9 @@ interface Props {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+const allPosts = await getPublicPosts();
+const relatedPosts = getRelatedPosts(post, allPosts);
+const topic = TOPICS[post.data.topic];
 const canonicalPath = articlePath(post.data.publishDate, post.data.slug);
 const socialImage = post.data.hero?.src ?? ogImagePath(post.data.title);
 const jsonLd = {
@@ -36,7 +42,7 @@ const jsonLd = {
   author: {
     '@type': 'Person',
     name: SITE.name,
-    url: `${SITE.url}/about/`,
+    url: SITE.url,
     sameAs: SITE.linkedin,
   },
 };
@@ -57,11 +63,19 @@ const jsonLd = {
       <h1>{post.data.title}</h1>
       <div class="article-meta">
         <time datetime={post.data.publishDate.toISOString()}>{formatDate(post.data.publishDate)}</time>
-        <span>By <a href="/about/">{SITE.name}</a></span>
+        <span>By <a href="/">{SITE.name}</a></span>
+        <a class="article-topic" href={topicArchiveUrl(post.data.topic)}>{topic.label}</a>
       </div>
     </header>
     <div class="article-content">
       <Content />
     </div>
+    <aside class="related-articles" aria-labelledby="related-heading">
+      <p class="section-label">Continue reading</p>
+      <h2 id="related-heading">Related articles</h2>
+      <div class="related-list">
+        {relatedPosts.map((relatedPost) => <PostCard post={relatedPost} showDescription={false} />)}
+      </div>
+    </aside>
   </article>
 </BaseLayout>

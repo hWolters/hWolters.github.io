@@ -123,6 +123,13 @@ for (const file of htmlFiles) {
   for (const selector of requiredSelectors) {
     if ($(selector).length !== 1) failures.push(`Expected one ${selector} in ${relativeFile}`);
   }
+  const socialImage = $('meta[property="og:image"]').attr('content');
+  if (socialImage) {
+    const socialImageUrl = new URL(socialImage);
+    if (socialImageUrl.origin === BASE_URL && !existsSync(outputPath(socialImageUrl.pathname))) {
+      failures.push(`Missing social image in ${relativeFile}: ${socialImageUrl.pathname}`);
+    }
+  }
   if ($('html').attr('lang') !== 'en') failures.push(`Missing or incorrect html lang in ${relativeFile}`);
   if (!$('meta[name="description"]').attr('content')?.trim()) failures.push(`Missing meta description in ${relativeFile}`);
 
@@ -198,6 +205,51 @@ for (const feedName of ['feed.xml', 'rss.xml']) {
 
 const homepageJsonLd = JSON.parse(load(await readFile(path.join(dist, 'index.html'), 'utf8'))('script[type="application/ld+json"]').text());
 if (homepageJsonLd['@type'] !== 'WebSite') failures.push('Homepage is missing WebSite JSON-LD');
+
+const archiveHtml = await readFile(path.join(dist, 'archive/index.html'), 'utf8');
+const archive = load(archiveHtml);
+const archiveArticles = archive('[data-article]').toArray();
+if (archiveArticles.length !== feedPostCount) {
+  failures.push(`Writing archive has ${archiveArticles.length} articles; expected ${feedPostCount}`);
+}
+const archiveHrefs = archiveArticles.map((article) => archive(article).find('h3 a').attr('href'));
+if (new Set(archiveHrefs).size !== archiveHrefs.length) failures.push('Writing archive contains duplicate articles');
+const expectedFilters = ['all', 'leadership', 'ai', 'software-engineering', 'data'];
+const actualFilters = archive('[data-topic-filter]').toArray().map((button) => archive(button).attr('data-topic-filter'));
+if (JSON.stringify(actualFilters) !== JSON.stringify(expectedFilters)) {
+  failures.push(`Writing archive filters are incorrect: ${actualFilters.join(', ')}`);
+}
+for (const article of archiveArticles) {
+  if (!expectedFilters.slice(1).includes(archive(article).attr('data-topic'))) {
+    failures.push(`Writing archive article has invalid topic: ${archive(article).attr('data-topic')}`);
+  }
+  if (!archive(article).find('p').first().text().trim()) failures.push('Writing archive article is missing its introduction');
+}
+for (const yearGroup of archive('[data-year-group]').toArray()) {
+  const headingYear = archive(yearGroup).find('h2').first().text().trim();
+  if (!/^\d{4}$/.test(headingYear) || archive(yearGroup).find('[data-article]').length === 0) {
+    failures.push(`Invalid or empty writing timeline year: ${headingYear}`);
+  }
+}
+
+const archivePageCount = Math.ceil(feedPostCount / 5);
+for (let page = 2; page <= archivePageCount; page += 1) {
+  const redirect = load(await readFile(path.join(dist, `archive/${page}/index.html`), 'utf8'));
+  if (redirect('meta[name="robots"]').attr('content') !== 'noindex, follow'
+    || redirect('link[rel="canonical"]').attr('href') !== `${BASE_URL}/archive/`
+    || !redirect('meta[http-equiv="refresh"]').attr('content')?.endsWith('/archive/')) {
+    failures.push(`Archive page ${page} does not redirect cleanly to /archive/`);
+  }
+}
+
+for (const { $, relativeFile } of publicPages.filter(({ $ }) => /\/\d{4}\/\d{2}\/\d{2}\//.test($('link[rel="canonical"]').attr('href') ?? ''))) {
+  if ($('.article-topic').length !== 1) failures.push(`Article is missing its topic link: ${relativeFile}`);
+  const relatedHrefs = $('.related-articles [data-article] h3 a').toArray().map((link) => $(link).attr('href'));
+  if (relatedHrefs.length !== 3 || new Set(relatedHrefs).size !== relatedHrefs.length) {
+    failures.push(`Article does not have three unique related links: ${relativeFile}`);
+  }
+}
+
 const projectsJsonLd = JSON.parse(load(await readFile(path.join(dist, 'projects/index.html'), 'utf8'))('script[type="application/ld+json"]').text());
 if (!projectsJsonLd['@graph']?.every((entry) => entry['@type'] === 'CreativeWork')) failures.push('Projects page is missing CreativeWork JSON-LD');
 for (const { $, relativeFile } of publicPages.filter(({ $ }) => /\/\d{4}\/\d{2}\/\d{2}\//.test($('link[rel="canonical"]').attr('href') ?? ''))) {

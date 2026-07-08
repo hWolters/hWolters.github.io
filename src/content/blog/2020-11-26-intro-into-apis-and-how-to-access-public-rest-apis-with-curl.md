@@ -3,7 +3,7 @@ title: "Intro into APIs and how to access public REST APIs with `curl`"
 description: "This post will teach you the intuition of REST APIs and how you can use them to get interesting datasets for your data projects. First, we will look at the four components of a request. In the second part of this blogpost, we will go through one example and access the coingecko API via curl."
 publishDate: "2020-11-26"
 slug: "intro-into-apis-and-how-to-access-public-rest-apis-with-curl"
-pillar: "data-systems"
+topic: "software-engineering"
 tags: ["curl","api","rest"]
 draft: false
 featured: false

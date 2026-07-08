@@ -1,69 +1,90 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { groupPostsByYear } from '../lib/article-discovery';
 import { SITE } from '../lib/site';
+import { TOPICS, TOPIC_KEYS } from '../lib/topics';
 import PostCard from './PostCard.astro';
 
 interface Props {
   posts: CollectionEntry<'blog'>[];
-  top?: CollectionEntry<'blog'>[];
-  currentPage: number;
-  totalPages: number;
 }
 
-const { posts, top = [], currentPage, totalPages } = Astro.props;
-const pageTitle = currentPage === 1 ? 'Archive' : `Archive, page ${currentPage}`;
-const pageNumbers = Array.from({ length: totalPages }, (_, index) => index + 1);
-const pageHref = (page: number) => (page === 1 ? '/archive/' : `/archive/${page}/`);
-const previousPage = currentPage > 1 ? currentPage - 1 : undefined;
-const nextPage = currentPage < totalPages ? currentPage + 1 : undefined;
+const { posts } = Astro.props;
+const groups = groupPostsByYear(posts);
 ---
 
 <BaseLayout
-  title={pageTitle}
-  description={currentPage === 1
-    ? `Browse all articles by ${SITE.name} about engineering leadership, software, data, and AI.`
-    : `Browse article archive page ${currentPage} by ${SITE.name}.`}
+  title="Writing"
+  description={`Browse all articles by ${SITE.name} about engineering leadership, software engineering, data, and AI.`}
 >
-  <div class="page shell">
-    <header class="page-title">
-      <h1>Archive</h1>
+  <div class="page shell writing-page">
+    <header class="writing-header">
+      <p class="section-label">Thoughts, lessons, and the occasional rabbit hole</p>
+      <h1>Writing</h1>
     </header>
 
-    {currentPage === 1 && (
-      <section class="archive-section" aria-labelledby="top-heading">
-        <h2 id="top-heading">Top</h2>
-        <div class="top-list">
-          {top.map((post) => <PostCard post={post} showDescription={false} />)}
-        </div>
-      </section>
-    )}
-
-    <section class="archive-section" aria-labelledby="latest-heading">
-      <h2 id="latest-heading">Latest</h2>
-      <div class="archive-list">
-        {posts.map((post) => <PostCard post={post} />)}
-      </div>
-    </section>
-
-    <nav class="archive-pagination" aria-label="Archive pages">
-      <div class="pagination-edge">
-        {previousPage && <a href={pageHref(previousPage)} rel="prev">← Previous</a>}
-      </div>
-      <ol class="pagination-pages">
-        {pageNumbers.map((page) => (
-          <li>
-            {page === currentPage ? (
-              <span aria-current="page">{page}</span>
-            ) : (
-              <a href={pageHref(page)} aria-label={`Page ${page}`}>{page}</a>
-            )}
-          </li>
-        ))}
-      </ol>
-      <div class="pagination-edge pagination-edge--next">
-        {nextPage && <a href={pageHref(nextPage)} rel="next">Next →</a>}
-      </div>
+    <nav class="topic-filters" aria-label="Filter articles by topic">
+      <button type="button" class="topic-filter" data-topic-filter="all" aria-pressed="true">All</button>
+      {TOPIC_KEYS.map((key) => (
+        <button type="button" class="topic-filter" data-topic-filter={key} aria-pressed="false">
+          {TOPICS[key].shortLabel}
+        </button>
+      ))}
     </nav>
+    <p class="filter-status" aria-live="polite"><span data-result-count>{posts.length}</span> articles</p>
+
+    <div class="writing-timeline">
+      {groups.map(({ year, posts: yearPosts }) => (
+        <section class="year-group" data-year-group aria-labelledby={`year-${year}`}>
+          <h2 id={`year-${year}`}>{year}</h2>
+          <div class="archive-list">
+            {yearPosts.map((post) => <PostCard post={post} />)}
+          </div>
+        </section>
+      ))}
+    </div>
   </div>
+
+  <script>
+    const validTopics = new Set(['leadership', 'ai', 'software-engineering', 'data']);
+    const buttons = [...document.querySelectorAll<HTMLButtonElement>('[data-topic-filter]')];
+    const articles = [...document.querySelectorAll<HTMLElement>('[data-article]')];
+    const yearGroups = [...document.querySelectorAll<HTMLElement>('[data-year-group]')];
+    const resultCount = document.querySelector<HTMLElement>('[data-result-count]');
+
+    function topicFromUrl() {
+      const topic = new URL(window.location.href).searchParams.get('topic');
+      return topic && validTopics.has(topic) ? topic : 'all';
+    }
+
+    function applyFilter(topic: string, updateHistory = false) {
+      let visible = 0;
+      for (const article of articles) {
+        const matches = topic === 'all' || article.dataset.topic === topic;
+        article.hidden = !matches;
+        if (matches) visible += 1;
+      }
+      for (const group of yearGroups) {
+        group.hidden = !group.querySelector('[data-article]:not([hidden])');
+      }
+      for (const button of buttons) {
+        button.setAttribute('aria-pressed', String(button.dataset.topicFilter === topic));
+      }
+      if (resultCount) resultCount.textContent = String(visible);
+
+      if (updateHistory) {
+        const url = new URL(window.location.href);
+        if (topic === 'all') url.searchParams.delete('topic');
+        else url.searchParams.set('topic', topic);
+        window.history.pushState({}, '', `${url.pathname}${url.search}${url.hash}`);
+      }
+    }
+
+    for (const button of buttons) {
+      button.addEventListener('click', () => applyFilter(button.dataset.topicFilter ?? 'all', true));
+    }
+    window.addEventListener('popstate', () => applyFilter(topicFromUrl()));
+    applyFilter(topicFromUrl());
+  </script>
 </BaseLayout>

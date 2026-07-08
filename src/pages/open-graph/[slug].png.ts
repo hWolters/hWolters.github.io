@@ -22,10 +22,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await getPublicPosts();
   const titles = [
     `${SITE.name} — ${SITE.tagline}`,
-    'Archive',
-    ...Array.from({ length: Math.ceil(posts.length / 5) - 1 }, (_, index) => `Archive, page ${index + 2}`),
+    'Writing',
     'Projects',
-    `About ${SITE.name}`,
     'Page not found',
     ...posts.map((post) => post.data.title),
   ];

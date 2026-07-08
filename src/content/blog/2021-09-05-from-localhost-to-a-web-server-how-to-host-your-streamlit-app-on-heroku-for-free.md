@@ -3,7 +3,7 @@ title: "From localhost to a web server -  How to host your Streamlit App on Hero
 description: "You have built a great streamlit app. So far, you only ran it locally on your computer on localhost:8501. Now you would like to share your app with others, but wonder how. This blogpost introduces you to one option: Heroku. Heroku is a platform as a service that allows you to deploy your apps (not just streamlit apps, but also jvm apps, ruby apps etc.). This post will guide you through the deployment of a streamlit app on Heroku."
 publishDate: "2021-09-05"
 slug: "from-localhost-to-a-web-server-how-to-host-your-streamlit-app-on-heroku-for-free"
-pillar: "data-systems"
+topic: "software-engineering"
 tags: ["app","hosting","deployment"]
 draft: false
 featured: false
