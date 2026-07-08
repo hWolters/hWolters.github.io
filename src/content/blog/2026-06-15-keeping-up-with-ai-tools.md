@@ -3,7 +3,7 @@ title: "Keeping up with AI Tools"
 description: "As a developer, I used to know how to keep up with technology. AI broke that."
 publishDate: "2026-06-15"
 slug: "keeping-up-with-ai-tools"
-pillar: "leadership-management"
+topic: "ai"
 tags: ["AI", "AI agents", "Engineering Management", "Developer Tools", "Workflows"]
 draft: false
 featured: true

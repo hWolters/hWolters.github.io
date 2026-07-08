@@ -19,7 +19,7 @@ const target = path.join(directory, `${date}-${slug}.md`);
 await mkdir(directory, { recursive: true });
 await writeFile(
   target,
-  `---\ntitle: ${JSON.stringify(title)}\ndescription: ${JSON.stringify(title)}\npublishDate: ${JSON.stringify(date)}\nslug: ${JSON.stringify(slug)}\npillar: "ai-data"\ntags: []\ndraft: true\nfeatured: false\n---\n\nWrite the introduction here.\n`,
+  `---\ntitle: ${JSON.stringify(title)}\ndescription: ${JSON.stringify(title)}\npublishDate: ${JSON.stringify(date)}\nslug: ${JSON.stringify(slug)}\ntopic: "ai"\ntags: []\nrelatedSlugs: []\ndraft: true\nfeatured: false\n---\n\nWrite the introduction here.\n`,
   { flag: 'wx' },
 );
 

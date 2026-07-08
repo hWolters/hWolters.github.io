@@ -1,6 +1,8 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { extractIntroduction } from '../lib/article-discovery';
 import { articlePath, formatDate } from '../lib/site';
+import { TOPICS, topicArchiveUrl } from '../lib/topics';
 
 interface Props {
   post: CollectionEntry<'blog'>;
@@ -9,12 +11,15 @@ interface Props {
 
 const { post, showDescription = true } = Astro.props;
 const href = articlePath(post.data.publishDate, post.data.slug);
+const introduction = extractIntroduction(post.body ?? '');
+const topic = TOPICS[post.data.topic];
 ---
 
-<article class="post-entry">
+<article class="post-entry" data-article data-topic={post.data.topic}>
   <time datetime={post.data.publishDate.toISOString()}>{formatDate(post.data.publishDate)}</time>
   <div>
+    <a class="topic-link" href={topicArchiveUrl(post.data.topic)}>{topic.shortLabel}</a>
     <h3><a href={href}>{post.data.title}</a></h3>
-    {showDescription && <p>{post.data.description}</p>}
+    {showDescription && <p>{introduction}</p>}
   </div>
 </article>

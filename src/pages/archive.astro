@@ -1,11 +1,8 @@
 ---
 import ArchivePage from '../components/ArchivePage.astro';
-import { ARCHIVE_PAGE_SIZE, getArchivePosts } from '../lib/archive';
+import { getArchivePosts } from '../lib/archive';
 
 const allPosts = await getArchivePosts();
-const top = allPosts.filter(({ data }) => data.featured);
-const totalPages = Math.ceil(allPosts.length / ARCHIVE_PAGE_SIZE);
-const posts = allPosts.slice(0, ARCHIVE_PAGE_SIZE);
 ---
 
-<ArchivePage posts={posts} top={top} currentPage={1} totalPages={totalPages} />
+<ArchivePage posts={allPosts} />

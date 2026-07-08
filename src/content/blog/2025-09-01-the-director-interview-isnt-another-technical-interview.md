@@ -3,7 +3,7 @@ title: "The Director Interview Isn't Another Technical Interview"
 description: "A Director interview should reduce uncertainty about how candidates think, influence others, handle disagreement and fit the role—not repeat the technical assessment."
 publishDate: "2025-09-01"
 slug: "the-director-interview-isnt-another-technical-interview"
-pillar: "leadership-management"
+topic: "leadership"
 tags: ["Hiring", "Engineering Leadership", "Engineering Management", "Team Culture"]
 draft: false
 featured: false

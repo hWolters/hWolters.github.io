@@ -3,7 +3,7 @@ title: "Biases in learning to rank models and three approaches to deal with them
 description: "Search engines rely on models, which rank the matching results for a given user query. These models optimize the order of items. They learn how to rank items in a result list, therefore the name Learning-to-Rank (LTR) models."
 publishDate: "2021-04-29"
 slug: "biases-in-learning-to-rank-models-and-three-approaches-to-deal-with-them"
-pillar: "ai-data"
+topic: "data"
 tags: ["ltr","bias"]
 draft: false
 featured: false

@@ -3,7 +3,7 @@ title: "R Markdown for Novices: All you need to know to get started"
 description: "I write this blogpost for someone, who has never worked with R Markdown. After you read this post, you will\nunderstand why R Markdown may be useful for your daily work as a student, researcher, analyst or data scientist.\n understand the basic structure of an R Markdown document and how you can get started.\n  I strongly encourage everybody working with R to use R Markdown. I promise, it will make your life so much easier."
 publishDate: "2018-11-03"
 slug: "r-markdown-for-novices-all-you-need-to-know-to-get-started"
-pillar: "ai-data"
+topic: "data"
 tags: ["R Markdown","R","knitr","Markdown","YAML","Documentation","Reproducible Research"]
 draft: false
 featured: false

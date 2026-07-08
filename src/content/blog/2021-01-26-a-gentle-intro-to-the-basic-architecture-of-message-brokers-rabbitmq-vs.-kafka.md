@@ -3,7 +3,7 @@ title: "A Gentle Intro to the Basic Architecture of Message Brokers: RabbitMQ vs
 description: "In this blogpost you will get a basic understanding about message brokers. We will look at two very popular message brokers, Kafka and RabbitMQ, and learn, how they handle messages."
 publishDate: "2021-01-26"
 slug: "a-gentle-intro-to-the-basic-architecture-of-message-brokers-rabbitmq-vs.-kafka"
-pillar: "data-systems"
+topic: "software-engineering"
 tags: ["kafka","message brokers","amqp","rabbitmq"]
 draft: false
 featured: false

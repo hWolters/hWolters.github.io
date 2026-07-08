@@ -1,11 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { articlePath, formatDate, SITE } from '../lib/site';
+import PostCard from '../components/PostCard.astro';
 import { getPublicPosts } from '../lib/posts';
+import { ABOUT_PARAGRAPHS, SITE } from '../lib/site';
+import { TOPICS, TOPIC_KEYS, topicArchiveUrl } from '../lib/topics';
 
 const posts = await getPublicPosts();
-const latest = posts[0];
-const latestPath = articlePath(latest.data.publishDate, latest.data.slug);
+const latest = posts.slice(0, 3);
+const topicCounts = Object.fromEntries(
+  TOPIC_KEYS.map((topic) => [topic, posts.filter((post) => post.data.topic === topic).length]),
+);
 const websiteJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
@@ -17,17 +21,47 @@ const websiteJsonLd = {
 
 <BaseLayout>
   <script is:inline type="application/ld+json" set:html={JSON.stringify(websiteJsonLd)} />
-  <div class="page shell">
-    <section class="latest-section" aria-labelledby="latest-heading">
-      <p class="section-label">Latest article</p>
-      <article class="latest-article">
-      <time datetime={latest.data.publishDate.toISOString()}>{formatDate(latest.data.publishDate)}</time>
-      <h1 id="latest-heading">
-        <a href={latestPath}>{latest.data.title}</a>
-      </h1>
-      <p>{latest.data.description}</p>
-      <a class="read-more" href={latestPath}>Read more</a>
-      </article>
+  <div class="page shell home-page">
+    <section class="home-hero" aria-labelledby="home-heading">
+      <div class="home-hero-copy">
+        <h1 id="home-heading" class="visually-hidden">Heike Terhechte</h1>
+        <div class="home-bio">
+          {ABOUT_PARAGRAPHS.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+        <div class="home-intro">
+          <span>I write about</span>
+          <nav class="hero-topics" aria-label="Browse writing by topic">
+            {TOPIC_KEYS.map((key) => (
+              <a href={topicArchiveUrl(key)}>
+                {TOPICS[key].shortLabel} <span>({topicCounts[key]})</span>
+              </a>
+            ))}
+          </nav>
+        </div>
+      </div>
+      <img
+        class="home-profile-image"
+        src={SITE.profileImage}
+        alt="Heike Terhechte"
+        width="1080"
+        height="1080"
+        decoding="async"
+        loading="lazy"
+      />
     </section>
+
+    <section class="home-section" aria-labelledby="latest-heading">
+      <div class="section-heading-row">
+        <div>
+          <p class="section-label">Recently published</p>
+          <h2 id="latest-heading">Latest writing</h2>
+        </div>
+        <a href="/archive/">View all writing →</a>
+      </div>
+      <div class="home-post-list">
+        {latest.map((post) => <PostCard post={post} />)}
+      </div>
+    </section>
+
   </div>
 </BaseLayout>

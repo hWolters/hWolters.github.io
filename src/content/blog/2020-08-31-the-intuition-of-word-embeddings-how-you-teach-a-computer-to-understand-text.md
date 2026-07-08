@@ -3,7 +3,7 @@ title: "The Intuition of Word Embeddings: How you Teach A Computer to Understand
 description: "Humans intuitively understand the meaning of words: Which words are similar, opposites or related to each other? But our machine learning models do not have this intuition. Word embeddings are numeric vectors that represent text. These vectors are learned through neural networks. The objective when creating these embedding vectors is to capture as much “meaning” as possible: Related words should be closer together than unrelated words. Also, they should be able to preserve mathematical relationships between words such as"
 publishDate: "2020-08-31"
 slug: "the-intuition-of-word-embeddings-how-you-teach-a-computer-to-understand-text"
-pillar: "ai-data"
+topic: "ai"
 tags: ["Word Embeddings","One-Hot-Encoding","Word2Vec","BERT"]
 draft: false
 featured: true
