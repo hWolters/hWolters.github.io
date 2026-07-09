@@ -1,6 +1,6 @@
 ---
 title: "Plotting with Seaborn"
-description: "Seaborn is a python library for creating plots. It is based on matplotlib  and provides a high-level interface for drawing statistical graphics.\nSeaborn integrates nicely with pandas: It operates on DataFrames and arrays and does aggregations and semantic mapping automatically, which makes it a quick, convenient option for data visualization in your data projects. One you understand the basic concepts, you can create plots really easily without using stack overflow too much."
+description: "A practical introduction to plotting with Seaborn, using pandas DataFrames and statistical visualizations in Python."
 publishDate: "2019-09-10"
 slug: "plotting-with-seaborn"
 topic: "data"

@@ -3,36 +3,45 @@ import type { CollectionEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { groupPostsByYear } from '../lib/article-discovery';
 import { SITE } from '../lib/site';
-import { TOPICS, TOPIC_KEYS } from '../lib/topics';
+import { TOPICS, TOPIC_KEYS, topicArchiveUrl, type Topic } from '../lib/topics';
 import PostCard from './PostCard.astro';
 
 interface Props {
   posts: CollectionEntry<'blog'>[];
+  activeTopic?: Topic;
 }
 
-const { posts } = Astro.props;
+const { posts, activeTopic } = Astro.props;
+const currentTopic = activeTopic ? TOPICS[activeTopic] : undefined;
 const groups = groupPostsByYear(posts);
+const title = currentTopic ? `${currentTopic.label} Articles` : 'Writing';
+const description = currentTopic
+  ? currentTopic.seoDescription
+  : `Browse articles by ${SITE.name} on engineering leadership, AI, software engineering, data, and product work.`;
+const canonicalPath = activeTopic ? topicArchiveUrl(activeTopic) : '/archive/';
 ---
 
 <BaseLayout
-  title="Writing"
-  description={`Browse all articles by ${SITE.name} about engineering leadership, software engineering, data, and AI.`}
+  title={title}
+  description={description}
+  canonicalPath={canonicalPath}
 >
   <div class="page shell writing-page">
     <header class="writing-header">
       <p class="section-label">Thoughts, lessons, and the occasional rabbit hole</p>
-      <h1>Writing</h1>
+      <h1>{currentTopic ? currentTopic.label : 'Writing'}</h1>
+      {currentTopic && <p>{currentTopic.description}</p>}
     </header>
 
     <nav class="topic-filters" aria-label="Filter articles by topic">
-      <button type="button" class="topic-filter" data-topic-filter="all" aria-pressed="true">All</button>
+      <a class="topic-filter" href="/archive/" aria-current={!activeTopic ? 'page' : undefined}>All</a>
       {TOPIC_KEYS.map((key) => (
-        <button type="button" class="topic-filter" data-topic-filter={key} aria-pressed="false">
+        <a class="topic-filter" href={topicArchiveUrl(key)} aria-current={activeTopic === key ? 'page' : undefined}>
           {TOPICS[key].shortLabel}
-        </button>
+        </a>
       ))}
     </nav>
-    <p class="filter-status" aria-live="polite"><span data-result-count>{posts.length}</span> articles</p>
+    <p class="filter-status">{posts.length} articles</p>
 
     <div class="writing-timeline">
       {groups.map(({ year, posts: yearPosts }) => (
@@ -45,46 +54,4 @@ const groups = groupPostsByYear(posts);
       ))}
     </div>
   </div>
-
-  <script>
-    const validTopics = new Set(['leadership', 'ai', 'software-engineering', 'data']);
-    const buttons = [...document.querySelectorAll<HTMLButtonElement>('[data-topic-filter]')];
-    const articles = [...document.querySelectorAll<HTMLElement>('[data-article]')];
-    const yearGroups = [...document.querySelectorAll<HTMLElement>('[data-year-group]')];
-    const resultCount = document.querySelector<HTMLElement>('[data-result-count]');
-
-    function topicFromUrl() {
-      const topic = new URL(window.location.href).searchParams.get('topic');
-      return topic && validTopics.has(topic) ? topic : 'all';
-    }
-
-    function applyFilter(topic: string, updateHistory = false) {
-      let visible = 0;
-      for (const article of articles) {
-        const matches = topic === 'all' || article.dataset.topic === topic;
-        article.hidden = !matches;
-        if (matches) visible += 1;
-      }
-      for (const group of yearGroups) {
-        group.hidden = !group.querySelector('[data-article]:not([hidden])');
-      }
-      for (const button of buttons) {
-        button.setAttribute('aria-pressed', String(button.dataset.topicFilter === topic));
-      }
-      if (resultCount) resultCount.textContent = String(visible);
-
-      if (updateHistory) {
-        const url = new URL(window.location.href);
-        if (topic === 'all') url.searchParams.delete('topic');
-        else url.searchParams.set('topic', topic);
-        window.history.pushState({}, '', `${url.pathname}${url.search}${url.hash}`);
-      }
-    }
-
-    for (const button of buttons) {
-      button.addEventListener('click', () => applyFilter(button.dataset.topicFilter ?? 'all', true));
-    }
-    window.addEventListener('popstate', () => applyFilter(topicFromUrl()));
-    applyFilter(topicFromUrl());
-  </script>
 </BaseLayout>

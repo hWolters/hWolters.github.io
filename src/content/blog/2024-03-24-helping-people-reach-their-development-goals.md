@@ -1,6 +1,6 @@
 ---
 title: "How to Create Effective Development Goals: Lessons Learned"
-description: "What I learned about supporting people in choosing meaningful development goals and making steady progress toward them."
+description: "Lessons on helping people choose meaningful development goals and make steady, visible progress toward them."
 publishDate: "2024-03-24"
 slug: "helping-people-reach-their-development-goals"
 topic: "leadership"

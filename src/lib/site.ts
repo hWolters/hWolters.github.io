@@ -5,7 +5,7 @@ export const SITE = {
   fullName: 'Heike Maria Terhechte',
   tagline: 'Engineering Leadership, AI, Software Systems & Products',
   description:
-    'Heike Terhechte is a Director of Engineering, former data scientist and researcher writing about engineering leadership, AI, software systems, and building products.',
+    'Heike Terhechte writes about engineering leadership, AI, software systems, data, and building useful products.',
   url: BASE_URL,
   profileImage: '/images/heike-terhechte.jpg',
   linkedin: 'https://www.linkedin.com/in/heike-terhechte-wolters-24101015b/',

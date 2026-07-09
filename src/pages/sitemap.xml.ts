@@ -1,6 +1,7 @@
 import type { APIRoute } from 'astro';
 import { getPublicPosts } from '../lib/posts';
 import { absoluteUrl, articlePath } from '../lib/site';
+import { TOPIC_KEYS, topicPath } from '../lib/topics';
 
 const escapeXml = (value: string) =>
   value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
@@ -15,6 +16,15 @@ export const GET: APIRoute = async () => {
   const entries = [
     { path: '/', lastmod: commonLastmod },
     { path: '/archive/', lastmod: commonLastmod },
+    ...TOPIC_KEYS.map((topic) => ({
+      path: topicPath(topic),
+      lastmod: posts
+        .filter((post) => post.data.topic === topic)
+        .reduce((latest, post) => Math.max(latest, (post.data.updatedDate ?? post.data.publishDate).valueOf()), 0),
+    })).map(({ path, lastmod }) => ({
+      path,
+      lastmod: lastmod ? new Date(lastmod).toISOString() : commonLastmod,
+    })),
     { path: '/projects/' },
     ...posts.map((post) => ({
       path: articlePath(post.data.publishDate, post.data.slug),

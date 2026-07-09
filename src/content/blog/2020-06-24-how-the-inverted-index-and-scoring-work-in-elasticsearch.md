@@ -1,6 +1,6 @@
 ---
 title: "How the Inverted Index and Scoring Work in ElasticSearch"
-description: "In ElasticSearch querying fulltext fields is among the least resource intensive tasks and your query results are ordered putting the most relevant results on top. But how does this work?"
+description: "How Elasticsearch uses inverted indexes and scoring to return full-text search results ordered by relevance."
 publishDate: "2020-06-24"
 slug: "how-the-inverted-index-and-scoring-work-in-elasticsearch"
 topic: "software-engineering"

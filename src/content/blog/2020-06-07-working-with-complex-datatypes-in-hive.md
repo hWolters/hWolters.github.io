@@ -1,6 +1,6 @@
 ---
 title: "Working with Complex Datatypes in Hive"
-description: "The basic idea of complex datatypes is to store multiple values in a single column. So if you are working with a Hive database and you query a column, but then you notice “This value I need is trapped in a column among other values…” you just came across a complex a.k.a. nested datatype.\nThere are three types: arrays, maps and structs. First, you have to understand, which types are present."
+description: "How arrays, maps, and structs work in Hive, and how to query values stored inside nested columns."
 publishDate: "2020-06-07"
 slug: "working-with-complex-datatypes-in-hive"
 topic: "data"

@@ -3,27 +3,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE } from '../lib/site';
 
 const projects = [
-  ['Sorce', 'https://sorce.io/', 'Algorithms and dashboards that turn physiological and psychological data into actionable insights'],
-  ['Kakaokunde', 'https://kakaokunde.vercel.app', 'My personal archive of more than 300 specialty chocolates with ratings and tasting notes'],
-  ['Kleinkindabteil Check for Deutsche Bahn', 'https://db-kleinkindabteil-check.vercel.app', 'A tool that finds available seats in toddler compartments on German trains[GERMAN].'],
-  ['Flashpanol', 'https://flashpanol.fly.dev', 'A Spanish vocabulary trainer with curated and custom vocabulary lists'],
-  ['Café Finance', 'https://medium.com/café-finance', 'An approachable German-language blog about investing and personal finance[GERMAN}]'],
+  { name: 'Sorce', url: 'https://sorce.io/', description: 'Algorithms and dashboards that turn physiological and psychological data into actionable insights' },
+  { name: 'Kakaokunde', url: 'https://kakaokunde.vercel.app', description: 'My personal archive of more than 300 specialty chocolates with ratings and tasting notes' },
+  { name: 'Kleinkindabteil Check for Deutsche Bahn', url: 'https://db-kleinkindabteil-check.vercel.app', description: 'A tool that finds available seats in toddler compartments on German trains[GERMAN].' },
+  { name: 'Flashpanol', description: 'A Spanish vocabulary trainer with curated and custom vocabulary lists' },
+  { name: 'Café Finance', url: 'https://medium.com/café-finance', description: 'An approachable German-language blog about investing and personal finance[GERMAN}]' },
 ];
 const projectsJsonLd = {
   '@context': 'https://schema.org',
-  '@graph': projects.map(([name, url, description]) => ({
+  '@graph': projects.map(({ name, url, description }) => ({
     '@type': 'CreativeWork',
     name,
-    url,
     description,
     creator: { '@type': 'Person', name: SITE.name },
+    ...(url ? { url } : {}),
   })),
 };
 ---
 
 <BaseLayout
   title="Projects"
-  description="Projects by Heike Terhechte spanning data products, software, language learning, personal finance, and applied analytics."
+  description="Projects by Heike Terhechte across data products, software tools, language learning, finance, and applied analytics."
 >
   <script is:inline type="application/ld+json" set:html={JSON.stringify(projectsJsonLd)} />
   <div class="page shell">
@@ -58,7 +58,7 @@ const projectsJsonLd = {
       </article>
 
       <article class="project-entry">
-        <h2><a href="https://flashpanol.fly.dev">Flashpanol</a></h2>
+        <h2>Flashpanol</h2>
         <p>Spanish vocabulary trainer.</p>
         <p>
           I’ve been learning Spanish for years, but never found a vocabulary app that matched how I wanted to practice. So I built one. Flashpañol focuses on curated vocabulary and the ability to create your my lists.

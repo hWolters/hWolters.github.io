@@ -1,6 +1,6 @@
 ---
 title: "Avro and avro schemas - how they work and why they are useful"
-description: "You have kafka as your message broker up and running and you may wonder: In which format should I send my data around? Maybe the string format pops up in your mind. Why not just put all fields into a long string and separate them with a comma?"
+description: "An introduction to Avro schemas, why they are useful with Kafka, and how they structure data in message-based systems."
 publishDate: "2021-02-23"
 slug: "avro-and-avro-schemas-how-they-work-and-why-they-are-useful"
 topic: "software-engineering"

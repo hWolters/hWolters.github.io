@@ -1,6 +1,6 @@
 ---
 title: "The Expert Rabbit Hole"
-description: "The better you are at something, the harder it can be to lead instead of doing. For engineering leaders, expertise is useful only when used deliberately."
+description: "Why engineering leaders need to use expertise deliberately instead of falling back into doing the work themselves."
 publishDate: "2025-09-18"
 slug: "the-expert-rabbit-hole"
 topic: "leadership"

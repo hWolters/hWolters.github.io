@@ -215,9 +215,10 @@ if (archiveArticles.length !== feedPostCount) {
 const archiveHrefs = archiveArticles.map((article) => archive(article).find('h3 a').attr('href'));
 if (new Set(archiveHrefs).size !== archiveHrefs.length) failures.push('Writing archive contains duplicate articles');
 const expectedFilters = ['all', 'leadership', 'ai', 'software-engineering', 'data'];
-const actualFilters = archive('[data-topic-filter]').toArray().map((button) => archive(button).attr('data-topic-filter'));
-if (JSON.stringify(actualFilters) !== JSON.stringify(expectedFilters)) {
-  failures.push(`Writing archive filters are incorrect: ${actualFilters.join(', ')}`);
+const actualFilterHrefs = archive('.topic-filters a').toArray().map((link) => archive(link).attr('href'));
+const expectedFilterHrefs = ['/archive/', '/topics/leadership/', '/topics/ai/', '/topics/software-engineering/', '/topics/data/'];
+if (JSON.stringify(actualFilterHrefs) !== JSON.stringify(expectedFilterHrefs)) {
+  failures.push(`Writing archive topic links are incorrect: ${actualFilterHrefs.join(', ')}`);
 }
 for (const article of archiveArticles) {
   if (!expectedFilters.slice(1).includes(archive(article).attr('data-topic'))) {
@@ -229,6 +230,21 @@ for (const yearGroup of archive('[data-year-group]').toArray()) {
   const headingYear = archive(yearGroup).find('h2').first().text().trim();
   if (!/^\d{4}$/.test(headingYear) || archive(yearGroup).find('[data-article]').length === 0) {
     failures.push(`Invalid or empty writing timeline year: ${headingYear}`);
+  }
+}
+for (const topic of expectedFilters.slice(1)) {
+  const topicHtml = await readFile(path.join(dist, `topics/${topic}/index.html`), 'utf8');
+  const topicPage = load(topicHtml);
+  const topicArticles = topicPage('[data-article]').toArray();
+  const expectedTopicCount = archive(`[data-article][data-topic="${topic}"]`).length;
+  if (topicArticles.length !== expectedTopicCount) {
+    failures.push(`Topic page /topics/${topic}/ has ${topicArticles.length} articles; expected ${expectedTopicCount}`);
+  }
+  if (topicPage('.topic-filter[aria-current="page"]').attr('href') !== `/topics/${topic}/`) {
+    failures.push(`Topic page /topics/${topic}/ does not mark the active topic link`);
+  }
+  if (topicArticles.some((article) => topicPage(article).attr('data-topic') !== topic)) {
+    failures.push(`Topic page /topics/${topic}/ includes articles from another topic`);
   }
 }
 

@@ -1,6 +1,6 @@
 ---
 title: "Keeping up with AI Tools"
-description: "As a developer, I used to know how to keep up with technology. AI broke that."
+description: "As a developer, I used to know how to keep up with technology. AI changed that."
 publishDate: "2026-06-15"
 slug: "keeping-up-with-ai-tools"
 topic: "ai"
