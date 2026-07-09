@@ -1,6 +1,6 @@
 ---
 title: "Everything You Need to Know to Use Git for Version Control"
-description: "So many people have recommended Git as a version control system to me. I had a look at it, but I was pretty overwhelmed. Since I did not have a technical background, everything seemed so complex! Many tutorials let me copy paste code without giving you a deeper understanding of what and why I am actually doing this. This copy pasting feels like success at first, but when I tried working with it, I could not."
+description: "A beginner-friendly explanation of Git version control, core commands, and the ideas behind everyday Git workflows."
 publishDate: "2018-12-17"
 slug: "everything-you-need-to-know-to-use-git-for-version-control"
 topic: "software-engineering"

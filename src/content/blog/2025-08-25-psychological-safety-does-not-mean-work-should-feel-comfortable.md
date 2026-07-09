@@ -1,6 +1,6 @@
 ---
 title: "Psychological Safety Does Not Mean Work Should Feel Comfortable"
-description: "Psychological safety makes difficult conversations possible; it does not remove disagreement, accountability, or discomfort from work."
+description: "Psychological safety makes difficult conversations possible. It does not remove disagreement, accountability, or discomfort."
 publishDate: "2025-08-25"
 slug: "psychological-safety-does-not-mean-work-should-feel-comfortable"
 topic: "leadership"

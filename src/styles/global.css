@@ -348,6 +348,7 @@ h3 {
 }
 
 .topic-filter {
+  display: inline-block;
   padding: 0.5rem 0.75rem;
   border: 1px solid var(--color-border);
   border-radius: 0;
@@ -357,10 +358,11 @@ h3 {
   font-size: 0.86rem;
   font-weight: 650;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .topic-filter:hover,
-.topic-filter[aria-pressed='true'] {
+.topic-filter[aria-current='page'] {
   border-color: var(--color-ink);
   background: var(--color-ink);
   color: var(--color-bg);

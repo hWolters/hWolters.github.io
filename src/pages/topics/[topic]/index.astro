@@ -1,0 +1,21 @@
+---
+import ArchivePage from '../../../components/ArchivePage.astro';
+import { getArchivePosts } from '../../../lib/archive';
+import { TOPIC_KEYS, type Topic } from '../../../lib/topics';
+
+export async function getStaticPaths() {
+  return TOPIC_KEYS.map((topic) => ({
+    params: { topic },
+    props: { topic },
+  }));
+}
+
+interface Props {
+  topic: Topic;
+}
+
+const { topic } = Astro.props;
+const posts = (await getArchivePosts()).filter((post) => post.data.topic === topic);
+---
+
+<ArchivePage posts={posts} activeTopic={topic} />

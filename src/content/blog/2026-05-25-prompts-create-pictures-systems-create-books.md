@@ -1,6 +1,6 @@
 ---
 title: "Prompts Create Pictures. Systems Create Books."
-description: "What creating a personalized children's book taught me about visual consistency, shared state, reference material, and treating creative AI projects like software systems."
+description: "Lessons from creating a personalized children's book with AI: visual consistency, shared state, references, and system design."
 publishDate: "2026-05-25"
 slug: "prompts-create-pictures-systems-create-books"
 topic: "ai"

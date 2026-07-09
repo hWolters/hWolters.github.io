@@ -1,6 +1,6 @@
 ---
 title: "Automatically changing the R working directory on Mac OS to source file location"
-description: "This post is about how to change your R working directory. You might be wondering:\nWhy would I want to do that? You need this as soon as your script interacts with folders on your computer. For example for imports or exports of data or figures. So probably almost always. Let’s say you have a script that creates plots and saves them in the folder “Plots”, which is located in your source file directory."
+description: "How to automatically set the R working directory on macOS to the source file location for easier imports and exports."
 publishDate: "2018-12-07"
 slug: "changing-working-directories"
 topic: "data"

@@ -1,6 +1,6 @@
 ---
 title: "A Priest Job for a CEO - Why Training Recommender Systems on Clicks Alone Can Teach Your Model the Wrong Thing"
-description: "Clicks are not preferences. A lesson from job recommendations about why implicit feedback can reinforce the very behavior a recommender system should remove."
+description: "Why clicks are not preferences, and how training recommender systems on implicit feedback can reinforce the wrong behavior."
 publishDate: "2022-03-04"
 slug: "a-priest-job-for-a-ceo-why-training-recommender-systems-on-clicks-alone-can-teach-your-model-the-wrong-thing"
 topic: "data"

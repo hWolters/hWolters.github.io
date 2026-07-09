@@ -1,6 +1,6 @@
 ---
 title: "Mastering Differences and Pitfalls when Switching SQL Databases: PostgreSQL vs. MySQL vs. SQLITE vs. Hive vs. Presto (AWS Athena)"
-description: "Transitioning to another SQL database? This blog post is for you. Shifting from one SQL dialect to another can be a journey full of surprises. While the basic syntax (SELECT FROM WHERE) is similar, there are important differences, that will make your queries slow, fast, fail or worse: fail silently!\nIn this blog post I’ll guide you through the intricate pathways of databases I have come across during my work as a data scientist: Postgres, MySQL, SQLite, Hive and Presto (AWS Athena). We’ll start with a brief introduction into the databases and some differences. Then we jump into three pitfalls you have to be aware of."
+description: "Key differences and pitfalls when moving SQL queries between PostgreSQL, MySQL, SQLite, Hive, Presto, and AWS Athena."
 publishDate: "2022-12-09"
 slug: "mastering-differences-and-pitfalls-when-switching-sql-databases-postgresql-vs.-mysql-vs.-sqlite-vs.-hive-vs.-presto-aws-athena"
 topic: "data"

@@ -2,6 +2,7 @@ import type { APIRoute, GetStaticPaths } from 'astro';
 import sharp from 'sharp';
 import { getPublicPosts } from '../../lib/posts';
 import { ogImagePath, SITE } from '../../lib/site';
+import { TOPICS, TOPIC_KEYS } from '../../lib/topics';
 
 function escapeXml(value: string) {
   return value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
@@ -25,6 +26,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     'Writing',
     'Projects',
     'Page not found',
+    ...TOPIC_KEYS.map((topic) => `${TOPICS[topic].label} Articles`),
     ...posts.map((post) => post.data.title),
   ];
 

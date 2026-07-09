@@ -1,6 +1,6 @@
 ---
 title: "Jupyter Notebooks: Boost your productivity with Extensions and Magic Commands"
-description: "In this blogpost I will share some tips for working with Jupyter Notebooks. Those tips greatly improved my productivity when working with Jupyter Notebooks and I wish someone would have told me earlier. The two main topics of this post are extensions and magic commands."
+description: "Practical Jupyter Notebook tips using extensions and magic commands to speed up data science workflows."
 publishDate: "2020-07-12"
 slug: "jupyter-notebooks-boost-your-productivity-with-extensions-and-magic-commands"
 topic: "data"
