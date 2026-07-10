@@ -242,6 +242,12 @@ h3 {
   width: min(calc(100% - 2rem), 62rem);
 }
 
+.home-hero,
+.home-section {
+  width: min(100%, var(--shell));
+  margin-inline: auto;
+}
+
 .home-hero {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(13rem, 18rem);
