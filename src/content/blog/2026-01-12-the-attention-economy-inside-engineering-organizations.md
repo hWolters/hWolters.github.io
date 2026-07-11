@@ -1,6 +1,6 @@
 ---
 title: "The Attention Economy Inside Engineering Organizations"
-description: "How the internal attention economy favors urgent requests—and how leaders can make strategic work compete fairly."
+description: "How the internal attention economy favors urgent requests over important but not urgent requests and how leaders can make strategic work compete fairly."
 publishDate: "2026-01-12"
 slug: "the-attention-economy-inside-engineering-organizations"
 topic: "leadership"
@@ -29,7 +29,7 @@ Strategic work often does not arrive this way. Redesigning ownership, developing
 
 In this attention economy, urgency is a powerful allocation mechanism. Without a counterweight, it reliably favors work with a sender over work whose cost is delayed and distributed.
 
-## Reactive work is not the enemy
+## Reactive work is part of the job
 
 It would be easy, and wrong, to turn this into an argument for declining meetings or ignoring Slack. Helping a Tech Lead think through a hard situation is leadership. Supporting Product through a real trade-off is leadership. Responding quickly during an incident is leadership.
 
@@ -48,7 +48,7 @@ The workshop taught me that a shared priority list is a weak commitment on its o
 
 Until those questions have answers, an important initiative is competing against a full calendar with only goodwill on its side. This is why migration weeks, architecture reviews, and strategy offsites can be useful, but only when they produce follow-through. A migration week protects engineering capacity. An architecture review creates a recurring decision point. An offsite can create enough distance to identify a problem worth solving. None of them works merely because it has an impressive name on the calendar.
 
-For strategic work to survive, it needs a small operating system around it. In practice, that means giving each priority:
+For more strategic work to survive, it needs a small operating system around it. In practice, that means giving each priority:
 
 - a named owner and, where needed, an executive sponsor;
 - a concrete next decision or deliverable, rather than an aspiration;
@@ -57,7 +57,7 @@ For strategic work to survive, it needs a small operating system around it. In p
 
 Those elements give strategic work a sender. They turn “we should improve our decision-making” into “the owner will bring a proposed decision model to the architecture forum on this date.”
 
-## Focus time is a tactic, not a system
+## Focus time is a tactic
 
 I now protect recurring time for longer-term work and reschedule it immediately when a genuine priority displaces it. That helps. It is also not enough.
 
