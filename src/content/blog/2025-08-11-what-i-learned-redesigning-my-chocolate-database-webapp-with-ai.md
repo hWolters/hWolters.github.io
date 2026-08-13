@@ -8,23 +8,21 @@ tags: ["AI","Google Stitch","Playwright","FastAPI","UX"]
 draft: false
 featured: true
 ---
-I spent about a week asking AI to redesign my chocolate database webapp. It kept making nicer versions of the same not-good interface. The useful shift came when I stopped showing the AI the app I already had and started describing the dataset, the people using it, and the experience I wanted. That sounds like a small prompting change. For me it changed the whole shape of the result.
+Before the AI Era started, I had hacked together a chocolate ratings "webapp" without using classic frontend frameworks and libraries. I am definetly not a frontend engineer and it was more like an interface to a database. But with AI it should be possible to get a decent looking webapp, I thought.
 
-This is what I learned from redesigning a small personal app with AI: AI is often better at helping you escape your old implementation than at decorating it. 
+So I gave models (gpt, gemini, gwen...) access to my code and asked it to redesign the app. But the models kept producing only slighly nicer looking versions of the same not-so-great interface. 
+
+The big improvement only came when I threw away the existing code and started describing the problem the app should solve: I shared database schemas and the experience I wanted. I took away that LLMs are often better at helping you escape your old implementation than at decorating it. 
 
 ## The App I Started With
 
-In summer 2020 I had a small Python web app around one of my favorite datasets: around 300 chocolates that my husband and me had tried over the years. The data had reviews, ratings, cocoa percentage, origin, bean type, tasting notes, photos, and a small machine learning model that predicts how much we may like an unknown chocolate.
+In summer 2020 I had a small Python web app around one of my favorite datasets: around 300 chocolates that my husband and me had tried over the years. The data had reviews, ratings, cocoa percentage, origin, bean type, tasting notes, photos, and a small machine learning model that predicts how much we may like an unknown chocolate. We used it to check if we had tried a chocolate before or as a decision support system when we were not sure which chocolate to buy. Technically, it was a SQLite database with a search interface that was a simple keyword match and a decision tree model to predict a rating score. 
 
-Technically, it was a SQLite database with a search interface that was a simple keyword match.
-
-It worked. It was also really ugly. Because I am not a frontend developer, I had happily used Streamlit. That was a good choice for getting something working quickly, but it also meant the interface looked like what it was: a table with some hacky filters on the side.
-
-
+It worked to find chocolates. But it was also really ugly. With the backend in python, I had happily used Streamlit for the front end. That was a good choice for getting something working quickly, but it also meant the interface looked like what it was: a table with some hacky filters on the side.
 
 And yes, I am a little embarrassed to show this screenshot to you.
 
-With the help of aider around 2023 and later Codex, the app had grown the usual side-project way: adding more features like more information about chocolates and an admin interface. However, the design was still terrible: emojis, lots of boxes, and no real idea what the page wanted to be.
+With the help of aider around 2023 and later Codex, the app had grown the usual side-project way: adding more features like more information about chocolates and an admin interface to upload new chocoalte ratings. However, the design was still terrible: emojis, lots of boxes, and no real idea what the page wanted to be.
 
 I tried to fix it with AI design prompts:
 
@@ -34,31 +32,19 @@ I tried to fix it with AI design prompts:
 >
 > Use better spacing.
 
-I also tried design-focused coding assistants and design skills. The result was still inconsistent. In my chocolate search resultlist every field from the SQLite table got its own box. It was not a product page, not a discovery experience and not really a database tool either. It was a database row wearing an ugly jacket.
-
-
+I also tried design-focused coding assistants and design skills. The result was still inconsistent, AI blurple and full of boxes: Every field from a row in the data base got it's own box somewhere somehow.
 
 ## The First Mistake: Asking AI To Redesign The Existing App
 
-My first approach was obvious:
+My first approach promting something like:
 
 > Here is my existing web app. Please redesign it.
 
-This sounds sensible. It preserves the current app. It gives the AI real context. It should reduce hallucination. In practice, it preserved too much.
+There was not a lot of code, so the entire code should fit into the context. But that also ment, that the models sticked mostly to the current structure: The results had the same page hierarchy, the same mental model, the same "database table with decoration" feeling. 
 
-The AI kept inheriting the old structure: mostly the same page hierarchy, the same mental model, the same "database table with decoration" feeling. The design got slightly better, because there were fewer boxes. But it was still overloaded and buggy.
+The old UI carried ancient assumptions. "Better design" meant nicer containers around the same structure. It lacked visual hierarchy and calls to actions.
 
-
-
-This was the annoying part: I had given the AI context, but the context was polluted. The old UI was not just an implementation detail but carried assumptions:
-
-- that the search page should behave like an admin table
-- that every database field deserved equal visual weight
-- that filters were the main interaction
-- that reviews were secondary text snippets instead of the heart of the app
-- that "better design" meant nicer containers around the same structure
-
-I iterated on this for about a week. The pages got more consistent but they did not get good. The important lesson was: if your current UI is the problem, giving it as the main source of truth can anchor the redesign to exactly the wrong thing.
+I iterated on this for about a week. The pages got more consistent but they did not get really good. The important lesson was: if your current UI is the problem, giving it as the main source of truth can anchor the redesign to exactly the wrong thing.
 
 ## The Better Approach: Describe The Dataset, Not The Implementation
 
@@ -86,8 +72,6 @@ You do not even have to write this feature list yourself. A surprisingly useful 
 Then review the answer critically. The "critically" part matters. AI will also invent nonsense, overcomplicate simple flows, and suggest features that sound good but do not fit the project.
 
 This produced a much better first draft. It did not produce a finished design. The current site is still far from perfect. But it finally stopped looking like a web form around a CSV file.
-
-
 
 What changed was not only the styling:
 
@@ -141,6 +125,8 @@ This does not remove the need to understand the system. It changes where I spend
 AI lets you move faster into unfamiliar territory. Testing is what stops that from becoming random wandering.
 
 ## The Main Lessons
+
+
 
 ### 1. Redesigning from the old UI can preserve the wrong assumptions
 
