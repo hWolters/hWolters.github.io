@@ -8,7 +8,7 @@ tags: ["AI","Google Stitch","Playwright","FastAPI","UX"]
 draft: false
 featured: true
 ---
-Before the AI Era started, I had hacked together a chocolate ratings "webapp" without using classic frontend frameworks and libraries. I am definetly not a frontend engineer and it was more like an interface to a database. But with AI it should be possible to get a decent looking webapp, I thought.
+Before the AI era started, I had hacked together a chocolate ratings "webapp" without using classic frontend frameworks or libraries. I am definetly not a frontend engineer and it was more of an interface to a database. But with AI it should be possible to get a decent looking webapp, I thought.
 
 So I gave models (gpt, gemini, gwen...) access to my code and asked it to redesign the app. But the models kept producing only slighly nicer looking versions of the same not-so-great interface. 
 
