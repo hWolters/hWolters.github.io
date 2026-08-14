@@ -1,6 +1,6 @@
 ---
-title: "What the Interview Round With a Director Should Actually Reveal"
-description: "How the interview round with a Director should assess judgment, influence, disagreement, and role fit instead of repeating earlier technical interviews."
+title: "What I ask in Meet-the-director Interviews""
+description: "What I look for in senior engineering interviews: how candidates think, handle ambiguity, explain complexity, respond to disagreement, and decide whether the role is the right match"
 publishDate: "2025-09-01"
 slug: "the-director-interview-isnt-another-technical-interview"
 topic: "leadership"
