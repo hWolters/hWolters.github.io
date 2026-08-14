@@ -13,39 +13,26 @@ Hiring is one of the most important responsibilities of an engineering leader. T
 
 By the time candidates reach the interview with me, they have already completed coding challenges, system design interviews, or technical deep dives with people who are far better suited to evaluate those skills than I am. I trust our Tech Leads, Staff Engineers, and other specialists to assess technical excellence.
 
-Every interview should answer questions that the previous interview cannot.
+Every interview round should answer questions:
 
 - Technical interviewers should evaluate technical ability.
-- Future teammates should evaluate collaboration.
+- Future teammates should evaluate collaboration and team fit.
 - Managers should evaluate role-specific skills.
 
-An interview round with a Director earns its place only if it reduces a different kind of uncertainty.
+I am mostly interested two things:
 
-- Would this person thrive in our environment?
-- How do they make decisions?
-- Could they influence others?
-- Would they make the organization better?
+- Whether their expectations match the role we are actually offering
+- Whether they would thrive in our working environment
 
-That does not mean the conversation is informal or based on personal chemistry. I am not looking for someone who thinks like me, speaks like me, or gives the answer I would have given. I am looking for evidence of judgment.
-
-In practice, that means I pay close attention to a few things.
-
-- How they frame ambiguous problems.
-- Which trade-offs they notice.
-- How they explain complexity to people outside their specialty.
-- Whether they can influence without relying on authority.
-- How they respond when challenged.
-- Whether their expectations match the role we are actually offering.
-
-
+There are no right or wrong answers. There are matches and no matches. I want to understand their motivation, how they think, how they make trade offs and solve problems, how they make decisions, how do they learn, how they explain complexity, how they respond when challenged.
 
 ## Understand how people think
 
-My interview questions rarely have a single correct answer. Take a seemingly simple question I often ask Chapter Lead candidates, a role with people leadership:
+My interview questions rarely have a single correct answer. Take a seemingly simple question I often ask Chapter Lead candidates, a role which involves people leadership:
 
 > Imagine one of your engineers asks for a significant salary increase. What do you do?
 
-Some candidates immediately talk about explaining salary bands, promotion cycles, or company policy. Others pause for a moment and begin asking questions instead.
+Some candidates immediately talk about explaining salary bands, promotion cycles or company policy. Others pause for a moment and begin asking questions instead.
 
 - Why are they asking now?
 - Is this really about compensation or something else?
