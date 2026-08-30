@@ -103,12 +103,12 @@ Although I had started with folders and Markdown files from day one, I gradually
 
 As the project grew, so did the amount of information that needed to stay synchronized. The story evolved. Illustration prompts changed. I accumulated continuity notes, character descriptions, style references, and corrections from previous iterations. At one point, Codex even started generating infographic-like pages that clearly belonged to an entirely different project.
 
-I needed a clearer structure:
+I needed a clearer structure and visual references:
 
 - Technical details (format, etc.) stayed in `agent.md`
 - The storyline stayed in its own Markdown file, `story.md`
-- Characters had dedicated reference sheets in `character_references.md`
-- Recurring objects, such as the boat, had canonical reference images and were added to an object reference sheet, `object_references.md`
+- Characters had dedicated reference sheets in `character_references that included images
+- Recurring objects, such as the boat, had canonical reference images and were added to an object reference sheet, `object_references`
 - Style references were stored in the `illustration_style` folder
 - Illustration prompts stayed in `illustration.md` and referenced the character, object, and style references
 
@@ -133,10 +133,10 @@ None of these felt like artistic problems. Instead, I ended up rediscovering man
 Generating an artifact is easy. Maintaining consistency across many iterations is the hard part. If I were creating another AI children's book from scratch, this is probably the workflow I would use.
 
 1. Write the story first. Do not generate illustrations until the story is stable.
-2. Create character sheets for every recurring character. Include reference images, clothing, and a short description of their personality.
+2. Create character reference sheets for every recurring character. Include reference images, clothing, and a short description of their personality.
 3. Create reference sheets for recurring objects and places. If the family rows the same boat throughout the story, that boat should have a canonical version.
 4. Keep the story and illustration prompts separate. The story describes what happens. The illustration prompt describes how to visualize it.
-5. Use reference images whenever possible. One photograph often communicates more than several paragraphs of description.
+5. Use reference images (e.g. for locations) whenever possible. One photograph often communicates more than several paragraphs of description.
 6. Generate one page at a time. Review continuity before moving on to the next page.
 7. Treat continuity issues like bugs. If a character changes clothes or the boat changes shape, fix it before generating the next illustration.
 8. Start fresh when the project becomes noisy. A clean context is often more valuable than another page of instructions.
