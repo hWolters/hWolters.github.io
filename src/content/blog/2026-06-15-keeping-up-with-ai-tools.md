@@ -9,8 +9,6 @@ draft: false
 featured: true
 ---
 
-# **Trying to Keep Up With AI**
-
 I used to know what keeping up with technology meant. In Python or data science, it meant reading release notes, trying a few libraries, following a few people whose judgment I trusted and occasionally reading a paper that seemed relevant. There was always more to learn, but the shape of the work was understandable. Most changes were incremental. The important developments were usually visible. If I fell behind for a few weeks, I could catch up. 
 
 With "AI" it was different: Suddenly there were new models, coding agents, IDEs, browser agents, MCP servers, memories, hooks and entirely new ways to connect AI to repositories, databases, browsers and local files. Every week seemed to bring another major announcement that promised to change everything. I had that uncomfortable feeling that maybe I could not keep up by simply reading more.
