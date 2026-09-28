@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
-    "fast-xml-parser": "^5.9.3",
+    "fast-xml-parser": "^5.10.1",
     "fast-xml-validator": "^1.1.1",
     "typescript": "^5.9.3"
   }
